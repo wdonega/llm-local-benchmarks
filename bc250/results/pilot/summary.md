@@ -1,13 +1,13 @@
-# Suite v2 — hard suite
+# Benchmark results
 
 Settings: ctx 32768, reasoning budget 6144 tokens, temperature 0.6, timeout 300s per call.
 
 ## Scoreboard
 
-| Config | Long context | Coding | Tool call | Reasoning | Total | Timeouts | Prompt t/s | Gen t/s | Status |
-|---|---|---|---|---|---|---|---|---|---|
-| Ornith-1.5-35B-A3B IQ2_S (single) | 2/2 | 2/3 | 4/4 | 1/3 | **9/12** | 0 | 164 | 38.1 | complete |
-| Qwen3-Coder-30B-A3B UD-IQ2_M (single) | 2/2 | 0/3 | 2/4 | 0/3 | **4/12** | 0 | 159 | 35.5 | complete |
+| Config | Ctx | KV cache | Long context | Coding | Tool call | Reasoning | Total | Timeouts | Prompt t/s | Gen t/s | Status |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Ornith-1.5-35B-A3B IQ2_S (single) | 32k | q8_0 | 2/2 | 2/3 | 4/4 | 1/3 | **9/12** | 0 | 164 | 38.1 | complete |
+| Qwen3-Coder-30B-A3B UD-IQ2_M (single) | 32k | q8_0 | 2/2 | 0/3 | 2/4 | 0/3 | **4/12** | 0 | 159 | 35.5 | complete |
 
 ## Correct per test (out of 3 runs; T = timeouts)
 

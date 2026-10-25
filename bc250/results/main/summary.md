@@ -1,14 +1,14 @@
-# Suite v2 — hard suite
+# Benchmark results
 
-Settings: ctx 32768, reasoning budget 6144 tokens, temperature 0.6, timeout 300s per call.
+Settings: ctx 32768 (24576 fallback; see the Ctx column), KV cache q8_0, reasoning budget 6144 tokens, temperature 0.6, timeout 300s per call.
 
 ## Scoreboard
 
-| Config | Long context | Coding | Tool call | Reasoning | Total | Timeouts | Prompt t/s | Gen t/s | Status |
-|---|---|---|---|---|---|---|---|---|---|
-| Ornith-1.5-35B-A3B IQ2_S (single) | 6/6 | 6/9 | 12/12 | 3/9 | **27/36** | 0 | 149 | 38.9 | complete |
-| flint-39.8B-A2.5B UD-IQ2_XXS (single) | 6/6 | 6/9 | 12/12 | 2/9 | **26/36** | 0 | 110 | 31.7 | complete |
-| LFM2.5-24B-A2B UD-Q3_K_XL (single) | 4/6 | 3/9 | 12/12 | 2/9 | **21/36** | 0 | 183 | 49.0 | complete |
+| Config | Ctx | KV cache | Long context | Coding | Tool call | Reasoning | Total | Timeouts | Prompt t/s | Gen t/s | Status |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Ornith-1.5-35B-A3B IQ2_S (single) | 32k | q8_0 | 6/6 | 6/9 | 12/12 | 3/9 | **27/36** | 0 | 149 | 38.9 | complete |
+| flint-39.8B-A2.5B UD-IQ2_XXS (single) | 32k | q8_0 | 6/6 | 6/9 | 12/12 | 2/9 | **26/36** | 0 | 110 | 31.7 | complete |
+| LFM2.5-24B-A2B UD-Q3_K_XL (single) | 32k | q8_0 | 4/6 | 3/9 | 12/12 | 2/9 | **21/36** | 0 | 183 | 49.0 | complete |
 
 ## Correct per test (out of 3 runs; T = timeouts)
 

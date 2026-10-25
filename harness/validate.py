@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate suite v2: reference solutions, negative controls and graders.
+"""Validate the suite: reference solutions, negative controls and graders.
 
 Run this after changing any task. It must end with "ALL OK".
 """
@@ -12,8 +12,8 @@ import tempfile
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, BASE)
-import run_bench as rb  # noqa: E402
-import tasks_v2 as T  # noqa: E402
+import common as rb  # noqa: E402
+import tasks as T  # noqa: E402
 
 FAILS = []
 

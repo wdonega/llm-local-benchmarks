@@ -2,7 +2,7 @@
 """RPC smoke test: load a small model split across the head and the RPC worker, ask one question.
 
 Usage: python3 rpc_smoke.py [repo:quant]     (default: ornith-ai/Ornith-1.5-9B-GGUF:Q6_K)
-Run this before any dual-board benchmark to confirm the worker ($BENCH_RPC) is reachable
+Run this before any dual-board config to confirm the worker ($BENCH_RPC) is reachable
 and speaks the same RPC protocol version as the head's llama.cpp build.
 """
 
@@ -10,6 +10,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import common  # noqa: E402
 import run_bench  # noqa: E402
 
 
@@ -19,8 +20,8 @@ def main():
     cfg = {"repo": repo, "quant": quant, "mode": "dual"}
     proc = logf = None
     try:
-        proc, logf, log_path = run_bench.start_server(cfg, "rpc-smoke", "rpc-smoke")
-        if not run_bench.wait_ready(proc, timeout=900):
+        proc, logf, log_path = run_bench.start_server(cfg, "rpc-smoke", "rpc-smoke", 8192)
+        if not common.wait_ready(proc, timeout=900):
             print(f"RPC smoke: server never became ready (see {log_path})", flush=True)
             return 1
         payload = {
@@ -30,7 +31,7 @@ def main():
             "temperature": 0,
             "stream": False,
         }
-        resp, err, wall = run_bench.chat(payload, timeout=120)
+        resp, err, wall = common.chat(payload, timeout=120)
         if err or not resp:
             print(f"RPC smoke: call failed: {err}", flush=True)
             return 1
@@ -44,7 +45,7 @@ def main():
         )
         return 0
     finally:
-        run_bench.stop_server(proc, logf)
+        common.stop_server(proc, logf)
 
 
 if __name__ == "__main__":

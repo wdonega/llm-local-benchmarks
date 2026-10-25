@@ -4,4 +4,4 @@ __pycache__/
 bc250/logs/
 bc250/work/
 bc250/state.json
-bc250/bench-v2.log
+bc250/bench.log

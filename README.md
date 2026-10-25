@@ -29,8 +29,7 @@ folder with its model list and results. So far there is one:
   - [Findings so far](#findings-so-far)
   - [BC-250 lessons learned](#bc-250-lessons-learned)
 - [The test process](#the-test-process)
-  - [Suite v1: sanity and speed](#suite-v1-sanity-and-speed)
-  - [Suite v2: the hard suite](#suite-v2-the-hard-suite)
+  - [The tasks](#the-tasks)
   - [Grading rules](#grading-rules)
   - [Server and sampling settings](#server-and-sampling-settings)
   - [Validating the suite](#validating-the-suite)
@@ -43,18 +42,16 @@ folder with its model list and results. So far there is one:
 
 ```
 harness/
-  run_bench.py        suite v1 runner + shared helpers (server lifecycle, disk management, Docker sandbox)
-  tasks.py            suite v1 tasks
-  run_bench_v2.py     suite v2 runner (resumable, single/dual/dual-same modes)
-  tasks_v2.py         suite v2 tasks, simulated tools and graders
-  validate_v2.py      checks the answer keys, graders and negative controls of suite v2
+  run_bench.py        benchmark runner (resumable, single/dual/dual-same modes)
+  tasks.py            tasks, simulated tools and graders
+  validate.py         checks the answer keys, graders and negative controls of the suite
+  common.py           shared helpers: server lifecycle, disk management, Docker sandbox
   rpc_smoke.py        loads a small model across two boards to check the RPC worker
-  run_queue.sh        full v2 queue, meant to run unattended as a systemd user service
+  run_queue.sh        full queue, meant to run unattended as a systemd user service
 bc250/
   models.json         models and quants tested on the BC-250 cluster
-  results/v1/         suite v1 results
-  results/pilot/      v2 pilot (1 run per test, used to calibrate difficulty)
-  results/v2/         suite v2 results (updated as each config finishes)
+  results/main/       results (updated as each config finishes)
+  results/pilot/      pilot run (1 run per test, used to calibrate difficulty)
 ```
 
 ---
@@ -123,42 +120,36 @@ A few choices need explaining:
 
 ### Results
 
-**Suite v1** (sanity + speed). Every config scored 15/15, so v1 only compares speed.
-That is why suite v2 exists.
+The run is still in progress. The table below is refreshed automatically each time a
+config finishes. Per-test breakdown:
+[`bc250/results/main/summary.md`](bc250/results/main/summary.md).
 
-| Model | Quant | Mode | Total | Prompt t/s | Gen t/s |
-|---|---|---|---|---|---|
-| LFM2.5-24B-A2B | UD-Q3_K_XL | single | 15/15 | 153.6 | **55.6** |
-| LFM2.5-24B-A2B | UD-Q5_K_XL | dual | 15/15 | 162.5 | 44.1 |
-| Ornith-1.5-35B-A3B | IQ2_S | single | 15/15 | 96.8 | 43.5 |
-| Qwen3-Coder-30B-A3B | UD-IQ2_M | single | 15/15 | 90.5 | 40.2 |
-| Qwen3.6-35B-A3B | UD-IQ2_XXS | single | 15/15 | 92.9 | 38.8 |
-| Ornith-1.5-35B-A3B | Q4_K_M | dual | 15/15 | 89.4 | 37.1 |
-| Qwen3-Coder-30B-A3B | Q4_K_M | dual | 15/15 | 105.6 | 36.7 |
-| flint-39.8B-A2.5B | UD-IQ2_XXS | single | 15/15 | 87.3 | 36.1 |
-| Qwen3.6-35B-A3B | UD-Q4_K_M | dual | 15/15 | 91.4 | 34.8 |
-| flint-39.8B-A2.5B | UD-Q3_K_XL | dual | 15/15 | 88.5 | 30.5 |
-| Qwen3.8-27B | UD-Q2_K_XL | single | 15/15 | 27.1 | 7.7 |
-| Qwen3.8-27B | UD-Q4_K_M | dual | 15/15 | 22.9 | 7.2 |
+How to read the speed columns:
 
-**Suite v2** (the hard suite). It is still running, and the table below is refreshed
-automatically each time a config finishes. Per-test breakdown:
-[`bc250/results/v2/summary.md`](bc250/results/v2/summary.md).
+- **Ctx** is the context window allocated with `--ctx-size` (32k, or 24k if 32k did not
+  fit). **KV cache** is the type passed to `--cache-type-k` and `--cache-type-v`. Both
+  change speed and memory a lot, so compare rows only when these columns match.
+- The **actual** prompt size depends on the test. The long-context tests send ~17k
+  tokens. Everything else sends under 1k, plus the earlier turns in tool calls.
+- **Prompt t/s** is the mean over calls with more than 200 prompt tokens, so the
+  long-context calls dominate it. **Gen t/s** is the mean over every call. It is lower
+  on long-context calls, where the KV cache is full.
 
 <!-- RESULTS:BEGIN -->
 _3 configs complete so far._
 
-| Config | Long context | Coding | Tool call | Reasoning | Total | Timeouts | Prompt t/s | Gen t/s | Status |
-|---|---|---|---|---|---|---|---|---|---|
-| Ornith-1.5-35B-A3B IQ2_S (single) | 6/6 | 6/9 | 12/12 | 3/9 | **27/36** | 0 | 149 | 38.9 | complete |
-| flint-39.8B-A2.5B UD-IQ2_XXS (single) | 6/6 | 6/9 | 12/12 | 2/9 | **26/36** | 0 | 110 | 31.7 | complete |
-| LFM2.5-24B-A2B UD-Q3_K_XL (single) | 4/6 | 3/9 | 12/12 | 2/9 | **21/36** | 0 | 183 | 49.0 | complete |
+| Config | Ctx | KV cache | Long context | Coding | Tool call | Reasoning | Total | Timeouts | Prompt t/s | Gen t/s | Status |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Ornith-1.5-35B-A3B IQ2_S (single) | 32k | q8_0 | 6/6 | 6/9 | 12/12 | 3/9 | **27/36** | 0 | 149 | 38.9 | complete |
+| flint-39.8B-A2.5B UD-IQ2_XXS (single) | 32k | q8_0 | 6/6 | 6/9 | 12/12 | 2/9 | **26/36** | 0 | 110 | 31.7 | complete |
+| LFM2.5-24B-A2B UD-Q3_K_XL (single) | 32k | q8_0 | 4/6 | 3/9 | 12/12 | 2/9 | **21/36** | 0 | 183 | 49.0 | complete |
 <!-- RESULTS:END -->
 
 ### Findings so far
 
-- **The hard suite separates the models; v1 did not.** In v1 every config scored 15/15.
-  In v2, configs in the same speed class are already 6 points apart.
+- **The suite separates the models.** Configs in the same speed class are already 6
+  points apart. An earlier, easier sanity suite had every model at 100 %, which is why
+  every task here is built to make models fail.
 - **MoE models with ~3B active parameters are the sweet spot on this board.** They
   generate at 30–55 tok/s even at 2–3 bit. A 27B dense model makes 7–8 tok/s at any
   quant, because the BC-250 is memory-bound on dense weights.
@@ -168,8 +159,8 @@ _3 configs complete so far._
   flint gives the same wrong answer every time. LFM gives a different one every run.
   flint gets the date arithmetic right but calls 2029-07-20 a Sunday (it is a Friday).
 - **Speed ≠ quality.** LFM2.5 is the fastest model (49 tok/s) and the lowest scorer so far.
-- **dual mode:** see the v2 table as the dual configs finish. In v1, splitting over RPC
-  always cost generation speed (−6 % to −21 %) in exchange for a bigger quant.
+- **dual mode:** see the table as the dual configs finish. The open question is whether
+  the bigger quant buys enough correctness to pay for the RPC speed cost.
 
 ### BC-250 lessons learned
 
@@ -210,18 +201,7 @@ All prompts are in **Brazilian Portuguese** on purpose: that is the language the
 are used in. The graders take this into account (decimal commas, `1.576` thousands
 separators, Portuguese weekday names).
 
-### Suite v1: sanity and speed
-
-15 calls per config. Its job is to check that the model loads, answers, writes runnable
-code and emits native tool calls, and to measure prompt and generation speed.
-
-| Category | Tests | What is checked |
-|---|---|---|
-| needle | 1 test × 3 depths (10/50/90 %) | find an access code hidden in ~32k chars of filler |
-| coding | `soma_pares`, `conta_vogais` | trivial function, hidden tests in Docker |
-| tool_call | `weather`, `reminder` | one native tool call with the right arguments |
-
-### Suite v2: the hard suite
+### The tasks
 
 36 calls per config (12 tests × 3 runs). A 1-run pilot ([`results/pilot`](bc250/results/pilot))
 was used to make sure the tests are neither impossible nor trivial.
@@ -284,16 +264,16 @@ llama-server -hf <repo>:<quant> --no-mmproj -ngl 999 -fa on --ctx-size 32768 --p
 # dual / dual-same add:  --rpc llm4.lab:50052 -ts 0.5,0.5
 ```
 
-| | v1 | v2 |
-|---|---|---|
-| context | 16k | 32k (24k fallback) |
-| temperature / top_p / top_k / min_p | 0.2 / 0.95 / 20 / 0 | 0.6 / 0.95 / 20 / 0 |
-| seed | 7000 + run | 9000 + run |
-| max tokens | 2–3k | 8k (long context), 12k (coding, reasoning), 4k per tool turn |
+| | |
+|---|---|
+| context | 32k (24k fallback) |
+| temperature / top_p / top_k / min_p | 0.6 / 0.95 / 20 / 0 |
+| seed | 9000 + run |
+| max tokens | 8k (long context), 12k (coding, reasoning), 4k per tool turn |
 
 ### Validating the suite
 
-A wrong answer key would make every model look bad. `validate_v2.py` checks the suite
+A wrong answer key would make every model look bad. `validate.py` checks the suite
 itself, without any model:
 
 - the reference solutions pass 100 % of the hidden tests;
@@ -352,8 +332,7 @@ and point `BENCH_OUT` at it.
 ```
 
 `quant` is the tag passed to `-hf repo:quant`. `size_gib` is used for the disk-space
-check. `run_last` pushes slow models to the end of the queue. An optional `"smoke"`
-config defines the model used by `run_bench.py --smoke`.
+check. `run_last` pushes slow models to the end of the queue.
 
 ### Run
 
@@ -363,31 +342,25 @@ Stop anything else that uses the GPU first, so the test server gets all the memo
 cd harness
 
 # 1. check the suite itself (no model needed, uses Docker)
-python3 validate_v2.py                       # must print ALL OK
+python3 validate.py                          # must print ALL OK
 
-# 2. optional: check a new llama.cpp build loads and answers
-python3 run_bench.py --smoke
-
-# 3. optional: check the RPC worker before any dual config
+# 2. optional: check the RPC worker before any dual config
 python3 rpc_smoke.py                         # or: python3 rpc_smoke.py <repo>:<quant>
 
-# 4. suite v1 (sanity + speed)
-python3 run_bench.py --all
+# 3. one config, one run, to try it out
+python3 run_bench.py --only qwen36-35b:single --runs 1 --tag try
 
-# 5. suite v2, one config to try it out
-python3 run_bench_v2.py --only qwen36-35b:single --runs 1 --tag try
+# 4. everything (singles -> duals -> run_last models)
+python3 run_bench.py --all --runs 3
 
-# 6. suite v2, everything (singles -> duals -> run_last models)
-python3 run_bench_v2.py --all --runs 3 --tag v2
-
-# 7. re-run the best single config on two boards with the same quant
-python3 run_bench_v2.py --best-single-dual --tag v2
+# 5. re-run the best single config on two boards with the same quant
+python3 run_bench.py --best-single-dual
 
 # rebuild summaries from the JSON files at any time
-python3 run_bench_v2.py --summary --tag v2
+python3 run_bench.py --summary
 ```
 
-The full v2 queue takes many hours (about 1 hour per MoE config, 3–5 hours per 27B
+The full queue takes many hours (about 1 hour per MoE config, 3–5 hours per 27B
 dense config on a BC-250). To run it unattended, survive logouts and restart after an
 OOM kill:
 
@@ -398,7 +371,7 @@ systemd-run --user --unit=llm-bench -p Restart=on-failure -p RestartSec=60 \
   --setenv=BENCH_KEEP_CACHE=ornith-ai/Ornith-1.5-9B-GGUF \
   "$PWD/run_queue.sh"
 
-journalctl --user -u llm-bench -f              # or: tail -f ../bc250/bench-v2.log
+journalctl --user -u llm-bench -f              # or: tail -f ../bc250/bench.log
 ```
 
 `--setenv` protects the model your production server uses from the disk cleanup. Use
@@ -410,7 +383,7 @@ your own repo there, or drop the flag.
 
 | File | Content |
 |---|---|
-| `results/<tag>/<key>__<mode>__<quant>.json` | one config: settings, load time, and every call with the verdict, timeout flag, token counts, prompt/gen speed, the final answer and grader details (failed hidden tests, parsed answer line, tool calls made) |
+| `results/<tag>/<key>__<mode>__<quant>.json` (default tag: `main`) | one config: settings, load time, and every call with the verdict, timeout flag, token counts, prompt/gen speed, the final answer and grader details (failed hidden tests, parsed answer line, tool calls made) |
 | `results/<tag>/summary.md` | scoreboard and per-test matrix |
 | `results/<tag>/summary.csv` | one row per call, for your own analysis |
 
