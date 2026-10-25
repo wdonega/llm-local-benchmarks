@@ -35,6 +35,42 @@ reasoning,aritmetica_datas,3,False,False,,193.3,5,6177,42.82,32.0,17527,stop,fli
 reasoning,instrucoes_multiplas,1,False,False,,79.6,148,2548,89.87,32.76,9800,stop,flint-39.8B-A2.5B,single,UD-IQ2_XXS
 reasoning,instrucoes_multiplas,2,True,False,,72.9,5,2385,43.4,32.81,8366,stop,flint-39.8B-A2.5B,single,UD-IQ2_XXS
 reasoning,instrucoes_multiplas,3,True,False,,93.4,5,3043,43.04,32.63,10729,stop,flint-39.8B-A2.5B,single,UD-IQ2_XXS
+long_context,multi_hop_ramal,1,True,False,,258.2,17232,655,85.47,11.67,1708,stop,Gemma-4-12B-it,single,Q6_K
+long_context,multi_hop_ramal,2,True,False,,147.3,5,1716,10.22,11.69,5430,stop,Gemma-4-12B-it,single,Q6_K
+long_context,multi_hop_ramal,3,True,False,,61.9,5,720,9.87,11.74,2009,stop,Gemma-4-12B-it,single,Q6_K
+long_context,soma_com_correcoes,1,True,False,,90.6,516,946,68.71,11.4,1548,stop,Gemma-4-12B-it,single,Q6_K
+long_context,soma_com_correcoes,2,True,False,,74.0,5,839,10.19,11.42,1347,stop,Gemma-4-12B-it,single,Q6_K
+long_context,soma_com_correcoes,3,True,False,,89.8,5,1019,9.84,11.41,1639,stop,Gemma-4-12B-it,single,Q6_K
+coding,avaliador_expressoes,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+coding,avaliador_expressoes,2,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+coding,avaliador_expressoes,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+coding,calculo_frete,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+coding,calculo_frete,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+coding,calculo_frete,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+coding,corrigir_sessoes,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+coding,corrigir_sessoes,2,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+coding,corrigir_sessoes,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+tool_call,multi_etapas_reembolso,1,True,False,,49.8,896,461,74.47,12.58,913,stop,Gemma-4-12B-it,single,Q6_K
+tool_call,multi_etapas_reembolso,2,True,False,,55.8,698,539,62.24,12.59,1077,stop,Gemma-4-12B-it,single,Q6_K
+tool_call,multi_etapas_reembolso,3,True,False,,43.7,965,464,81.59,14.7,957,stop,Gemma-4-12B-it,single,Q6_K
+tool_call,args_estritos_agenda,1,True,False,,39.5,706,412,83.39,13.67,734,stop,Gemma-4-12B-it,single,Q6_K
+tool_call,args_estritos_agenda,2,True,False,,40.9,460,459,77.67,13.24,870,stop,Gemma-4-12B-it,single,Q6_K
+tool_call,args_estritos_agenda,3,True,False,,34.3,381,380,80.83,12.98,597,stop,Gemma-4-12B-it,single,Q6_K
+tool_call,recuperacao_erro_estoque,1,True,False,,30.8,524,295,68.0,12.99,600,stop,Gemma-4-12B-it,single,Q6_K
+tool_call,recuperacao_erro_estoque,2,True,False,,32.4,425,325,70.55,12.97,696,stop,Gemma-4-12B-it,single,Q6_K
+tool_call,recuperacao_erro_estoque,3,True,False,,29.9,396,291,66.99,12.98,601,stop,Gemma-4-12B-it,single,Q6_K
+tool_call,abster_sem_dados_pix,1,True,False,,16.1,165,155,57.68,12.53,474,stop,Gemma-4-12B-it,single,Q6_K
+tool_call,abster_sem_dados_pix,2,True,False,,13.8,5,171,18.8,12.62,561,stop,Gemma-4-12B-it,single,Q6_K
+tool_call,abster_sem_dados_pix,3,True,False,,12.8,5,157,18.77,12.63,469,stop,Gemma-4-12B-it,single,Q6_K
+reasoning,logica_5_pessoas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+reasoning,logica_5_pessoas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+reasoning,logica_5_pessoas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+reasoning,aritmetica_datas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+reasoning,aritmetica_datas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+reasoning,aritmetica_datas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+reasoning,instrucoes_multiplas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+reasoning,instrucoes_multiplas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+reasoning,instrucoes_multiplas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
 long_context,multi_hop_ramal,1,True,False,,130.6,17016,2878,275.14,42.06,10040,stop,LFM2.5-24B-A2B,single,UD-Q3_K_XL
 long_context,multi_hop_ramal,2,True,False,,75.1,4,3185,48.61,42.55,10644,stop,LFM2.5-24B-A2B,single,UD-Q3_K_XL
 long_context,multi_hop_ramal,3,True,False,,90.7,4,3814,52.05,42.09,13205,stop,LFM2.5-24B-A2B,single,UD-Q3_K_XL
