@@ -5,6 +5,7 @@ Usage:
   python3 run_bench.py --all                # singles -> duals -> models flagged run_last
   python3 run_bench.py --only qwen3-coder-30b:single --runs 1 --tag pilot
   python3 run_bench.py --best-single-dual   # best single config re-run on 2 boards, same quant
+  python3 run_bench.py --retry-timeouts     # configs with many timeouts re-run one quant lower
   python3 run_bench.py --summary
 
 Every call is saved as soon as it finishes, so an interrupted run resumes where it stopped.
@@ -15,6 +16,7 @@ import argparse
 import glob
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -230,6 +232,7 @@ def run_config(model, cfg, runs, results_dir, force=False, protected=()):
         "model": model["label"], "key": model["key"], "mode": cfg["mode"], "repo": cfg["repo"],
         "quant": cfg["quant"], "runs": runs, "calls": [], "status": "running",
         "settings": {"ctx": CTX, "kv_cache": KV_CACHE, "reasoning_budget": REASONING_BUDGET, **SAMPLING},
+        "retry_of": cfg.get("retry_of"),
     }
     if data.get("status") == "complete":
         log(f"skipping {stem}: already complete")
@@ -354,7 +357,8 @@ def summarize(results_dir):
         w.writerows(rows)
 
     def label(d):
-        return f"{d['model']} {d['quant']} ({d['mode']})"
+        retry = f", retry of {d['retry_of']}" if d.get("retry_of") else ""
+        return f"{d['model']} {d['quant']} ({d['mode']}{retry})"
 
     md = ["# Benchmark results", "",
           f"Settings: ctx {CTX} ({CTX_FALLBACK} fallback; see the Ctx column), KV cache {KV_CACHE}, reasoning budget {REASONING_BUDGET} tokens, "
@@ -438,6 +442,74 @@ def run_best_single_dual(results_dir, runs):
     return 0
 
 
+RETRY_TIMEOUTS = 4  # configs with this many timeouts (of 36 calls) get re-run one quant lower
+RETRY_SIZE_RATIO = 0.9  # "one quant lower" = largest file at most 90% of the current size
+
+
+def hf_gguf_files(repo):
+    """{filename: size_bytes} for the top-level .gguf files of a HF repo."""
+    r = subprocess.run(["curl", "-sf", "--max-time", "30",
+                        f"https://huggingface.co/api/models/{repo}/tree/main"],
+                       capture_output=True, text=True)
+    if r.returncode != 0:
+        return {}
+    try:
+        return {f["path"]: f.get("size", 0) for f in json.loads(r.stdout)
+                if f.get("type") == "file" and f["path"].endswith(".gguf") and "/" not in f["path"]}
+    except Exception:
+        return {}
+
+
+def lower_quant(repo, quant):
+    """Next smaller quant tag in the same repo, or None. Skips MTP (unless current is MTP), BF16/F16/F32, mmproj."""
+    files = hf_gguf_files(repo)
+    cur = next((n for n in files if n.lower().endswith(f"-{quant.lower()}.gguf")), None)
+    if not cur:
+        return None
+    base = cur[: -len(f"-{quant}.gguf")]
+    cur_size = files[cur]
+    best = None
+    for name, size in files.items():
+        if not name.startswith(base + "-") or "mmproj" in name.lower():
+            continue
+        tag = name[len(base) + 1 : -len(".gguf")]
+        up = tag.upper()
+        if re.search(r"(^|-)(BF16|F16|F32)$", up) or re.search(r"\d{5}-OF-\d{5}", up):
+            continue
+        if ("MTP" in up) != ("MTP" in quant.upper()):
+            continue
+        if 0 < size <= cur_size * RETRY_SIZE_RATIO and (best is None or size > best[1]):
+            best = (tag, size)
+    return best
+
+
+def run_timeout_retries(results_dir, runs):
+    """Re-run every complete config with many timeouts one quant lower (once; retries are not retried)."""
+    models = {m["key"]: m for m in rb.load_json(rb.MODELS_PATH, [])}
+    done = []
+    for f in sorted(glob.glob(os.path.join(results_dir, "*__*.json"))):
+        d = rb.load_json(f, {})
+        if not isinstance(d, dict) or d.get("status") != "complete" or d.get("retry_of"):
+            continue
+        tos = sum(bool(c.get("timeout")) for c in d.get("calls", []))
+        if tos < RETRY_TIMEOUTS or d["key"] not in models:
+            continue
+        low = lower_quant(d["repo"], d["quant"])
+        if not low:
+            log(f"{d['key']} {d['quant']}: {tos} timeouts, but no lower quant found")
+            continue
+        tag, size = low
+        cfg = {"mode": d["mode"], "repo": d["repo"], "quant": tag, "size_gib": round(size / rb.GIB, 2),
+               "retry_of": d["quant"]}
+        log(f"{d['key']} {d['mode']} {d['quant']}: {tos} timeouts -> retrying with {tag} ({cfg['size_gib']} GiB)")
+        run_config(models[d["key"]], cfg, runs, results_dir,
+                   protected={rb.cache_dir(r) for r in KEEP_CACHE})
+        summarize(results_dir)
+        done.append(tag)
+    log(f"timeout retries: {len(done)} config(s)")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--all", action="store_true")
@@ -448,6 +520,8 @@ def main():
     ap.add_argument("--summary", action="store_true")
     ap.add_argument("--best-single-dual", action="store_true",
                     help="re-run the best single config with the SAME quant on 2 boards (dual-same)")
+    ap.add_argument("--retry-timeouts", action="store_true",
+                    help=f"re-run configs with >= {RETRY_TIMEOUTS} timeouts one quant lower")
     args = ap.parse_args()
 
     results_dir = os.path.join(rb.OUT, "results", args.tag)
@@ -458,6 +532,8 @@ def main():
         return 0
     if args.best_single_dual:
         return run_best_single_dual(results_dir, args.runs)
+    if args.retry_timeouts:
+        return run_timeout_retries(results_dir, args.runs)
     if not args.all and not args.only:
         ap.print_help()
         return 1

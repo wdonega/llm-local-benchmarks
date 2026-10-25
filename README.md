@@ -117,6 +117,11 @@ A few choices need explaining:
 - **dual-same.** As a last experiment, the config with the best single-board score is
   re-run on **both boards with the same quant**. This measures what RPC costs when you
   don't need the memory.
+- **Timeout retries.** A config with 4 or more timeouts (over 10 % of its calls) is
+  re-run at the end, one quant lower: the largest file in the same repo at most 90 % of
+  the current size (e.g. Q8_0 → Q6_K, Q6_K → Q5_K_M). This shows whether a faster, smaller
+  quant scores better within the time limit. Both rows stay in the table, and the retry is
+  labelled `retry of <quant>`.
 
 ### Results
 
@@ -358,6 +363,9 @@ python3 run_bench.py --all --runs 3
 
 # 5. re-run the best single config on two boards with the same quant
 python3 run_bench.py --best-single-dual
+
+# 6. re-run configs with 4+ timeouts one quant lower
+python3 run_bench.py --retry-timeouts
 
 # rebuild summaries from the JSON files at any time
 python3 run_bench.py --summary
