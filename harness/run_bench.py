@@ -34,6 +34,7 @@ CTX_FALLBACK = 24576
 REASONING_BUDGET = 6144
 BUDGET_MESSAGE = " Preciso parar de pensar agora e dar a resposta final."
 SAMPLING = {"temperature": 0.6, "top_p": 0.95, "top_k": 20, "min_p": 0.0}
+OUTPUT_CHECK_PROMPT = "Qual é a capital da França? Responda em uma frase."
 KV_CACHE = "q8_0"  # --cache-type-k / --cache-type-v
 # HF repos the disk cleanup must never delete (e.g. the model your production server uses)
 KEEP_CACHE = {r.strip() for r in os.environ.get("BENCH_KEEP_CACHE", "").split(",") if r.strip()}
@@ -275,7 +276,18 @@ def run_config(model, cfg, runs, results_dir, force=False, protected=()):
         data["settings"]["ctx"] = ctx_used
         data["log"] = log_path
         log(f"{stem}: loaded in {data['load_s']}s (ctx={ctx_used})")
-        rb.chat(payload(alias, [{"role": "user", "content": "Responda apenas: ok"}], 0, 64))
+        # output check: a corrupted RPC tensor cache on the worker once produced pure garbage
+        # for hours; a trivial question catches that before 36 wasted calls
+        resp, err, _ = rb.chat(payload(alias, [{"role": "user", "content": OUTPUT_CHECK_PROMPT}], 0, 2048))
+        msg = ((resp or {}).get("choices") or [{}])[0].get("message") or {}
+        seen = T.normalize((msg.get("content") or "") + " " + (msg.get("reasoning_content") or ""))
+        if err or "paris" not in seen:
+            data["status"] = "error"
+            data["error"] = ("output check failed (garbage output? on dual, clear the RPC worker "
+                             f"cache): {err or (msg.get('content') or '')[:200]!r}")
+            rb.save_json(path, data)
+            log(f"{stem}: {data['error']}")
+            return data
 
         total = len(specs(runs))
         for cat, tid, run, task in todo:

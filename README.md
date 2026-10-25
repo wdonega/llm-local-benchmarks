@@ -185,6 +185,14 @@ _13 configs complete so far._
   systemd then tore down the whole tmux scope with it. The fix was to run the queue as a
   `systemd --user` service with `Restart=on-failure`, make every call resumable, and
   keep other processes off the head board while benchmarking.
+- **The RPC worker's tensor cache can go bad silently.** `ggml-rpc-server --cache` keeps
+  received tensors on the worker's disk. At one point two dual configs (Ornith and
+  Qwen3-Coder, both Q4_K_M) produced pure garbage ("2525255…", stray `\u` and tabs) for
+  hours. Meanwhile other models split across the same two boards were fine, and the same
+  files had worked the day before. The model file on the head was intact (its sha256
+  matched Hugging Face). Deleting `~/.cache/llama.cpp/rpc` on the worker and restarting
+  it fixed both. The runner now asks a trivial question ("capital of France?") right
+  after loading and aborts the config if "Paris" is not in the answer.
 - **Enable linger** (`loginctl enable-linger $USER`), or user services die when you log out.
 - **IQ quants work on RADV, but K-quants are the fast path.** Prefer K-quants when the
   size is similar.
@@ -204,7 +212,9 @@ Each model/quant/mode combination is a **config**. For each config the runner:
    queue, or any repo listed in `BENCH_KEEP_CACHE`.
 2. Starts `llama-server -hf <repo>:<quant>`, which downloads the model on first use. If
    a 32k context does not load, it retries at 24k.
-3. Sends one warm-up request, then every test × 3 runs, one request at a time.
+3. Runs an output check: the model must answer "Paris" to "Qual é a capital da França?".
+   If it does not (garbage output, broken split), the config is aborted with an error.
+   Then it runs every test × 3, one request at a time.
 4. Saves each call to the config's JSON as soon as it finishes, so a crash or reboot
    resumes at the next call.
 5. Stops the server and rebuilds `summary.md` / `summary.csv`.
