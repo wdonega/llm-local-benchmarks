@@ -431,6 +431,42 @@ reasoning,aritmetica_datas,3,False,True,curl rc=28: curl: (28) Operation timed o
 reasoning,instrucoes_multiplas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q6_K
 reasoning,instrucoes_multiplas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q6_K
 reasoning,instrucoes_multiplas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q6_K
+long_context,multi_hop_ramal,1,True,False,,105.4,17706,1958,387.65,33.09,6180,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+long_context,multi_hop_ramal,2,True,False,,60.2,4,1962,9.02,32.85,6005,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+long_context,multi_hop_ramal,3,True,False,,51.3,4,1694,8.94,33.34,5186,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+long_context,soma_com_correcoes,1,True,False,,66.6,514,2130,204.26,33.27,5789,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+long_context,soma_com_correcoes,2,True,False,,58.8,4,1923,8.95,32.99,5456,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+long_context,soma_com_correcoes,3,True,False,,61.4,4,2019,8.94,33.17,5399,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+coding,avaliador_expressoes,1,True,False,,195.5,440,6814,251.34,35.36,21005,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+coding,avaliador_expressoes,2,False,False,,192.9,4,6773,9.43,35.28,20490,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+coding,avaliador_expressoes,3,False,False,,194.1,4,6814,9.39,35.28,20080,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+coding,calculo_frete,1,False,False,,193.2,583,6728,235.97,35.37,18865,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+coding,calculo_frete,2,False,False,,193.0,4,6790,9.46,35.35,16348,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+coding,calculo_frete,3,False,False,,193.8,4,6797,9.5,35.26,16436,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+coding,corrigir_sessoes,1,True,False,,157.6,339,5556,210.84,35.76,18760,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+coding,corrigir_sessoes,2,True,False,,123.2,4,4375,9.37,35.76,15237,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+coding,corrigir_sessoes,3,True,False,,149.5,4,5280,8.52,35.57,18695,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+tool_call,multi_etapas_reembolso,1,True,False,,25.2,749,810,136.16,43.98,1395,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+tool_call,multi_etapas_reembolso,2,True,False,,20.1,245,659,74.81,43.04,1112,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+tool_call,multi_etapas_reembolso,3,True,False,,41.3,245,1430,74.82,39.12,3788,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+tool_call,args_estritos_agenda,1,True,False,,21.1,530,686,186.74,40.6,1296,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+tool_call,args_estritos_agenda,2,True,False,,22.8,39,848,34.9,40.0,1809,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+tool_call,args_estritos_agenda,3,True,False,,38.4,1104,1249,270.46,37.34,2838,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+tool_call,recuperacao_erro_estoque,1,True,False,,14.1,494,407,104.1,48.78,936,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+tool_call,recuperacao_erro_estoque,2,True,False,,16.2,288,491,79.09,44.69,1318,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+tool_call,recuperacao_erro_estoque,3,False,False,,115.1,358,4096,212.61,36.26,13318,length,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+tool_call,abster_sem_dados_pix,1,True,False,,7.5,393,233,219.34,44.96,698,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+tool_call,abster_sem_dados_pix,2,True,False,,5.5,4,189,9.47,37.27,613,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+tool_call,abster_sem_dados_pix,3,True,False,,14.3,4,507,9.43,36.59,1698,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+reasoning,logica_5_pessoas,1,True,False,,194.3,322,6866,273.47,35.63,17698,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+reasoning,logica_5_pessoas,2,False,False,,174.1,4,6170,9.43,35.62,16173,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+reasoning,logica_5_pessoas,3,True,False,,152.5,4,5417,9.46,35.72,12903,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+reasoning,aritmetica_datas,1,True,False,,158.9,108,5675,128.94,36.02,11149,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+reasoning,aritmetica_datas,2,True,False,,129.5,4,4630,9.41,36.0,10097,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+reasoning,aritmetica_datas,3,True,False,,141.4,4,5050,9.44,35.93,10821,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+reasoning,instrucoes_multiplas,1,True,False,,116.2,149,4188,166.95,36.46,13608,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+reasoning,instrucoes_multiplas,2,False,False,,175.0,4,6209,9.51,35.66,18483,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
+reasoning,instrucoes_multiplas,3,False,False,,174.8,4,6208,9.45,35.7,15879,stop,Qwen3.6-35B-A3B,dual,UD-Q4_K_M
 long_context,multi_hop_ramal,1,True,False,,180.6,17706,2036,164.07,28.15,6176,stop,Qwen3.6-35B-A3B,single,UD-IQ2_XXS
 long_context,multi_hop_ramal,2,True,False,,53.7,4,1809,28.18,33.8,5431,stop,Qwen3.6-35B-A3B,single,UD-IQ2_XXS
 long_context,multi_hop_ramal,3,True,False,,64.1,4,2073,27.58,32.45,6425,stop,Qwen3.6-35B-A3B,single,UD-IQ2_XXS
