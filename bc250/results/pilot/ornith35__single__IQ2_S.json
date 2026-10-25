@@ -1,0 +1,472 @@
+{
+  "model": "Ornith-1.5-35B-A3B",
+  "key": "ornith35",
+  "mode": "single",
+  "repo": "bartowski/Ornith-1.5-35B-A3B-GGUF",
+  "quant": "IQ2_S",
+  "runs": 1,
+  "calls": [
+    {
+      "category": "long_context",
+      "test": "multi_hop_ramal",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 182.8,
+      "prompt_tokens": 23600,
+      "completion_tokens": 2116,
+      "cache_tokens": 0,
+      "prompt_tps": 200.93,
+      "gen_tps": 32.45,
+      "detail": {
+        "answer_line": "4471",
+        "parsed": [
+          4471.0
+        ]
+      },
+      "final": "## Análise\n\n**Passo 1 — Qual a regra sobre a chave do cofre B?**\n\nO Registro especial (sem número) diz: *\"a chave do cofre B fica sempre com quem coordena a filial de Joinville.\"*\n\nPortanto, preciso descobrir quem **hoje (outubro de 2026)** coordena a filial de Joinville.\n\n**Passo 2 — Quem coordena Joinville?**\n\nEncontrei três registros sobre a coordenação de Joinville:\n\n1. *\"Otávio Brandt foi nomeado coordenador da filial de Joinville em 10/11/2025.\"*\n2. *\"A partir de 03/03/2026, Renata Aguiar substitui Otávio Brandt na coordenação da filial de Joinville; Otávio Brandt foi transferido para a coordenação da filial de Blumenau.\"*\n3. *(não há nenhuma outra mudança registrada após essa)*\n\nLogo, a partir de **03/03/2026**, a coordenadora de Joinville é **Renata Aguiar**, e não houve nova substituição até outubro de 2026.\n\n**Passo 3 — Ramal de Renata Aguiar**\n\nO Registro especial (sem número) informa: *\"Renata Aguiar usa o ramal 4471.\"*\n\n(Observação: não confundir com *Renato Aguiar*, que possui ramal próprio — 8234 — e é pessoa distinta.)\n\nRESPOSTA: 4471",
+      "finish": "stop",
+      "reasoning_chars": 5307
+    },
+    {
+      "category": "long_context",
+      "test": "soma_com_correcoes",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 46.1,
+      "prompt_tokens": 514,
+      "completion_tokens": 1366,
+      "cache_tokens": 23084,
+      "prompt_tps": 144.48,
+      "gen_tps": 32.13,
+      "detail": {
+        "answer_line": "1576",
+        "parsed": [
+          1576.0
+        ]
+      },
+      "final": "# Análise dos lotes L-17, L-22 e L-31\n\n**Lote L-17:**\n- Registro especial: recebeu 340 unidades\n- Registro especial (correção): foram 304 unidades, não 340\n- **Valor final: 304 unidades**\n\n**Lote L-22:**\n- Registro especial: recebeu 1125 unidades\n- **Valor final: 1125 unidades**\n\n**Lote L-31:**\n- Registro especial: recebeu 87 unidades\n- Registro especial: segunda remessa de 60 unidades\n- **Valor final: 87 + 60 = 147 unidades**\n\n**Soma total:**\n- L-17: 304\n- L-22: 1125\n- L-31: 147\n- Total: 304 + 1125 + 147 = 1576\n\nRESPOSTA: 1576",
+      "finish": "stop",
+      "reasoning_chars": 2906
+    },
+    {
+      "category": "coding",
+      "test": "avaliador_expressoes",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 172.6,
+      "prompt_tokens": 440,
+      "completion_tokens": 6936,
+      "cache_tokens": 0,
+      "prompt_tps": 186.66,
+      "gen_tps": 40.82,
+      "detail": {
+        "passed": 16,
+        "total": 36,
+        "falhas": [
+          {
+            "case": "1 + 2 * 3",
+            "ok": false,
+            "info": "exceção: ValueError('caractere desconhecido')"
+          },
+          {
+            "case": "(1 + 2) * 3",
+            "ok": false,
+            "info": "exceção: ValueError('caractere desconhecido')"
+          },
+          {
+            "case": "-2^2",
+            "ok": false,
+            "info": "exceção: ValueError('caractere desconhecido')"
+          },
+          {
+            "case": "(-2)^2",
+            "ok": false,
+            "info": "exceção: ValueError('caractere desconhecido')"
+          },
+          {
+            "case": "--3",
+            "ok": false,
+            "info": "exceção: ValueError('caractere desconhecido')"
+          },
+          {
+            "case": "3 * -2",
+            "ok": false,
+            "info": "exceção: ValueError('caractere desconhecido')"
+          }
+        ],
+        "erro": null,
+        "code": "def avaliar(expr: str) -> int:\n    import re\n\n    tokens = re.findall(r'\\d+|[+\\-*/^() ]', expr)\n    if not tokens or ''.join(tokens) == '':\n        raise ValueError('expressão inválida')\n\n    s = ''.join(tokens)\n\n    if any(c not in '0123456789+*/^()' for c in s.replace('(', '').replace(')', '')):\n        raise ValueError('caractere desconhecido')\n\n    if s.count('(') != s.count(')'):\n        raise ValueError('parênteses desbalanceados')\n\n    if '(' in s or ')' in s:\n        if '(' in s[1:] or ')' in s[:-1]:\n            if not (s.startswith('(') and s.endswith(')')):\n                raise ValueError('parênteses mal colocados')\n\n    def parse(expr):\n        if len(expr) == 0:\n            raise ValueError('expressão inválida')\n\n        def tokenize(s):\n            return re.findall(r'\\d+|[+\\-*/^()]', s)\n\n        tokens = tokenize(s)\n        if not tokens:\n            raise ValueError('expressão inválida')\n\n        pos = [0]\n\n        def peek():\n            return tokens[pos[0]] if pos[0] < len(tokens) else None\n\n        def advance():\n            val = tokens[pos[0]]\n            pos[0] += 1\n            return val\n\n        def parse_expr():\n            value = parse_term()\n            while peek() in ('+', '-'):\n                op = advance()\n                rhs = parse_term()\n                if op == '+':\n                    value = value + rhs\n                else:\n                    value = value - rhs\n            return value\n\n        def parse_term():\n            value = parse_factor()\n            while peek() in ('*', '/'):\n                op = advance()\n                rhs = parse_factor()\n                if op == '*':\n                    value = value * rhs\n                else:\n                    if rhs == 0:\n                        raise ZeroDivisionError('divisão por zero')\n                    q = abs(value) // abs(rhs)\n                    if (value < 0) != (rhs < 0):\n                        q = -q\n                    value = q\n            return value\n\n        def parse_factor():\n            base = parse_unary()\n            if peek() == '^':\n                advance()\n                exp = parse_factor()\n                if base == 0 and exp < 0:\n                    raise ValueError('expoente negativo')\n                if exp < 0:\n                    raise ValueError('expoente negativo')\n                return base ** exp\n            return base\n\n        def parse_unary():\n            if peek() == '-':\n                advance()\n                val = parse_unary()\n                return -val\n            return parse_primary()\n\n        def parse_primary():\n            tok = peek()\n            if tok is None:\n                raise ValueError('expressão inválida')\n            if tok == '(':\n                advance()\n                value = parse_expr()\n                if peek() != ')':\n                    raise ValueError('parênteses desbalanceados')\n                advance()\n                return value\n            if tok.isdigit():\n       "
+      },
+      "final": "```python\ndef avaliar(expr: str) -> int:\n    import re\n\n    tokens = re.findall(r'\\d+|[+\\-*/^() ]', expr)\n    if not tokens or ''.join(tokens) == '':\n        raise ValueError('expressão inválida')\n\n    s = ''.join(tokens)\n\n    if any(c not in '0123456789+*/^()' for c in s.replace('(', '').replace(')', '')):\n        raise ValueError('caractere desconhecido')\n\n    if s.count('(') != s.count(')'):\n        raise ValueError('parênteses desbalanceados')\n\n    if '(' in s or ')' in s:\n        if '(' in s[1:] or ')' in s[:-1]:\n            if not (s.startswith('(') and s.endswith(')')):\n                raise ValueError('parênteses mal colocados')\n\n    def parse(expr):\n        if len(expr) == 0:\n            raise ValueError('expressão inválida')\n\n        def tokenize(s):\n            return re.findall(r'\\d+|[+\\-*/^()]', s)\n\n        tokens = tokenize(s)\n        if not tokens:\n            raise ValueError('expressão inválida')\n\n        pos = [0]\n\n        def peek():\n            return tokens[pos[0]] if pos[0] < len(tokens) else None\n\n        def advance():\n            val = tokens[pos[0]]\n            pos[0] += 1\n            return val\n\n        def parse_expr():\n            value = parse_term()\n            while peek() in ('+', '-'):\n                op = advance()\n                rhs = parse_term()\n                if op == '+':\n                    value = value + rhs\n                else:\n                    value = value - rhs\n            return value\n\n        def parse_term():\n            value = parse_factor()\n            while peek() in ('*', '/'):\n                op = advance()\n                rhs = parse_factor()\n                if op == '*':\n                    value = value * rhs\n                else:\n                    if rhs == 0:\n                        raise ZeroDivisionError('divisão por zero')\n                    q = abs(value) // abs(rhs)\n                    if (value < 0) != (rhs < 0):\n                        q = -q\n                    value = q\n            return value\n\n        def parse_factor():\n            base = parse_unary()\n            if peek() == '^':\n                advance()\n                exp = parse_factor()\n                if base == 0 and exp < 0:\n                    raise ValueError('expoente negativo')\n                if exp < 0:\n                    raise ValueError('expoente negativo')\n                return base ** exp\n            return base\n\n        def parse_unary():\n            if peek() == '-':\n                advance()\n                val = parse_unary()\n                return -val\n            return parse_primary()\n\n        def parse_primary():\n            tok = peek()\n            if tok is None:\n                raise ValueError('expressão inválida')\n            if tok == '(':\n                advance()\n                value = parse_expr()\n                if peek() != ')':\n                    raise ValueError('parênteses desbalanceados')\n                advance()\n                return value\n            if tok.isdigit(",
+      "finish": "stop",
+      "reasoning_chars": 20340
+    },
+    {
+      "category": "coding",
+      "test": "calculo_frete",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 178.6,
+      "prompt_tokens": 583,
+      "completion_tokens": 6816,
+      "cache_tokens": 24,
+      "prompt_tps": 185.16,
+      "gen_tps": 38.89,
+      "detail": {
+        "passed": 30,
+        "total": 30,
+        "falhas": [],
+        "erro": null,
+        "code": "import math\nfrom decimal import Decimal, ROUND_HALF_UP\n\n\ndef calcular_frete(peso_kg: float, regiao: str, valor_pedido: float,\n                   cupom: str | None = None, expresso: bool = False) -> float:\n    # 1. Validação\n    if not (peso_kg > 0 and peso_kg <= 30):\n        raise ValueError(\"peso_kg deve ser > 0 e <= 30\")\n    if regiao not in (\"S\", \"SE\", \"CO\", \"NE\", \"N\"):\n        raise ValueError(\"região inválida\")\n    if valor_pedido < 0:\n        raise ValueError(\"valor_pedido deve ser >= 0\")\n\n    # 2. Tarifa base por peso\n    if peso_kg <= 1:\n        base = Decimal(\"12.00\")\n    elif peso_kg <= 5:\n        fracoes = math.ceil(peso_kg - 1)\n        base = Decimal(\"12.00\") + Decimal(fracoes) * Decimal(\"3.50\")\n    else:\n        fracoes = math.ceil(peso_kg - 5)\n        base = Decimal(\"26.00\") + Decimal(fracoes) * Decimal(\"2.80\")\n\n    # 3. Multiplicador regional\n    if regiao in (\"S\", \"SE\"):\n        valor = base * Decimal(\"1.00\")\n    elif regiao == \"CO\":\n        valor = base * Decimal(\"1.20\")\n    elif regiao == \"NE\":\n        valor = base * Decimal(\"1.35\")\n    else:  # N\n        valor = base * Decimal(\"1.50\")\n\n    # 4. Expresso\n    if expresso:\n        valor *= Decimal(\"1.40\")\n\n    # 5. Frete grátis (ignora cupom, mesmo se inválido)\n    if valor_pedido >= 299.90 and not expresso and regiao in (\"S\", \"SE\", \"CO\"):\n        return 0.0\n\n    # 6. Cupons (case-insensitive)\n    if cupom is not None and cupom != \"\":\n        cupom_superior = cupom.upper()\n        if cupom_superior == \"FRETE10\":\n            valor *= Decimal(\"0.90\")\n        elif cupom_superior == \"FRETEMETADE\":\n            if peso_kg <= 5:\n                valor *= Decimal(\"0.50\")\n        else:\n            raise ValueError(\"cupom inválido\")\n\n    # 7. Frete mínimo\n    if valor < Decimal(\"9.90\"):\n        valor = Decimal(\"9.90\")\n\n    # 8. Arredondimento ROUND_HALF_UP\n    resultado = valor.quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_UP)\n    return float(resultado)"
+      },
+      "final": "```python\nimport math\nfrom decimal import Decimal, ROUND_HALF_UP\n\n\ndef calcular_frete(peso_kg: float, regiao: str, valor_pedido: float,\n                   cupom: str | None = None, expresso: bool = False) -> float:\n    # 1. Validação\n    if not (peso_kg > 0 and peso_kg <= 30):\n        raise ValueError(\"peso_kg deve ser > 0 e <= 30\")\n    if regiao not in (\"S\", \"SE\", \"CO\", \"NE\", \"N\"):\n        raise ValueError(\"região inválida\")\n    if valor_pedido < 0:\n        raise ValueError(\"valor_pedido deve ser >= 0\")\n\n    # 2. Tarifa base por peso\n    if peso_kg <= 1:\n        base = Decimal(\"12.00\")\n    elif peso_kg <= 5:\n        fracoes = math.ceil(peso_kg - 1)\n        base = Decimal(\"12.00\") + Decimal(fracoes) * Decimal(\"3.50\")\n    else:\n        fracoes = math.ceil(peso_kg - 5)\n        base = Decimal(\"26.00\") + Decimal(fracoes) * Decimal(\"2.80\")\n\n    # 3. Multiplicador regional\n    if regiao in (\"S\", \"SE\"):\n        valor = base * Decimal(\"1.00\")\n    elif regiao == \"CO\":\n        valor = base * Decimal(\"1.20\")\n    elif regiao == \"NE\":\n        valor = base * Decimal(\"1.35\")\n    else:  # N\n        valor = base * Decimal(\"1.50\")\n\n    # 4. Expresso\n    if expresso:\n        valor *= Decimal(\"1.40\")\n\n    # 5. Frete grátis (ignora cupom, mesmo se inválido)\n    if valor_pedido >= 299.90 and not expresso and regiao in (\"S\", \"SE\", \"CO\"):\n        return 0.0\n\n    # 6. Cupons (case-insensitive)\n    if cupom is not None and cupom != \"\":\n        cupom_superior = cupom.upper()\n        if cupom_superior == \"FRETE10\":\n            valor *= Decimal(\"0.90\")\n        elif cupom_superior == \"FRETEMETADE\":\n            if peso_kg <= 5:\n                valor *= Decimal(\"0.50\")\n        else:\n            raise ValueError(\"cupom inválido\")\n\n    # 7. Frete mínimo\n    if valor < Decimal(\"9.90\"):\n        valor = Decimal(\"9.90\")\n\n    # 8. Arredondimento ROUND_HALF_UP\n    resultado = valor.quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_UP)\n    return float(resultado)\n```",
+      "finish": "stop",
+      "reasoning_chars": 20819
+    },
+    {
+      "category": "coding",
+      "test": "corrigir_sessoes",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 168.7,
+      "prompt_tokens": 339,
+      "completion_tokens": 6383,
+      "cache_tokens": 24,
+      "prompt_tps": 166.25,
+      "gen_tps": 38.36,
+      "detail": {
+        "passed": 8,
+        "total": 8,
+        "falhas": [],
+        "erro": null,
+        "code": "def agrupar_sessoes(eventos, limite_inatividade=30):\n    \"\"\"\n    eventos: lista de tuplas (usuario: str, timestamp: int em segundos), em qualquer ordem.\n    Agrupa os eventos de cada usuário em sessões: dois eventos consecutivos (em ordem de\n    tempo) do mesmo usuário pertencem à mesma sessão se a diferença entre eles for\n    menor ou igual a limite_inatividade.\n    Retorna um dict usuario -> lista de sessões; cada sessão é uma tupla\n    (inicio, fim, quantidade_de_eventos), e as sessões ficam em ordem cronológica.\n    Eventos duplicados (mesmo usuário e mesmo timestamp) contam uma única vez.\n    A lista de entrada não pode ser modificada.\n    \"\"\"\n    resultado = {}\n    eventos_unicos = {(e[0], e[1]) for e in eventos}\n    for usuario, ts in sorted(eventos_unicos, key=lambda e: e[1]):\n        sessoes = resultado.setdefault(usuario, [])\n        if sessoes and ts - sessoes[-1][1] <= limite_inatividade:\n            inicio, fim, qtd = sessoes[-1]\n            sessoes[-1] = (inicio, ts, qtd + 1)\n        else:\n            sessoes.append((ts, ts, 1))\n    return resultado"
+      },
+      "final": "```python\ndef agrupar_sessoes(eventos, limite_inatividade=30):\n    \"\"\"\n    eventos: lista de tuplas (usuario: str, timestamp: int em segundos), em qualquer ordem.\n    Agrupa os eventos de cada usuário em sessões: dois eventos consecutivos (em ordem de\n    tempo) do mesmo usuário pertencem à mesma sessão se a diferença entre eles for\n    menor ou igual a limite_inatividade.\n    Retorna um dict usuario -> lista de sessões; cada sessão é uma tupla\n    (inicio, fim, quantidade_de_eventos), e as sessões ficam em ordem cronológica.\n    Eventos duplicados (mesmo usuário e mesmo timestamp) contam uma única vez.\n    A lista de entrada não pode ser modificada.\n    \"\"\"\n    resultado = {}\n    eventos_unicos = {(e[0], e[1]) for e in eventos}\n    for usuario, ts in sorted(eventos_unicos, key=lambda e: e[1]):\n        sessoes = resultado.setdefault(usuario, [])\n        if sessoes and ts - sessoes[-1][1] <= limite_inatividade:\n            inicio, fim, qtd = sessoes[-1]\n            sessoes[-1] = (inicio, ts, qtd + 1)\n        else:\n            sessoes.append((ts, ts, 1))\n    return resultado\n```",
+      "finish": "stop",
+      "reasoning_chars": 22118
+    },
+    {
+      "category": "tool_call",
+      "test": "multi_etapas_reembolso",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 22.3,
+      "prompt_tokens": 749,
+      "completion_tokens": 639,
+      "cache_tokens": 2354,
+      "prompt_tps": 124.1,
+      "gen_tps": 39.93,
+      "detail": {
+        "total_ok": true,
+        "reembolsos_consultados": [
+          "P-1007",
+          "P-1031",
+          "P-1052"
+        ]
+      },
+      "final": "O total a ser reembolsado à cliente **Ana Ribeiro** (ana.ribeiro@exemplo.com) pelos pedidos cancelados é:\n\n| Pedido | Reembolso |\n|--------|-----------|\n| P-1007 | R$ 170,91 |\n| P-1031 | R$ 49,05 |\n| P-1052 | R$ 212,40 |\n| **Total** | **R$ 432,36** |\n\nO valor total a ser reembolsado é **R$ 432,36**.",
+      "steps": [
+        {
+          "name": "buscar_cliente",
+          "args": {
+            "email": "ana.ribeiro@exemplo.com"
+          },
+          "result": {
+            "cliente_id": "C-2291",
+            "nome": "Ana Ribeiro"
+          }
+        },
+        {
+          "name": "listar_pedidos",
+          "args": {
+            "cliente_id": "C-2291",
+            "status": "cancelado"
+          },
+          "result": {
+            "pedidos": [
+              {
+                "pedido_id": "P-1007",
+                "status": "cancelado",
+                "valor": 189.9
+              },
+              {
+                "pedido_id": "P-1031",
+                "status": "cancelado",
+                "valor": 54.5
+              },
+              {
+                "pedido_id": "P-1052",
+                "status": "cancelado",
+                "valor": 236.0
+              }
+            ]
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1007"
+          },
+          "result": {
+            "pedido_id": "P-1007",
+            "reembolso": 170.91
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1031"
+          },
+          "result": {
+            "pedido_id": "P-1031",
+            "reembolso": 49.05
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1052"
+          },
+          "result": {
+            "pedido_id": "P-1052",
+            "reembolso": 212.4
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 775
+    },
+    {
+      "category": "tool_call",
+      "test": "args_estritos_agenda",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 50.6,
+      "prompt_tokens": 1965,
+      "completion_tokens": 1570,
+      "cache_tokens": 491,
+      "prompt_tps": 194.84,
+      "gen_tps": 39.5,
+      "detail": {
+        "checks": {
+          "inicio": true,
+          "duracao": true,
+          "participantes": true,
+          "sala": true,
+          "titulo": true
+        },
+        "args": {
+          "titulo": "Revisão do orçamento",
+          "inicio": "2026-10-27T14:30",
+          "duracao_min": 90,
+          "participantes": [
+            "carla.souza@empresa.com",
+            "diego.alves@empresa.com"
+          ],
+          "sala": "Verde"
+        }
+      },
+      "final": "✅ Reunião agendada com sucesso!\n\n**Detalhes:**\n- **Reunião:** Revisão do orçamento\n- **Data:** Terça-feira, 27/10/2026\n- **Horário:** 14:30 às 16:00 (90 minutos)\n- **Sala:** Verde\n- **Participantes:**\n  - Carla Souza\n  - Diego Alves\n- **ID da reunião:** R-5521\n\nA reunião está marcada. Bom trabalho! 🎯",
+      "steps": [
+        {
+          "name": "agendar_reuniao",
+          "args": {
+            "titulo": "Revisão do orçamento",
+            "inicio": "2026-10-27T14:30",
+            "duracao_min": 90,
+            "participantes": [
+              "carla.souza@empresa.com",
+              "diego.alves@empresa.com"
+            ],
+            "sala": "Verde"
+          },
+          "result": {
+            "status": "agendado",
+            "id": "R-5521"
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 3196
+    },
+    {
+      "category": "tool_call",
+      "test": "recuperacao_erro_estoque",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 13.7,
+      "prompt_tokens": 494,
+      "completion_tokens": 321,
+      "cache_tokens": 1689,
+      "prompt_tps": 96.51,
+      "gen_tps": 40.19,
+      "detail": {
+        "consultou_B": true,
+        "numeros": [
+          37,
+          88412,
+          88412,
+          5
+        ]
+      },
+      "final": "Temos **37 unidades** da Cadeira Ergo Plus no depósito.\n\n*(Obs: o SKU original era SKU-88412-A, que foi substituído pelo SKU-88412-B. Também há 5 unidades disponíveis na loja.)*",
+      "steps": [
+        {
+          "name": "buscar_produto",
+          "args": {
+            "nome": "Cadeira Ergo Plus"
+          },
+          "result": {
+            "resultados": [
+              {
+                "sku": "SKU-88412-A",
+                "nome": "Cadeira Ergo Plus"
+              }
+            ]
+          }
+        },
+        {
+          "name": "consultar_estoque",
+          "args": {
+            "sku": "SKU-88412-A"
+          },
+          "result": {
+            "erro": "SKU-88412-A foi substituído pelo SKU-88412-B. Consulte o novo SKU."
+          }
+        },
+        {
+          "name": "consultar_estoque",
+          "args": {
+            "sku": "SKU-88412-B"
+          },
+          "result": {
+            "sku": "SKU-88412-B",
+            "deposito": 37,
+            "loja": 5
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 528
+    },
+    {
+      "category": "tool_call",
+      "test": "abster_sem_dados_pix",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 9.0,
+      "prompt_tokens": 393,
+      "completion_tokens": 207,
+      "cache_tokens": 0,
+      "prompt_tps": 157.05,
+      "gen_tps": 39.63,
+      "detail": {
+        "chamadas": []
+      },
+      "final": "Preciso de informações completas para executar a transferência. Vou precisar de:\n\n1. **Qual é a chave PIX do João?** (CPF, CNPJ, telefone ou e-mail)\n2. **Qual é o valor que deseja transferir?**\n3. **Confirmo que você está autorizando esta transferência**\n\nPor favor, me passe esses dados para que eu possa prosseguir com segurança.",
+      "steps": [],
+      "finish": "stop",
+      "reasoning_chars": 501
+    },
+    {
+      "category": "reasoning",
+      "test": "logica_5_pessoas",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 181.7,
+      "prompt_tokens": 322,
+      "completion_tokens": 6857,
+      "cache_tokens": 0,
+      "prompt_tps": 182.06,
+      "gen_tps": 38.15,
+      "detail": {
+        "answer_line": "Carla; Manaus; andar 1"
+      },
+      "final": "# Resolvo passo a passo\n\n## Montando o quadro\n\n**Cada cidade tem uma bebida fixa:**\n- Curitiba = mate (clue 14)\n- Natal = água (clue 5)\n- Belém = suco (clue 4)\n- Como mate não vai para 1 nem 5 (clue 8), e Carla fica no 1, **Curitiba = andar 2** (clue 13)\n- Manaus ≠ café (clue 6) → sobram café e chá para Recife e Manaus → **Manaus = chá, Recife = café**\n\n## Posicionando as pessoas\n\nPelas clues 7, 9, 12: **Bruno > Davi > Carla** e **Ana > Carla** → **Carla = andar 1**\n\nAna é vizinha de Natal (clue 15). As cidades 2 e 4 são Curitiba e Recife, logo:\n- Ana no 3 → vizinhos seriam 2 e 4 (nenhum Natal) ✗\n- Ana no 5 → vizinho seria só o 4 (Recife) ✗\n- Ana no 2 → beberia mate, mas clue 11 proíbe ✗\n\nLogo **Ana = andar 4** (Recife, café).\n\nComo Davi < Bruno e ambos ficam acima do 1 (com Ana no 4): Davi ∈ {2, 3}.\n\n**Davi = 2** → ficaria para Bruno/Elisa os andares 3 e 5, exigindo Natal em 3 ou 5, mas neither Bruno (clue 2) nem Elisa (clue 10) podem ser de Natal → impossível.\n\nLogo **Davi = andar 3**, **Bruno = andar 5**, **Elisa = andar 2**.\n\n## Preenchendo\n\n- **Armar 1:** Carla (andar 1)\n- **Armar 2:** Elisa = Curitiba (mate)\n- **Armar 3:** Davi\n- **Armar 4:** Ana = Recife (café)\n- **Armar 5:** Bruno\n\nAna (4) vizinha de Natal → Natal ∈ {3, 5}. Carla ≠ Belém (clue 3), logo **Carla = Manaus (andar 1, chá)** e **Bruno = Natal (andar 5, água)**.\n\nRestam Curitiba já usada, sobram Belém para Davi → **Davi = Belém (andar 3, suco)**.\n\n## Verificação final\n\n| Andar | Moradora | Cidade | Bebida |\n|:-----:|:--------:|:------:|:------:|\n| 1 | Carla | Manaus | chá |\n| 2 | Elisa | Curitiba | mate |\n| 3 | Davi | Belém | suco |\n| 4 | Ana | Recife | café |\n| 5 | Bruno | Natal | água |\n\nConfere com as 15 pistas.\n\n- **Quem bebe chá?** → Carla\n- **Davi é de:** → Belém\n- **Elisa mora no:** → andar 2\n\nRESPOSTA: Carla; Manaus; andar 1",
+      "finish": "stop",
+      "reasoning_chars": 18481
+    },
+    {
+      "category": "reasoning",
+      "test": "aritmetica_datas",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 173.6,
+      "prompt_tokens": 108,
+      "completion_tokens": 6627,
+      "cache_tokens": 0,
+      "prompt_tps": 99.82,
+      "gen_tps": 38.45,
+      "detail": {
+        "answer_line": "2029-07-20; sexta-feira; 1",
+        "data": true,
+        "dia": true,
+        "qtd": true
+      },
+      "final": "# Análise do contrato\n\n**Data de início:** domingo, 25/10/2026 (dia 1)\n\nComo o dia 1 é 25/10/2026, o dia 1000 corresponde a **999 dias após** o início.\n\n## Dia da semana\n\nComo cada semana tem 7 dias:\n- 999 ÷ 7 = 142 resto **5**\n- domingo + 5 dias = **sexta-feira**\n\n## Data final\n\nContando 999 dias a partir de 25/10/2026:\n\n| Marco | Dias gastos | Data |\n|-------|-------------|------|\n| 25/10/2026 → 25/10/2027 | 365 | 25/10/2027 |\n| 25/10/2027 → 25/10/2028 | 366 (fev/2028 bissexto) | 25/10/2028 |\n| restante (999 − 731) | 268 | 20/07/2029 |\n\nVerificação: 365 + 366 + 268 = **999** ✓\n\n## Dias 29 de fevereiro no período\n\nO período vai de 25/10/2026 até 20/07/2029.\n\n- **Fevereiro de 2027:** não é bissexto (28 dias) — não conta\n- **Fevereiro de 2028:** é bissexto (29 dias) — ✅ **1 dia 29 de fevereiro**\n- **Fevereiro de 2029:** não é bissexto (28 dias) — não conta\n\nTotal: **1 dia 29 de fevereiro**\n\nRESPOSTA: 2029-07-20; sexta-feira; 1",
+      "finish": "stop",
+      "reasoning_chars": 12126
+    },
+    {
+      "category": "reasoning",
+      "test": "instrucoes_multiplas",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 55.7,
+      "prompt_tokens": 149,
+      "completion_tokens": 2117,
+      "cache_tokens": 0,
+      "prompt_tps": 119.32,
+      "gen_tps": 39.19,
+      "detail": {
+        "checks": {
+          "4_frases": true,
+          "iniciais_MAPE": true,
+          "sem_z": false,
+          "backup_2x": true,
+          "sem_virgula": true,
+          "termina_fim": true
+        },
+        "frases": 4
+      },
+      "final": "Manter servidores exige cuidado e registrar cada backup realizado. As atualidades devem ser aplicadas para proteger o backup principal. Processos de verificação são essenciais para evitar falhas. E tudo deve ser registrado e concluído com o fim.",
+      "finish": "stop",
+      "reasoning_chars": 6839
+    }
+  ],
+  "status": "complete",
+  "settings": {
+    "ctx": 32768,
+    "reasoning_budget": 6144,
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.0
+  },
+  "load_s": 25.4,
+  "log": "/home/will/llm-bench/logs/ornith35__single__IQ2_S.log"
+}

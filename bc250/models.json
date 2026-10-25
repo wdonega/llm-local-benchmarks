@@ -1,0 +1,195 @@
+[
+  {
+    "key": "flint",
+    "label": "flint-39.8B-A2.5B",
+    "smoke": {
+      "repo": "unsloth/flint-GGUF",
+      "quant": "UD-IQ1_M",
+      "size_gib": 10.57
+    },
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "unsloth/flint-GGUF",
+        "quant": "UD-IQ2_XXS",
+        "size_gib": 11.04
+      },
+      {
+        "mode": "dual",
+        "repo": "unsloth/flint-GGUF",
+        "quant": "UD-Q3_K_XL",
+        "size_gib": 17.22
+      }
+    ]
+  },
+  {
+    "key": "lfm25-24b",
+    "label": "LFM2.5-24B-A2B",
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "unsloth/LFM2.5-24B-A2B-GGUF",
+        "quant": "UD-Q3_K_XL",
+        "size_gib": 10.2
+      },
+      {
+        "mode": "dual",
+        "repo": "unsloth/LFM2.5-24B-A2B-GGUF",
+        "quant": "UD-Q5_K_XL",
+        "size_gib": 16.69
+      }
+    ]
+  },
+  {
+    "key": "ornith35",
+    "label": "Ornith-1.5-35B-A3B",
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "bartowski/Ornith-1.5-35B-A3B-GGUF",
+        "quant": "IQ2_S",
+        "size_gib": 10.7
+      },
+      {
+        "mode": "dual",
+        "repo": "ornith-ai/Ornith-1.5-35B-A3B-GGUF",
+        "quant": "Q4_K_M",
+        "size_gib": 20.22
+      }
+    ]
+  },
+  {
+    "key": "qwen38-27b",
+    "label": "Qwen3.8-27B",
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "unsloth/Qwen3.8-27B-GGUF",
+        "quant": "UD-Q2_K_XL",
+        "size_gib": 9.15
+      },
+      {
+        "mode": "dual",
+        "repo": "unsloth/Qwen3.8-27B-GGUF",
+        "quant": "UD-Q4_K_M",
+        "size_gib": 15.33
+      }
+    ],
+    "run_last": true
+  },
+  {
+    "key": "qwen36-35b",
+    "label": "Qwen3.6-35B-A3B",
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "unsloth/Qwen3.6-35B-A3B-GGUF",
+        "quant": "UD-IQ2_XXS",
+        "size_gib": 10.02
+      },
+      {
+        "mode": "dual",
+        "repo": "unsloth/Qwen3.6-35B-A3B-GGUF",
+        "quant": "UD-Q4_K_M",
+        "size_gib": 20.61
+      }
+    ]
+  },
+  {
+    "key": "qwen3-coder-30b",
+    "label": "Qwen3-Coder-30B-A3B",
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+        "quant": "UD-IQ2_M",
+        "size_gib": 10.09
+      },
+      {
+        "mode": "dual",
+        "repo": "unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+        "quant": "Q4_K_M",
+        "size_gib": 17.28
+      }
+    ]
+  },
+  {
+    "key": "qwen35-4b",
+    "label": "Qwen3.5-4B",
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "unsloth/Qwen3.5-4B-GGUF",
+        "quant": "Q8_0",
+        "size_gib": 4.17
+      }
+    ]
+  },
+  {
+    "key": "qwen35-9b",
+    "label": "Qwen3.5-9B",
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "unsloth/Qwen3.5-9B-GGUF",
+        "quant": "Q6_K",
+        "size_gib": 6.95
+      }
+    ]
+  },
+  {
+    "key": "ornith9b",
+    "label": "Ornith-1.5-9B",
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "ornith-ai/Ornith-1.5-9B-GGUF",
+        "quant": "Q6_K",
+        "size_gib": 7.04
+      }
+    ]
+  },
+  {
+    "key": "gemma4-12b",
+    "label": "Gemma-4-12B-it",
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "unsloth/gemma-4-12b-it-GGUF",
+        "quant": "Q6_K",
+        "size_gib": 9.12
+      }
+    ]
+  },
+  {
+    "key": "nemotron35-e4b",
+    "label": "Nemotron-3.5-Bolt-E4B",
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "unsloth/NVIDIA-Nemotron-3.5-Bolt-E4B-GGUF",
+        "quant": "UD-Q6_K_XL",
+        "size_gib": 6.76
+      }
+    ]
+  },
+  {
+    "key": "qwen38-fusion",
+    "label": "Qwen3.8-27B-Fusion-NEO-CODER (DavidAU)",
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+        "quant": "NEO-CODER-MAX-IQ2_M",
+        "size_gib": 10.87
+      },
+      {
+        "mode": "dual",
+        "repo": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+        "quant": "NEO-CODER-MAX-Q4_K_M",
+        "size_gib": 16.81
+      }
+    ],
+    "run_last": true
+  }
+]

@@ -1,0 +1,323 @@
+{
+  "model": "Qwen3.6-35B-A3B",
+  "key": "qwen36-35b",
+  "mode": "single",
+  "repo": "unsloth/Qwen3.6-35B-A3B-GGUF",
+  "quant": "UD-IQ2_XXS",
+  "runs": 3,
+  "calls": [
+    {
+      "category": "long_context",
+      "test": "multi_hop_ramal",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 180.6,
+      "prompt_tokens": 17706,
+      "completion_tokens": 2036,
+      "cache_tokens": 0,
+      "prompt_tps": 164.07,
+      "gen_tps": 28.15,
+      "detail": {
+        "answer_line": "4471",
+        "parsed": [
+          4471.0
+        ]
+      },
+      "final": "De acordo com os registros especiais, a chave do cofre B fica sempre com o coordenador da filial de Joinville. Otávio Brandt assumiu a coordenação em 10/11/2025, mas foi substituído por Renata Aguiar a partir de 03/03/2026. Portanto, em outubro de 2026, Renata Aguiar é a atual coordenadora e detém a chave. Seu ramal registrado é 4471.\n\nRESPOSTA: 4471",
+      "finish": "stop",
+      "reasoning_chars": 6176
+    },
+    {
+      "category": "long_context",
+      "test": "multi_hop_ramal",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 53.7,
+      "prompt_tokens": 4,
+      "completion_tokens": 1809,
+      "cache_tokens": 17702,
+      "prompt_tps": 28.18,
+      "gen_tps": 33.8,
+      "detail": {
+        "answer_line": "4471",
+        "parsed": [
+          4471.0
+        ]
+      },
+      "final": "Pela norma interna, a chave do cofre B fica com o coordenador da filial de Joinville. Segundo os registros, Otávio Brandt foi nomeado coordenador em 10/11/2025, mas foi substituído por Renata Aguiar a partir de 03/03/2026. Como a data de referência é outubro de 2026, Renata Aguiar é a coordenadora atual, e o documento informa que ela usa o ramal 4471.\nRESPOSTA: 4471",
+      "finish": "stop",
+      "reasoning_chars": 5431
+    },
+    {
+      "category": "long_context",
+      "test": "multi_hop_ramal",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 64.1,
+      "prompt_tokens": 4,
+      "completion_tokens": 2073,
+      "cache_tokens": 17702,
+      "prompt_tps": 27.58,
+      "gen_tps": 32.45,
+      "detail": {
+        "answer_line": "4471",
+        "parsed": [
+          4471.0
+        ]
+      },
+      "final": "De acordo com o registro especial, a chave do cofre B é mantida pelo coordenador da filial de Joinville. O histórico de cargos mostra que Otávio Brandt foi nomeado para a coordenação em 10/11/2025, mas foi substituído por Renata Aguiar a partir de 03/03/2026. Portanto, em outubro de 2026, a coordenadora é Renata Aguiar. O documento informa que ela utiliza o ramal 4471.\n\nRESPOSTA: 4471",
+      "finish": "stop",
+      "reasoning_chars": 6425
+    },
+    {
+      "category": "long_context",
+      "test": "soma_com_correcoes",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 79.9,
+      "prompt_tokens": 514,
+      "completion_tokens": 2252,
+      "cache_tokens": 17190,
+      "prompt_tps": 149.98,
+      "gen_tps": 29.46,
+      "detail": {
+        "answer_line": "1576",
+        "parsed": [
+          1576.0
+        ]
+      },
+      "final": "Com base no documento, as quantidades registradas para cada lote são:\n- **Lote L-17:** 304 unidades (valor corrigido, substituindo o registro inicial de 340).\n- **Lote L-22:** 1125 unidades.\n- **Lote L-31:** 147 unidades (87 da primeira remessa + 60 da segunda remessa).\n\nSomando os totais: 304 + 1125 + 147 = 1576.\n\nRESPOSTA: 1576",
+      "finish": "stop",
+      "reasoning_chars": 6223
+    },
+    {
+      "category": "long_context",
+      "test": "soma_com_correcoes",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 69.9,
+      "prompt_tokens": 4,
+      "completion_tokens": 2057,
+      "cache_tokens": 17700,
+      "prompt_tps": 26.26,
+      "gen_tps": 29.51,
+      "detail": {
+        "answer_line": "1576",
+        "parsed": [
+          1576.0
+        ]
+      },
+      "final": "Com base no documento, os registros para os lotes solicitados são:\n- **Lote L-17:** 304 unidades (o registro especial indica correção do valor anterior de 340 para 304).\n- **Lote L-22:** 1125 unidades.\n- **Lote L-31:** 147 unidades (87 unidades na primeira remessa + 60 unidades na segunda remessa).\n\nSomando os totais: 304 + 1125 + 147 = 1576.\n\nRESPOSTA: 1576",
+      "finish": "stop",
+      "reasoning_chars": 5534
+    },
+    {
+      "category": "long_context",
+      "test": "soma_com_correcoes",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 74.4,
+      "prompt_tokens": 4,
+      "completion_tokens": 2182,
+      "cache_tokens": 17700,
+      "prompt_tps": 26.21,
+      "gen_tps": 29.41,
+      "detail": {
+        "answer_line": "1576",
+        "parsed": [
+          1576.0
+        ]
+      },
+      "final": "Com base na análise do documento:\n- **Lote L-17:** 304 unidades (valor corrigido que substitui o registro anterior de 340).\n- **Lote L-22:** 1125 unidades.\n- **Lote L-31:** 87 unidades + 60 unidades (segunda remessa) = 147 unidades.\n\nSoma total: 304 + 1125 + 147 = 1576.\n\nRESPOSTA: 1576",
+      "finish": "stop",
+      "reasoning_chars": 5759
+    },
+    {
+      "category": "coding",
+      "test": "avaliador_expressoes",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 205.9,
+      "prompt_tokens": 440,
+      "completion_tokens": 6983,
+      "cache_tokens": 0,
+      "prompt_tps": 170.38,
+      "gen_tps": 34.41,
+      "detail": {
+        "passed": 36,
+        "total": 36,
+        "falhas": [],
+        "erro": null,
+        "code": "def avaliar(expr: str) -> int:\n    tokens = []\n    i = 0\n    n = len(expr)\n    while i < n:\n        c = expr[i]\n        if c.isspace():\n            i += 1\n            continue\n        if c.isdigit():\n            j = i\n            while j < n and expr[j].isdigit():\n                j += 1\n            tokens.append(('NUM', int(expr[i:j])))\n            i = j\n        elif c in '()':\n            tokens.append(('LPAREN', c) if c == '(' else ('RPAREN', c))\n            i += 1\n        elif c in '+-*/^':\n            tokens.append(('OP', c))\n            i += 1\n        else:\n            raise ValueError(\"Invalid character\")\n\n    pos = 0\n\n    def peek():\n        return tokens[pos] if pos < len(tokens) else None\n\n    def next_token():\n        nonlocal pos\n        val = tokens[pos]\n        pos += 1\n        return val\n\n    def parse_expr():\n        left = parse_term()\n        while True:\n            t = peek()\n            if t and t[0] == 'OP' and t[1] in '+-':\n                op = next_token()[1]\n                right = parse_term()\n                if op == '+':\n                    left = left + right\n                else:\n                    left = left - right\n            else:\n                break\n        return left\n\n    def parse_term():\n        left = parse_unary()\n        while True:\n            t = peek()\n            if t and t[0] == 'OP' and t[1] in '*/':\n                op = next_token()[1]\n                right = parse_unary()\n                if op == '*':\n                    left = left * right\n                else:\n                    if right == 0:\n                        raise ZeroDivisionError(\"Division by zero\")\n                    res = left // right\n                    if (left < 0) ^ (right < 0) and left % right != 0:\n                        res += 1\n                    left = res\n            else:\n                break\n        return left\n\n    def parse_unary():\n        neg_count = 0\n        while peek() and peek()[0] == 'OP' and peek()[1] == '-':\n            neg_count += 1\n            next_token()\n        if peek() and peek()[0] == 'OP' and peek()[1] == '+':\n            raise ValueError(\"Unary + not allowed\")\n        base = parse_power()\n        if neg_count % 2 == 1:\n            base = -base\n        return base\n\n    def parse_power():\n        base = parse_atom()\n        if peek() and peek()[0] == 'OP' and peek()[1] == '^':\n            next_token()\n            exp = parse_power()\n            if exp < 0:\n                raise ValueError(\"Negative exponent\")\n            return base ** exp\n        return base\n\n    def parse_atom():\n        t = peek()\n        if t is None:\n            raise ValueError(\"Unexpected end of expression\")\n        if t[0] == 'NUM':\n            return next_token()[1]\n        if t[0] == 'LPAREN':\n            next_token()\n            val = parse_expr()\n            if peek() is None or peek()[0] != 'RPAREN':\n                raise ValueError(\"Unbalanced parentheses\")\n            next_token()\n            return val\n       "
+      },
+      "final": "```python\ndef avaliar(expr: str) -> int:\n    tokens = []\n    i = 0\n    n = len(expr)\n    while i < n:\n        c = expr[i]\n        if c.isspace():\n            i += 1\n            continue\n        if c.isdigit():\n            j = i\n            while j < n and expr[j].isdigit():\n                j += 1\n            tokens.append(('NUM', int(expr[i:j])))\n            i = j\n        elif c in '()':\n            tokens.append(('LPAREN', c) if c == '(' else ('RPAREN', c))\n            i += 1\n        elif c in '+-*/^':\n            tokens.append(('OP', c))\n            i += 1\n        else:\n            raise ValueError(\"Invalid character\")\n\n    pos = 0\n\n    def peek():\n        return tokens[pos] if pos < len(tokens) else None\n\n    def next_token():\n        nonlocal pos\n        val = tokens[pos]\n        pos += 1\n        return val\n\n    def parse_expr():\n        left = parse_term()\n        while True:\n            t = peek()\n            if t and t[0] == 'OP' and t[1] in '+-':\n                op = next_token()[1]\n                right = parse_term()\n                if op == '+':\n                    left = left + right\n                else:\n                    left = left - right\n            else:\n                break\n        return left\n\n    def parse_term():\n        left = parse_unary()\n        while True:\n            t = peek()\n            if t and t[0] == 'OP' and t[1] in '*/':\n                op = next_token()[1]\n                right = parse_unary()\n                if op == '*':\n                    left = left * right\n                else:\n                    if right == 0:\n                        raise ZeroDivisionError(\"Division by zero\")\n                    res = left // right\n                    if (left < 0) ^ (right < 0) and left % right != 0:\n                        res += 1\n                    left = res\n            else:\n                break\n        return left\n\n    def parse_unary():\n        neg_count = 0\n        while peek() and peek()[0] == 'OP' and peek()[1] == '-':\n            neg_count += 1\n            next_token()\n        if peek() and peek()[0] == 'OP' and peek()[1] == '+':\n            raise ValueError(\"Unary + not allowed\")\n        base = parse_power()\n        if neg_count % 2 == 1:\n            base = -base\n        return base\n\n    def parse_power():\n        base = parse_atom()\n        if peek() and peek()[0] == 'OP' and peek()[1] == '^':\n            next_token()\n            exp = parse_power()\n            if exp < 0:\n                raise ValueError(\"Negative exponent\")\n            return base ** exp\n        return base\n\n    def parse_atom():\n        t = peek()\n        if t is None:\n            raise ValueError(\"Unexpected end of expression\")\n        if t[0] == 'NUM':\n            return next_token()[1]\n        if t[0] == 'LPAREN':\n            next_token()\n            val = parse_expr()\n            if peek() is None or peek()[0] != 'RPAREN':\n                raise ValueError(\"Unbalanced parentheses\")\n            next_token()\n            return v",
+      "finish": "stop",
+      "reasoning_chars": 21424
+    },
+    {
+      "category": "coding",
+      "test": "avaliador_expressoes",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 194.9,
+      "prompt_tokens": 4,
+      "completion_tokens": 6722,
+      "cache_tokens": 436,
+      "prompt_tps": 31.52,
+      "gen_tps": 34.55,
+      "detail": {
+        "passed": 5,
+        "total": 36,
+        "falhas": [
+          {
+            "case": "1 + 2 * 3",
+            "ok": false,
+            "info": "exceção: TypeError(\"int() argument must be a string, a bytes-like object or a real number, not 'list'\")"
+          },
+          {
+            "case": "(1 + 2) * 3",
+            "ok": false,
+            "info": "exceção: TypeError(\"int() argument must be a string, a bytes-like object or a real number, not 'list'\")"
+          },
+          {
+            "case": "2^3^2",
+            "ok": false,
+            "info": "exceção: TypeError(\"int() argument must be a string, a bytes-like object or a real number, not 'list'\")"
+          },
+          {
+            "case": "-2^2",
+            "ok": false,
+            "info": "exceção: TypeError(\"int() argument must be a string, a bytes-like object or a real number, not 'list'\")"
+          },
+          {
+            "case": "(-2)^2",
+            "ok": false,
+            "info": "exceção: TypeError(\"int() argument must be a string, a bytes-like object or a real number, not 'list'\")"
+          },
+          {
+            "case": "--3",
+            "ok": false,
+            "info": "exceção: TypeError(\"int() argument must be a string, a bytes-like object or a real number, not 'list'\")"
+          }
+        ],
+        "erro": null,
+        "code": "def avaliar(expr: str) -> int:\n    s = [c for c in expr if not c.isspace()]\n    n = len(s)\n    if n == 0:\n        raise ValueError(\"Expressão inválida\")\n    pos = 0\n\n    def parse_expr():\n        nonlocal pos\n        left = parse_term()\n        while pos < n and s[pos] in ('+', '-'):\n            op = s[pos]\n            pos += 1\n            right = parse_term()\n            if op == '+':\n                left = left + right\n            else:\n                left = left - right\n        return left\n\n    def parse_term():\n        nonlocal pos\n        left = parse_power()\n        while pos < n and s[pos] in ('*', '/'):\n            op = s[pos]\n            pos += 1\n            right = parse_power()\n            if op == '*':\n                left = left * right\n            else:\n                if right == 0:\n                    raise ZeroDivisionError(\"Divisão por zero\")\n                sign = 1 if (left >= 0) == (right >= 0) else -1\n                left = sign * (abs(left) // abs(right))\n        return left\n\n    def parse_power():\n        nonlocal pos\n        base = parse_unary()\n        while pos < n and s[pos] == '^':\n            pos += 1\n            exp = parse_power()\n            if exp < 0:\n                raise ValueError(\"Expoente negativo não permitido\")\n            base = base ** exp\n        return base\n\n    def parse_unary():\n        nonlocal pos\n        if pos < n and s[pos] == '-':\n            pos += 1\n            return -parse_power()\n        return parse_factor()\n\n    def parse_factor():\n        nonlocal pos\n        if pos >= n:\n            raise ValueError(\"Expressão inválida\")\n        if s[pos] == '(':\n            pos += 1\n            val = parse_expr()\n            if pos >= n or s[pos] != ')':\n                raise ValueError(\"Parênteses desbalanceados\")\n            pos += 1\n            return val\n        if s[pos].isdigit():\n            start = pos\n            while pos < n and s[pos].isdigit():\n                pos += 1\n            return int(s[start:pos])\n        raise ValueError(\"Expressão inválida\")\n\n    result = parse_expr()\n    if pos != n:\n        raise ValueError(\"Expressão inválida\")\n    return result"
+      },
+      "final": "```python\ndef avaliar(expr: str) -> int:\n    s = [c for c in expr if not c.isspace()]\n    n = len(s)\n    if n == 0:\n        raise ValueError(\"Expressão inválida\")\n    pos = 0\n\n    def parse_expr():\n        nonlocal pos\n        left = parse_term()\n        while pos < n and s[pos] in ('+', '-'):\n            op = s[pos]\n            pos += 1\n            right = parse_term()\n            if op == '+':\n                left = left + right\n            else:\n                left = left - right\n        return left\n\n    def parse_term():\n        nonlocal pos\n        left = parse_power()\n        while pos < n and s[pos] in ('*', '/'):\n            op = s[pos]\n            pos += 1\n            right = parse_power()\n            if op == '*':\n                left = left * right\n            else:\n                if right == 0:\n                    raise ZeroDivisionError(\"Divisão por zero\")\n                sign = 1 if (left >= 0) == (right >= 0) else -1\n                left = sign * (abs(left) // abs(right))\n        return left\n\n    def parse_power():\n        nonlocal pos\n        base = parse_unary()\n        while pos < n and s[pos] == '^':\n            pos += 1\n            exp = parse_power()\n            if exp < 0:\n                raise ValueError(\"Expoente negativo não permitido\")\n            base = base ** exp\n        return base\n\n    def parse_unary():\n        nonlocal pos\n        if pos < n and s[pos] == '-':\n            pos += 1\n            return -parse_power()\n        return parse_factor()\n\n    def parse_factor():\n        nonlocal pos\n        if pos >= n:\n            raise ValueError(\"Expressão inválida\")\n        if s[pos] == '(':\n            pos += 1\n            val = parse_expr()\n            if pos >= n or s[pos] != ')':\n                raise ValueError(\"Parênteses desbalanceados\")\n            pos += 1\n            return val\n        if s[pos].isdigit():\n            start = pos\n            while pos < n and s[pos].isdigit():\n                pos += 1\n            return int(s[start:pos])\n        raise ValueError(\"Expressão inválida\")\n\n    result = parse_expr()\n    if pos != n:\n        raise ValueError(\"Expressão inválida\")\n    return result\n```",
+      "finish": "stop",
+      "reasoning_chars": 21009
+    },
+    {
+      "category": "coding",
+      "test": "avaliador_expressoes",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 201.9,
+      "prompt_tokens": 4,
+      "completion_tokens": 6963,
+      "cache_tokens": 436,
+      "prompt_tps": 31.73,
+      "gen_tps": 34.54,
+      "detail": {
+        "passed": 7,
+        "total": 36,
+        "falhas": [
+          {
+            "case": "1 + 2 * 3",
+            "ok": false,
+            "info": "exceção: ValueError('Invalid expression')"
+          },
+          {
+            "case": "(1 + 2) * 3",
+            "ok": false,
+            "info": "exceção: ValueError('Invalid expression')"
+          },
+          {
+            "case": "2^3^2",
+            "ok": false,
+            "info": "exceção: RecursionError('maximum recursion depth exceeded')"
+          },
+          {
+            "case": "-2^2",
+            "ok": false,
+            "info": "exceção: RecursionError('maximum recursion depth exceeded')"
+          },
+          {
+            "case": "(-2)^2",
+            "ok": false,
+            "info": "exceção: RecursionError('maximum recursion depth exceeded')"
+          },
+          {
+            "case": "--3",
+            "ok": false,
+            "info": "exceção: RecursionError('maximum recursion depth exceeded')"
+          }
+        ],
+        "erro": null,
+        "code": "def avaliar(expr: str) -> int:\n    tokens = []\n    i = 0\n    n = len(expr)\n    while i < n:\n        c = expr[i]\n        if c.isspace():\n            i += 1\n            continue\n        if c.isdigit():\n            j = i\n            while j < n and expr[j].isdigit():\n                j += 1\n            tokens.append(('NUM', expr[i:j]))\n            i = j\n            if i < n and expr[i].isspace():\n                raise ValueError(\"Invalid expression\")\n        elif c in '+-*/^()':\n            tokens.append(('OP', c))\n            i += 1\n        else:\n            raise ValueError(\"Invalid character\")\n    tokens.append(('EOF', ''))\n    \n    pos = 0\n    current = tokens[pos]\n    \n    def peek():\n        return current\n    \n    def consume():\n        nonlocal current, pos\n        token = current\n        pos += 1\n        if pos < len(tokens):\n            current = tokens[pos]\n        return token\n        \n    def parse_expr():\n        nonlocal current, pos\n        left = parse_term()\n        while current[0] == 'OP' and current[1] in ('+', '-'):\n            op = consume()[1]\n            right = parse_term()\n            if op == '+':\n                left += right\n            else:\n                left -= right\n        return left\n\n    def parse_term():\n        nonlocal current, pos\n        left = parse_power()\n        while current[0] == 'OP' and current[1] in ('*', '/'):\n            op = consume()[1]\n            right = parse_power()\n            if op == '*':\n                left *= right\n            else:\n                if right == 0:\n                    raise ZeroDivisionError()\n                if (left < 0) ^ (right < 0):\n                    left = -((-left) // right)\n                else:\n                    left = left // right\n        return left\n\n    def parse_power():\n        nonlocal current, pos\n        base = parse_unary()\n        if current[0] == 'OP' and current[1] == '^':\n            consume()\n            exponent = parse_power()\n            if exponent < 0:\n                raise ValueError(\"Negative exponent\")\n            if base == 0 and exponent == 0:\n                return 1\n            return base ** exponent\n        return base\n\n    def parse_unary():\n        nonlocal current, pos\n        if current[0] == 'OP' and current[1] == '-':\n            consume()\n            return -parse_unary()\n        if current[0] == 'OP' and current[1] == '+':\n            raise ValueError(\"Unary plus is invalid\")\n        return parse_power()\n\n    def parse_primary():\n        nonlocal current, pos\n        if current[0] == 'NUM':\n            val = int(consume()[1])\n            return val\n        if current[0] == 'OP' and current[1] == '(':\n            consume()\n            val = parse_expr()\n            if current[0] != 'OP' or current[1] != ')':\n                raise ValueError(\"Missing closing parenthesis\")\n            consume()\n            return val\n        raise ValueError(\"Invalid expression\")\n\n    if not tokens or (len(tokens) == 1 and tokens[0][0] == '"
+      },
+      "final": "```python\ndef avaliar(expr: str) -> int:\n    tokens = []\n    i = 0\n    n = len(expr)\n    while i < n:\n        c = expr[i]\n        if c.isspace():\n            i += 1\n            continue\n        if c.isdigit():\n            j = i\n            while j < n and expr[j].isdigit():\n                j += 1\n            tokens.append(('NUM', expr[i:j]))\n            i = j\n            if i < n and expr[i].isspace():\n                raise ValueError(\"Invalid expression\")\n        elif c in '+-*/^()':\n            tokens.append(('OP', c))\n            i += 1\n        else:\n            raise ValueError(\"Invalid character\")\n    tokens.append(('EOF', ''))\n    \n    pos = 0\n    current = tokens[pos]\n    \n    def peek():\n        return current\n    \n    def consume():\n        nonlocal current, pos\n        token = current\n        pos += 1\n        if pos < len(tokens):\n            current = tokens[pos]\n        return token\n        \n    def parse_expr():\n        nonlocal current, pos\n        left = parse_term()\n        while current[0] == 'OP' and current[1] in ('+', '-'):\n            op = consume()[1]\n            right = parse_term()\n            if op == '+':\n                left += right\n            else:\n                left -= right\n        return left\n\n    def parse_term():\n        nonlocal current, pos\n        left = parse_power()\n        while current[0] == 'OP' and current[1] in ('*', '/'):\n            op = consume()[1]\n            right = parse_power()\n            if op == '*':\n                left *= right\n            else:\n                if right == 0:\n                    raise ZeroDivisionError()\n                if (left < 0) ^ (right < 0):\n                    left = -((-left) // right)\n                else:\n                    left = left // right\n        return left\n\n    def parse_power():\n        nonlocal current, pos\n        base = parse_unary()\n        if current[0] == 'OP' and current[1] == '^':\n            consume()\n            exponent = parse_power()\n            if exponent < 0:\n                raise ValueError(\"Negative exponent\")\n            if base == 0 and exponent == 0:\n                return 1\n            return base ** exponent\n        return base\n\n    def parse_unary():\n        nonlocal current, pos\n        if current[0] == 'OP' and current[1] == '-':\n            consume()\n            return -parse_unary()\n        if current[0] == 'OP' and current[1] == '+':\n            raise ValueError(\"Unary plus is invalid\")\n        return parse_power()\n\n    def parse_primary():\n        nonlocal current, pos\n        if current[0] == 'NUM':\n            val = int(consume()[1])\n            return val\n        if current[0] == 'OP' and current[1] == '(':\n            consume()\n            val = parse_expr()\n            if current[0] != 'OP' or current[1] != ')':\n                raise ValueError(\"Missing closing parenthesis\")\n            consume()\n            return val\n        raise ValueError(\"Invalid expression\")\n\n    if not tokens or (len(tokens) == 1 and tokens[",
+      "finish": "stop",
+      "reasoning_chars": 21156
+    },
+    {
+      "category": "coding",
+      "test": "calculo_frete",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 207.8,
+      "prompt_tokens": 583,
+      "completion_tokens": 6737,
+      "cache_tokens": 24,
+      "prompt_tps": 174.77,
+      "gen_tps": 32.99,
+      "detail": {
+        "passed": 29,
+        "total": 30,
+        "falhas": [
+          {
+            "case": "((1.5, 'N', 20.0), {'cupom': 'FRETE10', 'expresso': True})",
+            "ok": false,
+            "info": "esperado 29.3, obtido 29.29"
+          }
+        ],
+        "erro": null,
+        "code": "import math\nfrom decimal import Decimal, ROUND_HALF_UP\n\ndef calcular_frete(peso_kg: float, regiao: str, valor_pedido: float, cupom: str | None = None, expresso: bool = False) -> float:\n    # 1. Validação\n    if not (0 < peso_kg <= 30):\n        raise ValueError(\"peso_kg deve ser > 0 e <= 30\")\n    if regiao not in (\"S\", \"SE\", \"CO\", \"NE\", \"N\"):\n        raise ValueError(\"região inválida\")\n    if valor_pedido < 0:\n        raise ValueError(\"valor_pedido deve ser >= 0\")\n\n    # 2. Tarifa base por peso\n    if peso_kg <= 1.0:\n        base = 12.00\n    elif peso_kg <= 5.0:\n        base = 12.00 + 3.50 * math.ceil(peso_kg - 1)\n    else:\n        base = 26.00 + 2.80 * math.ceil(peso_kg - 5)\n\n    # 3. Multiplicador regional\n    multiplicadores = {\"S\": 1.00, \"SE\": 1.00, \"CO\": 1.20, \"NE\": 1.35, \"N\": 1.50}\n    base *= multiplicadores[regiao]\n\n    # 4. Expresso\n    if expresso:\n        base *= 1.40\n\n    frete = base\n\n    # 5. Frete grátis\n    if valor_pedido >= 299.90 and not expresso and regiao in (\"S\", \"SE\", \"CO\"):\n        frete = 0.0\n    else:\n        # 6. Cupons\n        if cupom is not None and cupom != \"\":\n            cupom_upper = cupom.upper()\n            if cupom_upper == \"FRETE10\":\n                frete *= 0.90\n            elif cupom_upper == \"FRETEMETADE\":\n                if peso_kg <= 5.0:\n                    frete *= 0.50\n            else:\n                raise ValueError(\"Cupom inválido\")\n\n    # 7. Frete mínimo\n    if frete != 0.0:\n        frete = max(9.90, frete)\n\n    # 8. Arredondamento\n    return float(Decimal(str(frete)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))"
+      },
+      "final": "```python\nimport math\nfrom decimal import Decimal, ROUND_HALF_UP\n\ndef calcular_frete(peso_kg: float, regiao: str, valor_pedido: float, cupom: str | None = None, expresso: bool = False) -> float:\n    # 1. Validação\n    if not (0 < peso_kg <= 30):\n        raise ValueError(\"peso_kg deve ser > 0 e <= 30\")\n    if regiao not in (\"S\", \"SE\", \"CO\", \"NE\", \"N\"):\n        raise ValueError(\"região inválida\")\n    if valor_pedido < 0:\n        raise ValueError(\"valor_pedido deve ser >= 0\")\n\n    # 2. Tarifa base por peso\n    if peso_kg <= 1.0:\n        base = 12.00\n    elif peso_kg <= 5.0:\n        base = 12.00 + 3.50 * math.ceil(peso_kg - 1)\n    else:\n        base = 26.00 + 2.80 * math.ceil(peso_kg - 5)\n\n    # 3. Multiplicador regional\n    multiplicadores = {\"S\": 1.00, \"SE\": 1.00, \"CO\": 1.20, \"NE\": 1.35, \"N\": 1.50}\n    base *= multiplicadores[regiao]\n\n    # 4. Expresso\n    if expresso:\n        base *= 1.40\n\n    frete = base\n\n    # 5. Frete grátis\n    if valor_pedido >= 299.90 and not expresso and regiao in (\"S\", \"SE\", \"CO\"):\n        frete = 0.0\n    else:\n        # 6. Cupons\n        if cupom is not None and cupom != \"\":\n            cupom_upper = cupom.upper()\n            if cupom_upper == \"FRETE10\":\n                frete *= 0.90\n            elif cupom_upper == \"FRETEMETADE\":\n                if peso_kg <= 5.0:\n                    frete *= 0.50\n            else:\n                raise ValueError(\"Cupom inválido\")\n\n    # 7. Frete mínimo\n    if frete != 0.0:\n        frete = max(9.90, frete)\n\n    # 8. Arredondamento\n    return float(Decimal(str(frete)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))\n```",
+      "finish": "stop",
+      "reasoning_chars": 18058
+    }
+  ],
+  "status": "running",
+  "settings": {
+    "ctx": 32768,
+    "reasoning_budget": 6144,
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.0
+  },
+  "load_s": 25.5,
+  "log": "/home/will/llm-bench/logs/qwen36-35b__single__UD-IQ2_XXS.log"
+}

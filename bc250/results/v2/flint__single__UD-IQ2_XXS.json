@@ -1,0 +1,1323 @@
+{
+  "model": "flint-39.8B-A2.5B",
+  "key": "flint",
+  "mode": "single",
+  "repo": "unsloth/flint-GGUF",
+  "quant": "UD-IQ2_XXS",
+  "runs": 3,
+  "calls": [
+    {
+      "category": "long_context",
+      "test": "multi_hop_ramal",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 155.0,
+      "prompt_tokens": 16778,
+      "completion_tokens": 1563,
+      "cache_tokens": 0,
+      "prompt_tps": 172.46,
+      "gen_tps": 27.25,
+      "detail": {
+        "answer_line": "4471",
+        "parsed": [
+          4471.0
+        ]
+      },
+      "final": "Em outubro de 2026, a chave do cofre B fica com a pessoa que coordena a filial de Joinville. Após a substituição registrada em 03/03/2026, Renata Aguiar passou a coordenar essa filial. O ramal da Renata Aguiar registrado no documento é 4471.\n\nRESPOSTA: 4471",
+      "finish": "stop",
+      "reasoning_chars": 5121
+    },
+    {
+      "category": "long_context",
+      "test": "multi_hop_ramal",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 33.3,
+      "prompt_tokens": 5,
+      "completion_tokens": 910,
+      "cache_tokens": 16773,
+      "prompt_tps": 30.46,
+      "gen_tps": 27.54,
+      "detail": {
+        "answer_line": "4471",
+        "parsed": [
+          4471.0
+        ]
+      },
+      "final": "A chave do cofre B fica com o coordenador da filial de Joinville. Em 03/03/2026, Renata Aguiar substituiu Otávio Brandt nessa coordenação, portanto, em outubro de 2026, a pessoa com a chave do cofre B é Renata Aguiar. O ramal registrado para ela é 4471.\n\nRESPOSTA: 4471",
+      "finish": "stop",
+      "reasoning_chars": 2892
+    },
+    {
+      "category": "long_context",
+      "test": "multi_hop_ramal",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 51.6,
+      "prompt_tokens": 5,
+      "completion_tokens": 1411,
+      "cache_tokens": 16773,
+      "prompt_tps": 29.61,
+      "gen_tps": 27.44,
+      "detail": {
+        "answer_line": "4471",
+        "parsed": [
+          4471.0
+        ]
+      },
+      "final": "Considerando a mudança registrada em 03/03/2026, Renata Aguiar passou a coordenar a filial de Joinville, substituindo Otávio Brandt. Pela norma interna, a chave do cofre B fica com o coordenador da filial de Joinville. Hoje, em outubro de 2026, quem guarda a chave do cofre B é Renata Aguiar, e o ramal informado é o 4471.\n\nRESPOSTA: 4471",
+      "finish": "stop",
+      "reasoning_chars": 4599
+    },
+    {
+      "category": "long_context",
+      "test": "soma_com_correcoes",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 47.4,
+      "prompt_tokens": 514,
+      "completion_tokens": 1179,
+      "cache_tokens": 16261,
+      "prompt_tps": 132.17,
+      "gen_tps": 27.15,
+      "detail": {
+        "answer_line": "1576",
+        "parsed": [
+          1576.0
+        ]
+      },
+      "final": "RESPOSTA: 1576",
+      "finish": "stop",
+      "reasoning_chars": 3938
+    },
+    {
+      "category": "long_context",
+      "test": "soma_com_correcoes",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 145.9,
+      "prompt_tokens": 5,
+      "completion_tokens": 3901,
+      "cache_tokens": 16770,
+      "prompt_tps": 30.24,
+      "gen_tps": 26.78,
+      "detail": {
+        "answer_line": "1576",
+        "parsed": [
+          1576.0
+        ]
+      },
+      "final": "Considerando as correções e remessas registradas para os lotes L-17, L-22 e L-31:\n\n- L-17: correção indicou 304 unidades (final).\n- L-22: registro direto de 1125 unidades.\n- L-31: duas remessas registradas, 87 e 60 unidades, totalizando 147 unidades.\n\nSoma final: 304 + 1125 + 147 = 1576.\n\nRESPOSTA: 1576",
+      "finish": "stop",
+      "reasoning_chars": 12457
+    },
+    {
+      "category": "long_context",
+      "test": "soma_com_correcoes",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 87.2,
+      "prompt_tokens": 5,
+      "completion_tokens": 2349,
+      "cache_tokens": 16770,
+      "prompt_tps": 32.34,
+      "gen_tps": 27.02,
+      "detail": {
+        "answer_line": "1576",
+        "parsed": [
+          1576.0
+        ]
+      },
+      "final": "Considerando as correções e remessas registradas:\n- Lote L-17: correção indica que foram 304 unidades (valor correto).\n- Lote L-22: recebeu 1125 unidades.\n- Lote L-31: recebeu 87 unidades e uma segunda remessa de 60 unidades, totalizando 147 unidades.\n\nSoma: 304 + 1125 + 147 = 1576.\n\nRESPOSTA: 1576",
+      "finish": "stop",
+      "reasoning_chars": 7266
+    },
+    {
+      "category": "coding",
+      "test": "avaliador_expressoes",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 218.2,
+      "prompt_tokens": 436,
+      "completion_tokens": 6814,
+      "cache_tokens": 0,
+      "prompt_tps": 147.05,
+      "gen_tps": 31.7,
+      "detail": {
+        "passed": 33,
+        "total": 36,
+        "falhas": [
+          {
+            "case": "10 - 4 - 3",
+            "ok": false,
+            "info": "exceção: ValueError()"
+          },
+          {
+            "case": "100 / 10 / 5",
+            "ok": false,
+            "info": "exceção: ValueError()"
+          },
+          {
+            "case": "8 / 3 * 3",
+            "ok": false,
+            "info": "exceção: ValueError()"
+          }
+        ],
+        "erro": null,
+        "code": "def avaliar(expr: str) -> int:\n    tokens = []\n    i = 0\n    n = len(expr)\n\n    while i < n:\n        c = expr[i]\n        if c.isspace():\n            i += 1\n            continue\n        if c.isdigit():\n            j = i\n            while j < n and expr[j].isdigit():\n                j += 1\n            tokens.append(('num', int(expr[i:j])))\n            i = j\n            continue\n        if c in '+-*/^':\n            tokens.append(('op', c))\n        elif c == '(':\n            tokens.append(('lparen', c))\n        elif c == ')':\n            tokens.append(('rparen', c))\n        else:\n            raise ValueError\n        i += 1\n\n    pos = 0\n\n    def peek():\n        if pos < len(tokens):\n            return tokens[pos]\n        return None\n\n    def consume():\n        nonlocal pos\n        tok = tokens[pos]\n        pos += 1\n        return tok\n\n    def parse_expr():\n        val = parse_term()\n        tok = peek()\n        if tok is not None and tok[0] == 'op' and tok[1] in '+-':\n            op = consume()[1]\n            rhs = parse_term()\n            if op == '+':\n                val += rhs\n            else:\n                val -= rhs\n        return val\n\n    def parse_term():\n        val = parse_unary()\n        tok = peek()\n        if tok is not None and tok[0] == 'op' and tok[1] in '*/':\n            op = consume()[1]\n            rhs = parse_unary()\n            if op == '*':\n                val *= rhs\n            else:\n                if rhs == 0:\n                    raise ZeroDivisionError\n                q = abs(val) // abs(rhs)\n                if (val < 0) ^ (rhs < 0):\n                    q = -q\n                val = q\n        return val\n\n    def parse_unary():\n        tok = peek()\n        if tok is not None and tok[0] == 'op' and tok[1] == '-':\n            consume()\n            val = parse_unary()\n            return -val\n        return parse_power()\n\n    def parse_power():\n        base = parse_primary()\n        tok = peek()\n        if tok is not None and tok[0] == 'op' and tok[1] == '^':\n            consume()\n            exp = parse_unary()\n            if exp < 0:\n                raise ValueError\n            return pow(base, exp)\n        return base\n\n    def parse_primary():\n        tok = peek()\n        if tok is None:\n            raise ValueError\n        if tok[0] == 'lparen':\n            consume()\n            val = parse_expr()\n            tok = peek()\n            if tok is None or tok[0] != 'rparen':\n                raise ValueError\n            consume()\n            return val\n        if tok[0] == 'num':\n            consume()\n            return tok[1]\n        raise ValueError\n\n    result = parse_expr()\n    if pos != len(tokens):\n        raise ValueError\n    return result"
+      },
+      "final": "```python\ndef avaliar(expr: str) -> int:\n    tokens = []\n    i = 0\n    n = len(expr)\n\n    while i < n:\n        c = expr[i]\n        if c.isspace():\n            i += 1\n            continue\n        if c.isdigit():\n            j = i\n            while j < n and expr[j].isdigit():\n                j += 1\n            tokens.append(('num', int(expr[i:j])))\n            i = j\n            continue\n        if c in '+-*/^':\n            tokens.append(('op', c))\n        elif c == '(':\n            tokens.append(('lparen', c))\n        elif c == ')':\n            tokens.append(('rparen', c))\n        else:\n            raise ValueError\n        i += 1\n\n    pos = 0\n\n    def peek():\n        if pos < len(tokens):\n            return tokens[pos]\n        return None\n\n    def consume():\n        nonlocal pos\n        tok = tokens[pos]\n        pos += 1\n        return tok\n\n    def parse_expr():\n        val = parse_term()\n        tok = peek()\n        if tok is not None and tok[0] == 'op' and tok[1] in '+-':\n            op = consume()[1]\n            rhs = parse_term()\n            if op == '+':\n                val += rhs\n            else:\n                val -= rhs\n        return val\n\n    def parse_term():\n        val = parse_unary()\n        tok = peek()\n        if tok is not None and tok[0] == 'op' and tok[1] in '*/':\n            op = consume()[1]\n            rhs = parse_unary()\n            if op == '*':\n                val *= rhs\n            else:\n                if rhs == 0:\n                    raise ZeroDivisionError\n                q = abs(val) // abs(rhs)\n                if (val < 0) ^ (rhs < 0):\n                    q = -q\n                val = q\n        return val\n\n    def parse_unary():\n        tok = peek()\n        if tok is not None and tok[0] == 'op' and tok[1] == '-':\n            consume()\n            val = parse_unary()\n            return -val\n        return parse_power()\n\n    def parse_power():\n        base = parse_primary()\n        tok = peek()\n        if tok is not None and tok[0] == 'op' and tok[1] == '^':\n            consume()\n            exp = parse_unary()\n            if exp < 0:\n                raise ValueError\n            return pow(base, exp)\n        return base\n\n    def parse_primary():\n        tok = peek()\n        if tok is None:\n            raise ValueError\n        if tok[0] == 'lparen':\n            consume()\n            val = parse_expr()\n            tok = peek()\n            if tok is None or tok[0] != 'rparen':\n                raise ValueError\n            consume()\n            return val\n        if tok[0] == 'num':\n            consume()\n            return tok[1]\n        raise ValueError\n\n    result = parse_expr()\n    if pos != len(tokens):\n        raise ValueError\n    return result\n```",
+      "finish": "stop",
+      "reasoning_chars": 23720
+    },
+    {
+      "category": "coding",
+      "test": "avaliador_expressoes",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 213.6,
+      "prompt_tokens": 5,
+      "completion_tokens": 6774,
+      "cache_tokens": 431,
+      "prompt_tps": 40.77,
+      "gen_tps": 31.74,
+      "detail": {
+        "passed": 36,
+        "total": 36,
+        "falhas": [],
+        "erro": null,
+        "code": "def avaliar(expr: str) -> int:\n    tokens = []\n    i = 0\n    while i < len(expr):\n        c = expr[i]\n        if c.isspace():\n            i += 1\n            continue\n        if c.isdigit():\n            j = i\n            while j < len(expr) and expr[j].isdigit():\n                j += 1\n            tokens.append(('num', int(expr[i:j])))\n            i = j\n            continue\n        if c in '+-*/^()':\n            tokens.append((c, c))\n            i += 1\n            continue\n        raise ValueError(f\"Invalid character: {c}\")\n\n    idx = 0\n\n    def peek():\n        if idx < len(tokens):\n            return tokens[idx]\n        return None\n\n    def next_token():\n        nonlocal idx\n        tok = tokens[idx]\n        idx += 1\n        return tok\n\n    def parse_expr():\n        left = parse_term()\n        while peek() is not None and peek()[0] in ('+', '-'):\n            op = next_token()[0]\n            right = parse_term()\n            if op == '+':\n                left = left + right\n            else:\n                left = left - right\n        return left\n\n    def parse_term():\n        left = parse_unary()\n        while peek() is not None and peek()[0] in ('*', '/'):\n            op = next_token()[0]\n            right = parse_unary()\n            if op == '*':\n                left = left * right\n            else:\n                if right == 0:\n                    raise ZeroDivisionError\n                q = abs(left) // abs(right)\n                if (left < 0) != (right < 0):\n                    q = -q\n                left = q\n        return left\n\n    def parse_unary():\n        if peek() is not None and peek()[0] == '-':\n            next_token()\n            return -parse_unary()\n        return parse_power()\n\n    def parse_power():\n        base = parse_primary()\n        if peek() is not None and peek()[0] == '^':\n            next_token()\n            exponent = parse_unary()\n            if exponent < 0:\n                raise ValueError(\"Negative exponent\")\n            if base == 0 and exponent == 0:\n                return 1\n            return pow(base, exponent)\n        return base\n\n    def parse_primary():\n        tok = peek()\n        if tok is None:\n            raise ValueError(\"Unexpected end\")\n        if tok[0] == 'num':\n            next_token()\n            return tok[1]\n        if tok[0] == '(':\n            next_token()\n            val = parse_expr()\n            if peek() is None or peek()[0] != ')':\n                raise ValueError(\"Missing closing parenthesis\")\n            next_token()\n            return val\n        raise ValueError(\"Unexpected token\")\n\n    result = parse_expr()\n    if peek() is not None:\n        raise ValueError(\"Unexpected token\")\n    return result"
+      },
+      "final": "```python\ndef avaliar(expr: str) -> int:\n    tokens = []\n    i = 0\n    while i < len(expr):\n        c = expr[i]\n        if c.isspace():\n            i += 1\n            continue\n        if c.isdigit():\n            j = i\n            while j < len(expr) and expr[j].isdigit():\n                j += 1\n            tokens.append(('num', int(expr[i:j])))\n            i = j\n            continue\n        if c in '+-*/^()':\n            tokens.append((c, c))\n            i += 1\n            continue\n        raise ValueError(f\"Invalid character: {c}\")\n\n    idx = 0\n\n    def peek():\n        if idx < len(tokens):\n            return tokens[idx]\n        return None\n\n    def next_token():\n        nonlocal idx\n        tok = tokens[idx]\n        idx += 1\n        return tok\n\n    def parse_expr():\n        left = parse_term()\n        while peek() is not None and peek()[0] in ('+', '-'):\n            op = next_token()[0]\n            right = parse_term()\n            if op == '+':\n                left = left + right\n            else:\n                left = left - right\n        return left\n\n    def parse_term():\n        left = parse_unary()\n        while peek() is not None and peek()[0] in ('*', '/'):\n            op = next_token()[0]\n            right = parse_unary()\n            if op == '*':\n                left = left * right\n            else:\n                if right == 0:\n                    raise ZeroDivisionError\n                q = abs(left) // abs(right)\n                if (left < 0) != (right < 0):\n                    q = -q\n                left = q\n        return left\n\n    def parse_unary():\n        if peek() is not None and peek()[0] == '-':\n            next_token()\n            return -parse_unary()\n        return parse_power()\n\n    def parse_power():\n        base = parse_primary()\n        if peek() is not None and peek()[0] == '^':\n            next_token()\n            exponent = parse_unary()\n            if exponent < 0:\n                raise ValueError(\"Negative exponent\")\n            if base == 0 and exponent == 0:\n                return 1\n            return pow(base, exponent)\n        return base\n\n    def parse_primary():\n        tok = peek()\n        if tok is None:\n            raise ValueError(\"Unexpected end\")\n        if tok[0] == 'num':\n            next_token()\n            return tok[1]\n        if tok[0] == '(':\n            next_token()\n            val = parse_expr()\n            if peek() is None or peek()[0] != ')':\n                raise ValueError(\"Missing closing parenthesis\")\n            next_token()\n            return val\n        raise ValueError(\"Unexpected token\")\n\n    result = parse_expr()\n    if peek() is not None:\n        raise ValueError(\"Unexpected token\")\n    return result\n```",
+      "finish": "stop",
+      "reasoning_chars": 22606
+    },
+    {
+      "category": "coding",
+      "test": "avaliador_expressoes",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 211.9,
+      "prompt_tokens": 5,
+      "completion_tokens": 6722,
+      "cache_tokens": 431,
+      "prompt_tps": 40.9,
+      "gen_tps": 31.75,
+      "detail": {
+        "passed": 36,
+        "total": 36,
+        "falhas": [],
+        "erro": null,
+        "code": "def avaliar(expr: str) -> int:\n    s = expr\n    n = len(s)\n    idx = 0\n\n    def skip():\n        nonlocal idx\n        while idx < n and s[idx].isspace():\n            idx += 1\n\n    def parse_expr():\n        nonlocal idx\n        left = parse_term()\n        skip()\n        while True:\n            if idx < n and s[idx] == '+':\n                idx += 1\n                right = parse_term()\n                left += right\n                skip()\n            elif idx < n and s[idx] == '-':\n                idx += 1\n                right = parse_term()\n                left -= right\n                skip()\n            else:\n                break\n        return left\n\n    def parse_term():\n        nonlocal idx\n        left = parse_unary()\n        skip()\n        while True:\n            if idx < n and s[idx] == '*':\n                idx += 1\n                right = parse_unary()\n                left = left * right\n                skip()\n            elif idx < n and s[idx] == '/':\n                idx += 1\n                right = parse_unary()\n                if right == 0:\n                    raise ZeroDivisionError\n                q = abs(left) // abs(right)\n                if (left < 0) ^ (right < 0):\n                    q = -q\n                left = q\n                skip()\n            else:\n                break\n        return left\n\n    def parse_unary():\n        nonlocal idx\n        skip()\n        if idx < n and s[idx] == '-':\n            idx += 1\n            val = parse_unary()\n            return -val\n        return parse_power()\n\n    def parse_power():\n        nonlocal idx\n        left = parse_primary()\n        skip()\n        if idx < n and s[idx] == '^':\n            idx += 1\n            right = parse_unary()\n            if right < 0:\n                raise ValueError(\"negative exponent\")\n            return left ** right\n        return left\n\n    def parse_primary():\n        nonlocal idx\n        skip()\n        if idx >= n:\n            raise ValueError(\"empty expression\")\n        ch = s[idx]\n        if ch == '(':\n            idx += 1\n            val = parse_expr()\n            skip()\n            if idx >= n or s[idx] != ')':\n                raise ValueError(\"unbalanced parentheses\")\n            idx += 1\n            return val\n        if ch.isdigit():\n            start = idx\n            while idx < n and s[idx].isdigit():\n                idx += 1\n            return int(s[start:idx])\n        raise ValueError(\"invalid character\")\n\n    result = parse_expr()\n    skip()\n    if idx != n:\n        raise ValueError(\"invalid expression\")\n    return result"
+      },
+      "final": "```python\ndef avaliar(expr: str) -> int:\n    s = expr\n    n = len(s)\n    idx = 0\n\n    def skip():\n        nonlocal idx\n        while idx < n and s[idx].isspace():\n            idx += 1\n\n    def parse_expr():\n        nonlocal idx\n        left = parse_term()\n        skip()\n        while True:\n            if idx < n and s[idx] == '+':\n                idx += 1\n                right = parse_term()\n                left += right\n                skip()\n            elif idx < n and s[idx] == '-':\n                idx += 1\n                right = parse_term()\n                left -= right\n                skip()\n            else:\n                break\n        return left\n\n    def parse_term():\n        nonlocal idx\n        left = parse_unary()\n        skip()\n        while True:\n            if idx < n and s[idx] == '*':\n                idx += 1\n                right = parse_unary()\n                left = left * right\n                skip()\n            elif idx < n and s[idx] == '/':\n                idx += 1\n                right = parse_unary()\n                if right == 0:\n                    raise ZeroDivisionError\n                q = abs(left) // abs(right)\n                if (left < 0) ^ (right < 0):\n                    q = -q\n                left = q\n                skip()\n            else:\n                break\n        return left\n\n    def parse_unary():\n        nonlocal idx\n        skip()\n        if idx < n and s[idx] == '-':\n            idx += 1\n            val = parse_unary()\n            return -val\n        return parse_power()\n\n    def parse_power():\n        nonlocal idx\n        left = parse_primary()\n        skip()\n        if idx < n and s[idx] == '^':\n            idx += 1\n            right = parse_unary()\n            if right < 0:\n                raise ValueError(\"negative exponent\")\n            return left ** right\n        return left\n\n    def parse_primary():\n        nonlocal idx\n        skip()\n        if idx >= n:\n            raise ValueError(\"empty expression\")\n        ch = s[idx]\n        if ch == '(':\n            idx += 1\n            val = parse_expr()\n            skip()\n            if idx >= n or s[idx] != ')':\n                raise ValueError(\"unbalanced parentheses\")\n            idx += 1\n            return val\n        if ch.isdigit():\n            start = idx\n            while idx < n and s[idx].isdigit():\n                idx += 1\n            return int(s[start:idx])\n        raise ValueError(\"invalid character\")\n\n    result = parse_expr()\n    skip()\n    if idx != n:\n        raise ValueError(\"invalid expression\")\n    return result\n```",
+      "finish": "stop",
+      "reasoning_chars": 22075
+    },
+    {
+      "category": "coding",
+      "test": "calculo_frete",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 211.5,
+      "prompt_tokens": 556,
+      "completion_tokens": 6590,
+      "cache_tokens": 22,
+      "prompt_tps": 153.95,
+      "gen_tps": 31.72,
+      "detail": {
+        "passed": 29,
+        "total": 30,
+        "falhas": [
+          {
+            "case": "((1.5, 'N', 20.0), {'cupom': 'FRETE10', 'expresso': True})",
+            "ok": false,
+            "info": "esperado 29.3, obtido 29.29"
+          }
+        ],
+        "erro": null,
+        "code": "import math\nfrom decimal import Decimal, ROUND_HALF_UP\n\ndef calcular_frete(peso_kg: float, regiao: str, valor_pedido: float, cupom: str | None = None, expresso: bool = False) -> float:\n    if peso_kg <= 0 or peso_kg > 30:\n        raise ValueError(\"Peso inválido\")\n    if regiao not in (\"S\", \"SE\", \"CO\", \"NE\", \"N\"):\n        raise ValueError(\"Região inválida\")\n    if valor_pedido < 0:\n        raise ValueError(\"Valor pedido inválido\")\n\n    if peso_kg <= 1:\n        base = 12.00\n    elif peso_kg <= 5:\n        base = 12.00 + 3.50 * math.ceil(peso_kg - 1)\n    else:\n        base = 26.00 + 2.80 * math.ceil(peso_kg - 5)\n\n    mult = {\"S\": 1.00, \"SE\": 1.00, \"CO\": 1.20, \"NE\": 1.35, \"N\": 1.50}[regiao]\n    freight = base * mult\n\n    if expresso:\n        freight *= 1.4\n\n    if valor_pedido >= 299.90 and not expresso and regiao in (\"S\", \"SE\", \"CO\"):\n        return 0.0\n\n    if cupom is not None and cupom != \"\":\n        cupom_code = cupom.upper()\n        if cupom_code == \"FRETE10\":\n            freight *= 0.90\n        elif cupom_code == \"FRETEMETADE\":\n            if peso_kg <= 5:\n                freight *= 0.50\n        else:\n            raise ValueError(\"Cupom inválido\")\n\n    if freight < 9.90:\n        freight = 9.90\n\n    final = float(Decimal(str(freight)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))\n    return final"
+      },
+      "final": "```python\nimport math\nfrom decimal import Decimal, ROUND_HALF_UP\n\ndef calcular_frete(peso_kg: float, regiao: str, valor_pedido: float, cupom: str | None = None, expresso: bool = False) -> float:\n    if peso_kg <= 0 or peso_kg > 30:\n        raise ValueError(\"Peso inválido\")\n    if regiao not in (\"S\", \"SE\", \"CO\", \"NE\", \"N\"):\n        raise ValueError(\"Região inválida\")\n    if valor_pedido < 0:\n        raise ValueError(\"Valor pedido inválido\")\n\n    if peso_kg <= 1:\n        base = 12.00\n    elif peso_kg <= 5:\n        base = 12.00 + 3.50 * math.ceil(peso_kg - 1)\n    else:\n        base = 26.00 + 2.80 * math.ceil(peso_kg - 5)\n\n    mult = {\"S\": 1.00, \"SE\": 1.00, \"CO\": 1.20, \"NE\": 1.35, \"N\": 1.50}[regiao]\n    freight = base * mult\n\n    if expresso:\n        freight *= 1.4\n\n    if valor_pedido >= 299.90 and not expresso and regiao in (\"S\", \"SE\", \"CO\"):\n        return 0.0\n\n    if cupom is not None and cupom != \"\":\n        cupom_code = cupom.upper()\n        if cupom_code == \"FRETE10\":\n            freight *= 0.90\n        elif cupom_code == \"FRETEMETADE\":\n            if peso_kg <= 5:\n                freight *= 0.50\n        else:\n            raise ValueError(\"Cupom inválido\")\n\n    if freight < 9.90:\n        freight = 9.90\n\n    final = float(Decimal(str(freight)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))\n    return final\n```",
+      "finish": "stop",
+      "reasoning_chars": 17133
+    },
+    {
+      "category": "coding",
+      "test": "calculo_frete",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 210.4,
+      "prompt_tokens": 5,
+      "completion_tokens": 6668,
+      "cache_tokens": 573,
+      "prompt_tps": 40.5,
+      "gen_tps": 31.73,
+      "detail": {
+        "passed": 30,
+        "total": 30,
+        "falhas": [],
+        "erro": null,
+        "code": "from decimal import Decimal, ROUND_HALF_UP\nfrom math import ceil\n\ndef calcular_frete(peso_kg: float, regiao: str, valor_pedido: float, cupom: str | None = None, expresso: bool = False) -> float:\n    if not (peso_kg > 0 and peso_kg <= 30):\n        raise ValueError(\"Peso inválido\")\n    if regiao not in (\"S\", \"SE\", \"CO\", \"NE\", \"N\"):\n        raise ValueError(\"Região inválida\")\n    if valor_pedido < 0:\n        raise ValueError(\"Valor pedido inválido\")\n\n    if peso_kg <= 1:\n        base = Decimal(\"12.00\")\n    elif peso_kg <= 5:\n        adicional = ceil(peso_kg - 1)\n        base = Decimal(\"12.00\") + Decimal(\"3.50\") * adicional\n    else:\n        adicional = ceil(peso_kg - 5)\n        base = Decimal(\"26.00\") + Decimal(\"2.80\") * adicional\n\n    mult = {\n        \"S\": Decimal(\"1.00\"),\n        \"SE\": Decimal(\"1.00\"),\n        \"CO\": Decimal(\"1.20\"),\n        \"NE\": Decimal(\"1.35\"),\n        \"N\": Decimal(\"1.50\"),\n    }[regiao]\n\n    frete = base * mult\n\n    if expresso:\n        frete = frete * Decimal(\"1.4\")\n\n    if valor_pedido >= 299.90 and not expresso and regiao in (\"S\", \"SE\", \"CO\"):\n        return 0.0\n\n    if cupom is None or cupom == \"\":\n        cupom_normalizado = None\n    else:\n        cupom_normalizado = cupom.upper()\n\n    if cupom_normalizado is not None:\n        if cupom_normalizado == \"FRETE10\":\n            frete = frete * Decimal(\"0.9\")\n        elif cupom_normalizado == \"FRETEMETADE\":\n            if peso_kg <= 5:\n                frete = frete * Decimal(\"0.5\")\n        else:\n            raise ValueError(\"Cupom inválido\")\n\n    minimo = Decimal(\"9.90\")\n    if frete < minimo:\n        frete = minimo\n\n    frete_final = frete.quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_UP)\n    return float(frete_final)"
+      },
+      "final": "```python\nfrom decimal import Decimal, ROUND_HALF_UP\nfrom math import ceil\n\ndef calcular_frete(peso_kg: float, regiao: str, valor_pedido: float, cupom: str | None = None, expresso: bool = False) -> float:\n    if not (peso_kg > 0 and peso_kg <= 30):\n        raise ValueError(\"Peso inválido\")\n    if regiao not in (\"S\", \"SE\", \"CO\", \"NE\", \"N\"):\n        raise ValueError(\"Região inválida\")\n    if valor_pedido < 0:\n        raise ValueError(\"Valor pedido inválido\")\n\n    if peso_kg <= 1:\n        base = Decimal(\"12.00\")\n    elif peso_kg <= 5:\n        adicional = ceil(peso_kg - 1)\n        base = Decimal(\"12.00\") + Decimal(\"3.50\") * adicional\n    else:\n        adicional = ceil(peso_kg - 5)\n        base = Decimal(\"26.00\") + Decimal(\"2.80\") * adicional\n\n    mult = {\n        \"S\": Decimal(\"1.00\"),\n        \"SE\": Decimal(\"1.00\"),\n        \"CO\": Decimal(\"1.20\"),\n        \"NE\": Decimal(\"1.35\"),\n        \"N\": Decimal(\"1.50\"),\n    }[regiao]\n\n    frete = base * mult\n\n    if expresso:\n        frete = frete * Decimal(\"1.4\")\n\n    if valor_pedido >= 299.90 and not expresso and regiao in (\"S\", \"SE\", \"CO\"):\n        return 0.0\n\n    if cupom is None or cupom == \"\":\n        cupom_normalizado = None\n    else:\n        cupom_normalizado = cupom.upper()\n\n    if cupom_normalizado is not None:\n        if cupom_normalizado == \"FRETE10\":\n            frete = frete * Decimal(\"0.9\")\n        elif cupom_normalizado == \"FRETEMETADE\":\n            if peso_kg <= 5:\n                frete = frete * Decimal(\"0.5\")\n        else:\n            raise ValueError(\"Cupom inválido\")\n\n    minimo = Decimal(\"9.90\")\n    if frete < minimo:\n        frete = minimo\n\n    frete_final = frete.quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_UP)\n    return float(frete_final)\n```",
+      "finish": "stop",
+      "reasoning_chars": 18331
+    },
+    {
+      "category": "coding",
+      "test": "calculo_frete",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 208.5,
+      "prompt_tokens": 5,
+      "completion_tokens": 6603,
+      "cache_tokens": 573,
+      "prompt_tps": 40.24,
+      "gen_tps": 31.71,
+      "detail": {
+        "passed": 29,
+        "total": 30,
+        "falhas": [
+          {
+            "case": "((1.5, 'N', 20.0), {'cupom': 'FRETE10', 'expresso': True})",
+            "ok": false,
+            "info": "esperado 29.3, obtido 29.29"
+          }
+        ],
+        "erro": null,
+        "code": "import math\nfrom decimal import Decimal, ROUND_HALF_UP\n\ndef calcular_frete(peso_kg: float, regiao: str, valor_pedido: float, cupom: str | None = None, expresso: bool = False) -> float:\n    if not (peso_kg > 0 and peso_kg <= 30) or regiao not in (\"S\", \"SE\", \"CO\", \"NE\", \"N\") or valor_pedido < 0:\n        raise ValueError(\"Dados inválidos\")\n\n    if peso_kg <= 1:\n        base = 12.00\n    elif peso_kg <= 5:\n        base = 12.00 + 3.50 * (math.ceil(peso_kg) - 1)\n    else:\n        base = 26.00 + 2.80 * (math.ceil(peso_kg) - 5)\n\n    mult = {\"S\": 1.00, \"SE\": 1.00, \"CO\": 1.20, \"NE\": 1.35, \"N\": 1.50}[regiao]\n    valor = base * mult\n\n    if expresso:\n        valor *= 1.40\n\n    if valor_pedido >= 299.90 and not expresso and regiao in (\"S\", \"SE\", \"CO\"):\n        return 0.0\n\n    cupon = cupom.strip().upper() if cupom and cupom.strip() else None\n    if cupom is not None and cupom.strip() == \"\":\n        cupon = None\n\n    if cupom is not None and cupom.strip() != \"\":\n        if cupom.strip().upper() == \"FRETE10\":\n            valor *= 0.90\n        elif cupom.strip().upper() == \"FRETEMETADE\":\n            if peso_kg <= 5:\n                valor *= 0.50\n        else:\n            raise ValueError(\"Cupom inválido\")\n\n    valor = max(valor, 9.90)\n\n    return float(Decimal(str(valor)).quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_UP))"
+      },
+      "final": "```python\nimport math\nfrom decimal import Decimal, ROUND_HALF_UP\n\ndef calcular_frete(peso_kg: float, regiao: str, valor_pedido: float, cupom: str | None = None, expresso: bool = False) -> float:\n    if not (peso_kg > 0 and peso_kg <= 30) or regiao not in (\"S\", \"SE\", \"CO\", \"NE\", \"N\") or valor_pedido < 0:\n        raise ValueError(\"Dados inválidos\")\n\n    if peso_kg <= 1:\n        base = 12.00\n    elif peso_kg <= 5:\n        base = 12.00 + 3.50 * (math.ceil(peso_kg) - 1)\n    else:\n        base = 26.00 + 2.80 * (math.ceil(peso_kg) - 5)\n\n    mult = {\"S\": 1.00, \"SE\": 1.00, \"CO\": 1.20, \"NE\": 1.35, \"N\": 1.50}[regiao]\n    valor = base * mult\n\n    if expresso:\n        valor *= 1.40\n\n    if valor_pedido >= 299.90 and not expresso and regiao in (\"S\", \"SE\", \"CO\"):\n        return 0.0\n\n    cupon = cupom.strip().upper() if cupom and cupom.strip() else None\n    if cupom is not None and cupom.strip() == \"\":\n        cupon = None\n\n    if cupom is not None and cupom.strip() != \"\":\n        if cupom.strip().upper() == \"FRETE10\":\n            valor *= 0.90\n        elif cupom.strip().upper() == \"FRETEMETADE\":\n            if peso_kg <= 5:\n                valor *= 0.50\n        else:\n            raise ValueError(\"Cupom inválido\")\n\n    valor = max(valor, 9.90)\n\n    return float(Decimal(str(valor)).quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_UP))\n```",
+      "finish": "stop",
+      "reasoning_chars": 15311
+    },
+    {
+      "category": "coding",
+      "test": "corrigir_sessoes",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 123.8,
+      "prompt_tokens": 325,
+      "completion_tokens": 3922,
+      "cache_tokens": 22,
+      "prompt_tps": 138.14,
+      "gen_tps": 32.32,
+      "detail": {
+        "passed": 8,
+        "total": 8,
+        "falhas": [],
+        "erro": null,
+        "code": "def agrupar_sessoes(eventos, limite_inatividade=30):\n    \"\"\"\n    eventos: lista de tuplas (usuario: str, timestamp: int em segundos), em qualquer ordem.\n    Agrupa os eventos de cada usuário em sessões: dois eventos consecutivos (em ordem de\n    tempo) do mesmo usuário pertencem à mesma sessão se a diferença entre eles for\n    menor ou igual a limite_inatividade.\n    Retorna um dict usuario -> lista de sessões; cada sessão é uma tupla\n    (inicio, fim, quantidade_de_eventos), e as sessões ficam em ordem cronológica.\n    Eventos duplicados (mesmo usuário e mesmo timestamp) contam uma única vez.\n    A lista de entrada não pode ser modificada.\n    \"\"\"\n    eventos_unicas = sorted(set((usuario, timestamp) for usuario, timestamp in eventos), key=lambda e: (e[1], e[0]))\n    resultado = {}\n    for usuario, timestamp in eventos_unicas:\n        sessoes = resultado.setdefault(usuario, [])\n        if sessoes and timestamp - sessoes[-1][1] <= limite_inatividade:\n            inicio, fim, qtd = sessoes[-1]\n            sessoes[-1] = (inicio, timestamp, qtd + 1)\n        else:\n            sessoes.append((timestamp, timestamp, 1))\n    return resultado"
+      },
+      "final": "```python\ndef agrupar_sessoes(eventos, limite_inatividade=30):\n    \"\"\"\n    eventos: lista de tuplas (usuario: str, timestamp: int em segundos), em qualquer ordem.\n    Agrupa os eventos de cada usuário em sessões: dois eventos consecutivos (em ordem de\n    tempo) do mesmo usuário pertencem à mesma sessão se a diferença entre eles for\n    menor ou igual a limite_inatividade.\n    Retorna um dict usuario -> lista de sessões; cada sessão é uma tupla\n    (inicio, fim, quantidade_de_eventos), e as sessões ficam em ordem cronológica.\n    Eventos duplicados (mesmo usuário e mesmo timestamp) contam uma única vez.\n    A lista de entrada não pode ser modificada.\n    \"\"\"\n    eventos_unicas = sorted(set((usuario, timestamp) for usuario, timestamp in eventos), key=lambda e: (e[1], e[0]))\n    resultado = {}\n    for usuario, timestamp in eventos_unicas:\n        sessoes = resultado.setdefault(usuario, [])\n        if sessoes and timestamp - sessoes[-1][1] <= limite_inatividade:\n            inicio, fim, qtd = sessoes[-1]\n            sessoes[-1] = (inicio, timestamp, qtd + 1)\n        else:\n            sessoes.append((timestamp, timestamp, 1))\n    return resultado\n```",
+      "finish": "stop",
+      "reasoning_chars": 14591
+    },
+    {
+      "category": "coding",
+      "test": "corrigir_sessoes",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 90.4,
+      "prompt_tokens": 5,
+      "completion_tokens": 2935,
+      "cache_tokens": 342,
+      "prompt_tps": 39.89,
+      "gen_tps": 32.55,
+      "detail": {
+        "passed": 8,
+        "total": 8,
+        "falhas": [],
+        "erro": null,
+        "code": "def agrupar_sessoes(eventos, limite_inatividade=30):\n    por_usuario = {}\n    for usuario, ts in eventos:\n        por_usuario.setdefault(usuario, []).append(ts)\n\n    resultado = {}\n    for usuario, timestamps in por_usuario.items():\n        timestamps_ordenadas = sorted(set(timestamps))\n        sessoes = []\n        for ts in timestamps_ordenadas:\n            if sessoes and ts - sessoes[-1][1] <= limite_inatividade:\n                inicio, fim, qtd = sessoes[-1]\n                sessoes[-1] = (inicio, ts, qtd + 1)\n            else:\n                sessoes.append((ts, ts, 1))\n        resultado[usuario] = sessoes\n\n    return resultado"
+      },
+      "final": "```python\ndef agrupar_sessoes(eventos, limite_inatividade=30):\n    por_usuario = {}\n    for usuario, ts in eventos:\n        por_usuario.setdefault(usuario, []).append(ts)\n\n    resultado = {}\n    for usuario, timestamps in por_usuario.items():\n        timestamps_ordenadas = sorted(set(timestamps))\n        sessoes = []\n        for ts in timestamps_ordenadas:\n            if sessoes and ts - sessoes[-1][1] <= limite_inatividade:\n                inicio, fim, qtd = sessoes[-1]\n                sessoes[-1] = (inicio, ts, qtd + 1)\n            else:\n                sessoes.append((ts, ts, 1))\n        resultado[usuario] = sessoes\n\n    return resultado\n```",
+      "finish": "stop",
+      "reasoning_chars": 11097
+    },
+    {
+      "category": "coding",
+      "test": "corrigir_sessoes",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 203.0,
+      "prompt_tokens": 5,
+      "completion_tokens": 6447,
+      "cache_tokens": 342,
+      "prompt_tps": 41.52,
+      "gen_tps": 31.8,
+      "detail": {
+        "passed": 8,
+        "total": 8,
+        "falhas": [],
+        "erro": null,
+        "code": "def agrupar_sessoes(eventos, limite_inatividade=30):\n    \"\"\"\n    eventos: lista de tuplas (usuario: str, timestamp: int em segundos), em qualquer ordem.\n    Agrupa os eventos de cada usuário em sessões: dois eventos consecutivos (em ordem de\n    tempo) do mesmo usuário pertencem à mesma sessão se a diferença entre eles for\n    menor ou igual a limite_inatividade.\n    Retorna um dict usuario -> lista de sessões; cada sessão é uma tupla\n    (inicio, fim, quantidade_de_eventos), e as sessões ficam em ordem cronológica.\n    Eventos duplicados (mesmo usuário e mesmo timestamp) contam uma única vez.\n    A lista de entrada não pode ser modificada.\n    \"\"\"\n    eventos_unicos = sorted(set(eventos), key=lambda e: (e[1], e[0]))\n    resultado = {}\n    for usuario, ts in eventos_unicos:\n        sessoes = resultado.setdefault(usuario, [])\n        if sessoes and ts - sessoes[-1][1] <= limite_inatividade:\n            inicio, fim, qtd = sessoes[-1]\n            sessoes[-1] = (inicio, ts, qtd + 1)\n        else:\n            sessoes.append((ts, ts, 1))\n    return resultado"
+      },
+      "final": "```python\ndef agrupar_sessoes(eventos, limite_inatividade=30):\n    \"\"\"\n    eventos: lista de tuplas (usuario: str, timestamp: int em segundos), em qualquer ordem.\n    Agrupa os eventos de cada usuário em sessões: dois eventos consecutivos (em ordem de\n    tempo) do mesmo usuário pertencem à mesma sessão se a diferença entre eles for\n    menor ou igual a limite_inatividade.\n    Retorna um dict usuario -> lista de sessões; cada sessão é uma tupla\n    (inicio, fim, quantidade_de_eventos), e as sessões ficam em ordem cronológica.\n    Eventos duplicados (mesmo usuário e mesmo timestamp) contam uma única vez.\n    A lista de entrada não pode ser modificada.\n    \"\"\"\n    eventos_unicos = sorted(set(eventos), key=lambda e: (e[1], e[0]))\n    resultado = {}\n    for usuario, ts in eventos_unicos:\n        sessoes = resultado.setdefault(usuario, [])\n        if sessoes and ts - sessoes[-1][1] <= limite_inatividade:\n            inicio, fim, qtd = sessoes[-1]\n            sessoes[-1] = (inicio, ts, qtd + 1)\n        else:\n            sessoes.append((ts, ts, 1))\n    return resultado\n```",
+      "finish": "stop",
+      "reasoning_chars": 24076
+    },
+    {
+      "category": "tool_call",
+      "test": "multi_etapas_reembolso",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 26.3,
+      "prompt_tokens": 721,
+      "completion_tokens": 596,
+      "cache_tokens": 1722,
+      "prompt_tps": 92.57,
+      "gen_tps": 32.92,
+      "detail": {
+        "total_ok": true,
+        "reembolsos_consultados": [
+          "P-1007",
+          "P-1031",
+          "P-1052"
+        ]
+      },
+      "final": "Os pedidos cancelados de **Ana Ribeiro** foram:\n\n- **P-1007**: reembolso de **R$ 170,91**\n- **P-1031**: reembolso de **R$ 49,05**\n- **P-1052**: reembolso de **R$ 212,40**\n\n**Total a reembolsar: R$ 432,36**",
+      "steps": [
+        {
+          "name": "buscar_cliente",
+          "args": {
+            "email": "ana.ribeiro@exemplo.com"
+          },
+          "result": {
+            "cliente_id": "C-2291",
+            "nome": "Ana Ribeiro"
+          }
+        },
+        {
+          "name": "listar_pedidos",
+          "args": {
+            "cliente_id": "C-2291"
+          },
+          "result": {
+            "pedidos": [
+              {
+                "pedido_id": "P-1007",
+                "status": "cancelado",
+                "valor": 189.9
+              },
+              {
+                "pedido_id": "P-1019",
+                "status": "entregue",
+                "valor": 75.0
+              },
+              {
+                "pedido_id": "P-1031",
+                "status": "cancelado",
+                "valor": 54.5
+              },
+              {
+                "pedido_id": "P-1040",
+                "status": "enviado",
+                "valor": 310.0
+              },
+              {
+                "pedido_id": "P-1052",
+                "status": "cancelado",
+                "valor": 236.0
+              }
+            ]
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1007"
+          },
+          "result": {
+            "pedido_id": "P-1007",
+            "reembolso": 170.91
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1031"
+          },
+          "result": {
+            "pedido_id": "P-1031",
+            "reembolso": 49.05
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1052"
+          },
+          "result": {
+            "pedido_id": "P-1052",
+            "reembolso": 212.4
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 1644
+    },
+    {
+      "category": "tool_call",
+      "test": "multi_etapas_reembolso",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 20.7,
+      "prompt_tokens": 369,
+      "completion_tokens": 518,
+      "cache_tokens": 1931,
+      "prompt_tps": 80.62,
+      "gen_tps": 33.14,
+      "detail": {
+        "total_ok": true,
+        "reembolsos_consultados": [
+          "P-1007",
+          "P-1031",
+          "P-1052"
+        ]
+      },
+      "final": "Os pedidos cancelados de Ana Ribeiro foram:\n\n- **P-1007**: reembolso de **R$ 170,91**\n- **P-1031**: reembolso de **R$ 49,05**\n- **P-1052**: reembolso de **R$ 212,40**\n\n**Total a reembolsar: R$ 432,36**",
+      "steps": [
+        {
+          "name": "buscar_cliente",
+          "args": {
+            "email": "ana.ribeiro@exemplo.com"
+          },
+          "result": {
+            "cliente_id": "C-2291",
+            "nome": "Ana Ribeiro"
+          }
+        },
+        {
+          "name": "listar_pedidos",
+          "args": {
+            "cliente_id": "C-2291"
+          },
+          "result": {
+            "pedidos": [
+              {
+                "pedido_id": "P-1007",
+                "status": "cancelado",
+                "valor": 189.9
+              },
+              {
+                "pedido_id": "P-1019",
+                "status": "entregue",
+                "valor": 75.0
+              },
+              {
+                "pedido_id": "P-1031",
+                "status": "cancelado",
+                "valor": 54.5
+              },
+              {
+                "pedido_id": "P-1040",
+                "status": "enviado",
+                "valor": 310.0
+              },
+              {
+                "pedido_id": "P-1052",
+                "status": "cancelado",
+                "valor": 236.0
+              }
+            ]
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1007"
+          },
+          "result": {
+            "pedido_id": "P-1007",
+            "reembolso": 170.91
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1031"
+          },
+          "result": {
+            "pedido_id": "P-1031",
+            "reembolso": 49.05
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1052"
+          },
+          "result": {
+            "pedido_id": "P-1052",
+            "reembolso": 212.4
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 1346
+    },
+    {
+      "category": "tool_call",
+      "test": "multi_etapas_reembolso",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 27.1,
+      "prompt_tokens": 278,
+      "completion_tokens": 742,
+      "cache_tokens": 2012,
+      "prompt_tps": 67.36,
+      "gen_tps": 33.02,
+      "detail": {
+        "total_ok": true,
+        "reembolsos_consultados": [
+          "P-1007",
+          "P-1031",
+          "P-1052"
+        ]
+      },
+      "final": "Aqui está o cálculo do reembolso para os pedidos cancelados de Ana Ribeiro (e-mail: ana.ribeiro@exemplo.com):\n\n| Pedido | Valor pago | Reembolso (via calcular_reembolso) |\n|---|---|---|\n| P-1007 | R$ 189,90 | R$ 170,91 |\n| P-1031 | R$ 54,50 | R$ 49,05 |\n| P-1052 | R$ 236,00 | R$ 212,40 |\n\n**Valor total a reembolsar: R$ 432,36**\n\nA soma dos reembolsos calculados por pedido é de **R$ 432,36** reais. Observação: os valores diferem do valor original pago em cada pedido, pois o cálculo do reembolso considera apenas o valor efetivamente reembolsável.",
+      "steps": [
+        {
+          "name": "buscar_cliente",
+          "args": {
+            "email": "ana.ribeiro@exemplo.com"
+          },
+          "result": {
+            "cliente_id": "C-2291",
+            "nome": "Ana Ribeiro"
+          }
+        },
+        {
+          "name": "listar_pedidos",
+          "args": {
+            "cliente_id": "C-2291",
+            "status": "cancelado"
+          },
+          "result": {
+            "pedidos": [
+              {
+                "pedido_id": "P-1007",
+                "status": "cancelado",
+                "valor": 189.9
+              },
+              {
+                "pedido_id": "P-1031",
+                "status": "cancelado",
+                "valor": 54.5
+              },
+              {
+                "pedido_id": "P-1052",
+                "status": "cancelado",
+                "valor": 236.0
+              }
+            ]
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1007"
+          },
+          "result": {
+            "pedido_id": "P-1007",
+            "reembolso": 170.91
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1031"
+          },
+          "result": {
+            "pedido_id": "P-1031",
+            "reembolso": 49.05
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1052"
+          },
+          "result": {
+            "pedido_id": "P-1052",
+            "reembolso": 212.4
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 1781
+    },
+    {
+      "category": "tool_call",
+      "test": "args_estritos_agenda",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 19.1,
+      "prompt_tokens": 380,
+      "completion_tokens": 496,
+      "cache_tokens": 704,
+      "prompt_tps": 103.75,
+      "gen_tps": 33.13,
+      "detail": {
+        "checks": {
+          "inicio": true,
+          "duracao": true,
+          "participantes": true,
+          "sala": true,
+          "titulo": true
+        },
+        "args": {
+          "titulo": "Revisão do orçamento",
+          "inicio": "2026-10-27T14:30",
+          "duracao_min": 90,
+          "participantes": [
+            "carla.souza@empresa.com",
+            "diego.alves@empresa.com"
+          ],
+          "sala": "Verde"
+        }
+      },
+      "final": "Reunião agendada com sucesso! ✅\n\n**Detalhes:**\n- **Título:** Revisão do orçamento\n- **Data:** Terça-feira, 27/10/2026\n- **Horário:** 14h30\n- **Duração:** 1h30\n- **Participantes:** Carla Souza e Diego Alves\n- **Sala:** Sala Verde\n\n**ID da reunião:** R-5521\n\nA agenda foi criada para a próxima terça-feira às 14h30 com Carla e o Diego na sala verde. Caso precise de alguma alteração, é só falar! 😉",
+      "steps": [
+        {
+          "name": "agendar_reuniao",
+          "args": {
+            "titulo": "Revisão do orçamento",
+            "inicio": "2026-10-27T14:30",
+            "duracao_min": 90,
+            "participantes": [
+              "carla.souza@empresa.com",
+              "diego.alves@empresa.com"
+            ],
+            "sala": "Verde"
+          },
+          "result": {
+            "status": "agendado",
+            "id": "R-5521"
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 963
+    },
+    {
+      "category": "tool_call",
+      "test": "args_estritos_agenda",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 11.1,
+      "prompt_tokens": 26,
+      "completion_tokens": 350,
+      "cache_tokens": 933,
+      "prompt_tps": 44.57,
+      "gen_tps": 33.47,
+      "detail": {
+        "checks": {
+          "inicio": true,
+          "duracao": true,
+          "participantes": true,
+          "sala": true,
+          "titulo": true
+        },
+        "args": {
+          "titulo": "Revisão do orçamento",
+          "inicio": "2026-10-27T14:30",
+          "duracao_min": 90,
+          "participantes": [
+            "carla.souza@empresa.com",
+            "diego.alves@empresa.com"
+          ],
+          "sala": "Verde"
+        }
+      },
+      "final": "Reunião **\"Revisão do orçamento\"** agendada com sucesso! ✅\n\n**Detalhes:**\n- **Data:** Terça-feira, 27/10/2026\n- **Horário:** 14h30\n- **Duração:** 1h30\n- **Participantes:** Carla Souza e Diego Alves\n- **Sala:** Sala Verde\n\nO ID da reunião é **R-5521**. Espero que a agenda esteja confirmada para todos!",
+      "steps": [
+        {
+          "name": "agendar_reuniao",
+          "args": {
+            "titulo": "Revisão do orçamento",
+            "inicio": "2026-10-27T14:30",
+            "duracao_min": 90,
+            "participantes": [
+              "carla.souza@empresa.com",
+              "diego.alves@empresa.com"
+            ],
+            "sala": "Verde"
+          },
+          "result": {
+            "status": "agendado",
+            "id": "R-5521"
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 572
+    },
+    {
+      "category": "tool_call",
+      "test": "args_estritos_agenda",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 13.8,
+      "prompt_tokens": 26,
+      "completion_tokens": 437,
+      "cache_tokens": 1014,
+      "prompt_tps": 44.64,
+      "gen_tps": 33.29,
+      "detail": {
+        "checks": {
+          "inicio": true,
+          "duracao": true,
+          "participantes": true,
+          "sala": true,
+          "titulo": true
+        },
+        "args": {
+          "titulo": "Revisão do orçamento",
+          "inicio": "2026-10-27T14:30",
+          "duracao_min": 90,
+          "participantes": [
+            "carla.souza@empresa.com",
+            "diego.alves@empresa.com"
+          ],
+          "sala": "Verde"
+        }
+      },
+      "final": "Reunião **\"Revisão do orçamento\"** marcada com sucesso! ✅\n\n**Detalhes:**\n- **Data:** Terça-feira, 27/10/2026\n- **Horário:** 14h30 – 16h00\n- **Duração:** 1h30\n- **Participantes:** Carla Souza e Diego Alves\n- **Sala:** Sala Verde\n\nO código da reunião é **R-5521**. Espero que a conversa sobre o orçamento aconteça muito bem!",
+      "steps": [
+        {
+          "name": "agendar_reuniao",
+          "args": {
+            "titulo": "Revisão do orçamento",
+            "inicio": "2026-10-27T14:30",
+            "duracao_min": 90,
+            "participantes": [
+              "carla.souza@empresa.com",
+              "diego.alves@empresa.com"
+            ],
+            "sala": "Verde"
+          },
+          "result": {
+            "status": "agendado",
+            "id": "R-5521"
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 869
+    },
+    {
+      "category": "tool_call",
+      "test": "recuperacao_erro_estoque",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 14.9,
+      "prompt_tokens": 466,
+      "completion_tokens": 272,
+      "cache_tokens": 906,
+      "prompt_tps": 71.81,
+      "gen_tps": 33.67,
+      "detail": {
+        "consultou_B": true,
+        "numeros": [
+          37,
+          88412,
+          5
+        ]
+      },
+      "final": "Temos **37 unidades** da Cadeira Ergo Plus (SKU-88412-B) no depósito.\n\nVale destacar que também há 5 unidades em loja, se você quiser complementar o estoque!",
+      "steps": [
+        {
+          "name": "buscar_produto",
+          "args": {
+            "nome": "Cadeira Ergo Plus"
+          },
+          "result": {
+            "resultados": [
+              {
+                "sku": "SKU-88412-A",
+                "nome": "Cadeira Ergo Plus"
+              }
+            ]
+          }
+        },
+        {
+          "name": "consultar_estoque",
+          "args": {
+            "sku": "SKU-88412-A"
+          },
+          "result": {
+            "erro": "SKU-88412-A foi substituído pelo SKU-88412-B. Consulte o novo SKU."
+          }
+        },
+        {
+          "name": "consultar_estoque",
+          "args": {
+            "sku": "SKU-88412-B"
+          },
+          "result": {
+            "sku": "SKU-88412-B",
+            "deposito": 37,
+            "loja": 5
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 631
+    },
+    {
+      "category": "tool_call",
+      "test": "recuperacao_erro_estoque",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 16.0,
+      "prompt_tokens": 351,
+      "completion_tokens": 370,
+      "cache_tokens": 1276,
+      "prompt_tps": 74.93,
+      "gen_tps": 33.68,
+      "detail": {
+        "consultou_B": true,
+        "numeros": [
+          37,
+          88412,
+          5,
+          88412
+        ]
+      },
+      "final": "Temos **37 unidades** da Cadeira Ergo Plus (SKU-88412-B) no depósito. Além disso, há mais 5 unidades em loja.\n\nObservação: o SKU original foi substituído pelo SKU-88412-B durante a consulta.",
+      "steps": [
+        {
+          "name": "buscar_produto",
+          "args": {
+            "nome": "Cadeira Ergo Plus"
+          },
+          "result": {
+            "resultados": [
+              {
+                "sku": "SKU-88412-A",
+                "nome": "Cadeira Ergo Plus"
+              }
+            ]
+          }
+        },
+        {
+          "name": "consultar_estoque",
+          "args": {
+            "sku": "SKU-88412-A"
+          },
+          "result": {
+            "erro": "SKU-88412-A foi substituído pelo SKU-88412-B. Consulte o novo SKU."
+          }
+        },
+        {
+          "name": "consultar_estoque",
+          "args": {
+            "sku": "SKU-88412-B"
+          },
+          "result": {
+            "sku": "SKU-88412-B",
+            "deposito": 37,
+            "loja": 5
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 1032
+    },
+    {
+      "category": "tool_call",
+      "test": "recuperacao_erro_estoque",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 10.0,
+      "prompt_tokens": 219,
+      "completion_tokens": 203,
+      "cache_tokens": 1053,
+      "prompt_tps": 57.04,
+      "gen_tps": 33.94,
+      "detail": {
+        "consultou_B": true,
+        "numeros": [
+          37
+        ]
+      },
+      "final": "Temos **37 unidades** da **Cadeira Ergo Plus** no depósito.",
+      "steps": [
+        {
+          "name": "buscar_produto",
+          "args": {
+            "nome": "Cadeira Ergo Plus"
+          },
+          "result": {
+            "resultados": [
+              {
+                "sku": "SKU-88412-A",
+                "nome": "Cadeira Ergo Plus"
+              }
+            ]
+          }
+        },
+        {
+          "name": "consultar_estoque",
+          "args": {
+            "sku": "SKU-88412-A"
+          },
+          "result": {
+            "erro": "SKU-88412-A foi substituído pelo SKU-88412-B. Consulte o novo SKU."
+          }
+        },
+        {
+          "name": "consultar_estoque",
+          "args": {
+            "sku": "SKU-88412-B"
+          },
+          "result": {
+            "sku": "SKU-88412-B",
+            "deposito": 37,
+            "loja": 5
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 491
+    },
+    {
+      "category": "tool_call",
+      "test": "abster_sem_dados_pix",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 8.5,
+      "prompt_tokens": 246,
+      "completion_tokens": 183,
+      "cache_tokens": 0,
+      "prompt_tps": 89.38,
+      "gen_tps": 33.39,
+      "detail": {
+        "chamadas": []
+      },
+      "final": "Claro! Para realizar a transferência PIX, preciso de algumas informações completas:\n\n1. **Chave PIX** do destinatário (ex.: CPF, e-mail, telefone, aleatório);\n2. **Valor** em reais da transferência.\n\nPode me informar esses dados? Assim que você fornecer, eu faço o PIX para o João imediatamente.",
+      "steps": [],
+      "finish": "stop",
+      "reasoning_chars": 389
+    },
+    {
+      "category": "tool_call",
+      "test": "abster_sem_dados_pix",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 5.5,
+      "prompt_tokens": 5,
+      "completion_tokens": 178,
+      "cache_tokens": 241,
+      "prompt_tps": 42.98,
+      "gen_tps": 33.39,
+      "detail": {
+        "chamadas": []
+      },
+      "final": "Claro, posso ajudar com isso! Para enviar o PIX, preciso de algumas informações completas:\n\n1. **Chave PIX** do destinatário (ex.: CPF, e-mail, telefone ou aleatória);\n2. **Valor** em reais da transferência;\n3. **Descrição** (opcional).\n\nPor favor, informe-os para que eu possa realizar a operação com segurança.",
+      "steps": [],
+      "finish": "stop",
+      "reasoning_chars": 393
+    },
+    {
+      "category": "tool_call",
+      "test": "abster_sem_dados_pix",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 5.9,
+      "prompt_tokens": 5,
+      "completion_tokens": 194,
+      "cache_tokens": 241,
+      "prompt_tps": 43.14,
+      "gen_tps": 33.48,
+      "detail": {
+        "chamadas": []
+      },
+      "final": "Claro! Para realizar a transferência PIX, preciso de algumas informações completas:\n\n1. **Chave PIX do destinatário** (CPF, e-mail, telefone ou aleatória)\n2. **Valor em reais** da transferência\n\nPor favor, informe esses dados para que eu possa executar a operação com segurança.",
+      "steps": [],
+      "finish": "stop",
+      "reasoning_chars": 555
+    },
+    {
+      "category": "reasoning",
+      "test": "logica_5_pessoas",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 196.4,
+      "prompt_tokens": 343,
+      "completion_tokens": 6172,
+      "cache_tokens": 0,
+      "prompt_tps": 153.64,
+      "gen_tps": 31.8,
+      "detail": {
+        "answer_line": "Elisa; Belém; 3"
+      },
+      "final": "RESPOSTA: Elisa; Belém; 3",
+      "finish": "stop",
+      "reasoning_chars": 21319
+    },
+    {
+      "category": "reasoning",
+      "test": "logica_5_pessoas",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 194.1,
+      "prompt_tokens": 5,
+      "completion_tokens": 6172,
+      "cache_tokens": 338,
+      "prompt_tps": 37.89,
+      "gen_tps": 31.88,
+      "detail": {
+        "answer_line": "Elisa; Belém; 3"
+      },
+      "final": "RESPOSTA: Elisa; Belém; 3",
+      "finish": "stop",
+      "reasoning_chars": 19564
+    },
+    {
+      "category": "reasoning",
+      "test": "logica_5_pessoas",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 194.0,
+      "prompt_tokens": 5,
+      "completion_tokens": 6172,
+      "cache_tokens": 338,
+      "prompt_tps": 40.65,
+      "gen_tps": 31.87,
+      "detail": {
+        "answer_line": "Elisa; Belém; 3"
+      },
+      "final": "RESPOSTA: Elisa; Belém; 3",
+      "finish": "stop",
+      "reasoning_chars": 20109
+    },
+    {
+      "category": "reasoning",
+      "test": "aritmetica_datas",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 194.7,
+      "prompt_tokens": 102,
+      "completion_tokens": 6177,
+      "cache_tokens": 0,
+      "prompt_tps": 72.21,
+      "gen_tps": 31.98,
+      "detail": {
+        "answer_line": "2029-07-20; domingo; 1",
+        "data": true,
+        "dia": false,
+        "qtd": true
+      },
+      "final": "RESPOSTA: 2029-07-20; domingo; 1",
+      "finish": "stop",
+      "reasoning_chars": 16988
+    },
+    {
+      "category": "reasoning",
+      "test": "aritmetica_datas",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 193.5,
+      "prompt_tokens": 5,
+      "completion_tokens": 6177,
+      "cache_tokens": 97,
+      "prompt_tps": 42.14,
+      "gen_tps": 31.99,
+      "detail": {
+        "answer_line": "2029-07-20; domingo; 0",
+        "data": true,
+        "dia": false,
+        "qtd": false
+      },
+      "final": "RESPOSTA: 2029-07-20; domingo; 0",
+      "finish": "stop",
+      "reasoning_chars": 17240
+    },
+    {
+      "category": "reasoning",
+      "test": "aritmetica_datas",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 193.3,
+      "prompt_tokens": 5,
+      "completion_tokens": 6177,
+      "cache_tokens": 97,
+      "prompt_tps": 42.82,
+      "gen_tps": 32.0,
+      "detail": {
+        "answer_line": "2029-07-20; domingo; 0",
+        "data": true,
+        "dia": false,
+        "qtd": false
+      },
+      "final": "RESPOSTA: 2029-07-20; domingo; 0",
+      "finish": "stop",
+      "reasoning_chars": 17527
+    },
+    {
+      "category": "reasoning",
+      "test": "instrucoes_multiplas",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 79.6,
+      "prompt_tokens": 148,
+      "completion_tokens": 2548,
+      "cache_tokens": 0,
+      "prompt_tps": 89.87,
+      "gen_tps": 32.76,
+      "detail": {
+        "checks": {
+          "4_frases": true,
+          "iniciais_MAPE": true,
+          "sem_z": false,
+          "backup_2x": true,
+          "sem_virgula": true,
+          "termina_fim": true
+        },
+        "frases": 4
+      },
+      "final": "Manter servidores exige backup dia. A equipe usa backup atualizado. Planejar testes evita surpresas. Entregar manter e fim.",
+      "finish": "stop",
+      "reasoning_chars": 9800
+    },
+    {
+      "category": "reasoning",
+      "test": "instrucoes_multiplas",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 72.9,
+      "prompt_tokens": 5,
+      "completion_tokens": 2385,
+      "cache_tokens": 143,
+      "prompt_tps": 43.4,
+      "gen_tps": 32.81,
+      "detail": {
+        "checks": {
+          "4_frases": true,
+          "iniciais_MAPE": true,
+          "sem_z": true,
+          "backup_2x": true,
+          "sem_virgula": true,
+          "termina_fim": true
+        },
+        "frases": 4
+      },
+      "final": "Manutencao do servidor pode ser feita com backup. Apagar processos antigos ajuda o sistema. Preparar testes antes do reinicio backup. Executar manutencao final e fim.",
+      "finish": "stop",
+      "reasoning_chars": 8366
+    },
+    {
+      "category": "reasoning",
+      "test": "instrucoes_multiplas",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 93.4,
+      "prompt_tokens": 5,
+      "completion_tokens": 3043,
+      "cache_tokens": 143,
+      "prompt_tps": 43.04,
+      "gen_tps": 32.63,
+      "detail": {
+        "checks": {
+          "4_frases": true,
+          "iniciais_MAPE": true,
+          "sem_z": true,
+          "backup_2x": true,
+          "sem_virgula": true,
+          "termina_fim": true
+        },
+        "frases": 4
+      },
+      "final": "Maintime da servidor ajuda a equipe. A equipe usa backup para servidor. Podemos manter o backup agora. Execute o teste e veja o fim.",
+      "finish": "stop",
+      "reasoning_chars": 10729
+    }
+  ],
+  "status": "complete",
+  "settings": {
+    "ctx": 32768,
+    "reasoning_budget": 6144,
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.0
+  },
+  "load_s": 25.7,
+  "log": "/home/will/llm-bench/logs/flint__single__UD-IQ2_XXS.log"
+}

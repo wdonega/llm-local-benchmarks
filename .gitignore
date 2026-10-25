@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.tmp
+bc250/logs/
+bc250/work/
+bc250/state.json
+bc250/bench-v2.log

@@ -1,0 +1,700 @@
+{
+  "model": "Ornith-1.5-35B-A3B",
+  "key": "ornith35",
+  "mode": "single",
+  "repo": "bartowski/Ornith-1.5-35B-A3B-GGUF",
+  "quant": "IQ2_S",
+  "alias": "ornith35-single",
+  "started": "2026-10-25T00:27:03Z",
+  "status": "complete",
+  "load_s": 160.4,
+  "warmup_error": null,
+  "calls": [
+    {
+      "category": "needle",
+      "test": "needle",
+      "run": 1,
+      "correct": true,
+      "error": null,
+      "wall_s": 27.066,
+      "meta": {
+        "code": "X7K-9421",
+        "depth": 0.1,
+        "context_chars": 32297
+      },
+      "answer": "X7K-9421",
+      "reasoning": "The user is asking for the access code of the cofre (safe). The text states: \"O código de acesso do cofre é X7K-9421.\"\n",
+      "finish_reason": "stop",
+      "tool_calls": null,
+      "prompt_tokens": 6984,
+      "completion_tokens": 49,
+      "prompt_ms": 25834.154,
+      "gen_ms": 1113.924,
+      "prompt_tps": 270.3397990118043,
+      "gen_tps": 43.090911049586865,
+      "cache_tokens": 0
+    },
+    {
+      "category": "needle",
+      "test": "needle",
+      "run": 2,
+      "correct": true,
+      "error": null,
+      "wall_s": 29.74,
+      "meta": {
+        "code": "P3M-8802",
+        "depth": 0.5,
+        "context_chars": 32051
+      },
+      "answer": "P3M-8802",
+      "reasoning": "The user asks for the access code of the cofre (vault). The text states: \"O código de acesso do cofre é P3M-8802.\"\n",
+      "finish_reason": "stop",
+      "tool_calls": null,
+      "prompt_tokens": 6847,
+      "completion_tokens": 48,
+      "prompt_ms": 28365.458,
+      "gen_ms": 1122.25,
+      "prompt_tps": 241.3851382198729,
+      "gen_tps": 41.880151481398975,
+      "cache_tokens": 22
+    },
+    {
+      "category": "needle",
+      "test": "needle",
+      "run": 3,
+      "correct": true,
+      "error": null,
+      "wall_s": 31.472,
+      "meta": {
+        "code": "Q9T-1174",
+        "depth": 0.9,
+        "context_chars": 32432
+      },
+      "answer": "Q9T-1174",
+      "reasoning": "The user asks for the access code of the cofre (vault). The text states: \"O código de acesso do cofre é Q9T-1174.\"\n",
+      "finish_reason": "stop",
+      "tool_calls": null,
+      "prompt_tokens": 6977,
+      "completion_tokens": 48,
+      "prompt_ms": 30047.304,
+      "gen_ms": 1173.861,
+      "prompt_tps": 232.20053286644287,
+      "gen_tps": 40.03881209103974,
+      "cache_tokens": 22
+    },
+    {
+      "category": "coding",
+      "test": "soma_pares",
+      "run": 1,
+      "correct": true,
+      "error": null,
+      "wall_s": 3.472,
+      "meta": null,
+      "answer": "```python\ndef soma_pares(nums):\n    return sum(n for n in nums if n % 2 == 0)\n```",
+      "reasoning": "The user wants a Python function `soma_pares(nums)` that takes a list of numbers and returns the sum of all even numbers. For an empty list, return 0. No explanations, examples, or tests. Just a single block of Python code.\n\nLet me write the function.\n",
+      "finish_reason": "stop",
+      "tool_calls": null,
+      "prompt_tokens": 91,
+      "completion_tokens": 93,
+      "prompt_ms": 1158.776,
+      "gen_ms": 2082.239,
+      "prompt_tps": 78.53113975436149,
+      "gen_tps": 44.18320855579019,
+      "cache_tokens": 0,
+      "code": "def soma_pares(nums):\n    return sum(n for n in nums if n % 2 == 0)",
+      "test_detail": {
+        "ok": true,
+        "results": [
+          {
+            "input": [],
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          },
+          {
+            "input": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "expected": 6,
+            "got": 6,
+            "ok": true
+          },
+          {
+            "input": [
+              -2,
+              -1,
+              0,
+              2
+            ],
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          },
+          {
+            "input": [
+              10
+            ],
+            "expected": 10,
+            "got": 10,
+            "ok": true
+          },
+          {
+            "input": [
+              1,
+              3,
+              5
+            ],
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "category": "coding",
+      "test": "soma_pares",
+      "run": 2,
+      "correct": true,
+      "error": null,
+      "wall_s": 2.409,
+      "meta": null,
+      "answer": "```python\ndef soma_pares(nums):\n    return sum(n for n in nums if n % 2 == 0)\n```",
+      "reasoning": "The user wants me to write a Python function `soma_pares(nums)` that takes a list of numbers and returns the sum of all even numbers. For an empty list, return 0. No explanations, examples, or tests. Just a single block of Python code.\n\nLet me write the function.\n",
+      "finish_reason": "stop",
+      "tool_calls": null,
+      "prompt_tokens": 4,
+      "completion_tokens": 96,
+      "prompt_ms": 112.409,
+      "gen_ms": 2150.698,
+      "prompt_tps": 35.58433933225987,
+      "gen_tps": 44.17170611587494,
+      "cache_tokens": 87,
+      "code": "def soma_pares(nums):\n    return sum(n for n in nums if n % 2 == 0)",
+      "test_detail": {
+        "ok": true,
+        "results": [
+          {
+            "input": [],
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          },
+          {
+            "input": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "expected": 6,
+            "got": 6,
+            "ok": true
+          },
+          {
+            "input": [
+              -2,
+              -1,
+              0,
+              2
+            ],
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          },
+          {
+            "input": [
+              10
+            ],
+            "expected": 10,
+            "got": 10,
+            "ok": true
+          },
+          {
+            "input": [
+              1,
+              3,
+              5
+            ],
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "category": "coding",
+      "test": "soma_pares",
+      "run": 3,
+      "correct": true,
+      "error": null,
+      "wall_s": 2.313,
+      "meta": null,
+      "answer": "```python\ndef soma_pares(nums):\n    return sum(n for n in nums if n % 2 == 0)\n```",
+      "reasoning": "The user wants a Python function `soma_pares(nums)` that takes a list of numbers and returns the sum of all even numbers. For an empty list, return 0. No explanations, examples, or tests. Just a single Python code block.\n\nLet me write the function.\n",
+      "finish_reason": "stop",
+      "tool_calls": null,
+      "prompt_tokens": 4,
+      "completion_tokens": 92,
+      "prompt_ms": 112.708,
+      "gen_ms": 2059.431,
+      "prompt_tps": 35.48993860240622,
+      "gen_tps": 44.186962321145984,
+      "cache_tokens": 87,
+      "code": "def soma_pares(nums):\n    return sum(n for n in nums if n % 2 == 0)",
+      "test_detail": {
+        "ok": true,
+        "results": [
+          {
+            "input": [],
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          },
+          {
+            "input": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "expected": 6,
+            "got": 6,
+            "ok": true
+          },
+          {
+            "input": [
+              -2,
+              -1,
+              0,
+              2
+            ],
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          },
+          {
+            "input": [
+              10
+            ],
+            "expected": 10,
+            "got": 10,
+            "ok": true
+          },
+          {
+            "input": [
+              1,
+              3,
+              5
+            ],
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "category": "coding",
+      "test": "conta_vogais",
+      "run": 1,
+      "correct": true,
+      "error": null,
+      "wall_s": 2.859,
+      "meta": null,
+      "answer": "```python\ndef conta_vogais(texto):\n    return sum(1 for c in texto.lower() if c in \"aeiou\")\n```",
+      "reasoning": "The user wants a Python function `conta_vogais(texto)` that counts vowels (a, e, i, o, u) in the text, case-insensitive. Only the code block, no explanations.\n",
+      "finish_reason": "stop",
+      "tool_calls": null,
+      "prompt_tokens": 83,
+      "completion_tokens": 80,
+      "prompt_ms": 927.489,
+      "gen_ms": 1787.919,
+      "prompt_tps": 89.48893194420636,
+      "gen_tps": 44.18544687986424,
+      "cache_tokens": 18,
+      "code": "def conta_vogais(texto):\n    return sum(1 for c in texto.lower() if c in \"aeiou\")",
+      "test_detail": {
+        "ok": true,
+        "results": [
+          {
+            "input": "",
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          },
+          {
+            "input": "Python",
+            "expected": 1,
+            "got": 1,
+            "ok": true
+          },
+          {
+            "input": "Programar em Python",
+            "expected": 5,
+            "got": 5,
+            "ok": true
+          },
+          {
+            "input": "AEIOU",
+            "expected": 5,
+            "got": 5,
+            "ok": true
+          },
+          {
+            "input": "xyz",
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "category": "coding",
+      "test": "conta_vogais",
+      "run": 2,
+      "correct": true,
+      "error": null,
+      "wall_s": 1.981,
+      "meta": null,
+      "answer": "```python\ndef conta_vogais(texto):\n    return sum(1 for c in texto.lower() if c in \"aeiou\")\n```",
+      "reasoning": "The user wants me to write a Python function `conta_vogais(texto)` that counts vowels (a, e, i, o, u) in the text, case-insensitive. Only the code block, no explanations.\n",
+      "finish_reason": "stop",
+      "tool_calls": null,
+      "prompt_tokens": 4,
+      "completion_tokens": 83,
+      "prompt_ms": 112.203,
+      "gen_ms": 1857.765,
+      "prompt_tps": 35.649670686167035,
+      "gen_tps": 44.13905956889057,
+      "cache_tokens": 97,
+      "code": "def conta_vogais(texto):\n    return sum(1 for c in texto.lower() if c in \"aeiou\")",
+      "test_detail": {
+        "ok": true,
+        "results": [
+          {
+            "input": "",
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          },
+          {
+            "input": "Python",
+            "expected": 1,
+            "got": 1,
+            "ok": true
+          },
+          {
+            "input": "Programar em Python",
+            "expected": 5,
+            "got": 5,
+            "ok": true
+          },
+          {
+            "input": "AEIOU",
+            "expected": 5,
+            "got": 5,
+            "ok": true
+          },
+          {
+            "input": "xyz",
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "category": "coding",
+      "test": "conta_vogais",
+      "run": 3,
+      "correct": true,
+      "error": null,
+      "wall_s": 2.026,
+      "meta": null,
+      "answer": "```python\ndef conta_vogais(texto):\n    return sum(1 for c in texto.lower() if c in \"aeiou\")\n```",
+      "reasoning": "The user wants a single Python code block with a function `conta_vogais(texto)` that counts vowels (a, e, i, o, u) in the text, case-insensitive. No explanations, examples, or tests.\n",
+      "finish_reason": "stop",
+      "tool_calls": null,
+      "prompt_tokens": 4,
+      "completion_tokens": 85,
+      "prompt_ms": 112.43,
+      "gen_ms": 1902.61,
+      "prompt_tps": 35.577692786622784,
+      "gen_tps": 44.14987832503772,
+      "cache_tokens": 97,
+      "code": "def conta_vogais(texto):\n    return sum(1 for c in texto.lower() if c in \"aeiou\")",
+      "test_detail": {
+        "ok": true,
+        "results": [
+          {
+            "input": "",
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          },
+          {
+            "input": "Python",
+            "expected": 1,
+            "got": 1,
+            "ok": true
+          },
+          {
+            "input": "Programar em Python",
+            "expected": 5,
+            "got": 5,
+            "ok": true
+          },
+          {
+            "input": "AEIOU",
+            "expected": 5,
+            "got": 5,
+            "ok": true
+          },
+          {
+            "input": "xyz",
+            "expected": 0,
+            "got": 0,
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "category": "tool_call",
+      "test": "weather",
+      "run": 1,
+      "correct": true,
+      "error": null,
+      "wall_s": 5.45,
+      "meta": null,
+      "answer": "",
+      "reasoning": "The user is asking for the current temperature in São Paulo. I have the `get_weather` tool available. Let me use it.\n\nThe user wants me to use the weather tool. I'll call `get_weather` with the city \"São Paulo\". The unit is optional, so I can default it. Let me use Celsius since the user is writing in Portuguese (Brazilian), so Celsius makes sense.\n",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "type": "function",
+          "function": {
+            "name": "get_weather",
+            "arguments": "{\"city\":\"São Paulo\",\"unit\":\"c\"}"
+          },
+          "id": "7eBOmWUMu5PWCdu4Pn4OBXtr28tnDNKC"
+        }
+      ],
+      "prompt_tokens": 482,
+      "completion_tokens": 125,
+      "prompt_ms": 2477.904,
+      "gen_ms": 2827.745,
+      "prompt_tps": 194.51923884056848,
+      "gen_tps": 43.85119591759511,
+      "cache_tokens": 0,
+      "tool_detail": {
+        "name": "get_weather",
+        "arguments": {
+          "city": "São Paulo",
+          "unit": "c"
+        },
+        "native": true
+      },
+      "tool_native": true
+    },
+    {
+      "category": "tool_call",
+      "test": "weather",
+      "run": 2,
+      "correct": true,
+      "error": null,
+      "wall_s": 2.638,
+      "meta": null,
+      "answer": "",
+      "reasoning": "The user is asking for the current temperature in São Paulo. I have the `get_weather` tool available. Let me use it.\n\nThe user wants me to use the weather tool. I'll call get_weather with city \"São Paulo\". The unit is optional, so I'll use Celsius (default) since the user is speaking Portuguese.\n",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "type": "function",
+          "function": {
+            "name": "get_weather",
+            "arguments": "{\"city\":\"São Paulo\",\"unit\":\"c\"}"
+          },
+          "id": "lyhSyZ3niEtBceawIcAl1xoLxMXub0Ya"
+        }
+      ],
+      "prompt_tokens": 4,
+      "completion_tokens": 111,
+      "prompt_ms": 113.173,
+      "gen_ms": 2510.656,
+      "prompt_tps": 35.34411918036987,
+      "gen_tps": 43.813250401488695,
+      "cache_tokens": 478,
+      "tool_detail": {
+        "name": "get_weather",
+        "arguments": {
+          "city": "São Paulo",
+          "unit": "c"
+        },
+        "native": true
+      },
+      "tool_native": true
+    },
+    {
+      "category": "tool_call",
+      "test": "weather",
+      "run": 3,
+      "correct": true,
+      "error": null,
+      "wall_s": 2.866,
+      "meta": null,
+      "answer": "",
+      "reasoning": "The user is asking for the current temperature in São Paulo. I have a `get_weather` tool available. Let me use it.\n\nThe tool requires a `city` parameter and has an optional `unit` parameter. The user asked for São Paulo. They didn't specify units, but since they're writing in Portuguese (Brazil), Celsius would be appropriate. Let me use the tool.\n",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "type": "function",
+          "function": {
+            "name": "get_weather",
+            "arguments": "{\"city\":\"São Paulo\",\"unit\":\"c\"}"
+          },
+          "id": "zIXyJltlSbW2VPt7tTsy3ZIm4qYjS6q8"
+        }
+      ],
+      "prompt_tokens": 4,
+      "completion_tokens": 121,
+      "prompt_ms": 113.221,
+      "gen_ms": 2738.816,
+      "prompt_tps": 35.32913505445103,
+      "gen_tps": 43.81455344207132,
+      "cache_tokens": 478,
+      "tool_detail": {
+        "name": "get_weather",
+        "arguments": {
+          "city": "São Paulo",
+          "unit": "c"
+        },
+        "native": true
+      },
+      "tool_native": true
+    },
+    {
+      "category": "tool_call",
+      "test": "reminder",
+      "run": 1,
+      "correct": true,
+      "error": null,
+      "wall_s": 3.718,
+      "meta": null,
+      "answer": "",
+      "reasoning": "The user wants me to create a reminder for tomorrow at 9am to call the dentist. I have the create_reminder tool available. Let me use it.\n\nThe user is speaking Portuguese, so I should respond in Portuguese.\n\nI need to provide:\n- text: what to remember (ligar para o dentista)\n- when: when to remind (amanhã às 9h)\n\nLet me create the reminder.\n",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "type": "function",
+          "function": {
+            "name": "create_reminder",
+            "arguments": "{\"text\":\"Ligar para o dentista\",\"when\":\"amanhã às 9h\"}"
+          },
+          "id": "iajkJ8Vw70MGDASmFrV4f8JKGdxEwid1"
+        }
+      ],
+      "prompt_tokens": 29,
+      "completion_tokens": 143,
+      "prompt_ms": 466.166,
+      "gen_ms": 3238.05,
+      "prompt_tps": 62.20959915566557,
+      "gen_tps": 43.85355383641389,
+      "cache_tokens": 457,
+      "tool_detail": {
+        "name": "create_reminder",
+        "arguments": {
+          "text": "Ligar para o dentista",
+          "when": "amanhã às 9h"
+        },
+        "native": true
+      },
+      "tool_native": true
+    },
+    {
+      "category": "tool_call",
+      "test": "reminder",
+      "run": 2,
+      "correct": true,
+      "error": null,
+      "wall_s": 3.16,
+      "meta": null,
+      "answer": "",
+      "reasoning": "The user wants me to create a reminder for tomorrow at 9am to call the dentist. Let me use the create_reminder tool.\n\nI need to provide:\n- text: what to remember (call the dentist)\n- when: when to remember (tomorrow at 9am)\n\nThe user is writing in Portuguese, so I should respond in Portuguese. Let me create the reminder.\n",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "type": "function",
+          "function": {
+            "name": "create_reminder",
+            "arguments": "{\"text\":\"Ligar para o dentista\",\"when\":\"amanhã às 9h\"}"
+          },
+          "id": "iUX3sKmoZliLUimWDaGyibuZejc0ySuB"
+        }
+      ],
+      "prompt_tokens": 4,
+      "completion_tokens": 134,
+      "prompt_ms": 112.721,
+      "gen_ms": 3033.029,
+      "prompt_tps": 35.48584558334294,
+      "gen_tps": 43.850553357715995,
+      "cache_tokens": 482,
+      "tool_detail": {
+        "name": "create_reminder",
+        "arguments": {
+          "text": "Ligar para o dentista",
+          "when": "amanhã às 9h"
+        },
+        "native": true
+      },
+      "tool_native": true
+    },
+    {
+      "category": "tool_call",
+      "test": "reminder",
+      "run": 3,
+      "correct": true,
+      "error": null,
+      "wall_s": 3.32,
+      "meta": null,
+      "answer": "",
+      "reasoning": "The user wants me to create a reminder for tomorrow at 9am to call the dentist. I have the create_reminder tool available. Let me use it.\n\nThe user wants:\n- text: \"ligar para o dentista\" (call the dentist)\n- when: \"amanhã às 9h\" (tomorrow at 9am)\n\nI should use the create_reminder tool with these parameters.\n",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "type": "function",
+          "function": {
+            "name": "create_reminder",
+            "arguments": "{\"text\":\"Ligar para o dentista\",\"when\":\"amanhã às 9h\"}"
+          },
+          "id": "LlYerJ6e0FMLdNdAI5ZPWikogBRKVAqG"
+        }
+      ],
+      "prompt_tokens": 4,
+      "completion_tokens": 141,
+      "prompt_ms": 113.015,
+      "gen_ms": 3192.102,
+      "prompt_tps": 35.39353183205769,
+      "gen_tps": 43.858247637450184,
+      "cache_tokens": 482,
+      "tool_detail": {
+        "name": "create_reminder",
+        "arguments": {
+          "text": "Ligar para o dentista",
+          "when": "amanhã às 9h"
+        },
+        "native": true
+      },
+      "tool_native": true
+    }
+  ],
+  "log": "/home/will/llm-bench/logs/ornith35__single__IQ2_S.log",
+  "finished": "2026-10-25T00:31:51Z"
+}

@@ -1,0 +1,35 @@
+{
+  "model": "flint-39.8B-A2.5B",
+  "repo": "unsloth/flint-GGUF",
+  "quant": "UD-IQ1_M",
+  "alias": "flint-smoke",
+  "started": "2026-10-25T00:13:12Z",
+  "status": "complete",
+  "calls": [
+    {
+      "name": "ok",
+      "error": null,
+      "wall_s": 0.944,
+      "content": "",
+      "reasoning": "The user asks for a response that consists only of the word \"ok\". This is a simple, direct instruction that requires minimal effort to fulfill. I should",
+      "prompt_tps": 30.124905388969015,
+      "gen_tps": 46.78263730326769,
+      "prompt_tokens": 8,
+      "completion_tokens": 32
+    },
+    {
+      "name": "codigo",
+      "error": null,
+      "wall_s": 2.136,
+      "content": "```python\ndef dobro(x):\n    return x * 2\n```",
+      "reasoning": "A resposta deve ser apenas o código Python, sem explicações. A função dobro(x) retorna x*2.",
+      "prompt_tps": 18.317147315657287,
+      "gen_tps": 61.62807029613005,
+      "prompt_tokens": 26,
+      "completion_tokens": 44
+    }
+  ],
+  "log": "/home/will/llm-bench/logs/flint-smoke.log",
+  "load_s": 140.6,
+  "finished": "2026-10-25T00:15:36Z"
+}
