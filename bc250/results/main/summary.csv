@@ -107,6 +107,42 @@ reasoning,aritmetica_datas,3,False,True,curl rc=28: curl: (28) Operation timed o
 reasoning,instrucoes_multiplas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
 reasoning,instrucoes_multiplas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
 reasoning,instrucoes_multiplas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+long_context,multi_hop_ramal,1,True,False,,95.9,17016,1761,360.12,36.21,5702,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+long_context,multi_hop_ramal,2,True,False,,73.0,4,2625,41.76,36.04,8300,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+long_context,multi_hop_ramal,3,True,False,,86.9,4,3123,41.73,35.98,10355,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+long_context,soma_com_correcoes,1,True,False,,67.9,512,2426,232.4,36.97,7821,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+long_context,soma_com_correcoes,2,True,False,,88.5,4,3225,42.73,36.49,11491,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+long_context,soma_com_correcoes,3,False,False,,171.0,4,6167,42.03,36.09,18421,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+coding,avaliador_expressoes,1,False,False,,178.9,462,7304,287.54,41.36,25706,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+coding,avaliador_expressoes,2,False,False,,177.1,4,7273,57.2,41.15,24691,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+coding,avaliador_expressoes,3,False,False,,180.0,4,7399,57.05,41.18,24922,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+coding,calculo_frete,1,False,False,,152.8,599,6796,366.43,45.03,19531,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+coding,calculo_frete,2,False,False,,152.0,4,6762,61.41,44.57,19539,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+coding,calculo_frete,3,False,False,,155.3,4,6897,59.44,44.51,19352,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+coding,corrigir_sessoes,1,True,False,,128.6,368,5717,338.41,44.91,21289,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+coding,corrigir_sessoes,2,True,False,,107.5,4,4810,60.14,44.87,17586,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+coding,corrigir_sessoes,3,True,False,,146.9,4,6535,60.48,44.56,24265,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+tool_call,multi_etapas_reembolso,1,True,False,,11.9,599,535,228.67,59.24,963,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+tool_call,multi_etapas_reembolso,2,True,False,,10.3,217,449,120.15,53.78,738,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+tool_call,multi_etapas_reembolso,3,True,False,,17.1,418,724,169.06,49.99,1337,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+tool_call,args_estritos_agenda,1,True,False,,13.1,347,559,227.1,48.57,1156,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+tool_call,args_estritos_agenda,2,True,False,,13.3,32,604,68.92,47.15,1323,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+tool_call,args_estritos_agenda,3,True,False,,10.4,32,461,68.6,46.79,970,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+tool_call,recuperacao_erro_estoque,1,True,False,,9.0,286,320,101.21,53.1,711,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+tool_call,recuperacao_erro_estoque,2,True,False,,8.0,118,304,60.16,50.73,585,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+tool_call,recuperacao_erro_estoque,3,True,False,,8.5,118,323,58.38,50.75,600,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+tool_call,abster_sem_dados_pix,1,True,False,,5.0,211,189,200.25,48.21,371,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+tool_call,abster_sem_dados_pix,2,True,False,,5.3,4,237,59.42,45.22,592,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+tool_call,abster_sem_dados_pix,3,True,False,,5.8,4,256,61.57,44.65,692,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+reasoning,logica_5_pessoas,1,False,False,,141.9,358,6174,304.52,43.88,22255,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+reasoning,logica_5_pessoas,2,False,False,,181.1,4,7949,61.11,43.97,22774,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+reasoning,logica_5_pessoas,3,False,False,,141.7,4,6171,59.04,43.64,22352,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+reasoning,aritmetica_datas,1,False,False,,138.6,109,6179,164.49,44.88,19263,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+reasoning,aritmetica_datas,2,False,False,,138.2,4,6179,61.22,44.8,18798,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+reasoning,aritmetica_datas,3,True,False,,139.8,4,6179,61.1,44.27,19613,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+reasoning,instrucoes_multiplas,1,True,False,,74.9,166,3428,230.21,46.37,12371,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+reasoning,instrucoes_multiplas,2,True,False,,40.2,4,1852,62.27,46.31,7510,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
+reasoning,instrucoes_multiplas,3,True,False,,53.4,4,2443,62.11,45.87,8969,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
 long_context,multi_hop_ramal,1,True,False,,130.6,17016,2878,275.14,42.06,10040,stop,LFM2.5-24B-A2B,single,UD-Q3_K_XL
 long_context,multi_hop_ramal,2,True,False,,75.1,4,3185,48.61,42.55,10644,stop,LFM2.5-24B-A2B,single,UD-Q3_K_XL
 long_context,multi_hop_ramal,3,True,False,,90.7,4,3814,52.05,42.09,13205,stop,LFM2.5-24B-A2B,single,UD-Q3_K_XL
