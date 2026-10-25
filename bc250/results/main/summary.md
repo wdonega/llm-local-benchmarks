@@ -11,21 +11,22 @@ Settings: ctx 32768 (24576 fallback; see the Ctx column), KV cache q8_0, reasoni
 | Qwen3.5-4B Q8_0 (single) | 32k | q8_0 | 5/6 | 5/9 | 12/12 | 3/9 | **25/36** | 6 | 204 | 29.0 | complete |
 | Qwen3.6-35B-A3B UD-IQ2_XXS (single) | 32k | q8_0 | 6/6 | 5/9 | 11/12 | 3/9 | **25/36** | 0 | 138 | 34.3 | complete |
 | LFM2.5-24B-A2B UD-Q3_K_XL (single) | 32k | q8_0 | 4/6 | 3/9 | 12/12 | 2/9 | **21/36** | 0 | 183 | 49.0 | complete |
+| Qwen3.5-9B Q6_K (single) | 32k | q8_0 | 4/6 | 2/9 | 12/12 | 0/9 | **18/36** | 17 | 103 | 18.7 | complete |
 | Qwen3-Coder-30B-A3B UD-IQ2_M (single) | 32k | q8_0 | 5/6 | 2/9 | 6/12 | 0/9 | **13/36** | 1 | 128 | 35.1 | complete |
 
 ## Correct per test (out of 3 runs; T = timeouts)
 
-| Test | Ornith-1.5-35B-A3B IQ2_S (single) | flint-39.8B-A2.5B UD-IQ2_XXS (single) | Qwen3.5-4B Q8_0 (single) | Qwen3.6-35B-A3B UD-IQ2_XXS (single) | LFM2.5-24B-A2B UD-Q3_K_XL (single) | Qwen3-Coder-30B-A3B UD-IQ2_M (single) |
-|---|---|---|---|---|---|---|
-| long_context/multi_hop_ramal | 3/3 | 3/3 | 2/3 T1 | 3/3 | 3/3 | 3/3 |
-| long_context/soma_com_correcoes | 3/3 | 3/3 | 3/3 | 3/3 | 1/3 | 2/3 |
-| coding/avaliador_expressoes | 0/3 | 2/3 | 0/3 T1 | 1/3 | 1/3 | 0/3 |
-| coding/calculo_frete | 3/3 | 1/3 | 2/3 | 1/3 | 0/3 | 0/3 |
-| coding/corrigir_sessoes | 3/3 | 3/3 | 3/3 | 3/3 | 2/3 | 2/3 |
-| tool_call/multi_etapas_reembolso | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 |
-| tool_call/args_estritos_agenda | 3/3 | 3/3 | 3/3 | 2/3 | 3/3 | 0/3 |
-| tool_call/recuperacao_erro_estoque | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 | 0/3 |
-| tool_call/abster_sem_dados_pix | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 |
-| reasoning/logica_5_pessoas | 0/3 | 0/3 | 0/3 T3 | 0/3 | 0/3 | 0/3 T1 |
-| reasoning/aritmetica_datas | 2/3 | 0/3 | 0/3 T1 | 2/3 | 0/3 | 0/3 |
-| reasoning/instrucoes_multiplas | 1/3 | 2/3 | 3/3 | 1/3 | 2/3 | 0/3 |
+| Test | Ornith-1.5-35B-A3B IQ2_S (single) | flint-39.8B-A2.5B UD-IQ2_XXS (single) | Qwen3.5-4B Q8_0 (single) | Qwen3.6-35B-A3B UD-IQ2_XXS (single) | LFM2.5-24B-A2B UD-Q3_K_XL (single) | Qwen3.5-9B Q6_K (single) | Qwen3-Coder-30B-A3B UD-IQ2_M (single) |
+|---|---|---|---|---|---|---|---|
+| long_context/multi_hop_ramal | 3/3 | 3/3 | 2/3 T1 | 3/3 | 3/3 | 2/3 T1 | 3/3 |
+| long_context/soma_com_correcoes | 3/3 | 3/3 | 3/3 | 3/3 | 1/3 | 2/3 T1 | 2/3 |
+| coding/avaliador_expressoes | 0/3 | 2/3 | 0/3 T1 | 1/3 | 1/3 | 0/3 T3 | 0/3 |
+| coding/calculo_frete | 3/3 | 1/3 | 2/3 | 1/3 | 0/3 | 0/3 T3 | 0/3 |
+| coding/corrigir_sessoes | 3/3 | 3/3 | 3/3 | 3/3 | 2/3 | 2/3 | 2/3 |
+| tool_call/multi_etapas_reembolso | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 |
+| tool_call/args_estritos_agenda | 3/3 | 3/3 | 3/3 | 2/3 | 3/3 | 3/3 | 0/3 |
+| tool_call/recuperacao_erro_estoque | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 | 0/3 |
+| tool_call/abster_sem_dados_pix | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 |
+| reasoning/logica_5_pessoas | 0/3 | 0/3 | 0/3 T3 | 0/3 | 0/3 | 0/3 T3 | 0/3 T1 |
+| reasoning/aritmetica_datas | 2/3 | 0/3 | 0/3 T1 | 2/3 | 0/3 | 0/3 T3 | 0/3 |
+| reasoning/instrucoes_multiplas | 1/3 | 2/3 | 3/3 | 1/3 | 2/3 | 0/3 T3 | 0/3 |
