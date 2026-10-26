@@ -1,0 +1,1190 @@
+{
+  "model": "Qwen3.8-27B",
+  "key": "qwen38-27b",
+  "mode": "single",
+  "repo": "unsloth/Qwen3.8-27B-GGUF",
+  "quant": "UD-Q2_K_XL",
+  "runs": 3,
+  "calls": [
+    {
+      "category": "long_context",
+      "test": "multi_hop_ramal",
+      "run": 1,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "long_context",
+      "test": "multi_hop_ramal",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 225.3,
+      "prompt_tokens": 1302,
+      "completion_tokens": 1190,
+      "cache_tokens": 16442,
+      "prompt_tps": 32.43,
+      "gen_tps": 6.72,
+      "detail": {
+        "answer_line": "4471",
+        "parsed": [
+          4471.0
+        ]
+      },
+      "final": "A chave do cofre B fica, por norma interna, com quem coordena a filial de Joinville. Otávio Brandt foi nomeado para essa coordenação em 10/11/2025, mas a partir de 03/03/2026 Renata Aguiar o substituiu no cargo. Em outubro de 2026, portanto, a coordenadora de Joinville é Renata Aguiar, cujo ramal é 4471.\n\nRESPOSTA: 4471",
+      "finish": "stop",
+      "reasoning_chars": 3394
+    },
+    {
+      "category": "long_context",
+      "test": "multi_hop_ramal",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 127.0,
+      "prompt_tokens": 4,
+      "completion_tokens": 851,
+      "cache_tokens": 17740,
+      "prompt_tps": 8.15,
+      "gen_tps": 6.73,
+      "detail": {
+        "answer_line": "4471",
+        "parsed": [
+          4471.0
+        ]
+      },
+      "final": "A norma interna estabelece que a chave do cofre B fica sempre com quem coordena a filial de Joinville. Otávio Brandt foi nomeado coordenador de Joinville em 10/11/2025, mas a partir de 03/03/2026 Renata Aguiar o substituiu nesse cargo (e Otávio foi transferido para Blumenau). Em outubro de 2026, portanto, a coordenadora de Joinville é Renata Aguiar, que é a guardiã da chave do cofre B. O registro especial informa que Renata Aguiar usa o ramal 4471.\n\nRESPOSTA: 4471",
+      "finish": "stop",
+      "reasoning_chars": 2161
+    },
+    {
+      "category": "long_context",
+      "test": "soma_com_correcoes",
+      "run": 1,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "long_context",
+      "test": "soma_com_correcoes",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 144.4,
+      "prompt_tokens": 4,
+      "completion_tokens": 1122,
+      "cache_tokens": 17738,
+      "prompt_tps": 10.55,
+      "gen_tps": 7.79,
+      "detail": {
+        "answer_line": "1576",
+        "parsed": [
+          1576.0
+        ]
+      },
+      "final": "RESPOSTA: 1576",
+      "finish": "stop",
+      "reasoning_chars": 3283
+    },
+    {
+      "category": "long_context",
+      "test": "soma_com_correcoes",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 114.5,
+      "prompt_tokens": 4,
+      "completion_tokens": 843,
+      "cache_tokens": 17738,
+      "prompt_tps": 8.68,
+      "gen_tps": 7.39,
+      "detail": {
+        "answer_line": "1576",
+        "parsed": [
+          1576.0
+        ]
+      },
+      "final": "RESPOSTA: 1576",
+      "finish": "stop",
+      "reasoning_chars": 2597
+    },
+    {
+      "category": "coding",
+      "test": "avaliador_expressoes",
+      "run": 1,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "coding",
+      "test": "avaliador_expressoes",
+      "run": 2,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "coding",
+      "test": "avaliador_expressoes",
+      "run": 3,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "coding",
+      "test": "calculo_frete",
+      "run": 1,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "coding",
+      "test": "calculo_frete",
+      "run": 2,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300000 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "coding",
+      "test": "calculo_frete",
+      "run": 3,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300000 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "coding",
+      "test": "corrigir_sessoes",
+      "run": 1,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "coding",
+      "test": "corrigir_sessoes",
+      "run": 2,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "coding",
+      "test": "corrigir_sessoes",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 281.3,
+      "prompt_tokens": 4,
+      "completion_tokens": 2267,
+      "cache_tokens": 397,
+      "prompt_tps": 9.56,
+      "gen_tps": 8.11,
+      "detail": {
+        "passed": 8,
+        "total": 8,
+        "falhas": [],
+        "erro": null,
+        "code": "def agrupar_sessoes(eventos, limite_inatividade=30):\n    \"\"\"\n    eventos: lista de tuplas (usuario: str, timestamp: int em segundos), em qualquer ordem.\n    Agrupa os eventos de cada usuário em sessões: dois eventos consecutivos (em ordem de\n    tempo) do mesmo usuário pertencem à mesma sessão se a diferença entre eles for\n    menor ou igual a limite_inatividade.\n    Retorna um dict usuario -> lista de sessões; cada sessão é uma tupla\n    (inicio, fim, quantidade_de_eventos), e as sessões ficam em ordem cronológica.\n    Eventos duplicados (mesmo usuário e mesmo timestamp) contam uma única vez.\n    A lista de entrada não pode ser modificada.\n    \"\"\"\n    por_usuario = {}\n    for usuario, ts in eventos:\n        por_usuario.setdefault(usuario, set()).add(ts)\n\n    resultado = {}\n    for usuario, timestamps in por_usuario.items():\n        sessoes = []\n        for ts in sorted(timestamps):\n            if sessoes and ts - sessoes[-1][1] <= limite_inatividade:\n                inicio, fim, qtd = sessoes[-1]\n                sessoes[-1] = (inicio, ts, qtd + 1)\n            else:\n                sessoes.append((ts, ts, 1))\n        resultado[usuario] = sessoes\n\n    return resultado"
+      },
+      "final": "```python\ndef agrupar_sessoes(eventos, limite_inatividade=30):\n    \"\"\"\n    eventos: lista de tuplas (usuario: str, timestamp: int em segundos), em qualquer ordem.\n    Agrupa os eventos de cada usuário em sessões: dois eventos consecutivos (em ordem de\n    tempo) do mesmo usuário pertencem à mesma sessão se a diferença entre eles for\n    menor ou igual a limite_inatividade.\n    Retorna um dict usuario -> lista de sessões; cada sessão é uma tupla\n    (inicio, fim, quantidade_de_eventos), e as sessões ficam em ordem cronológica.\n    Eventos duplicados (mesmo usuário e mesmo timestamp) contam uma única vez.\n    A lista de entrada não pode ser modificada.\n    \"\"\"\n    por_usuario = {}\n    for usuario, ts in eventos:\n        por_usuario.setdefault(usuario, set()).add(ts)\n\n    resultado = {}\n    for usuario, timestamps in por_usuario.items():\n        sessoes = []\n        for ts in sorted(timestamps):\n            if sessoes and ts - sessoes[-1][1] <= limite_inatividade:\n                inicio, fim, qtd = sessoes[-1]\n                sessoes[-1] = (inicio, ts, qtd + 1)\n            else:\n                sessoes.append((ts, ts, 1))\n        resultado[usuario] = sessoes\n\n    return resultado\n```",
+      "finish": "stop",
+      "reasoning_chars": 8114
+    },
+    {
+      "category": "tool_call",
+      "test": "multi_etapas_reembolso",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 72.8,
+      "prompt_tokens": 787,
+      "completion_tokens": 403,
+      "cache_tokens": 2276,
+      "prompt_tps": 42.2,
+      "gen_tps": 7.5,
+      "detail": {
+        "total_ok": true,
+        "reembolsos_consultados": [
+          "P-1007",
+          "P-1031",
+          "P-1052"
+        ]
+      },
+      "final": "O total a reembolsar é **R$ 432,36**.\n\nDetalhamento:\n- P-1007: R$ 170,91\n- P-1031: R$ 49,05\n- P-1052: R$ 212,40",
+      "steps": [
+        {
+          "name": "buscar_cliente",
+          "args": {
+            "email": "ana.ribeiro@exemplo.com"
+          },
+          "result": {
+            "cliente_id": "C-2291",
+            "nome": "Ana Ribeiro"
+          }
+        },
+        {
+          "name": "listar_pedidos",
+          "args": {
+            "cliente_id": "C-2291",
+            "status": "cancelado"
+          },
+          "result": {
+            "pedidos": [
+              {
+                "pedido_id": "P-1007",
+                "status": "cancelado",
+                "valor": 189.9
+              },
+              {
+                "pedido_id": "P-1031",
+                "status": "cancelado",
+                "valor": 54.5
+              },
+              {
+                "pedido_id": "P-1052",
+                "status": "cancelado",
+                "valor": 236.0
+              }
+            ]
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1007"
+          },
+          "result": {
+            "pedido_id": "P-1007",
+            "reembolso": 170.91
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1031"
+          },
+          "result": {
+            "pedido_id": "P-1031",
+            "reembolso": 49.05
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1052"
+          },
+          "result": {
+            "pedido_id": "P-1052",
+            "reembolso": 212.4
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 451
+    },
+    {
+      "category": "tool_call",
+      "test": "multi_etapas_reembolso",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 70.1,
+      "prompt_tokens": 245,
+      "completion_tokens": 461,
+      "cache_tokens": 2910,
+      "prompt_tps": 32.61,
+      "gen_tps": 7.49,
+      "detail": {
+        "total_ok": true,
+        "reembolsos_consultados": [
+          "P-1007",
+          "P-1031",
+          "P-1052"
+        ]
+      },
+      "final": "O valor total a reembolsar à cliente **Ana Ribeiro (ana.ribeiro@exemplo.com)** pelos pedidos cancelados é de **R$ 432,36**.\n\nDetalhamento:\n- P-1007: R$ 170,91\n- P-1031: R$ 49,05\n- P-1052: R$ 212,40",
+      "steps": [
+        {
+          "name": "buscar_cliente",
+          "args": {
+            "email": "ana.ribeiro@exemplo.com"
+          },
+          "result": {
+            "cliente_id": "C-2291",
+            "nome": "Ana Ribeiro"
+          }
+        },
+        {
+          "name": "listar_pedidos",
+          "args": {
+            "cliente_id": "C-2291",
+            "status": "cancelado"
+          },
+          "result": {
+            "pedidos": [
+              {
+                "pedido_id": "P-1007",
+                "status": "cancelado",
+                "valor": 189.9
+              },
+              {
+                "pedido_id": "P-1031",
+                "status": "cancelado",
+                "valor": 54.5
+              },
+              {
+                "pedido_id": "P-1052",
+                "status": "cancelado",
+                "valor": 236.0
+              }
+            ]
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1007"
+          },
+          "result": {
+            "pedido_id": "P-1007",
+            "reembolso": 170.91
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1031"
+          },
+          "result": {
+            "pedido_id": "P-1031",
+            "reembolso": 49.05
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1052"
+          },
+          "result": {
+            "pedido_id": "P-1052",
+            "reembolso": 212.4
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 549
+    },
+    {
+      "category": "tool_call",
+      "test": "multi_etapas_reembolso",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 69.1,
+      "prompt_tokens": 245,
+      "completion_tokens": 469,
+      "cache_tokens": 2926,
+      "prompt_tps": 31.44,
+      "gen_tps": 8.36,
+      "detail": {
+        "total_ok": true,
+        "reembolsos_consultados": [
+          "P-1007",
+          "P-1031",
+          "P-1052"
+        ]
+      },
+      "final": "O total a reembolsar à cliente **Ana Ribeiro** pelos pedidos cancelados é **R$ 432,36**.\n\nDetalhamento:\n- P-1007: R$ 170,91\n- P-1031: R$ 49,05\n- P-1052: R$ 212,40",
+      "steps": [
+        {
+          "name": "buscar_cliente",
+          "args": {
+            "email": "ana.ribeiro@exemplo.com"
+          },
+          "result": {
+            "cliente_id": "C-2291",
+            "nome": "Ana Ribeiro"
+          }
+        },
+        {
+          "name": "listar_pedidos",
+          "args": {
+            "cliente_id": "C-2291",
+            "status": "cancelado"
+          },
+          "result": {
+            "pedidos": [
+              {
+                "pedido_id": "P-1007",
+                "status": "cancelado",
+                "valor": 189.9
+              },
+              {
+                "pedido_id": "P-1031",
+                "status": "cancelado",
+                "valor": 54.5
+              },
+              {
+                "pedido_id": "P-1052",
+                "status": "cancelado",
+                "valor": 236.0
+              }
+            ]
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1007"
+          },
+          "result": {
+            "pedido_id": "P-1007",
+            "reembolso": 170.91
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1031"
+          },
+          "result": {
+            "pedido_id": "P-1031",
+            "reembolso": 49.05
+          }
+        },
+        {
+          "name": "calcular_reembolso",
+          "args": {
+            "pedido_id": "P-1052"
+          },
+          "result": {
+            "pedido_id": "P-1052",
+            "reembolso": 212.4
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 642
+    },
+    {
+      "category": "tool_call",
+      "test": "args_estritos_agenda",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 59.0,
+      "prompt_tokens": 538,
+      "completion_tokens": 379,
+      "cache_tokens": 847,
+      "prompt_tps": 67.38,
+      "gen_tps": 8.03,
+      "detail": {
+        "checks": {
+          "inicio": true,
+          "duracao": true,
+          "participantes": true,
+          "sala": true,
+          "titulo": true
+        },
+        "args": {
+          "titulo": "Revisão do orçamento",
+          "inicio": "2026-10-27T14:30",
+          "duracao_min": 90,
+          "participantes": [
+            "carla.souza@empresa.com",
+            "diego.alves@empresa.com"
+          ],
+          "sala": "Verde"
+        }
+      },
+      "final": "Reunião agendada com sucesso.\n\n- **Título:** Revisão do orçamento\n- **Data:** terça-feira, 27/10/2026\n- **Horário:** 14h30\n- **Duração:** 1h30\n- **Sala:** Verde\n- **Participantes:** Carla Souza e Diego Alves\n- **ID:** R-5521",
+      "steps": [
+        {
+          "name": "agendar_reuniao",
+          "args": {
+            "titulo": "Revisão do orçamento",
+            "inicio": "2026-10-27T14:30",
+            "duracao_min": 90,
+            "participantes": [
+              "carla.souza@empresa.com",
+              "diego.alves@empresa.com"
+            ],
+            "sala": "Verde"
+          },
+          "result": {
+            "status": "agendado",
+            "id": "R-5521"
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 532
+    },
+    {
+      "category": "tool_call",
+      "test": "args_estritos_agenda",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 56.8,
+      "prompt_tokens": 39,
+      "completion_tokens": 433,
+      "cache_tokens": 1380,
+      "prompt_tps": 23.1,
+      "gen_tps": 7.86,
+      "detail": {
+        "checks": {
+          "inicio": true,
+          "duracao": true,
+          "participantes": true,
+          "sala": true,
+          "titulo": true
+        },
+        "args": {
+          "titulo": "Revisão do orçamento",
+          "inicio": "2026-10-27T14:30",
+          "duracao_min": 90,
+          "participantes": [
+            "carla.souza@empresa.com",
+            "diego.alves@empresa.com"
+          ],
+          "sala": "Verde"
+        }
+      },
+      "final": "Reunião agendada com sucesso:\n\n- **Título:** Revisão do orçamento\n- **Data:** terça-feira, 27/10/2026\n- **Horário:** 14h30\n- **Duração:** 1h30\n- **Participantes:** Carla Souza e Diego Alves\n- **Sala:** Verde\n- **ID:** R-5521",
+      "steps": [
+        {
+          "name": "agendar_reuniao",
+          "args": {
+            "titulo": "Revisão do orçamento",
+            "inicio": "2026-10-27T14:30",
+            "duracao_min": 90,
+            "participantes": [
+              "carla.souza@empresa.com",
+              "diego.alves@empresa.com"
+            ],
+            "sala": "Verde"
+          },
+          "result": {
+            "status": "agendado",
+            "id": "R-5521"
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 658
+    },
+    {
+      "category": "tool_call",
+      "test": "args_estritos_agenda",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 75.4,
+      "prompt_tokens": 39,
+      "completion_tokens": 577,
+      "cache_tokens": 1523,
+      "prompt_tps": 23.07,
+      "gen_tps": 7.84,
+      "detail": {
+        "checks": {
+          "inicio": true,
+          "duracao": true,
+          "participantes": true,
+          "sala": true,
+          "titulo": true
+        },
+        "args": {
+          "titulo": "Revisão do orçamento",
+          "inicio": "2026-10-27T14:30",
+          "duracao_min": 90,
+          "participantes": [
+            "carla.souza@empresa.com",
+            "diego.alves@empresa.com"
+          ],
+          "sala": "Verde"
+        }
+      },
+      "final": "Reunião agendada! ✅\n\n- **Título:** Revisão do orçamento\n- **Data/hora:** terça-feira, 27/10/2026 às 14h30\n- **Duração:** 1h30 (termina às 16h00)\n- **Participantes:** Carla Souza e Diego Alves\n- **Sala:** Verde\n- **ID:** R-5521",
+      "steps": [
+        {
+          "name": "agendar_reuniao",
+          "args": {
+            "titulo": "Revisão do orçamento",
+            "inicio": "2026-10-27T14:30",
+            "duracao_min": 90,
+            "participantes": [
+              "carla.souza@empresa.com",
+              "diego.alves@empresa.com"
+            ],
+            "sala": "Verde"
+          },
+          "result": {
+            "status": "agendado",
+            "id": "R-5521"
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 1249
+    },
+    {
+      "category": "tool_call",
+      "test": "recuperacao_erro_estoque",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 55.7,
+      "prompt_tokens": 502,
+      "completion_tokens": 284,
+      "cache_tokens": 1794,
+      "prompt_tps": 34.32,
+      "gen_tps": 7.19,
+      "detail": {
+        "consultou_B": true,
+        "numeros": [
+          37,
+          88412
+        ]
+      },
+      "final": "Temos **37 unidades** da Cadeira Ergo Plus (SKU-88412-B) no depósito.",
+      "steps": [
+        {
+          "name": "buscar_produto",
+          "args": {
+            "nome": "Cadeira Ergo Plus"
+          },
+          "result": {
+            "resultados": [
+              {
+                "sku": "SKU-88412-A",
+                "nome": "Cadeira Ergo Plus"
+              }
+            ]
+          }
+        },
+        {
+          "name": "consultar_estoque",
+          "args": {
+            "sku": "SKU-88412-A"
+          },
+          "result": {
+            "erro": "SKU-88412-A foi substituído pelo SKU-88412-B. Consulte o novo SKU."
+          }
+        },
+        {
+          "name": "consultar_estoque",
+          "args": {
+            "sku": "SKU-88412-B"
+          },
+          "result": {
+            "sku": "SKU-88412-B",
+            "deposito": 37,
+            "loja": 5
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 532
+    },
+    {
+      "category": "tool_call",
+      "test": "recuperacao_erro_estoque",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 48.6,
+      "prompt_tokens": 532,
+      "completion_tokens": 261,
+      "cache_tokens": 1740,
+      "prompt_tps": 39.97,
+      "gen_tps": 7.52,
+      "detail": {
+        "consultou_B": true,
+        "numeros": [
+          37,
+          88412
+        ]
+      },
+      "final": "Temos **37 unidades** da Cadeira Ergo Plus (SKU-88412-B) no depósito.",
+      "steps": [
+        {
+          "name": "buscar_produto",
+          "args": {
+            "nome": "Cadeira Ergo Plus"
+          },
+          "result": {
+            "resultados": [
+              {
+                "sku": "SKU-88412-A",
+                "nome": "Cadeira Ergo Plus"
+              }
+            ]
+          }
+        },
+        {
+          "name": "consultar_estoque",
+          "args": {
+            "sku": "SKU-88412-A"
+          },
+          "result": {
+            "erro": "SKU-88412-A foi substituído pelo SKU-88412-B. Consulte o novo SKU."
+          }
+        },
+        {
+          "name": "consultar_estoque",
+          "args": {
+            "sku": "SKU-88412-B"
+          },
+          "result": {
+            "sku": "SKU-88412-B",
+            "deposito": 37,
+            "loja": 5
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 420
+    },
+    {
+      "category": "tool_call",
+      "test": "recuperacao_erro_estoque",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 59.5,
+      "prompt_tokens": 140,
+      "completion_tokens": 401,
+      "cache_tokens": 2209,
+      "prompt_tps": 23.55,
+      "gen_tps": 7.5,
+      "detail": {
+        "consultou_B": true,
+        "numeros": [
+          37,
+          88412,
+          88412,
+          5
+        ]
+      },
+      "final": "Temos **37 unidades** da Cadeira Ergo Plus no depósito (SKU-88412-B, o substituto do SKU-88412-A). Há também 5 unidades na loja.",
+      "steps": [
+        {
+          "name": "buscar_produto",
+          "args": {
+            "nome": "Cadeira Ergo Plus"
+          },
+          "result": {
+            "resultados": [
+              {
+                "sku": "SKU-88412-A",
+                "nome": "Cadeira Ergo Plus"
+              }
+            ]
+          }
+        },
+        {
+          "name": "consultar_estoque",
+          "args": {
+            "sku": "SKU-88412-A"
+          },
+          "result": {
+            "erro": "SKU-88412-A foi substituído pelo SKU-88412-B. Consulte o novo SKU."
+          }
+        },
+        {
+          "name": "consultar_estoque",
+          "args": {
+            "sku": "SKU-88412-B"
+          },
+          "result": {
+            "sku": "SKU-88412-B",
+            "deposito": 37,
+            "loja": 5
+          }
+        }
+      ],
+      "finish": "stop",
+      "reasoning_chars": 874
+    },
+    {
+      "category": "tool_call",
+      "test": "abster_sem_dados_pix",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 16.5,
+      "prompt_tokens": 431,
+      "completion_tokens": 90,
+      "cache_tokens": 0,
+      "prompt_tps": 79.53,
+      "gen_tps": 8.84,
+      "detail": {
+        "chamadas": []
+      },
+      "final": "Claro! Para fazer o PIX, preciso de:\n\n- **Chave PIX do João** (CPF, e-mail, telefone ou chave aleatória)\n- **Valor** em reais\n\nPode me informar?",
+      "steps": [],
+      "finish": "stop",
+      "reasoning_chars": 172
+    },
+    {
+      "category": "tool_call",
+      "test": "abster_sem_dados_pix",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 12.9,
+      "prompt_tokens": 4,
+      "completion_tokens": 103,
+      "cache_tokens": 427,
+      "prompt_tps": 9.89,
+      "gen_tps": 8.23,
+      "detail": {
+        "chamadas": []
+      },
+      "final": "Por favor, me informe:\n\n- **Chave PIX do João** (CPF, e-mail, telefone ou chave aleatória)\n- **Valor da transferência**\n\nSe quiser, também pode informar uma **descrição** para a transferência.",
+      "steps": [],
+      "finish": "stop",
+      "reasoning_chars": 221
+    },
+    {
+      "category": "tool_call",
+      "test": "abster_sem_dados_pix",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 16.2,
+      "prompt_tokens": 4,
+      "completion_tokens": 130,
+      "cache_tokens": 427,
+      "prompt_tps": 9.81,
+      "gen_tps": 8.22,
+      "detail": {
+        "chamadas": []
+      },
+      "final": "Claro. Para enviar o PIX, preciso de:\n\n- **Chave PIX do João** (CPF, e-mail, telefone, chave aleatória ou agência/conta)\n- **Valor** em reais\n\nSe quiser, também pode informar uma **descrição** para a transferência.",
+      "steps": [],
+      "finish": "stop",
+      "reasoning_chars": 291
+    },
+    {
+      "category": "reasoning",
+      "test": "logica_5_pessoas",
+      "run": 1,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "reasoning",
+      "test": "logica_5_pessoas",
+      "run": 2,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "reasoning",
+      "test": "logica_5_pessoas",
+      "run": 3,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300000 milliseconds with 0 bytes received",
+      "wall_s": 300.1,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "reasoning",
+      "test": "aritmetica_datas",
+      "run": 1,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "reasoning",
+      "test": "aritmetica_datas",
+      "run": 2,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "reasoning",
+      "test": "aritmetica_datas",
+      "run": 3,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300000 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "reasoning",
+      "test": "instrucoes_multiplas",
+      "run": 1,
+      "correct": false,
+      "timeout": true,
+      "error": "curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received",
+      "wall_s": 300.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "cache_tokens": 0,
+      "prompt_tps": null,
+      "gen_tps": null,
+      "detail": {},
+      "final": "",
+      "finish": null,
+      "reasoning_chars": 0
+    },
+    {
+      "category": "reasoning",
+      "test": "instrucoes_multiplas",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 234.9,
+      "prompt_tokens": 4,
+      "completion_tokens": 1876,
+      "cache_tokens": 187,
+      "prompt_tps": 11.9,
+      "gen_tps": 8.03,
+      "detail": {
+        "checks": {
+          "4_frases": true,
+          "iniciais_MAPE": true,
+          "sem_z": true,
+          "backup_2x": true,
+          "sem_virgula": true,
+          "termina_fim": true
+        },
+        "frases": 4
+      },
+      "final": "Manutenção dos servidores exige backup diário e inspeção de logs. A rede precisa de monitoramento contínuo e de backup. Painéis de status mostram falhas e tempos de resposta. Equipes de infraestrutura testam a recuperação antes do fim.",
+      "finish": "stop",
+      "reasoning_chars": 6015
+    },
+    {
+      "category": "reasoning",
+      "test": "instrucoes_multiplas",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 106.2,
+      "prompt_tokens": 4,
+      "completion_tokens": 823,
+      "cache_tokens": 187,
+      "prompt_tps": 9.21,
+      "gen_tps": 7.85,
+      "detail": {
+        "checks": {
+          "4_frases": true,
+          "iniciais_MAPE": true,
+          "sem_z": true,
+          "backup_2x": true,
+          "sem_virgula": true,
+          "termina_fim": true
+        },
+        "frases": 4
+      },
+      "final": "Manutenção dos servidores exige backup diário. A revisão do backup evita falhas. Pode haver falhas sem plano. E o fim.",
+      "finish": "stop",
+      "reasoning_chars": 2693
+    }
+  ],
+  "status": "complete",
+  "settings": {
+    "ctx": 32768,
+    "kv_cache": "q8_0",
+    "reasoning_budget": 6144,
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.0
+  },
+  "retry_of": null,
+  "load_s": 20.6,
+  "log": "/home/will/llm-bench/logs/qwen38-27b__single__UD-Q2_K_XL.log"
+}
