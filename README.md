@@ -277,8 +277,8 @@ re-run one quant lower. Generation speed changed by −2 % to +17 % and the scor
 split over RPC scored better in every case: flint **26 → 31**, LFM 21 → 24, Qwen3.6
 25 → 27, Qwen3-Coder 13 → 15 and Ornith 27 → 28. Generation speed changed by −10 % to
 +11 %. When it got faster, the single-board config used an IQ quant (IQ quants are the
-slow path on RADV). These dual numbers were measured with the worker running only 24
-CUs, so they are a lower bound.
+slow path on RADV). All numbers here were measured with both boards running 24 of
+their 40 CUs, so they are a lower bound for unlocked boards.
 
 **5. Splitting without needing the memory costs ~8 %.** The best single-board config
 (Ornith IQ2_S) re-run on two boards with the same file went from 38.9 to 35.7 tok/s
@@ -312,7 +312,7 @@ drivers, GTT, 40-CU unlock, governor, RPC services) is in
 
 | | Per board |
 |---|---|
-| APU | AMD BC-250 "Cyan Skillfish", RADV GFX1013. Head (`llm3`): 40 CUs unlocked. Worker (`llm4`): **24 CUs** during this run (unlock not applied) |
+| APU | AMD BC-250 "Cyan Skillfish", RADV GFX1013, **24 of 40 CUs active on both boards** (the 40-CU unlock was not applied during these runs; a kernel upgrade had reverted it) |
 | Memory | 16 GB GDDR6 shared by CPU and GPU, ~14 GiB usable as GTT (`ttm.pages_limit`) |
 | OS | Ubuntu 26.04.1 LTS, kernel 7.0.0-38, Mesa 26.0.8 (RADV) |
 | `llama.cpp` | build **b11869** (commit `d327bf1f0`, 2026-10-24), `-DGGML_VULKAN=ON -DGGML_RPC=ON` |
