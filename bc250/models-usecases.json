@@ -1,0 +1,96 @@
+[
+  {
+    "key": "flint",
+    "label": "flint-39.8B-A2.5B",
+    "sampling_nothink": {
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0
+    },
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "unsloth/flint-GGUF",
+        "quant": "UD-IQ2_XXS",
+        "size_gib": 11.04
+      },
+      {
+        "mode": "dual",
+        "repo": "unsloth/flint-GGUF",
+        "quant": "UD-Q3_K_XL",
+        "size_gib": 17.22
+      }
+    ]
+  },
+  {
+    "key": "ornith35",
+    "label": "Ornith-1.5-35B-A3B",
+    "sampling_nothink": {
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0
+    },
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "bartowski/Ornith-1.5-35B-A3B-GGUF",
+        "quant": "IQ2_S",
+        "size_gib": 10.7
+      },
+      {
+        "mode": "dual",
+        "repo": "ornith-ai/Ornith-1.5-35B-A3B-GGUF",
+        "quant": "Q4_K_M",
+        "size_gib": 20.22
+      }
+    ]
+  },
+  {
+    "key": "qwen36-35b",
+    "label": "Qwen3.6-35B-A3B",
+    "sampling_nothink": {
+      "top_p": 0.8,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 1.5
+    },
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "unsloth/Qwen3.6-35B-A3B-GGUF",
+        "quant": "UD-IQ2_XXS",
+        "size_gib": 10.02
+      },
+      {
+        "mode": "dual",
+        "repo": "unsloth/Qwen3.6-35B-A3B-GGUF",
+        "quant": "UD-Q4_K_M",
+        "size_gib": 20.61
+      }
+    ]
+  },
+  {
+    "key": "lfm25-24b",
+    "label": "LFM2.5-24B-A2B",
+    "sampling_nothink": {
+      "top_p": 1.0,
+      "top_k": 50,
+      "min_p": 0.0,
+      "repeat_penalty": 1.05
+    },
+    "configs": [
+      {
+        "mode": "single",
+        "repo": "unsloth/LFM2.5-24B-A2B-GGUF",
+        "quant": "UD-Q3_K_XL",
+        "size_gib": 10.2
+      },
+      {
+        "mode": "dual",
+        "repo": "unsloth/LFM2.5-24B-A2B-GGUF",
+        "quant": "UD-Q5_K_XL",
+        "size_gib": 16.69
+      }
+    ]
+  }
+]

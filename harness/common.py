@@ -31,6 +31,7 @@ WORK = os.path.join(OUT, "work")
 STATE_PATH = os.path.join(OUT, "state.json")
 GIB = 2**30
 
+API_BASE = None  # set while a "remote" config runs: an already-running OpenAI-compatible server
 CURRENT_PROC = None
 CURRENT_LOG = None
 
@@ -115,12 +116,14 @@ def ensure_space(need_bytes, protected):
 
 
 def call_url(path):
+    if API_BASE:
+        return API_BASE.rstrip("/").removesuffix("/v1") + path
     return f"http://127.0.0.1:{PORT}{path}"
 
 
 def health():
     r = subprocess.run(
-        ["curl", "-sf", "--max-time", "5", call_url("/health")],
+        ["curl", "-sf", "--max-time", "5", call_url("/v1/models" if API_BASE else "/health")],
         capture_output=True,
         text=True,
     )

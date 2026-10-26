@@ -279,7 +279,8 @@ def run_config(model, cfg, runs, results_dir, force=False, protected=()):
         rb.save_json(path, data)
         return data
 
-    if not is_cached(cfg):
+    remote = cfg["mode"] == "remote"  # already-running server elsewhere: no download, no local server
+    if not remote and not is_cached(cfg):
         need = int(cfg["size_gib"] * 1.15 * rb.GIB) + 5 * rb.GIB
         rb.track_repo(cfg["repo"])
         if not rb.ensure_space(need, {rb.cache_dir(cfg["repo"])} | set(protected)):
@@ -291,7 +292,10 @@ def run_config(model, cfg, runs, results_dir, force=False, protected=()):
     proc = logf = None
     try:
         ctx_used = None
-        for ctx in [c for c in (P["ctx"], P["ctx_fallback"]) if c]:
+        if remote:
+            rb.API_BASE, alias = cfg["api_base"], cfg["model"]
+            log_path, ctx_used, data["load_s"] = None, "remote", 0.0
+        for ctx in [c for c in (P["ctx"], P["ctx_fallback"]) if c and not remote]:
             start = time.time()
             proc, logf, log_path = start_server(cfg, alias, stem, ctx)
             if rb.wait_ready(proc):
@@ -306,7 +310,7 @@ def run_config(model, cfg, runs, results_dir, force=False, protected=()):
             data["error"] = "server did not load (see log)"
             rb.save_json(path, data)
             return data
-        data["settings"]["ctx"] = ctx_used
+        data["settings"]["ctx"] = None if remote else ctx_used  # remote: set by that server
         data["log"] = log_path
         log(f"{stem}: loaded in {data['load_s']}s (ctx={ctx_used})")
         # output check: a corrupted RPC tensor cache on the worker once produced pure garbage
@@ -356,6 +360,7 @@ def run_config(model, cfg, runs, results_dir, force=False, protected=()):
         return data
     finally:
         rb.stop_server(proc, logf)
+        rb.API_BASE = None
 
 
 def config_done(model, cfg, results_dir):
