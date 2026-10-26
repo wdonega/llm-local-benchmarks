@@ -1,0 +1,1040 @@
+{
+  "model": "flint-39.8B-A2.5B",
+  "key": "flint",
+  "mode": "dual",
+  "repo": "unsloth/flint-GGUF",
+  "quant": "UD-Q3_K_XL",
+  "runs": 3,
+  "calls": [
+    {
+      "route": "voice-chat",
+      "test": "voz_porcentagem",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.67,
+      "finish": "stop",
+      "prompt_tokens": 60,
+      "completion_tokens": 32,
+      "gen_tps": 46.38,
+      "reasoning_chars": 0,
+      "final": "Quinze por cento de oitenta é doze. Você pode verificar isso multiplicando oitenta por zero ponto quinze.",
+      "detail": {
+        "failed": [],
+        "words": 17
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_porcentagem",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.64,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 23,
+      "gen_tps": 44.49,
+      "reasoning_chars": 0,
+      "final": "São 12. O número 80 vezes 15 por cento dá exatamente doze.",
+      "detail": {
+        "failed": [],
+        "words": 12
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_porcentagem",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.82,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 31,
+      "gen_tps": 44.69,
+      "reasoning_chars": 0,
+      "final": "Quinze por cento de oitenta é doze. Isso é doze reais, se for a mesma unidade.",
+      "detail": {
+        "failed": [],
+        "words": 16
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_conversao",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.7,
+      "finish": "stop",
+      "prompt_tokens": 14,
+      "completion_tokens": 16,
+      "gen_tps": 42.2,
+      "reasoning_chars": 0,
+      "final": "Cinco milhas equivalem a aproximadamente oito quilômetros.",
+      "detail": {
+        "failed": [],
+        "words": 7
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_conversao",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.51,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 16,
+      "gen_tps": 41.4,
+      "reasoning_chars": 0,
+      "final": "Cinco milhas equivalem a aproximadamente oito quilômetros.",
+      "detail": {
+        "failed": [],
+        "words": 7
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_conversao",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.51,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 16,
+      "gen_tps": 41.75,
+      "reasoning_chars": 0,
+      "final": "Cinco milhas equivalem a aproximadamente oito quilômetros.",
+      "detail": {
+        "failed": [],
+        "words": 7
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_fato",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.07,
+      "finish": "stop",
+      "prompt_tokens": 12,
+      "completion_tokens": 15,
+      "gen_tps": 38.06,
+      "reasoning_chars": 0,
+      "final": "A capital da Austrália é a cidade de Canberra.",
+      "detail": {
+        "failed": [],
+        "words": 9
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_fato",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.47,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 12,
+      "gen_tps": 36.08,
+      "reasoning_chars": 0,
+      "final": "A capital da Austrália é Canberra.",
+      "detail": {
+        "failed": [],
+        "words": 6
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_fato",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.43,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 12,
+      "gen_tps": 41.42,
+      "reasoning_chars": 0,
+      "final": "A capital da Austrália é Canberra.",
+      "detail": {
+        "failed": [],
+        "words": 6
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_dica",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.04,
+      "finish": "stop",
+      "prompt_tokens": 15,
+      "completion_tokens": 32,
+      "gen_tps": 44.57,
+      "reasoning_chars": 0,
+      "final": "Tenta olhar para o teto por alguns minutos antes de dormir. Respira fundo e relaxa o corpo de cada vez.",
+      "detail": {
+        "failed": [],
+        "words": 20
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_dica",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.75,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 26,
+      "gen_tps": 41.66,
+      "reasoning_chars": 0,
+      "final": "Tenta escutar uma playlist relaxante antes de dormir. Isso ajuda a te libertar da mente.",
+      "detail": {
+        "failed": [],
+        "words": 15
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_dica",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.12,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 39,
+      "gen_tps": 39.59,
+      "reasoning_chars": 0,
+      "final": "Tenta olhar para o teto por um minuto antes de dormir, respirando devagar. Isso relaxa sua mente e ajuda a adormecer mais rápido.",
+      "detail": {
+        "failed": [],
+        "words": 23
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_dialogo",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 4.99,
+      "finish": "stop",
+      "prompt_tokens": 233,
+      "completion_tokens": 154,
+      "gen_tps": 41.77,
+      "reasoning_chars": 0,
+      "final": "1\n00:00:01,200 --> 00:00:03,400\nE aí, vai pro cinema hoje?\n\n2\n00:00:03,600 --> 00:00:06,100\nEstou indo. É só terminar\na última cena.\n\n3\n00:00:06,300 --> 00:00:08,000\n<i>Dá um salve!</i>\n\n4\n00:00:08,200 --> 00:00:11,500\nNa real, estou um pouco nervosa.\nÉ o meu primeiro papel principal.\n\n5\n00:00:11,700 --> 00:00:13,900\nVocê vai arrasar. Acredita.",
+      "detail": {
+        "failed": [
+          "require:estreia"
+        ],
+        "cues": 5
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_dialogo",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 5.03,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 169,
+      "gen_tps": 34.76,
+      "reasoning_chars": 0,
+      "final": "1\n00:00:01,200 --> 00:00:03,400\nE aí, vai assistir à estreia\nhoje à noite?\n\n2\n00:00:03,600 --> 00:00:06,100\nEstou a caminho. É só terminar\na última cena.\n\n3\n00:00:06,300 --> 00:00:08,000\n<i>Dá um salve!</i>\n\n4\n00:00:08,200 --> 00:00:11,500\nNa real, estou um pouco\nnervoso. Sou a primeira vez\nno papel principal.\n\n5\n00:00:11,700 --> 00:00:13,900\nVocê vai arrasar. Confia\nem mim.",
+      "detail": {
+        "failed": [
+          "max_2_lines"
+        ],
+        "cues": 5
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_dialogo",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 4.71,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 169,
+      "gen_tps": 37.27,
+      "reasoning_chars": 0,
+      "final": "1\n00:00:01,200 --> 00:00:03,400\nE aí, vai assistir à estreia\nhoje à noite?\n\n2\n00:00:03,600 --> 00:00:06,100\nEstou a caminho. É só terminar\na última cena.\n\n3\n00:00:06,300 --> 00:00:08,000\n<i>Dá um salve!</i>\n\n4\n00:00:08,200 --> 00:00:11,500\nNa real, estou um pouco\nnervoso. Sou a primeira vez\nno papel principal.\n\n5\n00:00:11,700 --> 00:00:13,900\nVocê vai arrasar. Confia\nem mim.",
+      "detail": {
+        "failed": [
+          "max_2_lines"
+        ],
+        "cues": 5
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_noticia",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 5.19,
+      "finish": "stop",
+      "prompt_tokens": 217,
+      "completion_tokens": 148,
+      "gen_tps": 38.5,
+      "reasoning_chars": 0,
+      "final": "1\n00:01:05,000 --> 00:01:08,200\nA tempestade derrubou a energia\npara 12.500 casas na terça.\n\n2\n00:01:08,400 --> 00:01:11,000\nA equipe deve restaurar\nàs 6 horas da manhã.\n\n3\n00:01:11,200 --> 00:01:14,600\n<i>Os oficiais pedem\npara você ficar fora das ruas.</i>\n\n4\n00:01:14,800 --> 00:01:17,300\nPara atualizações, acesse o site\nda cidade.",
+      "detail": {
+        "failed": [
+          "require:18h"
+        ],
+        "cues": 4
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_noticia",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 4.19,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 148,
+      "gen_tps": 36.88,
+      "reasoning_chars": 0,
+      "final": "1\n00:01:05,000 --> 00:01:08,200\nA tempestade derrubou a energia\npara 12.500 casas na terça.\n\n2\n00:01:08,400 --> 00:01:11,000\nA equipe deve restaurar\nàs 6 horas da manhã.\n\n3\n00:01:11,200 --> 00:01:14,600\n<i>Os oficiais pedem\npara você ficar fora das ruas.</i>\n\n4\n00:01:14,800 --> 00:01:17,300\nPara atualizações, acesse o site\nda cidade.",
+      "detail": {
+        "failed": [
+          "require:18h"
+        ],
+        "cues": 4
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_noticia",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 4.38,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 147,
+      "gen_tps": 34.98,
+      "reasoning_chars": 0,
+      "final": "1\n00:01:05,000 --> 00:01:08,200\nA tempestade derrubou a energia\npara 12.500 casas na terça.\n\n2\n00:01:08,400 --> 00:01:11,000\nA equipe deve restaurar\nainda hoje, às 18h.\n\n3\n00:01:11,200 --> 00:01:14,600\n<i>Os oficiais pedem\npara você ficar fora das ruas.</i>\n\n4\n00:01:14,800 --> 00:01:17,300\nPara atualizações, acesse o site\nda cidade.",
+      "detail": {
+        "failed": [],
+        "cues": 4
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_gato_astronauta",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.97,
+      "finish": "stop",
+      "prompt_tokens": 116,
+      "completion_tokens": 104,
+      "gen_tps": 38.4,
+      "reasoning_chars": 0,
+      "final": "A watercolor painting of an astronaut cat floating near Saturn, the cat wearing a small white space helmet with a fish-shaped visor, drifting in the vast cosmic darkness with Saturn's magnificent golden rings dominating the background, soft pastel blues and pinks blending into the starry space, delicate brush strokes and gentle color washes, dreamy ethereal atmosphere, the astronaut cat looking curiously at the giant planet, composition centered on the cat with Saturn filling the upper right quadrant, tranquil and whimsical mood, detailed watercolor texture with visible paper grain.",
+      "detail": {
+        "failed": [],
+        "words": 89
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_gato_astronauta",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 4.25,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 144,
+      "gen_tps": 35.17,
+      "reasoning_chars": 0,
+      "final": "A fluffy astronaut cat floats gently near Saturn, its reflective visor catching the golden glow of the planet. The cat wears a detailed white space suit with tiny paw prints on the gloves, drifting weightlessly in the vast cosmic void. Saturn looms large behind it, adorned with soft, muted rings that shimmer in pale pastel tones. The scene is bathed in soft, ethereal watercolor washes of blues, purples, and warm amber light. Dreamy, gentle atmosphere with delicate brushstrokes and subtle gradients. The composition centers the astronaut cat slightly off-center, with Saturn dominating the upper right background, creating a sense of awe and quiet wonder. Soft edges, flowing color blends, and a serene, whimsical mood throughout.",
+      "detail": {
+        "failed": [],
+        "words": 116
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_gato_astronauta",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 7.08,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 236,
+      "gen_tps": 34.07,
+      "reasoning_chars": 0,
+      "final": "A watercolor illustration of an astronaut cat floating near Saturn, the feline astronaut wearing a classic white space suit with a round helmet and reflective visor, gently drifting in the vast darkness of space. The scene is illuminated by the soft, ethereal glow of Saturn's magnificent golden rings and its pale, hazy atmosphere, with subtle cosmic dust and faint stars in the background. The composition centers the astronaut cat slightly off-center, with Saturn dominating the upper right quadrant, creating a sense of scale and wonder. The watercolor style features soft, flowing brushstrokes, delicate color bleeding, and a dreamy, muted palette of blues, creams, and warm golds. The lighting is soft and diffused, with gentle highlights on the suit and a faint rim light from Saturn. The overall mood is serene, whimsical, and poetic, emphasizing solitude and cosmic beauty. The composition balances negative space and detail, with the astronaut cat positioned in the lower left quadrant, looking toward the planet. The watercolor texture adds organic, fluid edges, contrasting with the crisp geometry of the rings. The final image feels like a vintage storybook illustration, evoking a sense of calm exploration and gentle curiosity in the vast universe.",
+      "detail": {
+        "failed": [
+          "40_to_150_words"
+        ],
+        "words": 197
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_logo",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.73,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "completion_tokens": 89,
+      "gen_tps": 38.95,
+      "reasoning_chars": 0,
+      "final": "Minimalist logo design for a coffee shop named Grão Fino, featuring a small elegant coffee bean icon combined with a subtle grain texture motif, clean sans-serif typography with the name in soft brown tones, white background, simple line art style, flat vector aesthetic, ample negative space, modern and cozy atmosphere, centered composition with balanced spacing, high contrast between the dark brown logo elements and the bright white backdrop, professional branding presentation.",
+      "detail": {
+        "failed": [],
+        "words": 72
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_logo",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.67,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 56,
+      "gen_tps": 36.8,
+      "reasoning_chars": 0,
+      "final": "A minimalist logo design for a coffee shop named Grão Fino, white background, clean typography, simple coffee bean icon, elegant and modern, subtle earthy tones, soft shadows, centered composition, plenty of negative space, professional branding, high detail, sharp focus.",
+      "detail": {
+        "failed": [
+          "40_to_150_words"
+        ],
+        "words": 39
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_logo",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.12,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 70,
+      "gen_tps": 35.5,
+      "reasoning_chars": 0,
+      "final": "A minimalist logo design for a coffee shop named Grão Fino, white background, featuring a small delicate coffee bean icon combined with clean typography, simple line art style, soft beige and brown color palette, ample negative space, centered composition, crisp edges, professional and elegant branding, high contrast on white background, modern and clean aesthetic.",
+      "detail": {
+        "failed": [],
+        "words": 54
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_sem_pessoas",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.23,
+      "finish": "stop",
+      "prompt_tokens": 23,
+      "completion_tokens": 107,
+      "gen_tps": 38.55,
+      "reasoning_chars": 0,
+      "final": "A quiet Parisian street at early morning, light rain falling softly, empty and deserted. The cobblestone road glistens with wet reflections, old Haussmann buildings with wrought-iron balconies and faded green shutters lining the street. Soft diffused overcast light, gentle mist rising from the ground, muted gray and blue tones with subtle warm window lights glowing faintly in the distance. Cinematic composition, low angle shot looking down the empty street, centered perspective, shallow depth of field focusing on the rain-soaked pavement, atmospheric and serene mood.",
+      "detail": {
+        "failed": [],
+        "words": 86
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_sem_pessoas",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.8,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 95,
+      "gen_tps": 35.91,
+      "reasoning_chars": 0,
+      "final": "A quiet narrow cobblestone street in Paris at early morning, light drizzle falling, empty of people, wet asphalt reflecting soft golden streetlamp glow, Haussmann buildings with aged stone facades and black iron balconies, a single vintage street lamp casting gentle light, mist hanging in the air, cinematic atmosphere, soft diffused natural light blending with warm artificial light, ultra realistic photography style, shallow depth of field, symmetrical composition looking down the street, moody and serene ambiance.",
+      "detail": {
+        "failed": [],
+        "words": 75
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_sem_pessoas",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.5,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 82,
+      "gen_tps": 34.99,
+      "reasoning_chars": 0,
+      "final": "A quiet empty street in Paris early morning, light rain falling softly, narrow cobblestone road lined with historic Haussmann buildings with tall windows and wrought iron balconies, wet pavement reflecting warm golden sunrise light, misty atmosphere, no people visible, cinematic composition, ultra detailed, photorealistic, soft diffused lighting, moody atmosphere, 35mm lens, depth of field, tranquil and serene ambiance.",
+      "detail": {
+        "failed": [],
+        "words": 58
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_title",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.89,
+      "finish": "stop",
+      "prompt_tokens": 242,
+      "completion_tokens": 12,
+      "gen_tps": 37.42,
+      "reasoning_chars": 0,
+      "final": "{\"title\":\"Postgres Backup S3\"}",
+      "detail": {
+        "failed": [
+          "has_emoji"
+        ],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_title",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.5,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 12,
+      "gen_tps": 37.52,
+      "reasoning_chars": 0,
+      "final": "{\"title\": \"Backup Postgres S3\"}",
+      "detail": {
+        "failed": [
+          "has_emoji"
+        ],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_title",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.58,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 15,
+      "gen_tps": 37.48,
+      "reasoning_chars": 0,
+      "final": "{\n  \"title\": \"Backup Postgres S3\"\n}",
+      "detail": {
+        "failed": [
+          "has_emoji"
+        ],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_tags",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.22,
+      "finish": "stop",
+      "prompt_tokens": 243,
+      "completion_tokens": 21,
+      "gen_tps": 34.75,
+      "reasoning_chars": 0,
+      "final": "{\n  \"tags\": [\"PostgreSQL\", \"Backup Management\", \"Cloud Storage\"]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_tags",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.89,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 21,
+      "gen_tps": 32.08,
+      "reasoning_chars": 0,
+      "final": "{\n  \"tags\": [\"PostgreSQL\", \"Backup\", \"Amazon S3\"]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_tags",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.97,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 27,
+      "gen_tps": 34.48,
+      "reasoning_chars": 0,
+      "final": "{\n  \"tags\": [\n    \"PostgreSQL\",\n    \"Backup Automation\",\n    \"Cloud Storage\"\n  ]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_follow_ups",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.86,
+      "finish": "stop",
+      "prompt_tokens": 262,
+      "completion_tokens": 72,
+      "gen_tps": 34.69,
+      "reasoning_chars": 0,
+      "final": "{\n  \"follow_ups\": [\n    \"Como eu monto o cron para enviar automaticamente para o S3 depois do dump?\",\n    \"Preciso instalar algum pacote adicional no Ubuntu para usar o AWS CLI?\",\n    \"Como eu testo o script de envio para o S3 sem rodar o backup manualmente?\"\n  ]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_follow_ups",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.9,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 92,
+      "gen_tps": 34.0,
+      "reasoning_chars": 0,
+      "final": "{\n  \"follow_ups\": [\n    \"Como eu monto o cron para rodar o script de backup e enviar ao S3 automaticamente?\",\n    \"Quais permissões o usuário do Postgres precisa para o pg_dump?\",\n    \"Como eu monto o script para enviar o backup para o S3 usando aws cli?\",\n    \"E se o servidor tiver mais de um banco, como faço para fazer backup de todos?\"\n  ]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_follow_ups",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.37,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 74,
+      "gen_tps": 33.91,
+      "reasoning_chars": 0,
+      "final": "{\n  \"follow_ups\": [\n    \"Como eu monto o script para enviar automaticamente os backups para o S3?\",\n    \"Quais permissões o usuário do Postgres e o cron precisam para isso funcionar?\",\n    \"Como eu monto o cron para rodar o script de dump e envio para S3 junto?\"\n  ]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_queries",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.79,
+      "finish": "stop",
+      "prompt_tokens": 232,
+      "completion_tokens": 34,
+      "gen_tps": 33.13,
+      "reasoning_chars": 0,
+      "final": "{\n  \"queries\": [\n    \"como enviar backups postgres para s3 ubuntu\",\n    \"integracao pg_dump s3 cron ubuntu\"\n  ]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_queries",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.06,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 29,
+      "gen_tps": 32.99,
+      "reasoning_chars": 0,
+      "final": "{\"queries\":[\"como enviar backups postgres para s3 ubuntu cron\",\"como configurar pg_dump para upload automatico em s3\"]}`",
+      "detail": {
+        "failed": [],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_queries",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.22,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 34,
+      "gen_tps": 32.75,
+      "reasoning_chars": 0,
+      "final": "{\n  \"queries\": [\n    \"como enviar backups postgres para s3 ubuntu\",\n    \"integracao pg_dump s3 cron ubuntu\"\n  ]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_contagem_dias",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 61.02,
+      "finish": "length",
+      "prompt_tokens": 30,
+      "completion_tokens": 2048,
+      "gen_tps": 33.82,
+      "reasoning_chars": 0,
+      "final": "Precisamos calcular a diferença entre 1º de março de 2027 e 1º de junho de 2027, sem contar o dia final.\n\nInterpretação: Quantos dias completos existem entre essas duas datas, excluindo o dia de chegada (1º de junho)? Ou seja, quantos dias de intervalo completos?\n\nVamos calcular:\n\n- De 1º de março a 1º de junho.\n\nPrimeiro, contando o número de dias no mês de março após o dia 1 até o final do mês: março tem 31 dias. Então, do dia 1 ao dia 31, são 30 dias após o dia 1? Na verdade, se começamos no dia 1, o próximo dia é dia 2, então o número de dias exclusivos entre 1º e 31º é 30? Melhor pensar em diferença de datas.\n\nPara saber quantos dias há entre 1º de março e 1º de junho, calculamos a diferença em dias.\n\nVamos considerar: 1º de março a 1º de junho.\n\n- De 1º de março a 1º de abril: março tem 31 dias, então do dia 1 ao dia 31 são 30 dias completos? Na verdade, a diferença entre 1º de março e 1º de abril é de 31 dias? Vamos fazer contagem: 1º de março a 2 de março = 1 dia, ... até 1º de abril. O número de dias entre essas duas datas é 31? Vamos calcular: março tem 31 dias, então de 1º de março a 1º de abril são 31 dias? Sim, porque março tem 31 dias, então 1º de março + 31 dias = 1º de abril. Portanto, diferença = 31 dias.\n\n- De 1º de abril a 1º de maio: abril tem 30 dias, então diferença = 30 dias.\n\n- De 1º de maio a 1º de junho: maio tem 31 dias, então diferença = 31 dias.\n\nSomando: 31 + 30 + 31 = 92 dias.\n\nEsses 92 dias são os dias completos entre 1º de março e 1º de junho, excluindo o dia final? Na verdade, se a pergunta é \"quantos dias há de 1º de março até 1º de junho, sem contar o dia final?\", significa que queremos contar os dias desde 1º de março até o dia anterior ao 1º de junho, ou seja, quantos dias completos existem nesse intervalo.\n\nSe começarmos a contar em 1º de março, e não queremos contar o dia 1º de junho, então os dias são: de 1º de março a 31 de março (30 dias após o dia 1? Não, vamos listar).\n\nMelhor abordagem: Diferença entre datas em dias é calculada subtraindo a data inicial da data final. Por exemplo, entre 1º de março e 1º de junho, a diferença é de 92 dias (como calculado). Esse número representa quantos dias completos existem entre elas, excluindo o dia final? Na verdade, a diferença de data em programação é o número de dias entre as duas datas, não incluindo o dia inicial, mas incluindo o dia final? Vamos ver: se temos 1 de março e 2 de março, a diferença é 1 dia. Isso significa que entre elas há 1 dia completo (o dia 2). Se a pergunta é \"quantos dias há de 1º de março até 1º de junho, sem contar o dia final?\", então queremos saber quantos dias completos existem no intervalo, excluindo o dia de chegada.\n\nSe a diferença total é 92 dias, isso significa que do dia 1 de março ao dia 1 de junho, são 92 dias de intervalo. Por exemplo, se você contar do dia 1 ao dia 2, são 1 dia. Do dia 1 ao dia 3, são 2 dias. Portanto, do dia 1 de março ao dia 1 de junho, são 92 dias. Esse número já exclui o dia inicial e inclui o dia final",
+      "detail": {
+        "failed": [
+          "answer_92"
+        ]
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_contagem_dias",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 61.02,
+      "finish": "length",
+      "prompt_tokens": 5,
+      "completion_tokens": 2048,
+      "gen_tps": 33.64,
+      "reasoning_chars": 0,
+      "final": "Preciso entender a pergunta: \"Quantos dias há de 1º de março até 1º de junho de 2027, sem contar o dia final?\"\n\nInterpretação: Queremos o número de dias entre 1º de março de 2027 e 1º de junho de 2027, excluindo o dia final (ou seja, não contar 1º de junho). Ou talvez contar os dias de março, abril e maio? Vamos analisar.\n\n\"De 1º de março até 1º de junho\" normalmente significa do início de 1º de março até o dia 1 de junho. Sem contar o dia final, seria até 31 de maio inclusive? Ou seja, quantos dias completos existem entre essas datas, não incluindo 1º de junho.\n\nVamos calcular:\n\n- 1º de março de 2027 é um dia? Precisamos saber o dia da semana? Não importa para contagem de dias.\n- Vamos contar os dias de março, abril e maio, excluindo 1º de junho.\n\nSe começarmos a contar a partir de 1º de março, e não incluirmos 1º de junho, quantos dias são?\n\nDo 1º de março ao 31 de março: 31 dias? Mas cuidado: se começamos no dia 1, incluímos o dia 1, então são 31 dias (1 a 31). Depaís, abril tem 30 dias, maio tem 31 dias. Total = 31 + 30 + 31 = 92 dias.\n\nMas a pergunta \"Quantos dias há de 1º de março até 1º de junho de 2027, sem contar o dia final?\" Pode ser interpretada como: quantos dias completos existem entre essas duas datas, não incluindo o dia de chegada? Normalmente, \"de A até B\" conta os dias inclusive? Depende.\n\nSe a intenção é: quantos dias decorridos entre 1º de março e 1º de junho, excluindo o dia final (1º de junho), então são os dias de 1º de março até 31 de maio inclusive. Como os meses têm dias fixos, e março tem 31, abril 30, maio 31, total = 92 dias.\n\nMas vamos verificar se 2027 não tem algum detalhe? 2027 não é ano bissexto? 2027/4 = 506,75, não é divisível por 4, então não é bissexto. Fevereiro tem 28 dias. Os meses seguintes: março 31, abril 30, maio 31. Total de março a maio = 92 dias.\n\nPortanto, se começarmos em 1º de março e não contamos 1º de junho, são 92 dias.\n\nNo entanto, se a pergunta for \"quantos dias há de 1º de março até 1º de junho\", normalmente em contagem de dias entre datas, você subtrai a data inicial da final e soma 1 se incluir os dois? Por exemplo, de 1 a 1, quantos dias? Se incluir os dois, são 1 dia? Na contagem de intervalos, às vezes conta-se o número de dias completos entre elas, excluindo o dia final. Vamos ver: de 1º de março a 1º de junho, se não contarmos o dia final, o que seria? Poderíamos contar os dias de março, abril e maio, mas o dia 1 de março já está incluso? A pergunta \"sem contar o dia final\" sugere que não queremos incluir 1º de junho, mas devemos incluir os demais? Ou seja, queremos saber quantos dias completos existem entre essas datas, não incluindo o dia de chegada.\n\nSe começarmos a contar a partir de 1º de março, e não incluirmos 1º de junho, o último dia será 31 de maio. Como contamos a partir de 1, temos 92 dias. Mas será que deveríamos contar o dia 1 de março? Sim, porque \"de 1º de março até 1º de junho\" normalmente inclui o dia inicial? Em linguagem natural, \"há quantos dias de 1 até 3\" pode",
+      "detail": {
+        "failed": []
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_contagem_dias",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 60.73,
+      "finish": "length",
+      "prompt_tokens": 5,
+      "completion_tokens": 2048,
+      "gen_tps": 33.79,
+      "reasoning_chars": 0,
+      "final": "Precisamos calcular a diferença entre 1º de março de 2027 e 1º de junho de 2027, sem contar o dia final (ou seja, considerando apenas o número de dias entre eles, excluindo o dia de chegada).\n\nVamos interpretar: \"Quantos dias há de 1º de março até 1º de junho de 2027, sem contar o dia final?\" Provavelmente significa: quantos dias completos existem entre essas duas datas, excluindo o dia final (o dia de junho). Ou seja, se partirmos de 1º de março e contamos até antes de 1º de junho.\n\nVamos calcular:\n\n- De 1º de março a 31 de março: 30 dias (março tem 31 dias, mas excluindo o dia 1, temos 30 dias completos até o dia 31? Na verdade, se começamos no dia 1, o primeiro dia é contado? Vamos ser claros.\n\nO problema: \"Quantos dias há de 1º de março até 1º de junho de 2027, sem contar o dia final?\" Isso pode significar: quantos dias decorrem entre essas datas, não incluindo o dia final. Ou seja, se você parte de 1º de março e vai até 31 de maio, quantos dias são?\n\nVamos supor que queremos o número de dias completos entre 1º de março e 1º de junho, excluindo o dia de chegada (1º de junho). Isso é equivalente a contar os dias de março (após o dia 1), todos os dias de abril, todos os dias de maio, e até o dia 31 de maio, sem incluir 1º de junho.\n\nSimplificação: A diferença em dias entre duas datas é calculada subtraindo a data inicial da data final e ignorando o final? Normalmente, a diferença entre 1º de março e 1º de junho (ambas inclusive) seria: de 1/3 a 31/3 = 30 dias (se contarmos do dia 1 ao dia 31, são 31? Vamos fazer contagem passo a passo.\n\nMelhor abordagem: Calcular o número de dias entre as datas, considerando que a diferença é a quantidade de dias entre uma data e outra, sem contar o dia inicial? Ou com? A pergunta é ambígua, mas \"sem contar o dia final\" sugere que queremos os dias intermediários, ou seja, se começarmos em 1º de março e paramos antes de chegar a 1º de junho, quantos dias completos existem?\n\nVamos supor que queremos o número de dias completos de 1º de março a 31 de maio, excluindo o dia 1º de junho. Isso é: do dia 1 de março ao dia 31 de maio, quantos dias são?\n\nPodemos calcular: Março: 31 dias, mas começando do dia 1, então temos 31 dias no mês inteiro. Mas se excluirmos o dia final (1º de junho), não estamos contando esse. Então, os dias de março são todos (31), abril (30), maio (31). Mas precisamos ter cuidado: se começamos no dia 1 de março, o primeiro dia é 1, então o total de dias em março é 31. Então, somando março (31) + abril (30) + maio (31) = 92 dias. Mas isso inclui o dia 1 de março? Sim, porque estamos contando todos os dias do mês. No entanto, a pergunta \"de 1º de março até 1º de junho\" normalmente a diferença é de 92 dias? Vamos verificar com cálculo de data.\n\nEm Python, por exemplo, a diferença entre datetime(2027,3,1) e datetime(2027,6,1) é de 92 dias (se não contarmos o dia inicial? Na verdade, datetime.date(2027,6,1) - datetime.date(2027,3,1) resulta em timedelta(days=92). Isso porque a diferença é calculada su",
+      "detail": {
+        "failed": []
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_email_formal",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 4.03,
+      "finish": "stop",
+      "prompt_tokens": 51,
+      "completion_tokens": 106,
+      "gen_tps": 34.02,
+      "reasoning_chars": 0,
+      "final": "**Assunto:** Remarcação de Reunião – Confirmada para Sexta-feira\n\nPrezados,\n\nVimos por meio deste solicitar a remarcação da nossa reunião, previamente agendada para quinta-feira, para a data de sexta-feira, no horário de 10h.\n\nA nova agenda foi ajustada para adequar as prioridades do momento. Contamos com a sua disponibilidade para o novo dia.\n\nAtenciosamente,\n[Seu Nome]",
+      "detail": {
+        "failed": [],
+        "words": 57
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_email_formal",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.45,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 111,
+      "gen_tps": 33.53,
+      "reasoning_chars": 0,
+      "final": "**Assunto:** Remarcação de Reunião – Confirmada para Sexta-feira\n\nPrezado(a) [Nome],\n\nVimos por meio deste solicitar a remarcação da nossa reunião, previamente agendada para quinta-feira, para a data de sexta-feira, no horário de 10h.\n\nA nova agenda se dará de forma presencial, no mesmo local. Peço que confirmem sua disponibilidade para o novo dia.\n\nAtenciosamente,\n[Seu Nome]",
+      "detail": {
+        "failed": [],
+        "words": 59
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_email_formal",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.5,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 113,
+      "gen_tps": 33.64,
+      "reasoning_chars": 0,
+      "final": "Assunto: Remarcação de Reunião – Sexta-feira às 10h  \n\nPrezado(a) [Nome],  \n\nEscrevo para formalizar a remarcação da nossa reunião, previamente marcada para quinta-feira, para a data de sexta-feira, às 10h.  \n\nA alteração visa adequar a agenda de ambos os lados. A nova data será comunicada com antecedência. Aguardamos confirmação.  \n\nAtenciosamente,  \n[Seu Nome]",
+      "detail": {
+        "failed": [],
+        "words": 54
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_tcp_udp",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.24,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "completion_tokens": 62,
+      "gen_tps": 33.66,
+      "reasoning_chars": 0,
+      "final": "TCP (Transmission Control Protocol) é orientado à conexão, garante entrega ordenada e sem perdas, enquanto UDP (User Datagram Protocol) é sem conexão, sem garantia de entrega. TCP usa handshake e controle de congestionamento, enquanto UDP prioriza velocidade e baixa latência.",
+      "detail": {
+        "failed": [],
+        "lines": 1
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_tcp_udp",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.86,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 58,
+      "gen_tps": 33.49,
+      "reasoning_chars": 0,
+      "final": "A diferença principal entre TCP e UDP está na conexão: TCP é orientado a conexão (estabelece handshake antes de enviar) e garante entrega ordenada e sem perdas, enquanto UDP é connectionless e não garante entrega, ordem ou integridade.",
+      "detail": {
+        "failed": [],
+        "lines": 1
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_tcp_udp",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.11,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 66,
+      "gen_tps": 33.34,
+      "reasoning_chars": 0,
+      "final": "A diferença principal entre TCP e UDP está no protocolo de transporte: TCP é orientado a conexão, garantindo entrega ordenada e sem perda (usando handshake e retransmissões), enquanto UDP é sem conexão, sem garantia de entrega, mas com latência menor e overhead reduzido.",
+      "detail": {
+        "failed": [],
+        "lines": 1
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_resumo",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.62,
+      "finish": "stop",
+      "prompt_tokens": 121,
+      "completion_tokens": 40,
+      "gen_tps": 33.66,
+      "reasoning_chars": 0,
+      "final": "A prefeitura de Curitiba anunciou que a linha Interbairros II passará a operar com 18 ônibus elétricos a partir de março.",
+      "detail": {
+        "failed": [],
+        "words": 21
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_resumo",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.87,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 58,
+      "gen_tps": 33.76,
+      "reasoning_chars": 0,
+      "final": "A prefeitura de Curitiba anunciou que a linha Interbairros II terá 18 ônibus elétricos a partir de março, mantendo a tarifa e reduzindo 1.200 toneladas de CO2 por ano.",
+      "detail": {
+        "failed": [
+          "max_25_words"
+        ],
+        "words": 30
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_resumo",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.37,
+      "finish": "stop",
+      "prompt_tokens": 5,
+      "completion_tokens": 40,
+      "gen_tps": 33.03,
+      "reasoning_chars": 0,
+      "final": "A prefeitura de Curitiba anunciou que a linha Interbairros II passará a operar com 18 ônibus elétricos a partir de março.",
+      "detail": {
+        "failed": [],
+        "words": 21
+      }
+    }
+  ],
+  "status": "complete",
+  "settings": {
+    "ctx": 65536,
+    "kv_cache": "q8_0",
+    "thinking": "off",
+    "sampling": {
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0
+    },
+    "routes": {
+      "voice-chat": {
+        "temperature": 0.7,
+        "max_tokens": 150,
+        "timeout": 15
+      },
+      "subtitles": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "timeout": 600
+      },
+      "prompt-enhancer": {
+        "temperature": 0.7,
+        "max_tokens": 800,
+        "timeout": 600
+      },
+      "owui-tasks": {
+        "temperature": 0.3,
+        "max_tokens": 512,
+        "timeout": 600
+      },
+      "simple-chat": {
+        "temperature": 0.7,
+        "max_tokens": 2048,
+        "timeout": 300
+      }
+    }
+  },
+  "load_s": 65.2,
+  "log": "/home/will/llm-bench/usecases/logs/usecases__flint__dual__UD-Q3_K_XL.log"
+}

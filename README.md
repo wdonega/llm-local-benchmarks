@@ -22,7 +22,7 @@ folder with its model list and results. So far there is one:
 ## Contents
 
 - [Best models on the BC-250](#best-models-on-the-bc-250)
-  - [Round 2: the finalists, production-like settings](#round-2-the-finalists-production-like-settings)
+- [Use cases: the LiteLLM routes (thinking off)](#use-cases-the-litellm-routes-thinking-off)
 - [Round 1: screening 12 models](#round-1-screening-12-models)
 - [BC-250 cluster](#bc-250-cluster)
 - [The test process](#the-test-process)
@@ -35,61 +35,111 @@ folder with its model list and results. So far there is one:
 ## Best models on the BC-250
 
 **Short answer: run a small-active MoE model.** Every config worth using is a
-mixture-of-experts model with ~2.5–3B active parameters. These generate at 28–49 tok/s
+mixture-of-experts model with ~2.5–3B active parameters. These generate at 28–60 tok/s
 on this board. Dense models from 9B up were too slow to finish hard tasks in time.
 
-- **One board:** Ornith-1.5 35B-A3B IQ2_S (27/36 in round 1, 39 tok/s).
-- **Two boards:** flint 39.8B-A2.5B UD-Q3_K_XL (31/36 in round 1, the best score overall).
+- **Everyday routes, thinking off (chat, voice, subtitles, prompts, Open WebUI tasks):**
+  **Qwen3.6 35B-A3B UD-IQ2_XXS on one board**, 48/51 in the
+  [use-case suite](#use-cases-the-litellm-routes-thinking-off), sub-second voice answers.
+- **Hard tasks, thinking on, one board:** Ornith-1.5 35B-A3B IQ2_S (27/36 in round 1, 39 tok/s).
+- **Hard tasks, thinking on, two boards:** flint 39.8B-A2.5B UD-Q3_K_XL (31/36 in round 1,
+  the best score overall).
 
-These are the round 1 finalists: configs with **more than 20 of 36 correct, at most 1
+The finalists came out of round 1: configs with **more than 20 of 36 correct, at most 1
 timeout and more than 20 tok/s**. That left 4 models, each tested with its one-board
 and its two-board quant:
 
-| Model | 1 board | Score | Gen t/s | 2 boards | Score | Gen t/s |
+| Model | 1 board | Round 1 | Use cases | 2 boards | Round 1 | Use cases |
 |---|---|---|---|---|---|---|
-| flint 39.8B-A2.5B | UD-IQ2_XXS | 26/36 | 31.7 | UD-Q3_K_XL | **31/36** | 28.5 |
-| Ornith-1.5 35B-A3B | IQ2_S | **27/36** | 38.9 | Q4_K_M | 28/36 | 37.9 |
-| Qwen3.6 35B-A3B | UD-IQ2_XXS | 25/36 | 34.3 | UD-Q4_K_M | 27/36 | 37.0 |
-| LFM2.5 24B-A2B | UD-Q3_K_XL | 21/36 | 49.0 | UD-Q5_K_XL | 24/36 | 44.8 |
+| Qwen3.6 35B-A3B | UD-IQ2_XXS | 25/36 | **48/51** | UD-Q4_K_M | 27/36 | 47/51 |
+| flint 39.8B-A2.5B | UD-IQ2_XXS | 26/36 | 43/51 | UD-Q3_K_XL | **31/36** | 39/51 |
+| Ornith-1.5 35B-A3B | IQ2_S | **27/36** | 35/51 | Q4_K_M | 28/36 | 42/51 |
+| LFM2.5 24B-A2B | UD-Q3_K_XL | 21/36 | 21/51 | UD-Q5_K_XL | 24/36 | 27/51 |
 
-The scores above come from round 1, where every model ran under the same tight limits.
-Round 2 re-tests the finalists the way they would actually be served.
+Round 1 measures hard tasks with thinking on. The use-case suite measures the everyday
+routes with thinking off. They rank the models differently, which is why both exist.
 
-### Round 2: the finalists, production-like settings
+---
 
-Same tasks as round 1, plus two English → Portuguese translation tests (42 calls per
-config). The settings move closer to a production server:
+## Use cases: the LiteLLM routes (thinking off)
 
-| | Round 1 | Round 2 |
-|---|---|---|
-| Context | 32k | **64k** (no fallback; all 8 configs load with it) |
-| Thinking budget | 6144 tokens | **16384 tokens** (1/4 of the context) |
-| Timeout per call | 5 min | **15 min** |
-| Sampling | one setting for all (temp 0.6) | **what each model card recommends** |
-| Host prompt cache | default (first configs) | off (`--cache-ram 0`) |
+The BC-250 serves a set of [LiteLLM](https://github.com/BerriAI/litellm) routes, each one
+a use case with its own temperature, output limit and timeout. This suite tests the
+routes that run with thinking **off** (the thinking routes are served by another
+machine): 17 tests × 3 runs = 51 calls per config.
 
-The budget was chosen so that even the slowest finalist can think it through and still
-answer within the timeout. The slowest is flint on two boards, at ~25 tok/s with a full
-context: ~2.5 min to read the 17k-token document, ~11 min to think 16k tokens and ~1 min
-to answer. When a model thinks too long, the budget cuts it off and it still answers.
-A timeout means the model is stuck or looping.
-
-Sampling from each model card on Hugging Face. A parameter the card does not mention is
-set to its neutral value (top_p 1, min_p 0), not llama.cpp's default (0.95 / 0.05):
-
-| Model | temperature | top_p | top_k | other |
+| Route | temp | max_tokens | timeout | What is tested |
 |---|---|---|---|---|
-| flint | 1.0 | 0.95 | 20 | – |
-| Ornith-1.5 35B-A3B | 0.6 | 0.95 | 20 | – ("general tasks") |
-| Qwen3.6 35B-A3B | 1.0 | 0.95 | 20 | presence_penalty 1.5 (thinking mode, general tasks) |
-| LFM2.5 24B-A2B | 0.1 | – | 50 | repetition_penalty 1.05 |
+| `voice-chat` | 0.7 | 150 | **15 s** | 4 spoken questions (percentage, unit conversion, a fact, a tip). The answer must be right, at most 40 words, with no markdown or emoji, and must arrive in time. |
+| `subtitles` | 0.2 | 2048 | 600 s | 2 SRT files, EN → PT-BR. Cue numbers, timestamps and `<i>` tags must not change; at most 2 lines per cue and 42 characters per line. Traps: *Break a leg*, *I'm on it*, *actually*, `12,500`, *6 p.m.* |
+| `prompt-enhancer` | 0.7 | 800 | 600 s | 3 short requests turned into one detailed English image prompt (40–150 words) that keeps every requested element (watercolor, white background, "no people"), with no commentary. |
+| `owui-tasks` | 0.3 | 512 | 600 s | Title, tags, follow-ups and search queries, using prompts modelled on Open WebUI's task templates. Valid JSON, the right schema and limits. A fenced JSON is accepted, because Open WebUI parses it. |
+| `simple-chat` | 0.7 | 2048 | 300 s | Counting days, a formal e-mail with constraints, TCP vs UDP in at most 5 lines, a one-sentence summary. |
 
-Results are published as each config finishes. Per-test breakdown:
-[`bc250/results/round2/summary.md`](bc250/results/round2/summary.md).
+Server: 64k context and thinking off. Qwen3.6 and Ornith switch thinking off through
+`enable_thinking: false`. flint and LFM2.5 have no switch, so the server forces it with
+`--reasoning-budget 0`. top_p, top_k, min_p and penalties are each model card's
+non-thinking recommendation. Temperature comes from the route:
 
-<!-- ROUND2:BEGIN -->
-_Running; the first configs will appear here as they finish._
-<!-- ROUND2:END -->
+| Model | top_p | top_k | min_p | other |
+|---|---|---|---|---|
+| Qwen3.6 35B-A3B | 0.8 | 20 | 0 | presence_penalty 1.5 |
+| Ornith-1.5 35B-A3B | 0.95 | 20 | 0 | – |
+| flint | 0.95 | 20 | 0 | – |
+| LFM2.5 24B-A2B | 1.0 | 50 | 0 | repetition_penalty 1.05 |
+
+| Config | voice-chat | subtitles | prompt-enhancer | owui-tasks | simple-chat | Total | Timeouts | Voice p95 latency | Gen t/s | Status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Qwen3.6-35B-A3B UD-IQ2_XXS (single) | 12/12 | 3/6 | 9/9 | 12/12 | 12/12 | **48/51** | 0 | 1.1s | 39.6 | complete |
+| Qwen3.6-35B-A3B UD-Q4_K_M (dual) | 12/12 | 4/6 | 8/9 | 12/12 | 11/12 | **47/51** | 0 | 1.6s | 35.6 | complete |
+| flint-39.8B-A2.5B UD-IQ2_XXS (single) | 12/12 | 2/6 | 9/9 | 12/12 | 8/12 | **43/51** | 0 | 0.8s | 43.6 | complete |
+| Ornith-1.5-35B-A3B Q4_K_M (dual) | 12/12 | 3/6 | 8/9 | 12/12 | 7/12 | **42/51** | 0 | 1.3s | 41.7 | complete |
+| flint-39.8B-A2.5B UD-Q3_K_XL (dual) | 12/12 | 1/6 | 7/9 | 9/12 | 10/12 | **39/51** | 0 | 1.1s | 36.7 | complete |
+| Ornith-1.5-35B-A3B IQ2_S (single) | 10/12 | 0/6 | 8/9 | 11/12 | 6/12 | **35/51** | 0 | 0.6s | 48.6 | complete |
+| LFM2.5-24B-A2B UD-Q5_K_XL (dual) | 10/12 | 0/6 | 5/9 | 3/12 | 9/12 | **27/51** | 0 | 1.1s | 50.0 | complete |
+| LFM2.5-24B-A2B UD-Q3_K_XL (single) | 9/12 | 0/6 | 3/9 | 0/12 | 9/12 | **21/51** | 0 | 0.9s | 60.6 | complete |
+
+Median wall time per call, in seconds:
+
+| Config | voice-chat | subtitles | prompt-enhancer | owui-tasks | simple-chat |
+|---|---|---|---|---|---|
+| Qwen3.6-35B-A3B UD-IQ2_XXS (single) | 0.6 | 5.5 | 3.6 | 2.1 | 2.6 |
+| Qwen3.6-35B-A3B UD-Q4_K_M (dual) | 1.1 | 6.2 | 4.3 | 2.0 | 3.5 |
+| flint-39.8B-A2.5B UD-IQ2_XXS (single) | 0.6 | 3.5 | 2.1 | 1.7 | 3.0 |
+| Ornith-1.5-35B-A3B Q4_K_M (dual) | 1.1 | 5.8 | 3.5 | 2.1 | 3.3 |
+| flint-39.8B-A2.5B UD-Q3_K_XL (dual) | 0.8 | 4.7 | 2.8 | 1.9 | 3.5 |
+| Ornith-1.5-35B-A3B IQ2_S (single) | 0.4 | 4.4 | 1.9 | 2.0 | 2.2 |
+| LFM2.5-24B-A2B UD-Q5_K_XL (dual) | 0.6 | 3.5 | 3.9 | 11.2 | 2.2 |
+| LFM2.5-24B-A2B UD-Q3_K_XL (single) | 0.4 | 2.6 | 4.3 | 9.3 | 2.3 |
+
+Per-test breakdown: [`bc250/results/usecases/summary.md`](bc250/results/usecases/summary.md).
+
+**What the use cases show**
+
+- **Qwen3.6 is the model for everyday routes.** 48/51 on one board, perfect on voice,
+  prompts, Open WebUI tasks and chat. The bigger two-board quant does not improve it (47/51).
+- **Voice is fast for everyone.** p95 latency was 0.6–1.6 s, far inside the 15 s timeout.
+  The differences are in correctness: LFM2.5 named "Camden" as the capital of Australia.
+- **Subtitles are the hardest route.** Only Qwen3.6 (both quants) got the dialogue right.
+  The others translated *Break a leg* as "Quebras uma perna" and *I'm on it* as "Estou em
+  cima disso". The news file failed mostly on the 42-character line limit.
+- **A model that always thinks cannot be switched off.** LFM2.5 is a pure reasoning
+  model. With thinking forced off, it moved its reasoning into the answer ("We need to
+  produce a concise title…") and ran out of the 512-token limit before writing the JSON:
+  0/12 on Open WebUI tasks on one board. flint, which also has no switch, coped well.
+- **Thinking on and thinking off rank models differently.** flint on two boards is the
+  best model with thinking (31/36) but only 5th here (39/51), with no emoji in titles and
+  overlong subtitles. Ornith's two-board quant gained 7 points over its 2-bit one-board
+  quant here, much more than with thinking on.
+
+### Round 2 (stopped)
+
+A second round re-ran the finalists' hard tasks with production-like thinking settings:
+64k context, 16k thinking budget, 15 min per call and each model card's sampling, plus
+two EN → PT-BR translation tests. It was stopped after the first config, because the
+thinking routes are served by another machine. The profile stays in the harness
+(`--profile round2`), and the translation tests are described in
+[The tasks](#the-tasks).
 
 ---
 
@@ -520,6 +570,10 @@ python3 run_bench.py --retry-timeouts
 # 15 min per call and the translation tests (results in results/round2/)
 python3 run_bench.py --profile round2 --models ../bc250/models-round2.json --all --runs 3
 
+# use cases: the LiteLLM routes with thinking off (results in results/usecases/)
+python3 validate_usecases.py                 # must print ALL OK
+python3 run_usecases.py --models ../bc250/models-usecases.json --all --runs 3
+
 # rebuild summaries from the JSON files at any time
 python3 run_bench.py --summary
 ```
@@ -551,11 +605,16 @@ harness/
   tasks.py            tasks, simulated tools and graders
   validate.py         checks the answer keys, graders and negative controls of the suite
   common.py           shared helpers: server lifecycle, disk management, Docker sandbox
+  usecases.py         use-case suite: one group of tests per LiteLLM route
+  run_usecases.py     use-case runner (thinking off, per-route settings, latency)
+  validate_usecases.py  checks the use-case graders against good and bad answers
   rpc_smoke.py        loads a small model across two boards to check the RPC worker
   run_queue.sh        full queue, meant to run unattended as a systemd user service
 bc250/
   models.json         round 1: every model and quant tested on the BC-250 cluster
   models-round2.json  round 2: the finalists, with each model card's recommended sampling
+  models-usecases.json  use cases: the finalists, with each card's non-thinking sampling
+  results/usecases/   use-case results
   results/round2/     round 2 results (updated as each config finishes)
   results/main/       round 1 results
   results/pilot/      pilot run (1 run per test, used to calibrate difficulty)

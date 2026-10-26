@@ -1,0 +1,1075 @@
+{
+  "model": "LFM2.5-24B-A2B",
+  "key": "lfm25-24b",
+  "mode": "dual",
+  "repo": "unsloth/LFM2.5-24B-A2B-GGUF",
+  "quant": "UD-Q5_K_XL",
+  "runs": 3,
+  "calls": [
+    {
+      "route": "voice-chat",
+      "test": "voz_porcentagem",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.03,
+      "finish": "stop",
+      "prompt_tokens": 74,
+      "completion_tokens": 29,
+      "gen_tps": 68.13,
+      "reasoning_chars": 0,
+      "final": "Para calcular 15% de 80, multiplique 80 por 0,15 e o resultado é 12.",
+      "detail": {
+        "failed": [],
+        "words": 15
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_porcentagem",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.49,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 29,
+      "gen_tps": 65.03,
+      "reasoning_chars": 0,
+      "final": "15% de 80 é 12. Basta multiplicar 80 por 0,15 para obter o resultado.",
+      "detail": {
+        "failed": [],
+        "words": 15
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_porcentagem",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.49,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 29,
+      "gen_tps": 64.96,
+      "reasoning_chars": 0,
+      "final": "15% de 80 é 12. Basta multiplicar 0,15 por 80 para obter o resultado.",
+      "detail": {
+        "failed": [],
+        "words": 15
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_conversao",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.08,
+      "finish": "stop",
+      "prompt_tokens": 75,
+      "completion_tokens": 31,
+      "gen_tps": 63.34,
+      "reasoning_chars": 0,
+      "final": "5 milhas equivalem a aproximadamente 8,05 quilômetros. Se precisar de mais conversões, é só pedir.",
+      "detail": {
+        "failed": [],
+        "words": 16
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_conversao",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.32,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 17,
+      "gen_tps": 61.24,
+      "reasoning_chars": 0,
+      "final": "5 milhas equivalem a aproximadamente 8 quilômetros.",
+      "detail": {
+        "failed": [],
+        "words": 7
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_conversao",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.54,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 30,
+      "gen_tps": 61.16,
+      "reasoning_chars": 0,
+      "final": "5 milhas equivalem a aproximadamente 8,05 quilômetros. Basta multiplicar por 1,6093.",
+      "detail": {
+        "failed": [],
+        "words": 13
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_fato",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.03,
+      "finish": "stop",
+      "prompt_tokens": 73,
+      "completion_tokens": 22,
+      "gen_tps": 57.86,
+      "reasoning_chars": 0,
+      "final": "A capital da Austrália é Canberra. Ela fica no território federal da capital.",
+      "detail": {
+        "failed": [],
+        "words": 13
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_fato",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.59,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 31,
+      "gen_tps": 57.32,
+      "reasoning_chars": 0,
+      "final": "A capital da Austrália é Camberra. É uma cidade planejada localizada no estado de Austrália Meridional.",
+      "detail": {
+        "failed": [
+          "answer"
+        ],
+        "words": 16
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_fato",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.43,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 21,
+      "gen_tps": 55.18,
+      "reasoning_chars": 0,
+      "final": "A capital da Austrália é Camberra. Ela fica no território da capital.",
+      "detail": {
+        "failed": [
+          "answer"
+        ],
+        "words": 12
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_dica",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.1,
+      "finish": "stop",
+      "prompt_tokens": 75,
+      "completion_tokens": 23,
+      "gen_tps": 56.22,
+      "reasoning_chars": 0,
+      "final": "Evite telas antes de dormir e tente respiração lenta por 5 minutos.",
+      "detail": {
+        "failed": [],
+        "words": 12
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_dica",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.53,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 26,
+      "gen_tps": 54.64,
+      "reasoning_chars": 0,
+      "final": "Evite telas antes de dormir e faça respições lentas para acalmar a mente.",
+      "detail": {
+        "failed": [],
+        "words": 13
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_dica",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.84,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 41,
+      "gen_tps": 51.58,
+      "reasoning_chars": 0,
+      "final": "Evite telas uma hora antes de dormir e mantenha o quarto escuro e fresco.\nIsso ajuda a regular seu relógio biológico e melhora a qualidade do sono.",
+      "detail": {
+        "failed": [],
+        "words": 27
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_dialogo",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 4.34,
+      "finish": "stop",
+      "prompt_tokens": 252,
+      "completion_tokens": 158,
+      "gen_tps": 48.26,
+      "reasoning_chars": 0,
+      "final": "1\n00:00:01,200 --> 00:00:03,400\nEi, você vem pro estreia esta noite?\n\n2\n00:00:03,600 --> 00:00:06,100\nEstou no caminho. Só terminando a última cena.\n\n3\n00:00:06,300 --> 00:00:08,000\n<i>Boa sorte!</i>\n\n4\n00:00:08,200 --> 00:00:11,500\nNa verdade, estou um pouco nervoso.\nÉ meu primeiro papel principal.\n\n5\n00:00:11,700 --> 00:00:13,900\nVocê vai arrasar. Acredite em mim.",
+      "detail": {
+        "failed": [
+          "max_42_chars"
+        ],
+        "cues": 5
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_dialogo",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.49,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 158,
+      "gen_tps": 46.08,
+      "reasoning_chars": 0,
+      "final": "1\n00:00:01,200 --> 00:00:03,400\nEi, você vem pro estreia esta noite?\n\n2\n00:00:03,600 --> 00:00:06,100\nEstou no caminho. Só terminando a última cena.\n\n3\n00:00:06,300 --> 00:00:08,000\n<i>Boa sorte!</i>\n\n4\n00:00:08,200 --> 00:00:11,500\nNa verdade, estou um pouco nervoso.\nÉ meu primeiro papel principal.\n\n5\n00:00:11,700 --> 00:00:13,900\nVocê vai arrasar. Acredite em mim.",
+      "detail": {
+        "failed": [
+          "max_42_chars"
+        ],
+        "cues": 5
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_dialogo",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.5,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 158,
+      "gen_tps": 45.89,
+      "reasoning_chars": 0,
+      "final": "1\n00:00:01,200 --> 00:00:03,400\nEi, você vem pro estreia esta noite?\n\n2\n00:00:03,600 --> 00:00:06,100\nEstou no caminho. Só terminando a última cena.\n\n3\n00:00:06,300 --> 00:00:08,000\n<i>Boa sorte!</i>\n\n4\n00:00:08,200 --> 00:00:11,500\nNa verdade, estou um pouco nervoso.\nÉ meu primeiro papel principal.\n\n5\n00:00:11,700 --> 00:00:13,900\nVocê vai arrasar. Acredite em mim.",
+      "detail": {
+        "failed": [
+          "max_42_chars"
+        ],
+        "cues": 5
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_noticia",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 4.13,
+      "finish": "stop",
+      "prompt_tokens": 233,
+      "completion_tokens": 146,
+      "gen_tps": 48.18,
+      "reasoning_chars": 0,
+      "final": "1\n00:01:05,000 --> 00:01:08,200\nA tempestade cortou a energia\npara 12.500 casas na terça-feira.\n\n2\n00:01:08,400 --> 00:01:11,000\nA equipe espera restaurar\naté as 18h de amanhã.\n\n3\n00:01:11,200 --> 00:01:14,600\n<i>Oficiais instam os moradores\na não circular pelas estradas.</i>\n\n4\n00:01:14,800 --> 00:01:17,300\nPara atualizações, visite o site da cidade.",
+      "detail": {
+        "failed": [
+          "max_42_chars"
+        ],
+        "cues": 4
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_noticia",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.22,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 146,
+      "gen_tps": 46.21,
+      "reasoning_chars": 0,
+      "final": "1\n00:01:05,000 --> 00:01:08,200\nA tempestade cortou a energia\npara 12.500 casas na terça-feira.\n\n2\n00:01:08,400 --> 00:01:11,000\nA equipe espera restaurar\naté as 18h de amanhã.\n\n3\n00:01:11,200 --> 00:01:14,600\n<i>Oficiais instam os moradores\na não circular pelas estradas.</i>\n\n4\n00:01:14,800 --> 00:01:17,300\nPara atualizações, visite o site da cidade.",
+      "detail": {
+        "failed": [
+          "max_42_chars"
+        ],
+        "cues": 4
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_noticia",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.27,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 149,
+      "gen_tps": 46.32,
+      "reasoning_chars": 0,
+      "final": "1\n00:01:05,000 --> 00:01:08,200\nA tempestade cortou a energia\npara 12.500 casas na terça-feira.\n\n2\n00:01:08,400 --> 00:01:11,000\nEquipes esperam restaurar\naté as 18h de amanhã.\n\n3\n00:01:11,200 --> 00:01:14,600\n<i>Oficiais pedem que\nos moradores não usem\nas estradas.</i>\n\n4\n00:01:14,800 --> 00:01:17,300\nPara atualizações, visite o site da cidade.",
+      "detail": {
+        "failed": [
+          "max_2_lines",
+          "max_42_chars"
+        ],
+        "cues": 4
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_gato_astronauta",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.88,
+      "finish": "stop",
+      "prompt_tokens": 131,
+      "completion_tokens": 137,
+      "gen_tps": 46.24,
+      "reasoning_chars": 0,
+      "final": "Describe a whimsical astronaut cat in a soft watercolor style, floating near a majestic Saturn with its rings glowing gently in the background; the scene is illuminated by a dreamy twilight light that casts a pastel glow on the feline astronaut’s fur and the planet, creating an ethereal, serene atmosphere. Show the cat with a small helmet and a tiny flag attached to its tail, positioned slightly off-center for a balanced composition, while Saturn dominates the upper half of the frame with vibrant rings and subtle atmospheric details, ensuring all elements harmoniously blend in an imaginative, playful yet artistic depiction suitable for a watercolor painting.",
+      "detail": {
+        "failed": [],
+        "words": 107
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_gato_astronauta",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.77,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 121,
+      "gen_tps": 44.58,
+      "reasoning_chars": 0,
+      "final": "Describe a cat astronaut floating nearby Saturn in a watercolor style: the feline in a sleek silver suit with glowing eyes, gently drifting in space, its tail curling around a small control panel, while vibrant rings of Saturn swirl behind with soft pastel hues, the scene bathed in luminous cosmic light that casts delicate reflections on the cat's fur, composition balanced with the planet occupying one side and the astronaut cat centered, emphasizing whimsical elegance and dreamy atmosphere, rendered with fluid brushstrokes and translucent layers typical of watercolor.",
+      "detail": {
+        "failed": [],
+        "words": 88
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_gato_astronauta",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 17.53,
+      "finish": "length",
+      "prompt_tokens": 4,
+      "completion_tokens": 800,
+      "gen_tps": 45.77,
+      "reasoning_chars": 0,
+      "final": "Describe a curious astronaut cat floating gracefully near Saturn's rings, with the gas giant's swirling storms visible in the background under soft, warm starlight. The scene should evoke wonder and whimsy, featuring the cat's sleek fur illuminated by gentle cosmic light, its small helmet reflecting distant stars. Render the composition in a delicate watercolor style, with flowing pastel colors blending the planet's golden hues with the cat's silvery-gray coat, soft brushstrokes creating a dreamy, ethereal atmosphere that balances the majesty of Saturn with the playful charm of the feline explorer. The overall image should feel serene, imaginative, and artistically loose, capturing both celestial grandeur and cute innocence in harmonious watercolor tones.\n\num gato astronauta flutuando perto de saturno, estilo aquarela: descreva o sujeito como um gato curioso usando um traje espacial pequeno, flutuando perto dos anéis de Saturno com a atmosfera gasosa do planeta visível ao fundo sob uma luz estelar suave e quente. A cena deve evocar admiração e fantasia, mostrando o pelo elegante do gato iluminado pela luz cósmica delicada, seu pequeno capacete refletindo estrelas distantes. Render a composição em um estilo aquarela delicado, com cores pastel fluidas misturando os tons dourados do planeta com o pelagem prateada do gato, pinceladas leves criando uma atmosfera onírica e etérea que equilibra a grandiosidade celestial com o charme divertido do explorador felino. A imagem deve ser serena, imaginativa e artisticamente solta, capturando tanto a majestade de Saturno quanto a inocência fofa em tons aquarelados harmoniosos.</think>\n\nDescribe a curious astronaut cat floating gracefully near Saturn's rings, with the gas giant's swirling storms visible in the background under soft, warm starlight. The scene should evoke wonder and whimsy, featuring the cat's sleek fur illuminated by gentle cosmic light, its small helmet reflecting distant stars. Render the composition in a delicate watercolor style, with flowing pastel colors blending the planet's golden hues with the cat's silvery-gray coat, soft brushstrokes creating a dreamy, ethereal atmosphere that balances the majesty of Saturn with the playful charm of the feline explorer. The overall image should feel serene, imaginative, and artistically loose, capturing both celestial grandeur and cute innocence in harmonious watercolor tones.\n\num gato astronauta flutuando perto de saturno, estilo aquarela: descreva o sujeito como um gato curioso usando um traje espacial pequeno, flutuando perto dos anéis de Saturno com a atmosfera gasosa do planeta visível ao fundo sob uma luz estelar suave e quente. A cena deve evocar admiração e fantasia, mostrando o pelo elegante do gato iluminado pela luz cósmica delicada, seu pequeno capacete refletindo estrelas distantes. Render a composição em um estilo aquarela delicado, com cores pastel fluidas misturando os tons dourados do planeta com a pelagem prateada do gato, pincelada",
+      "detail": {
+        "failed": [
+          "one_paragraph",
+          "40_to_150_words",
+          "english"
+        ],
+        "words": 493
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_logo",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.92,
+      "finish": "stop",
+      "prompt_tokens": 131,
+      "completion_tokens": 136,
+      "gen_tps": 45.67,
+      "reasoning_chars": 0,
+      "final": "Create a minimalist logo for a café named \"Grão Fino\" on a pure white background, using simple line art of coffee beans or a stylized cup to convey elegance and warmth, with clean sans‑serif typography in black or dark brown, balanced and symmetrical composition, flat vector style with no gradients.</think>\n\nCreate a minimalist logo for a café named \"Grão Fino\" on a pure white background, using simple line art of coffee beans or a stylized cup to convey elegance and warmth, with clean sans-serif typography in black or dark brown, balanced and symmetrical composition, flat vector style with no gradients.",
+      "detail": {
+        "failed": [
+          "one_paragraph"
+        ],
+        "words": 103
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_logo",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 4.91,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 217,
+      "gen_tps": 44.68,
+      "reasoning_chars": 0,
+      "final": "Create a minimalist logo of the coffee shop named Grão Fino on a white background, using clean sans-serif typography with simple coffee bean iconography, modern flat design style, balanced symmetrical composition, neutral warm earth tones, high contrast for legibility, and avoid any gradients or shadows to keep the aesthetic sleek and professional.</think>\n\nCreate a minimalist logo of the coffee shop named Grão Fino on a white background, using clean sans-serif typography with simple coffee bean iconography, modern flat design style, balanced symmetrical composition, neutral warm earth tones, high contrast for legibility, and avoid any gradients or shadows to keep the aesthetic sleek and professional.\n\n---\n\n**Prompt (English, 40–150 words):**  \nCreate a minimalist logo of the coffee shop Grão Fino with a white background, featuring clean sans-serif lettering and an understated coffee bean icon, modern flat design, balanced symmetrical composition, warm earth tones, high contrast for legibility, no gradients or shadows, sleek and professional style.",
+      "detail": {
+        "failed": [
+          "one_paragraph",
+          "40_to_150_words"
+        ],
+        "words": 158
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_logo",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 4.87,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 215,
+      "gen_tps": 44.62,
+      "reasoning_chars": 0,
+      "final": "Create a minimalist logo for a coffee shop named \"Grão Fino\" on a pure white background: use clean, simple typography with a sleek sans-serif font; incorporate an abstract coffee bean icon integrated subtly into the lettering or as a small accent; maintain a neutral color palette of soft browns and muted earth tones for the bean and text; ensure ample white space around the design to emphasize minimalism; compose the logo centered horizontally with balanced proportions, suitable for both print and digital use.</think>\n\nCreate a minimalist logo for a coffee shop named \"Grão Fino\" on a pure white background: use clean, simple typography with a sleek sans-serif font; incorporate an abstract coffee bean icon integrated subtly into the lettering or as a small accent; maintain a neutral color palette of soft browns and muted earth tones for the bean and text; ensure ample white space around the design to emphasize minimalism; compose the logo centered horizontally with balanced proportions, suitable for both print and digital use.",
+      "detail": {
+        "failed": [
+          "one_paragraph",
+          "40_to_150_words"
+        ],
+        "words": 169
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_sem_pessoas",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 4.03,
+      "finish": "stop",
+      "prompt_tokens": 131,
+      "completion_tokens": 162,
+      "gen_tps": 51.26,
+      "reasoning_chars": 0,
+      "final": "Describe a quiet early morning rain-soaked street in Paris, with glistening wet cobblestones reflecting soft morning light from the pale sky, misty atmosphere, and subtle neon signs barely visible through the drizzle; the scene should be devoid of people, showcasing an empty café with a wrought-iron chair turned slightly toward the rain, puddles mirroring street lamps, and a vintage shop window displaying delicate umbrellas; use an impressionistic, painterly style with muted pastel colors, gentle brushstroke textures, and a shallow depth of field composition that draws the eye toward the center of the wet pavement leading to a distant, foggy archway, emphasizing serenity, isolation, and the quiet beauty of a rain-kissed Parisian morning.",
+      "detail": {
+        "failed": [],
+        "words": 115
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_sem_pessoas",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.07,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 101,
+      "gen_tps": 50.01,
+      "reasoning_chars": 0,
+      "final": "Describe an empty Paris street at early morning with fine rain falling gently over cobblestones, creating subtle reflections that catch the soft, diffused light of a pale sunrise; capture the scene in a realistic yet atmospheric style that emphasizes the moody, wet urban ambiance: include muted pastel colors, atmospheric mist rising from the damp pavement, and a composition that leads the eye down the empty avenue toward the distant, fogged-out buildings, with no people present at all.",
+      "detail": {
+        "failed": [],
+        "words": 78
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_sem_pessoas",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.17,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 97,
+      "gen_tps": 45.89,
+      "reasoning_chars": 0,
+      "final": "A quiet Paris street early in the morning with light rain falling gently, empty sidewalks reflecting the dim glow of street lamps, mist hovering over cobblestones, muted pastel colors for the buildings, subtle reflections on wet pavement, soft diffused natural lighting from an overcast sky, cinematic composition with a low-angle perspective leading the eye down the avenue, in a photorealistic style reminiscent of 19th-century impressionism, no people present.",
+      "detail": {
+        "failed": [],
+        "words": 70
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_title",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.64,
+      "finish": "stop",
+      "prompt_tokens": 262,
+      "completion_tokens": 20,
+      "gen_tps": 49.81,
+      "reasoning_chars": 0,
+      "final": "```json\n{\n  \"title\": \"Postgres backup to S3\"\n}\n```",
+      "detail": {
+        "failed": [
+          "has_emoji",
+          "portuguese"
+        ],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_title",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.43,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 19,
+      "gen_tps": 49.81,
+      "reasoning_chars": 0,
+      "final": "```json\n{ \"title\": \"Postgres backup to S3\" }\n```",
+      "detail": {
+        "failed": [
+          "has_emoji",
+          "portuguese"
+        ],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_title",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.45,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 19,
+      "gen_tps": 48.0,
+      "reasoning_chars": 0,
+      "final": "```json\n{ \"title\": \"Postgres backup to S3\" }\n```",
+      "detail": {
+        "failed": [
+          "has_emoji",
+          "portuguese"
+        ],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_tags",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 12.27,
+      "finish": "length",
+      "prompt_tokens": 262,
+      "completion_tokens": 512,
+      "gen_tps": 46.41,
+      "reasoning_chars": 0,
+      "final": "We need to produce JSON object with \"tags\": list of broad tags (1-3) and subtopic tags (1-3). The instructions: \"Generate 1-3 broad tags categorizing the main themes of the chat history, along with 1-3 more specific subtopic tags.\" So we need total tags? Possibly include both broad and subtopic tags in same list. But typical format: \"tags\": [\"tag1\", \"tag2\", \"tag3\"] - but they said \"1-3 broad tags ... along with 1-3 more specific subtopic tags.\" So maybe we need to produce 2-6 tags total, where first few are broad, then subtopics. But the output spec says: JSON format: { \"tags\": [\"tag1\", \"tag2\", \"tag3\"] }. That's ambiguous but suggests we can include up to 6 tags.\n\nWe must not include any other text.\n\nNow analyze chat history:\n\nUser asks: \"Como faço backup automático diário do meu banco Postgres num servidor Ubuntu?\" (Portuguese). Assistant replies about using pg_dump scheduled in cron, script compress, naming with date, delete backups older than 7 days, schedule at 2am in crontab.\n\nNext user: \"E como eu mando esses backups pra um bucket S3 depois?\" (How do I send these backups to an S3 bucket afterwards?)\n\nSo main themes: Database backup automation, PostgreSQL, Ubuntu server, cron scheduling, S3 storage, data backup. The chat is about backup automation for PostgreSQL on Ubuntu, using pg_dump, compressing, scheduling with cron, and then uploading to S3.\n\nThus broad tags: \"Database Backup\", \"Cloud Storage\", \"Automation\". Or maybe \"PostgreSQL\", \"Ubuntu\". Let's think.\n\nBroad categories: \"Backup\", \"PostgreSQL\", \"Cloud Services\"? The chat includes both on-prem server and cloud S3. So broad tags could be:\n\n- \"Database Backup\"\n- \"Cloud Integration\"\n- \"Scheduling\"\n\nBut need 1-3 broad tags. Then subtopic tags: specific topics like \"pg_dump\", \"cron job\", \"S3 upload\". Possibly \"pg_dump script\", \"cron scheduling\", \"AWS S3\".\n\nWe must produce 1-3 broad and 1-3 subtopic tags.\n\nPotential set:",
+      "detail": {
+        "failed": [
+          "on_topic"
+        ],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_tags",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 11.27,
+      "finish": "length",
+      "prompt_tokens": 4,
+      "completion_tokens": 512,
+      "gen_tps": 45.67,
+      "reasoning_chars": 0,
+      "final": "We need to generate 1-3 broad tags categorizing main themes of chat history, plus 1-3 more specific subtopic tags.\n\nThe chat is in Portuguese (user messages). The primary language is Portuguese, but the guidelines say \"use the chat's primary language; default to English if multilingual.\" Since the chat is primarily Portuguese, we should probably use Portuguese tags? But the instructions: \"Use the chat's primary language; default to English if multilingual.\" This is ambiguous. Usually, in these tasks, they want tags in the same language as the chat. The chat is Portuguese. So tags likely in Portuguese.\n\nThe chat content: The user asks: \"Como faço backup automático diário do meu banco Postgres num servidor Ubuntu?\" (How do I do automatic daily backup of my PostgreSQL database on an Ubuntu server?). Assistant replies: \"Você pode usar o pg_dump agendado no cron. Crie um script que rode pg_dump com compressão, salve o arquivo com a data no nome e apague backups com mais de 7 dias. Depois agende no crontab para rodar às 2h.\" (You can use scheduled pg_dump in cron. Create a script that runs pg_dump with compression, save the file with date in name and delete backups older than 7 days. Then schedule in crontab to run at 2am.)\n\nUser: \"E como eu mando esses backups pra um bucket S3 depois?\" (And how do I send these backups to an S3 bucket afterwards?)\n\nSo main themes: Database backup automation, PostgreSQL, Ubuntu server, scheduling with cron, S3 storage. The chat is about backup procedures for PostgreSQL on Ubuntu, using pg_dump, cron, and uploading to S3.\n\nWe need 1-3 broad tags (high-level domains). Then 1-3 more specific subtopic tags.\n\nPotential broad tags: \"Database Backup\", \"Automation\", \"Cloud Storage\"? Or \"PostgreSQL\"? But broad categories: maybe \"Backup\", \"Database Management\", \"Cloud Services\". Let's think.\n\nThe primary domain: Database backup automation. So broad tag could be \"Backup\" (or \"Database Backup\"). Another broad tag: \"Automation\" or \"Scripting\". Also \"Cloud Computing\" for S3.\n\nBut we need 1-3 broad tags. Then 1-3 specific subtopic",
+      "detail": {
+        "failed": [
+          "json"
+        ],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_tags",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 11.22,
+      "finish": "length",
+      "prompt_tokens": 4,
+      "completion_tokens": 512,
+      "gen_tps": 45.86,
+      "reasoning_chars": 0,
+      "final": "We need to produce JSON object with \"tags\": list of broad tags (1-3) and \"subtags\"? The prompt says: \"Generate 1-3 broad tags categorizing the main themes of the chat history, along with 1-3 more specific subtopic tags.\"\n\nThus output should have keys? The example output: { \"tags\": [\"tag1\", \"tag2\", \"tag3\"] }. But that only shows tags. However instructions say generate broad tags and subtopic tags. Possibly we need to include both in the same array? Or maybe separate arrays? The prompt says: \"Your entire response must consist solely of the JSON object, without any introductory or concluding text.\" The output format example: { \"tags\": [\"tag1\", \"tag2\", \"tag3\"] }. That suggests only a single key \"tags\". But we need to include both broad and subtopic tags. How to embed? Possibly we can have \"tags\" as list of broad tags, and maybe \"subtags\"? The instructions: \"Generate 1-3 broad tags categorizing the main themes of the chat history, along with 1-3 more specific subtopic tags.\" It doesn't explicitly specify JSON structure beyond { \"tags\": [...] }. But we need to include both categories. Could embed subtopic tags as separate keys like \"subtags\"? However the output format example only shows \"tags\". The guidelines: \"Your entire response must consist solely of the JSON object, without any introductory or concluding text.\" So we can produce something like:\n\n{\n  \"tags\": [\"Database Backup\", \"Automation\", \"Cloud Storage\"],\n  \"subtags\": [\"pg_dump\", \"cron job\", \"S3 upload\"]\n}\n\nBut that deviates from example. The prompt says \"Output: JSON format: { \"tags\": [\"tag1\", \"tag2\", \"tag3\"] }\". That's ambiguous. Possibly they expect just a list of tags, but we need to embed both broad and subtopic within the same list? But then how differentiate? Could order: first broad tags then subtopic tags. Eg: [\"Backup Automation\", \"PostgreSQL\", \"Scheduling\", \"pg_dump\", \"cron\", \"AWS S3\"]. That's 6 tags, but they said 1-3 broad and 1-3 subtopic. If we combine, total up to 6. But the example shows only three tags.\n\nB",
+      "detail": {
+        "failed": [
+          "json"
+        ],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_follow_ups",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.88,
+      "finish": "stop",
+      "prompt_tokens": 282,
+      "completion_tokens": 90,
+      "gen_tps": 53.26,
+      "reasoning_chars": 0,
+      "final": "<think></think>\n\n{\n  \"follow_ups\": [\n    \"Como posso configurar a exclusão automática de backups mais antigos que 7 dias no S3?\",\n    \"Existe algum comando específico para comprimir os backups antes de enviá-los ao S3?\",\n    \"Posso usar o AWS CLI ou prefere usar outra ferramenta para transferir os arquivos?\"\n  ]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_follow_ups",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.22,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 114,
+      "gen_tps": 52.5,
+      "reasoning_chars": 0,
+      "final": "<think></think>\n{\n  \"follow_ups\": [\n    \"Qual comando pg_dump usar para comprimir o backup?\",\n    \"Como configurar as permissões corretas para gravar no bucket S3?\",\n    \"Existe alguma maneira de automatizar a exclusão de backups com mais de 7 dias?\",\n    \"Posso monitorar se os backups foram enviados com sucesso para o S3?\",\n    \"Qual é a melhor prática para evitar sobrescrita acidental dos backups?\"\n  ]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_follow_ups",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.03,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 100,
+      "gen_tps": 50.49,
+      "reasoning_chars": 0,
+      "final": "```json\n{\n  \"follow_ups\": [\n    \"Qual comando pg_dump usar para comprimir os backups em gzip?\",\n    \"Como configurar o upload dos arquivos para o S3 usando a linha de comando?\",\n    \"Posso automatizar a exclusão de backups antigos no S3 também?\",\n    \"Existe alguma forma de monitorar se o backup automático no Ubuntu está funcionando corretamente?\"\n  ]\n}\n```",
+      "detail": {
+        "failed": [],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_queries",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 12.32,
+      "finish": "length",
+      "prompt_tokens": 250,
+      "completion_tokens": 512,
+      "gen_tps": 46.14,
+      "reasoning_chars": 0,
+      "final": "We need to analyze the chat history and determine the necessity of generating search queries, in the given language (Portuguese). The task: \"Analyze the chat history to determine the necessity of generating search queries, in the given language. By default, prioritize generating 1-3 broad and relevant search queries.\"\n\nWe must respond with a JSON object containing \"queries\": [list of strings]. Each query should be concise and focused on the latest question.\n\nWe need to produce 1-3 broad and relevant search queries based on the latest user question: \"E como eu mando esses backups pra um bucket S3 depois?\" The user is asking: \"And how do I send these backups to an S3 bucket afterwards?\" So we need to generate search queries that would help find information about sending PostgreSQL backups to S3, perhaps using AWS CLI, s3cmd, or other methods. Since the chat is in Portuguese, the queries should be in Portuguese (the given language). The guidelines: \"Respond EXCLUSIVELY with a JSON object.\" No extra text.\n\nThus we need to produce something like:\n\n{\n  \"queries\": [\n    \"como enviar backup PostgreSQL para S3\",\n    \"comando aws s3 cp backup pg_dump\",\n    \"script cron enviar backups para S3\"\n  ]\n}\n\nBut we need 1-3 broad and relevant queries. The latest question is about sending backups to S3 bucket. So the queries should be about that: \"como enviar backups PostgreSQL para S3\", \"uso do aws cli para upload de arquivos para S3\", \"script automatizar envio de backups para S3\". That's 3.\n\nBut we need to ensure they are broad and relevant. Possibly include \"backup automático PostgreSQL S3\" etc.\n\nWe must produce only JSON, no markdown fences. So raw JSON: {\"queries\": [\"...\",\"...\"]}.\n\nCheck language: Portuguese. Yes.\n\nThus final output:\n\n{\n  \"queries\": [\n    \"como enviar backup PostgreSQL para bucket S3\",\n    \"comando AWS CLI para upload de arquivos para S3\",\n    \"automatizar envio de backups PostgreSQL para S3 via cron\"\n  ]\n}\n\nThat's three queries. Are they concise? Yes.\n\nBut the guidelines: \"Each query should be concise and focused on the latest question.\" The latest question is about sending backups to S3",
+      "detail": {
+        "failed": [
+          "json"
+        ],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_queries",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 11.26,
+      "finish": "length",
+      "prompt_tokens": 4,
+      "completion_tokens": 512,
+      "gen_tps": 45.71,
+      "reasoning_chars": 0,
+      "final": "We need to understand the task. The user says: \"Analyze the chat history to determine the necessity of generating search queries, in the given language. By default, prioritize generating 1-3 broad and relevant search queries.\"\n\nWe have guidelines:\n- Respond EXCLUSIVELY with a JSON object.\n- Each query should be concise and focused on the latest question.\n- Entire response must consist solely of the JSON object, no intro/outro text.\n- Output must be a single raw JSON object, without markdown code fences or other encapsulating text.\n\nWe need to produce JSON: { \"queries\": [\"query1\", \"query2\"] }\n\nThe chat history includes:\n\nUser: \"Como faço backup automático diário do meu banco Postgres num servidor Ubuntu?\" (Portuguese)\nAssistant: \"Você pode usar o pg_dump agendado no cron. Crie um script que rode pg_dump com compressão, salve o arquivo com a data no nome e apague backups com mais de 7 dias. Depois agende no crontab para rodar às 2h.\"\nUser: \"E como eu mando esses backups pra um bucket S3 depois?\" (Portuguese)\n\nThe latest question is: \"E como eu mando esses backups pra um bucket S3 depois?\" So the user wants to know how to send these backups to an S3 bucket. The language is Portuguese.\n\nWe need to generate 1-3 broad and relevant search queries in the given language (Portuguese). The queries should be concise and focused on the latest question.\n\nThus, we need to produce search queries that a user might type to find information about sending PostgreSQL backups to an S3 bucket. Possibly something like:\n- \"como enviar backup Postgres para S3\"\n- \"upload de arquivos Postgres para bucket S3\"\n- \"backup automático para S3\"\n\nBut we need 1-3 queries, broad and relevant. The guidelines say \"prioritize generating 1-3 broad and relevant search queries.\" So we can generate 2 or 3.\n\nGiven the latest question is about sending backups to an S3 bucket after creating them via pg_dump, the queries could be:\n\n1. \"como enviar backup Postgres para S3\"\n2. \"upload de backup Postgres bucket S3\"\n3. \"transferir arquivos de backup para S3\"\n\nBut we need to keep them concise and in Portuguese",
+      "detail": {
+        "failed": [
+          "about_s3",
+          "about_postgres_backup"
+        ],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_queries",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 11.38,
+      "finish": "length",
+      "prompt_tokens": 4,
+      "completion_tokens": 512,
+      "gen_tps": 45.24,
+      "reasoning_chars": 0,
+      "final": "We need to parse the task: \"Analyze the chat history to determine the necessity of generating search queries, in the given language. By default, prioritize generating 1-3 broad and relevant search queries.\"\n\nWe must respond EXCLUSIVELY with a JSON object: { \"queries\": [\"query1\", \"query2\"] }\n\nWe need to produce 1-3 broad and relevant search queries based on the latest question in the chat history. The chat history includes:\n\nUser: \"Como faço backup automático diário do meu banco Postgres num servidor Ubuntu?\" (Portuguese)\nAssistant: Provided instructions about pg_dump, cron.\nUser: \"E como eu mando esses backups pra um bucket S3 depois?\" (Portuguese)\n\nThe latest question: \"E como eu mando esses backups pra um bucket S3 depois?\" Means \"And how do I send these backups to an S3 bucket afterwards?\" So the user wants to know how to upload backups to an S3 bucket.\n\nWe need to generate search queries in the given language (Portuguese). The task says: \"Analyze the chat history to determine the necessity of generating search queries, in the given language.\" So we must produce search queries that would help find information about sending backups to S3 bucket. Likely queries like:\n\n- \"como enviar backup para S3 bucket\"\n- \"upload postgres backup para AWS S3\"\n- \"script cron enviar backup para S3\"\n\nBut need 1-3 broad and relevant queries.\n\nWe must produce a JSON object with key \"queries\" mapping to an array of strings (the queries). The language: Portuguese. So queries in Portuguese.\n\nPotential queries:\n\n1. \"como enviar backup do Postgres para S3\"\n2. \"upload de arquivos para bucket S3 via AWS CLI\"\n3. \"script automatizar envio de backups para S3\"\n\nBut we need to keep them broad and relevant. The latest question is about sending backups to S3 bucket. So maybe two queries: one focusing on the method (AWS CLI or s3cmd), another focusing on automation (cron job). But the guidelines say \"Each query should be concise and focused on the latest question.\"\n\nWe need 1-3 broad queries.\n\nPotential set:\n\n- \"como enviar backup para bucket S3\"\n- \"upload de backups PostgreSQL para AWS S3\"\n- \"automatizar envio de backups para S",
+      "detail": {
+        "failed": [
+          "about_s3",
+          "about_postgres_backup"
+        ],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_contagem_dias",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.95,
+      "finish": "stop",
+      "prompt_tokens": 37,
+      "completion_tokens": 153,
+      "gen_tps": 46.21,
+      "reasoning_chars": 0,
+      "final": "Para contar quantos dias existem **de 1 de março até 1 de junho de 2027, sem incluir o dia final**:\n\n1. **Março:** 31 – 1 = 30 dias (do dia 1 ao dia 30)  \n2. **Abril:** 30 dias  \n3. **Maio:** 31 dias  \n4. **Junho:** chegamos até o dia 30 (o dia 1 de junho é o limite superior que **não** contamos)\n\nSomando:  \n30 + 30 + 31 + 30 = 121 dias\n\n**Resposta:** **121 dias**.",
+      "detail": {
+        "failed": [
+          "answer_92"
+        ]
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_contagem_dias",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 5.96,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 262,
+      "gen_tps": 44.36,
+      "reasoning_chars": 0,
+      "final": "Para saber quantos dias se passam **de 1 de março até 1 de junho de 2027, sem contar o dia final**, basta contar os dias entre as duas datas e depois subtrair 1.\n\n1. **Março** – 31 dias no mês → todos os dias de 1 mar a 31 mar são 31 dias.  \n2. **Abril** – 30 dias.  \n3. **Maio** – 31 dias.  \n4. **Junho** – Contamos apenas até o dia **30** (o dia 1 de junho não é incluído).  \n\nTotal de dias contados:\n\n\\[\n31\\ (\\text{março}) + 30\\ (\\text{abril}) + 31\\ (\\text{maio}) + 30\\ (\\text{junho‑1 a‑30}) = 122\n\\]\n\nComo **não queremos incluir o dia final (1 de junho)**, subtraímos esse dia:\n\n\\[\n122 - 1 = 121\n\\]\n\n**Resposta:** há **121 dias** entre 1º de março e 1º de junho de 2027, não contando o dia final.",
+      "detail": {
+        "failed": [
+          "answer_92"
+        ]
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_contagem_dias",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 8.14,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 360,
+      "gen_tps": 44.51,
+      "reasoning_chars": 0,
+      "final": "Para contar quantos dias existem **de 1 de março até 1 de junho de 2027**, excluindo o dia final (ou seja, só contamos até o dia anterior ao 1 de junho), siga estes passos:\n\n1. **Determine os dias que se completam entre as datas**  \n   - Março tem 31 dias.  \n   - Abril tem 30 dias.  \n   - Maio tem 31 dias.  \n\n2. **Some os dias completos** (do início de março até o final de maio):  \n   \\[\n   31\\;(\\text{março}) + 30\\;(\\text{abril}) + 31\\;(\\text{mayo}) = 92\\;\\text{dias}\n   \\]\n\n3. **Adicione os dias do início de junho que antecedem o 1.º de junho**  \n   - O 1.º de junho é o dia que queremos **excluir**.  \n   - Portanto, contamos apenas os dias de 1 de junho até 30 de maio? Não, a contagem para até “antes do 1.º de junho” inclui todos os dias de 1 de março até **30 de maio**.  \n   - Como já incluímos todo o mês de maio (31 dias) e o 30 de maio está dentro desse total, não precisamos acrescentar nada adicional.\n\nAssim, o número total de dias **entre 1 de março e 1 de junho, sem contar o dia final** é:\n\n\\[\n\\boxed{92\\text{ dias}}\n\\]",
+      "detail": {
+        "failed": []
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_email_formal",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.82,
+      "finish": "stop",
+      "prompt_tokens": 61,
+      "completion_tokens": 93,
+      "gen_tps": 46.28,
+      "reasoning_chars": 0,
+      "final": "Prezado(a) [Nome],\n\nInformamos que a reunião originalmente marcada para quinta‑feira foi remarcada para sexta‑feira, às 10h. Por favor, ajuste sua agenda e esteja pronto(a) para o comparecimento. A pauta permanecerá a mesma.\n\nAtenciosamente,\n\n[Seu Nome]  \n[Seu Cargo]  \n[Empresa]",
+      "detail": {
+        "failed": [],
+        "words": 42
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_email_formal",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.03,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 87,
+      "gen_tps": 44.16,
+      "reasoning_chars": 0,
+      "final": "Prezado(a) [nome],\n\nInformamos que a reunião originalmente agendada para quinta‑feira foi remarcada para sexta‑feira, às 10h. Pedimos a sua presença nesse novo horário. Qualquer dúvida, estamos à disposição.\n\nAtenciosamente,\n[Seu nome]  \n[Seu cargo]  \n[Empresa]",
+      "detail": {
+        "failed": [],
+        "words": 37
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_email_formal",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.9,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 81,
+      "gen_tps": 44.06,
+      "reasoning_chars": 0,
+      "final": "Prezado(a) [Nome],\n\nInformamos que a reunião prevista para quinta‑feira foi remarcada para sexta‑feira, às 10h. Aguardamos sua presença e permanecemos à disposição para quaisquer dúvidas.\n\nAtenciosamente,\n[Seu Nome]\n[Seu Cargo]\n[Empresa]",
+      "detail": {
+        "failed": [],
+        "words": 34
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_tcp_udp",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.06,
+      "finish": "stop",
+      "prompt_tokens": 28,
+      "completion_tokens": 85,
+      "gen_tps": 51.55,
+      "reasoning_chars": 0,
+      "final": "TCP garante entrega ordenada e confiável, usando handshake, retransmissões e controle de fluxo;  \nUDP não estabelece conexão, não garante ordem nem confiabilidade, sendo mais rápido e com menos overhead.  \nPortanto, TCP é usado para aplicações que precisam de integridade (HTTP, FTP), enquanto UDP serve a streaming e jogos em tempo real.",
+      "detail": {
+        "failed": [],
+        "lines": 3
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_tcp_udp",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.29,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 111,
+      "gen_tps": 49.66,
+      "reasoning_chars": 0,
+      "final": "TCP garante entrega ordenada e confiável dos dados, usando handshakes e retransmissões;  \nUDP envia pacotes sem ordem nem confiança, com latência menor e sem conexão;  \nTCP possui controle de fluxo e congestionamento, enquanto UDP não possui;  \nPorts: TCP usa número de porta para sessões orientadas, UDP também, mas sem estado;  \nIdeal para aplicações em tempo real, UDP é mais rápido, já que TCP é mais pesado.",
+      "detail": {
+        "failed": [],
+        "lines": 5
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_tcp_udp",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.23,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 105,
+      "gen_tps": 48.18,
+      "reasoning_chars": 0,
+      "final": "TCP garante entrega ordenada e confiável dos pacotes, usando confirmações e retransmissões;  \nUDP envia datagramas sem garantia de ordem nem perda, priorizando velocidade;  \nTCP tem maior overhead devido ao controle de fluxo e conexão persistente;  \nUDP é mais leve e adequado para aplicações em tempo real, como voz ou jogos;  \nResumindo: TCP = confiabilidade; UDP = rapidez sem garantias.",
+      "detail": {
+        "failed": [],
+        "lines": 5
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_resumo",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.05,
+      "finish": "stop",
+      "prompt_tokens": 128,
+      "completion_tokens": 51,
+      "gen_tps": 47.8,
+      "reasoning_chars": 0,
+      "final": "Curitiba trocará ônibus Interbairros II por veículos elétricos, a partir de março, mantendo tarifa e reduzindo CO₂ em 1.200 toneladas anualmente.",
+      "detail": {
+        "failed": [],
+        "words": 22
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_resumo",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.18,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 52,
+      "gen_tps": 45.97,
+      "reasoning_chars": 0,
+      "final": "Curitiba trocará ônibus Interbairros II por elétricos, 18 veículos, a partir de março, mantendo tarifa e reduzindo CO₂ em 1.200 t/ano.",
+      "detail": {
+        "failed": [],
+        "words": 23
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_resumo",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.38,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 59,
+      "gen_tps": 44.4,
+      "reasoning_chars": 0,
+      "final": "Curitiba troca ônibus Interbairros II por elétricos a partir de março, 18 veículos financiados pelo BNDES, mantendo a tarifa e reduzindo CO₂ em 1.200 toneladas anuais.",
+      "detail": {
+        "failed": [
+          "max_25_words"
+        ],
+        "words": 27
+      }
+    }
+  ],
+  "status": "complete",
+  "settings": {
+    "ctx": 65536,
+    "kv_cache": "q8_0",
+    "thinking": "off",
+    "sampling": {
+      "top_p": 1.0,
+      "top_k": 50,
+      "min_p": 0.0,
+      "repeat_penalty": 1.05
+    },
+    "routes": {
+      "voice-chat": {
+        "temperature": 0.7,
+        "max_tokens": 150,
+        "timeout": 15
+      },
+      "subtitles": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "timeout": 600
+      },
+      "prompt-enhancer": {
+        "temperature": 0.7,
+        "max_tokens": 800,
+        "timeout": 600
+      },
+      "owui-tasks": {
+        "temperature": 0.3,
+        "max_tokens": 512,
+        "timeout": 600
+      },
+      "simple-chat": {
+        "temperature": 0.7,
+        "max_tokens": 2048,
+        "timeout": 300
+      }
+    }
+  },
+  "load_s": 60.1,
+  "log": "/home/will/llm-bench/usecases/logs/usecases__lfm25-24b__dual__UD-Q5_K_XL.log"
+}

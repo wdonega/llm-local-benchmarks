@@ -1,0 +1,1036 @@
+{
+  "model": "Ornith-1.5-35B-A3B",
+  "key": "ornith35",
+  "mode": "dual",
+  "repo": "ornith-ai/Ornith-1.5-35B-A3B-GGUF",
+  "quant": "Q4_K_M",
+  "runs": 3,
+  "calls": [
+    {
+      "route": "voice-chat",
+      "test": "voz_porcentagem",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.25,
+      "finish": "stop",
+      "prompt_tokens": 70,
+      "completion_tokens": 15,
+      "gen_tps": 53.64,
+      "reasoning_chars": 0,
+      "final": "15% de 80 é igual a 12.",
+      "detail": {
+        "failed": [],
+        "words": 7
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_porcentagem",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.64,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 13,
+      "gen_tps": 51.44,
+      "reasoning_chars": 0,
+      "final": "15% de 80 dá 12.",
+      "detail": {
+        "failed": [],
+        "words": 5
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_porcentagem",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.69,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 15,
+      "gen_tps": 50.53,
+      "reasoning_chars": 0,
+      "final": "15% de 80 é igual a 12.",
+      "detail": {
+        "failed": [],
+        "words": 7
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_conversao",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.06,
+      "finish": "stop",
+      "prompt_tokens": 22,
+      "completion_tokens": 15,
+      "gen_tps": 51.48,
+      "reasoning_chars": 0,
+      "final": "Cinco milhas equivalem a aproximadamente oito quilômetros.",
+      "detail": {
+        "failed": [],
+        "words": 7
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_conversao",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.0,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 30,
+      "gen_tps": 49.31,
+      "reasoning_chars": 0,
+      "final": "Cinco milhas equivalem aproximadamente a oito quilômetros, já que cada milha tem cerca de 1,6 quilômetros.",
+      "detail": {
+        "failed": [],
+        "words": 17
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_conversao",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.78,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 17,
+      "gen_tps": 44.52,
+      "reasoning_chars": 0,
+      "final": "5 milhas equivalem a aproximadamente 8,05 quilômetros.",
+      "detail": {
+        "failed": [],
+        "words": 8
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_fato",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.11,
+      "finish": "stop",
+      "prompt_tokens": 20,
+      "completion_tokens": 16,
+      "gen_tps": 50.75,
+      "reasoning_chars": 0,
+      "final": "A capital da Austrália é Canberra, não Sydney como muita gente pensa.",
+      "detail": {
+        "failed": [],
+        "words": 12
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_fato",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.75,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 17,
+      "gen_tps": 48.81,
+      "reasoning_chars": 0,
+      "final": "A capital da Austrália é Canberra, não Sydney como muitas pessoas acreditam.",
+      "detail": {
+        "failed": [],
+        "words": 12
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_fato",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.64,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 11,
+      "gen_tps": 44.41,
+      "reasoning_chars": 0,
+      "final": "A capital da Austrália é Canberra.",
+      "detail": {
+        "failed": [],
+        "words": 6
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_dica",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.58,
+      "finish": "stop",
+      "prompt_tokens": 21,
+      "completion_tokens": 40,
+      "gen_tps": 51.18,
+      "reasoning_chars": 0,
+      "final": "Tente manter um horário regular para dormir e acordar, mesmo nos fins de semana. Desligue as telas cerca de meia hora antes de dormir para ajudar sua mente a relaxar.",
+      "detail": {
+        "failed": [],
+        "words": 30
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_dica",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.34,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 45,
+      "gen_tps": 47.39,
+      "reasoning_chars": 0,
+      "final": "Tente manter um horário regular para dormir e acordar, mesmo aos fins de semana. Evite telas por cerca de meia hora antes de dormir, pois a luz das telas pode atrapalhar seu sono.",
+      "detail": {
+        "failed": [],
+        "words": 33
+      }
+    },
+    {
+      "route": "voice-chat",
+      "test": "voz_dica",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.27,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 36,
+      "gen_tps": 41.53,
+      "reasoning_chars": 0,
+      "final": "Mantenha um horário regular pra dormir e acordar, mesmo nos fins de semana. Evite telas antes de dormir, pois a luz azul dificulta o sono.",
+      "detail": {
+        "failed": [],
+        "words": 25
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_dialogo",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 6.67,
+      "finish": "stop",
+      "prompt_tokens": 298,
+      "completion_tokens": 218,
+      "gen_tps": 41.59,
+      "reasoning_chars": 0,
+      "final": "1\n00:00:01,200 --> 00:00:03,400\nEi, você vai vir para a estreia\nhoje à noite?\n\n2\n00:00:03,600 --> 00:00:06,100\nEstou no trabalho. Só estou\nterminando a última cena.\n\n3\n00:00:06,300 --> 00:00:08,000\n<i>Quebra uma perna!</i>\n\n4\n00:00:08,200 --> 00:00:11,500\nNa verdade, estou um pouco nervoso.\nÉ meu primeiro papel principal.\n\n5\n00:00:11,700 --> 00:00:13,900\nVocê vai arrasar. Acredite em mim.",
+      "detail": {
+        "failed": [
+          "forbid:quebre_a_perna"
+        ],
+        "cues": 5
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_dialogo",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 6.13,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 212,
+      "gen_tps": 37.05,
+      "reasoning_chars": 0,
+      "final": "1\n00:00:01,200 --> 00:00:03,400\nEi, você vai vir para a estreia hoje à noite?\n\n2\n00:00:03,600 --> 00:00:06,100\nEstou no trabalho. Só terminando\na última cena.\n\n3\n00:00:06,300 --> 00:00:08,000\n<i>Quebra uma perna!</i>\n\n4\n00:00:08,200 --> 00:00:11,500\nNa verdade, estou um pouco nervoso.\nÉ meu primeiro papel principal.\n\n5\n00:00:11,700 --> 00:00:13,900\nVocê vai arrasar. Confie em mim.",
+      "detail": {
+        "failed": [
+          "max_42_chars",
+          "forbid:quebre_a_perna"
+        ],
+        "cues": 5
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_dialogo",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 6.13,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 212,
+      "gen_tps": 37.0,
+      "reasoning_chars": 0,
+      "final": "1\n00:00:01,200 --> 00:00:03,400\nEi, você vai vir para a estreia hoje à noite?\n\n2\n00:00:03,600 --> 00:00:06,100\nEstou no trabalho. Só terminando\na última cena.\n\n3\n00:00:06,300 --> 00:00:08,000\n<i>Quebra uma perna!</i>\n\n4\n00:00:08,200 --> 00:00:11,500\nNa verdade, estou um pouco nervoso.\nÉ meu primeiro papel principal.\n\n5\n00:00:11,700 --> 00:00:13,900\nVocê vai arrasar. Confie em mim.",
+      "detail": {
+        "failed": [
+          "max_42_chars",
+          "forbid:quebre_a_perna"
+        ],
+        "cues": 5
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_noticia",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 5.81,
+      "finish": "stop",
+      "prompt_tokens": 270,
+      "completion_tokens": 195,
+      "gen_tps": 44.1,
+      "reasoning_chars": 0,
+      "final": "1\n00:01:05,000 --> 00:01:08,200\nA tempestade cortou a energia\nde 12.500 casas na terça-feira.\n\n2\n00:01:08,400 --> 00:01:11,000\nEquipes esperam restabelecer\no serviço até as 18h de amanhã.\n\n3\n00:01:11,200 --> 00:01:14,600\n<i>Autoridades pedem que os\nresidentes evitem as estradas.</i>\n\n4\n00:01:14,800 --> 00:01:17,300\nPara atualizações, acesse o\nsite da prefeitura.",
+      "detail": {
+        "failed": [],
+        "cues": 4
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_noticia",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 5.35,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 194,
+      "gen_tps": 39.15,
+      "reasoning_chars": 0,
+      "final": "1\n00:01:05,000 --> 00:01:08,200\nA tempestade cortou a energia\nde 12.500 casas na terça-feira.\n\n2\n00:01:08,400 --> 00:01:11,000\nEquipes esperam restabelecer\no serviço até as 18h de amanhã.\n\n3\n00:01:11,200 --> 00:01:14,600\n<i>Autoridades pedem que os\nresidentes evitem as ruas.</i>\n\n4\n00:01:14,800 --> 00:01:17,300\nPara atualizações, acesse o\nsite da cidade.",
+      "detail": {
+        "failed": [],
+        "cues": 4
+      }
+    },
+    {
+      "route": "subtitles",
+      "test": "legenda_noticia",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 5.66,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 195,
+      "gen_tps": 37.12,
+      "reasoning_chars": 0,
+      "final": "1\n00:01:05,000 --> 00:01:08,200\nA tempestade cortou a energia\nde 12.500 casas na terça-feira.\n\n2\n00:01:08,400 --> 00:01:11,000\nEquipes esperam restabelecer\no serviço até as 18h de amanhã.\n\n3\n00:01:11,200 --> 00:01:14,600\n<i>Autoridades aconselham os\nresidentes a não usar as ruas.</i>\n\n4\n00:01:14,800 --> 00:01:17,300\nPara atualizações, acesse o\nsite da cidade.",
+      "detail": {
+        "failed": [],
+        "cues": 4
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_gato_astronauta",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 4.12,
+      "finish": "stop",
+      "prompt_tokens": 118,
+      "completion_tokens": 115,
+      "gen_tps": 41.55,
+      "reasoning_chars": 0,
+      "final": "A watercolor painting of an astronaut cat floating in space near the ringed planet Saturn, soft translucent watercolor washes creating delicate gradients in the cosmic background, gentle bleeding of colors where blues, purples and oranges blend seamlessly, the feline astronaut wearing a detailed white spacesuit with reflective helmet visor, delicate brushstrokes and visible paper texture, flowing tendrils of paint dispersing through zero gravity, dreamy ethereal atmosphere, loose artistic watercolor technique with soft edges and subtle pigment pooling, whimsical and serene space scene rendered in expressive watercolor style.",
+      "detail": {
+        "failed": [],
+        "words": 87
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_gato_astronauta",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.48,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 116,
+      "gen_tps": 37.59,
+      "reasoning_chars": 0,
+      "final": "A watercolor illustration of an astronaut dog floating in space near the planet Saturn, wearing a detailed white spacesuit with reflective helmet visor, surrounded by stars and cosmic dust, soft watercolor textures with gentle color bleeds and translucent layers, dreamy pastel palette of blues, purples and golds, delicate brushst visible, soft edges and gradient backgrounds, whimsical and serene composition, Saturn with its iconic rings glowing in the distance, loose artistic waterpainting style with visible paper texture and watery pigment effects, vertical space scene with the dog gently drifting among celestial bodies",
+      "detail": {
+        "failed": [
+          "keeps:cat"
+        ],
+        "words": 91
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_gato_astronauta",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 4.15,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 141,
+      "gen_tps": 37.66,
+      "reasoning_chars": 0,
+      "final": "A watercolor painting of an astronaut cat floating in space near the ringed planet Saturn, with the cat's paws gently spread as if weightless in zero gravity, wearing a detailed white spacesuit with a reflective helmet visor showing starlight reflections, surrounded by twinkling stars and distant cosmic nebulas in soft purples and blues, Saturn's iconic rings rendered in delicate translucent washes of gold and cream, loose expressive watercolor brushst visible with pigment bleeding and pooling effects characteristic of the medium, soft edges where colors blend into each other, dreamy ethereal atmosphere, full composition with the cat positioned slightly off-center creating visual interest, gentle gradients and subtle color variations throughout the cosmic scene",
+      "detail": {
+        "failed": [],
+        "words": 113
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_logo",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.76,
+      "finish": "stop",
+      "prompt_tokens": 25,
+      "completion_tokens": 90,
+      "gen_tps": 47.07,
+      "reasoning_chars": 0,
+      "final": "A minimalist logo design for a coffee shop named \"Grão Fino\", featuring elegant and refined lettering that conveys sophistication and quality coffee, with clean geometric shapes and smooth curves suggesting coffee beans or steam, presented on a pure white background, flat vector style with limited color palette using warm browns and subtle accents, balanced centered composition with precise typography, professional branding aesthetic, modern and contemporary design, high contrast, scalable icon suitable for various applications.",
+      "detail": {
+        "failed": [],
+        "words": 74
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_logo",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.41,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 124,
+      "gen_tps": 41.19,
+      "reasoning_chars": 0,
+      "final": "A minimalist logo for a coffee shop called Grão Fino, featuring an elegant and refined design that evokes quality and sophistication. The composition centers on a clean, stylized coffee bean or cup motif integrated with the brand name, using refined typography that balances modernity with a touch of class. The design employs a restrained color palette, likely warm browns and cream tones, set against a pure white background. The style is contemporary and professional, with smooth lines, balanced spacing, and a polished, memorable silhouette. The overall look is simple yet distinctive, conveying a premium coffee experience through understated elegance and visual harmony.",
+      "detail": {
+        "failed": [],
+        "words": 102
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_logo",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.27,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 70,
+      "gen_tps": 37.54,
+      "reasoning_chars": 0,
+      "final": "A minimalist logo design for a coffee shop named \"Grão Fino,\" featuring clean geometric shapes and elegant typography with refined coffee bean motifs, centered composition on a pure white background, flat vector style with thin lines and subtle brown and cream accents, professional brand identity aesthetic, symmetrical layout, high contrast, crisp edges, modern and sophisticated visual identity.",
+      "detail": {
+        "failed": [],
+        "words": 57
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_sem_pessoas",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.71,
+      "finish": "stop",
+      "prompt_tokens": 26,
+      "completion_tokens": 131,
+      "gen_tps": 46.08,
+      "reasoning_chars": 0,
+      "final": "A quiet Parisian street in the early morning, bathed in soft golden dawn light filtering through light rain, with thin, diagonal raindrops falling gently over wet cobblestones that reflect the pale sky and warm glow of streetlamps still on, empty sidewalks lined with classic Haussmannian buildings featuring cream-colored stone facades and wrought-iron balconies, a lone café with closed metal shutters, subtle mist rising from the damp air, no people whatsoever, cinematic atmosphere, serene and melancholic mood, photorealistic style, wide-angle composition capturing the entire street receding into the distance, shallow depth of field with delicate bokeh.",
+      "detail": {
+        "failed": [],
+        "words": 98
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_sem_pessoas",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.49,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 137,
+      "gen_tps": 44.32,
+      "reasoning_chars": 0,
+      "final": "A quiet Parisian street in the early morning, bathed in the soft, diffused light of dawn, with fine rain drizzling gently through the cool gray air, wet cobblestones reflecting the warm glow of old lampposts and café awnings, historic Haussmannian buildings with their characteristic gray facades and wrought-iron balconies lining both sides, scattered fallen leaves and shallow puddles capturing the muted sky, an atmospheric and serene mood with gentle mist hovering above the empty road, cinematic composition with leading lines drawing the eye down the deserted street, shot in a realistic photographic style with moody, melancholic tones and delicate raindrops catching the ambient light.",
+      "detail": {
+        "failed": [],
+        "words": 105
+      }
+    },
+    {
+      "route": "prompt-enhancer",
+      "test": "prompt_sem_pessoas",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.87,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 140,
+      "gen_tps": 40.48,
+      "reasoning_chars": 0,
+      "final": "A quiet Parisian street in the early morning, bathed in soft golden dawn light filtering through delicate mist rising from the fine rain, wet cobblestones reflecting the warm glow of vintage street lamps and charming café awnings, elegant Haussmannian buildings with ornate facades lining both sides, light drizzle creating a shimmering veil in the air, a few scattered fallen leaves on the damp ground, empty sidewalks with a lone parked bicycle and distant church spire visible through the fog, cinematic atmospheric mood, serene and romantic ambiance, ultra-detailed, photorealistic style, soft diffused lighting, elegant wide-angle composition capturing the tranquil empty street receding into the misty distance.",
+      "detail": {
+        "failed": [],
+        "words": 107
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_title",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.94,
+      "finish": "stop",
+      "prompt_tokens": 269,
+      "completion_tokens": 17,
+      "gen_tps": 42.05,
+      "reasoning_chars": 0,
+      "final": "{\"title\": \"Backup Postgres para S3 ☁️💾\"}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_title",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 0.74,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 14,
+      "gen_tps": 41.71,
+      "reasoning_chars": 0,
+      "final": "{\"title\": \"💾 Backup Postgres para S3\"}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_title",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.09,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 27,
+      "gen_tps": 39.34,
+      "reasoning_chars": 0,
+      "final": "```json\n{\n  \"title\": \"Backup Postgres para S3 ☁️💾\"\n}\n```",
+      "detail": {
+        "failed": [],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_tags",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.11,
+      "finish": "stop",
+      "prompt_tokens": 270,
+      "completion_tokens": 60,
+      "gen_tps": 39.47,
+      "reasoning_chars": 0,
+      "final": "{\n  \"tags\": [\"Infraestrutura de TI\", \"Administração de Sistemas\", \"Bancos de Dados\"],\n  \"subtopics\": [\"Backup de Banco de Dados\", \"PostgreSQL\", \"Armazenamento em Nuvem (S3)\"]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_tags",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.89,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 55,
+      "gen_tps": 37.2,
+      "reasoning_chars": 0,
+      "final": "{\n  \"tags\": [\"Infraestrutura de TI\", \"Bancos de Dados\", \"Nuvem\"],\n  \"subtopics\": [\"Backup de Banco de Dados\", \"Amazon S3\", \"Automação de Tarefas\"]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_tags",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.1,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 62,
+      "gen_tps": 36.68,
+      "reasoning_chars": 0,
+      "final": "{\n  \"tags\": [\"Tecnologia\", \"Infraestrutura de TI\", \"Gerenciamento de Dados\"],\n  \"subtopics\": [\"Bancos de Dados PostgreSQL\", \"Backup e Recuperação\", \"Armazenamento em Nuvem (S3)\"]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_follow_ups",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 4.34,
+      "finish": "stop",
+      "prompt_tokens": 290,
+      "completion_tokens": 102,
+      "gen_tps": 38.47,
+      "reasoning_chars": 0,
+      "final": "{\n  \"follow_ups\": [\n    \"Como configuro o AWS CLI ou s3cmd para enviar o arquivo de backup ao bucket?\",\n    \"Existe alguma forma de criptografar o backup antes de enviar para o S3?\",\n    \"Como faço para automatizar o envio ao S3 dentro do próprio script de backup?\",\n    \"Preciso configurar permissões ou políticas específicas na instância do Ubuntu para acessar o S3?\"\n  ]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_follow_ups",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.11,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 100,
+      "gen_tps": 36.91,
+      "reasoning_chars": 0,
+      "final": "{\n  \"follow_ups\": [\n    \"Como configuro o AWS CLI para autenticar e enviar os backups para o S3?\",\n    \"Existe alguma forma de criptografar os backups antes de enviá-los para a nuvem?\",\n    \"Como posso verificar se o upload para o S3 foi realizado com sucesso?\",\n    \"Como configuro permissões de segurança no bucket S3 para proteger os backups?\"\n  ]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_follow_ups",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.12,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 100,
+      "gen_tps": 36.89,
+      "reasoning_chars": 0,
+      "final": "{\n  \"follow_ups\": [\n    \"Como configuro o AWS CLI para autenticar e enviar os backups para o S3?\",\n    \"Existe alguma forma de criptografar os backups antes de enviá-los para a nuvem?\",\n    \"Como posso verificar se o envio para o S3 funcionou corretamente?\",\n    \"É possível usar o AWS S3 Transfer Acceleration para tornar o envio mais rápido?\"\n  ]\n}",
+      "detail": {
+        "failed": [],
+        "raw_json_only": true
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_queries",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.01,
+      "finish": "stop",
+      "prompt_tokens": 258,
+      "completion_tokens": 67,
+      "gen_tps": 43.7,
+      "reasoning_chars": 0,
+      "final": "```json\n{\n  \"queries\": [\n    \"Como enviar backups do PostgreSQL para o Amazon S3\",\n    \"Como fazer upload de arquivos para bucket S3 via linha de comando AWS CLI\",\n    \"Como automatizar backup PostgreSQL e enviar para S3 automaticamente\"\n  ]\n}\n```",
+      "detail": {
+        "failed": [],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_queries",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.79,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 59,
+      "gen_tps": 42.62,
+      "reasoning_chars": 0,
+      "final": "```json\n{\n  \"queries\": [\n    \"Enviar arquivo de backup S3 AWS CLI Ubuntu\",\n    \"Comando aws s3 cp para upload de backup\",\n    \"Configurar cron para enviar backup PostgreSQL para S3\"\n  ]\n}\n```",
+      "detail": {
+        "failed": [],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "owui-tasks",
+      "test": "owui_queries",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.06,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 68,
+      "gen_tps": 40.87,
+      "reasoning_chars": 0,
+      "final": "```json\n{\n  \"queries\": [\n    \"Como enviar backups PostgreSQL para bucket S3 com AWS CLI\",\n    \"Script bash para enviar arquivo para Amazon S3 usando aws scp\",\n    \"Automatizar upload de backup diário PostgreSQL para S3 no Ubuntu\"\n  ]\n}\n```",
+      "detail": {
+        "failed": [],
+        "raw_json_only": false
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_contagem_dias",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 7.81,
+      "finish": "stop",
+      "prompt_tokens": 41,
+      "completion_tokens": 270,
+      "gen_tps": 38.34,
+      "reasoning_chars": 0,
+      "final": "# Contagem de dias: 1º de março até 1º de junho de 2027\n\nVou contar os dias de cada mês, **sem contar o dia final** (1º de junho).\n\n**Março de 2027:**\n- De 1º a 31 de março = **31 dias**\n\n**Abril de 2027:**\n- Abril tem 30 dias = **30 dias**\n\n**Maio de 2027:**\n- De 1º a 31 de maio = **31 dias**\n\n**Junho de 2027:**\n- O dia final (1º de junho) **não é contado** = **0 dias**\n\n## Cálculo total:\n\n$$31 + 30 + 31 = 92 \\text{ dias}$$\n\n---\n\n**Resposta:** Há **92 dias** de 1º de março até 1º de junho de 2027, sem contar o dia final.\n\n*(Observação: 2027 não é ano bissexto, mas isso não afeta a contagem, pois a contagem começa em março, após o mês de fevereiro.)*",
+      "detail": {
+        "failed": []
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_contagem_dias",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 5.27,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 181,
+      "gen_tps": 37.17,
+      "reasoning_chars": 0,
+      "final": "# Contando os dias de 1º de março até 1º de junho de 2027\n\nVou contar os dias de março, abril e maio de 2027.\n\n**Março (de 1º a 31 de março):**\n- De 1º até 31 de março = 30 dias (sem contar o dia 31)\n\n**Abril:**\n- Abril tem 30 dias\n\n**Maio:**\n- Maio tem 31 dias\n\n## Cálculo\n\n$$30 + 30 + 31 = 91 \\text{ dias}$$\n\n---\n\n**Resposta:** Há **91 dias** de 1º de março até 1º de junho de 2027, sem contar o dia final (1º de junho).",
+      "detail": {
+        "failed": [
+          "answer_92"
+        ]
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_contagem_dias",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 6.97,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 244,
+      "gen_tps": 37.18,
+      "reasoning_chars": 0,
+      "final": "## Calculando os dias de 1º de março até 1º de junho de 2027\n\nVou contar os dias de cada mês, sem incluir o dia final (1º de junho).\n\n**Março:** De 1º a 31 de março\n$$31 - 1 = 30 \\text{ dias}$$\n\n**Abril:** Mês completo\n$$30 \\text{ dias}$$\n\n**Maio:** Mês completo\n$$31 \\text{ dias}$$\n\n**Junho:** Como não contamos o dia final (1º de junho), são **0 dias**.\n\n## Total\n\n$$30 + 30 + 31 = 91 \\text{ dias}$$\n\n---\n\n**Respondendo: há 91 dias** de 1º de março até 1º de junho de 2027, sem contar o dia final.\n\n💡 *Observação:* O ano de 2027 não é bissexto, então fevereiro teria 28 dias, mas isso não afeta este cálculo, pois não incluímos fevereiro no período.",
+      "detail": {
+        "failed": [
+          "answer_92"
+        ]
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_email_formal",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.23,
+      "finish": "stop",
+      "prompt_tokens": 58,
+      "completion_tokens": 94,
+      "gen_tps": 40.02,
+      "reasoning_chars": 0,
+      "final": "Assunto: Remarcação da reunião de quinta-feira\n\nPrezado(a) [Nome],\n\nGostaria de comunicar que a reunião previamente agendada para quinta-feira será remarcada para sexta-feira, às 10h.\n\nAgradeço a compreensão e reafirmo minha disponibilidade para esclarecer qualquer dúvida. Agradeço desde já a concordância com a nova data.\n\nAtenciosamente,\n[Seu nome]",
+      "detail": {
+        "failed": [],
+        "words": 51
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_email_formal",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.31,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 108,
+      "gen_tps": 37.16,
+      "reasoning_chars": 0,
+      "final": "Assunto: Remarcação da reunião de quinta-feira\n\nPrezados,\n\nGostaríamos de remarcar a reunião previamente agendada para quinta-feira, transferindo-a para a próxima sexta-feira, às 10h.\n\nPedimos a gentileza de confirmar a disponibilidade de todos os participantes para a nova data, a fim de garantirmos a presença de todos.\n\nAgradecemos a compreensão e ficamos à disposição para quaisquer esclarecimentos.\n\nAtenciosamente,\n[Seu nome]",
+      "detail": {
+        "failed": [],
+        "words": 63
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_email_formal",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.0,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 96,
+      "gen_tps": 37.02,
+      "reasoning_chars": 0,
+      "final": "Assunto: Remarcação da reunião de quinta-feira\n\nPrezado(a) [Nome],\n\nGero de informar que a reunião agendada para esta quinta-feira está sendo remarcada para a próxima sexta-feira, às 10h.\n\nAgradeço a compreensão e reaf minha disponibilidade para o novo horário. Caso tenha qualquer restrição, por favor, me informe o mais breve possível.\n\nAtenciosamente,\n[Seu nome]",
+      "detail": {
+        "failed": [],
+        "words": 57
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_tcp_udp",
+      "run": 1,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.89,
+      "finish": "stop",
+      "prompt_tokens": 27,
+      "completion_tokens": 93,
+      "gen_tps": 40.01,
+      "reasoning_chars": 0,
+      "final": "**TCP** é um protocolo orientado a conexão, com confirmação de entrega e retransmissão de pacotes perdidos, garantindo entrega confiável e em ordem (usado em web, e-mail). **UDP** é sem conexão, sem garantia de entrega nem ordem, porém mais rápido e com menor sobrecarga (usado em streaming e jogos online). Em resumo: TCP prioriza a confiabilidade; UDP prioriza a velocidade.",
+      "detail": {
+        "failed": [],
+        "lines": 1
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_tcp_udp",
+      "run": 2,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 3.67,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 121,
+      "gen_tps": 36.98,
+      "reasoning_chars": 0,
+      "final": "**TCP** (Transmission Control Protocol) é confiável: faz confirmação de recebimento, reordena pacotes e garante que todos os dados cheguem corretamente e em ordem. **UDP** (User Datagram Protocol) é mais rápido, mas não confirma nem garante a entrega dos pacotes. Use **TCP** para coisas que precisam de integridade, como navegação web e e-mail. Use **UDP** para aplicações sensíveis ao tempo, como videochamadas e jogos online. Em resumo: TCP prioriza a confiabilidade; UDP prioriza a velocidade.",
+      "detail": {
+        "failed": [],
+        "lines": 1
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_tcp_udp",
+      "run": 3,
+      "correct": true,
+      "timeout": false,
+      "error": null,
+      "wall_s": 5.04,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 172,
+      "gen_tps": 37.15,
+      "reasoning_chars": 0,
+      "final": "# Diferença entre TCP e UDP\n\n**TCP** (Transmission Control Protocol) é um protocolo **com conexão**, confiável e orientado a fluxos: garante que os dados cheguem integros, em ordem e sem perdas, retransmitindo pacotes perdidos. É usado em navegação web, e-mails e transferências de arquivos.\n\n**UDP** (User Datagram Protocol) é **sem conexão**, mais rápido, porém não confiável: não há garantia de entrega, ordem ou integridade dos pacotes. É ideal para aplicações em tempo real, como videochamadas, jogos online e streaming.\n\nEm resumo: **TCP prioriza a confiabilidade** (com sobrecarga maior), enquanto **UDP prioriza a velocidade** (com menor latência, aceitando eventuais perdas).",
+      "detail": {
+        "failed": [],
+        "lines": 4
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_resumo",
+      "run": 1,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 2.47,
+      "finish": "stop",
+      "prompt_tokens": 112,
+      "completion_tokens": 55,
+      "gen_tps": 40.56,
+      "reasoning_chars": 0,
+      "final": "A prefeitura de Curitiba anunciou que a linha de ônibus Interbairros II passará a usar 18 veículos elétricos a partir de 1º de março, com tarifa mantida e redução de 1.200 toneladas anuais de CO2.",
+      "detail": {
+        "failed": [
+          "max_25_words"
+        ],
+        "words": 36
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_resumo",
+      "run": 2,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.99,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 60,
+      "gen_tps": 37.74,
+      "reasoning_chars": 0,
+      "final": "A prefeitura de Curitiba anunciará que a linha de ônibus Interbairros II passará a operar com 18 veículos elétricos a partir de 1º de março, mantendo a tarifa e reduzindo 1.200 toneladas/ano de emissões de CO2.",
+      "detail": {
+        "failed": [
+          "max_25_words"
+        ],
+        "words": 38
+      }
+    },
+    {
+      "route": "simple-chat",
+      "test": "chat_resumo",
+      "run": 3,
+      "correct": false,
+      "timeout": false,
+      "error": null,
+      "wall_s": 1.68,
+      "finish": "stop",
+      "prompt_tokens": 4,
+      "completion_tokens": 47,
+      "gen_tps": 36.97,
+      "reasoning_chars": 0,
+      "final": "A partir de 1º de março, a linha Interbairros II operará com 18 ônibus elétricos, com tarifa mantida e redução de 1.200 toneladas de CO2 por ano.",
+      "detail": {
+        "failed": [
+          "max_25_words"
+        ],
+        "words": 28
+      }
+    }
+  ],
+  "status": "complete",
+  "settings": {
+    "ctx": 65536,
+    "kv_cache": "q8_0",
+    "thinking": "off",
+    "sampling": {
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0
+    },
+    "routes": {
+      "voice-chat": {
+        "temperature": 0.7,
+        "max_tokens": 150,
+        "timeout": 15
+      },
+      "subtitles": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "timeout": 600
+      },
+      "prompt-enhancer": {
+        "temperature": 0.7,
+        "max_tokens": 800,
+        "timeout": 600
+      },
+      "owui-tasks": {
+        "temperature": 0.3,
+        "max_tokens": 512,
+        "timeout": 600
+      },
+      "simple-chat": {
+        "temperature": 0.7,
+        "max_tokens": 2048,
+        "timeout": 300
+      }
+    }
+  },
+  "load_s": 75.2,
+  "log": "/home/will/llm-bench/usecases/logs/usecases__ornith35__dual__Q4_K_M.log"
+}
