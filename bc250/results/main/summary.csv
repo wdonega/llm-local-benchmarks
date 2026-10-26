@@ -539,6 +539,42 @@ reasoning,aritmetica_datas,3,True,False,,176.1,4,6180,31.51,35.14,12588,stop,Qwe
 reasoning,instrucoes_multiplas,1,False,False,,178.7,149,6223,117.3,35.1,25092,stop,Qwen3.6-35B-A3B,single,UD-IQ2_XXS
 reasoning,instrucoes_multiplas,2,True,False,,132.5,4,4156,32.11,31.44,14815,stop,Qwen3.6-35B-A3B,single,UD-IQ2_XXS
 reasoning,instrucoes_multiplas,3,False,False,,133.1,4,4147,30.31,31.22,13844,stop,Qwen3.6-35B-A3B,single,UD-IQ2_XXS
+long_context,multi_hop_ramal,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+long_context,multi_hop_ramal,2,True,False,,190.0,4,1387,3.39,7.35,3715,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+long_context,multi_hop_ramal,3,True,False,,216.6,4,1543,3.26,7.17,4586,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+long_context,soma_com_correcoes,1,True,False,,171.9,514,956,35.71,6.07,2710,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+long_context,soma_com_correcoes,2,True,False,,282.3,4,2047,3.44,7.28,5929,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+long_context,soma_com_correcoes,3,True,False,,83.1,4,582,3.25,7.11,1867,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+coding,avaliador_expressoes,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+coding,avaliador_expressoes,2,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+coding,avaliador_expressoes,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+coding,calculo_frete,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+coding,calculo_frete,2,False,True,curl rc=28: curl: (28) Operation timed out after 300004 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+coding,calculo_frete,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+coding,corrigir_sessoes,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+coding,corrigir_sessoes,2,False,True,curl rc=28: curl: (28) Operation timed out after 300000 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+coding,corrigir_sessoes,3,False,True,curl rc=28: curl: (28) Operation timed out after 300000 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+tool_call,multi_etapas_reembolso,1,True,False,,108.1,787,562,31.4,6.88,683,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+tool_call,multi_etapas_reembolso,2,True,False,,112.5,787,671,38.73,7.36,959,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+tool_call,multi_etapas_reembolso,3,True,False,,83.0,245,585,23.92,8.21,724,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+tool_call,args_estritos_agenda,1,True,False,,85.4,538,510,39.55,7.38,833,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+tool_call,args_estritos_agenda,2,True,False,,63.0,39,490,12.23,8.49,821,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+tool_call,args_estritos_agenda,3,True,False,,57.7,39,435,11.89,8.0,798,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+tool_call,recuperacao_erro_estoque,1,True,False,,72.2,502,351,25.61,6.98,614,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+tool_call,recuperacao_erro_estoque,2,True,False,,57.0,140,375,16.26,8.34,712,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+tool_call,recuperacao_erro_estoque,3,True,False,,55.3,532,321,36.47,8.07,550,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+tool_call,abster_sem_dados_pix,1,True,False,,38.6,431,180,39.74,6.81,554,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+tool_call,abster_sem_dados_pix,2,True,False,,27.3,431,158,55.57,8.16,451,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+tool_call,abster_sem_dados_pix,3,True,False,,24.2,4,182,3.43,7.92,513,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+reasoning,logica_5_pessoas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+reasoning,logica_5_pessoas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+reasoning,logica_5_pessoas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+reasoning,aritmetica_datas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+reasoning,aritmetica_datas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300000 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+reasoning,aritmetica_datas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+reasoning,instrucoes_multiplas,1,True,False,,167.7,149,1142,28.61,7.03,3458,stop,Qwen3.8-27B,dual,UD-Q4_K_M
+reasoning,instrucoes_multiplas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,dual,UD-Q4_K_M
+reasoning,instrucoes_multiplas,3,True,False,,192.1,4,1405,3.32,7.36,4944,stop,Qwen3.8-27B,dual,UD-Q4_K_M
 long_context,multi_hop_ramal,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,single,UD-Q2_K_XL
 long_context,multi_hop_ramal,2,True,False,,225.3,1302,1190,32.43,6.72,3394,stop,Qwen3.8-27B,single,UD-Q2_K_XL
 long_context,multi_hop_ramal,3,True,False,,127.0,4,851,8.15,6.73,2161,stop,Qwen3.8-27B,single,UD-Q2_K_XL
