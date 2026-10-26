@@ -6,9 +6,9 @@ a leaderboard run on an H100 does not answer that.
 
 Every number here comes from my own boxes, running `llama.cpp`. Each model is tested at
 the quantization that really fits. The workloads are the ones I care about: long
-documents, code that has to pass hidden tests, multi-turn tool calling and reasoning.
-Each test runs three times. Speed is recorded, but **correctness comes first**: a fast
-model that gets the answer wrong is not useful.
+documents, code that has to pass hidden tests, multi-turn tool calling, reasoning and
+English → Portuguese translation. Each test runs three times. Speed is recorded, but
+**correctness comes first**: a fast model that gets the answer wrong is not useful.
 
 The harness has nothing tied to one machine. Each piece of infrastructure gets its own
 folder with its model list and results. So far there is one:
@@ -21,68 +21,87 @@ folder with its model list and results. So far there is one:
 
 ## Contents
 
-- [Repository layout](#repository-layout)
+- [Best models on the BC-250](#best-models-on-the-bc-250)
+  - [Round 2: the finalists, production-like settings](#round-2-the-finalists-production-like-settings)
+- [Round 1: screening 12 models](#round-1-screening-12-models)
 - [BC-250 cluster](#bc-250-cluster)
-  - [Hardware and software](#hardware-and-software)
-  - [What was tested](#what-was-tested)
-  - [Results](#results)
-  - [Findings](#findings)
-  - [BC-250 lessons learned](#bc-250-lessons-learned)
 - [The test process](#the-test-process)
-  - [The tasks](#the-tasks)
-  - [Grading rules](#grading-rules)
-  - [Server and sampling settings](#server-and-sampling-settings)
-  - [Validating the suite](#validating-the-suite)
 - [How to reproduce](#how-to-reproduce)
+- [Repository layout](#repository-layout)
 - [Result files](#result-files)
 
 ---
 
-## Repository layout
+## Best models on the BC-250
 
-```
-harness/
-  run_bench.py        benchmark runner (resumable, single/dual/dual-same modes)
-  tasks.py            tasks, simulated tools and graders
-  validate.py         checks the answer keys, graders and negative controls of the suite
-  common.py           shared helpers: server lifecycle, disk management, Docker sandbox
-  rpc_smoke.py        loads a small model across two boards to check the RPC worker
-  run_queue.sh        full queue, meant to run unattended as a systemd user service
-bc250/
-  models.json         models and quants tested on the BC-250 cluster
-  results/main/       results (updated as each config finishes)
-  results/pilot/      pilot run (1 run per test, used to calibrate difficulty)
-```
+**Short answer: run a small-active MoE model.** Every config worth using is a
+mixture-of-experts model with ~2.5–3B active parameters. These generate at 28–49 tok/s
+on this board. Dense models from 9B up were too slow to finish hard tasks in time.
+
+- **One board:** Ornith-1.5 35B-A3B IQ2_S (27/36 in round 1, 39 tok/s).
+- **Two boards:** flint 39.8B-A2.5B UD-Q3_K_XL (31/36 in round 1, the best score overall).
+
+These are the round 1 finalists: configs with **more than 20 of 36 correct, at most 1
+timeout and more than 20 tok/s**. That left 4 models, each tested with its one-board
+and its two-board quant:
+
+| Model | 1 board | Score | Gen t/s | 2 boards | Score | Gen t/s |
+|---|---|---|---|---|---|---|
+| flint 39.8B-A2.5B | UD-IQ2_XXS | 26/36 | 31.7 | UD-Q3_K_XL | **31/36** | 28.5 |
+| Ornith-1.5 35B-A3B | IQ2_S | **27/36** | 38.9 | Q4_K_M | 28/36 | 37.9 |
+| Qwen3.6 35B-A3B | UD-IQ2_XXS | 25/36 | 34.3 | UD-Q4_K_M | 27/36 | 37.0 |
+| LFM2.5 24B-A2B | UD-Q3_K_XL | 21/36 | 49.0 | UD-Q5_K_XL | 24/36 | 44.8 |
+
+The scores above come from round 1, where every model ran under the same tight limits.
+Round 2 re-tests the finalists the way they would actually be served.
+
+### Round 2: the finalists, production-like settings
+
+Same tasks as round 1, plus two English → Portuguese translation tests (42 calls per
+config). The settings move closer to a production server:
+
+| | Round 1 | Round 2 |
+|---|---|---|
+| Context | 32k | **64k** (no fallback; all 8 configs load with it) |
+| Thinking budget | 6144 tokens | **16384 tokens** (1/4 of the context) |
+| Timeout per call | 5 min | **15 min** |
+| Sampling | one setting for all (temp 0.6) | **what each model card recommends** |
+| Host prompt cache | default (first configs) | off (`--cache-ram 0`) |
+
+The budget was chosen so that even the slowest finalist can think it through and still
+answer within the timeout. The slowest is flint on two boards, at ~25 tok/s with a full
+context: ~2.5 min to read the 17k-token document, ~11 min to think 16k tokens and ~1 min
+to answer. When a model thinks too long, the budget cuts it off and it still answers.
+A timeout means the model is stuck or looping.
+
+Sampling from each model card on Hugging Face. A parameter the card does not mention is
+set to its neutral value (top_p 1, min_p 0), not llama.cpp's default (0.95 / 0.05):
+
+| Model | temperature | top_p | top_k | other |
+|---|---|---|---|---|
+| flint | 1.0 | 0.95 | 20 | – |
+| Ornith-1.5 35B-A3B | 0.6 | 0.95 | 20 | – ("general tasks") |
+| Qwen3.6 35B-A3B | 1.0 | 0.95 | 20 | presence_penalty 1.5 (thinking mode, general tasks) |
+| LFM2.5 24B-A2B | 0.1 | – | 50 | repetition_penalty 1.05 |
+
+Results are published as each config finishes. Per-test breakdown:
+[`bc250/results/round2/summary.md`](bc250/results/round2/summary.md).
+
+<!-- ROUND2:BEGIN -->
+_Running; the first configs will appear here as they finish._
+<!-- ROUND2:END -->
 
 ---
 
-## BC-250 cluster
+## Round 1: screening 12 models
 
-### Hardware and software
+Round 1 had one job: **sort out what works on this hardware** before spending time on
+it. It ran 12 models (MoE and dense, 4B to 40B) under the same tight limits: 32k
+context, 6144-token thinking budget and 5 minutes per call. Most of them did not make
+the cut, mainly because dense models are too slow here. Their results stay below
+because they explain *why* the finalists are what they are.
 
-Two ex-mining **AMD BC-250** boards. How they were built and tuned (BIOS, cooling,
-drivers, GTT, 40-CU unlock, governor, RPC services) is in
-[bc250-llm-setup](https://github.com/wdonega/bc250-llm-setup). In short:
-
-| | Per board |
-|---|---|
-| APU | AMD BC-250 "Cyan Skillfish", RADV GFX1013. Head (`llm3`): 40 CUs unlocked. Worker (`llm4`): **24 CUs** during this run (unlock not applied) |
-| Memory | 16 GB GDDR6 shared by CPU and GPU, ~14 GiB usable as GTT (`ttm.pages_limit`) |
-| OS | Ubuntu 26.04.1 LTS, kernel 7.0.0-38, Mesa 26.0.8 (RADV) |
-| `llama.cpp` | build **b11869** (commit `d327bf1f0`, 2026-10-24), `-DGGML_VULKAN=ON -DGGML_RPC=ON` |
-| Network | 2.5 GbE between the boards |
-
-There are two layouts:
-
-- **single**: one board (`llm3`) runs `llama-server` with the whole model.
-- **dual**: `llm3` runs `llama-server` and offloads half of the layers to `llm4`, which
-  runs `ggml-rpc-server` (`--rpc llm4.lab:50052 -ts 0.5,0.5`). A bigger quant fits this way.
-
-Both boards must run the same `llama.cpp` build, because the RPC protocol version has to
-match. The flint model needed this build: support for its architecture landed in
-`llama.cpp` on 2026-10-21.
-
-### What was tested
+### What was tested in round 1
 
 For every model, the best quant that fits one board was tested in **single** mode. Where
 it makes sense, a bigger quant spread over both boards was tested in **dual** mode. The
@@ -123,9 +142,9 @@ A few choices need explaining:
   quant scores better within the time limit. Both rows stay in the table, and the retry is
   labelled `retry of <quant>`.
 
-### Results
+### Round 1 results
 
-Run completed on 2026-10-26: 25 configs, 36 graded calls each. Per-test breakdown:
+Completed on 2026-10-26: 25 configs, 36 graded calls each. Per-test breakdown:
 [`bc250/results/main/summary.md`](bc250/results/main/summary.md). Two timeout retries
 were cancelled because the trend was already clear: Qwen3.8-27B single UD-IQ2_S, which
 was at 5/13 with 8 timeouts, and Fusion dual IQ3_M.
@@ -173,9 +192,9 @@ _25 configs, final._
 | Qwen3-Coder-30B-A3B UD-IQ2_M (single) | 32k | q8_0 | 5/6 | 2/9 | 6/12 | 0/9 | **13/36** | 1 | 128 | 35.1 | complete |
 <!-- RESULTS:END -->
 
-### Findings
+### Round 1 findings
 
-**Ranking: what is worth running on a BC-250**
+**Round 1 ranking**
 
 | | Config | Score | Gen t/s | Timeouts | Notes |
 |---|---|---|---|---|---|
@@ -230,6 +249,34 @@ CUs, so they are a lower bound.
 **7. Speed ≠ quality.** LFM2.5 is the fastest model on the board (49 tok/s) and scored
 21/36. Nemotron-3.5-Bolt E4B scored 20/36 at 26 tok/s. It is beaten on both axes by
 Qwen3.5-4B (27/36 at 34 tok/s).
+
+---
+
+## BC-250 cluster
+
+### Hardware and software
+
+Two ex-mining **AMD BC-250** boards. How they were built and tuned (BIOS, cooling,
+drivers, GTT, 40-CU unlock, governor, RPC services) is in
+[bc250-llm-setup](https://github.com/wdonega/bc250-llm-setup). In short:
+
+| | Per board |
+|---|---|
+| APU | AMD BC-250 "Cyan Skillfish", RADV GFX1013. Head (`llm3`): 40 CUs unlocked. Worker (`llm4`): **24 CUs** during this run (unlock not applied) |
+| Memory | 16 GB GDDR6 shared by CPU and GPU, ~14 GiB usable as GTT (`ttm.pages_limit`) |
+| OS | Ubuntu 26.04.1 LTS, kernel 7.0.0-38, Mesa 26.0.8 (RADV) |
+| `llama.cpp` | build **b11869** (commit `d327bf1f0`, 2026-10-24), `-DGGML_VULKAN=ON -DGGML_RPC=ON` |
+| Network | 2.5 GbE between the boards |
+
+There are two layouts:
+
+- **single**: one board (`llm3`) runs `llama-server` with the whole model.
+- **dual**: `llm3` runs `llama-server` and offloads half of the layers to `llm4`, which
+  runs `ggml-rpc-server` (`--rpc llm4.lab:50052 -ts 0.5,0.5`). A bigger quant fits this way.
+
+Both boards must run the same `llama.cpp` build, because the RPC protocol version has to
+match. The flint model needed this build: support for its architecture landed in
+`llama.cpp` on 2026-10-21.
 
 ### BC-250 lessons learned
 
@@ -289,7 +336,8 @@ separators, Portuguese weekday names).
 
 ### The tasks
 
-36 calls per config (12 tests × 3 runs). A 1-run pilot ([`results/pilot`](bc250/results/pilot))
+36 calls per config in round 1 (12 tests × 3 runs), 42 in round 2 (+2 translation
+tests). A 1-run pilot ([`results/pilot`](bc250/results/pilot))
 was used to make sure the tests are neither impossible nor trivial.
 
 **Long context.** One ~17k-token synthetic document: ~400 filler records with planted
@@ -331,6 +379,23 @@ as a failure.
 | `aritmetica_datas` | 1000-day contract starting Sunday 2026-10-25 (day 1): `2029-07-20; sexta; 1` (date, weekday and the number of Feb 29s, all three required) |
 | `instrucoes_multiplas` | One paragraph: exactly 4 sentences, initials M-A-P-E, no letter z, "backup" exactly twice, no commas, ends with "fim." |
 
+**Translation (round 2).** Two English texts to translate into Brazilian Portuguese
+"with the naturalness of a professional translator", keeping placeholders, code, URLs,
+product names and Markdown untouched. Each one hides traps that a competent translator
+handles and a literal one does not. Grading is a checklist on the final answer: every
+item must pass.
+
+| Test | What is checked |
+|---|---|
+| `traducao_suporte_tecnico` | Support e-mail. False friends *actually* (≠ atualmente) and *eventually* (≠ eventualmente). Idioms *ballpark figure* (→ valor aproximado / estimativa) and *the ball is in your court* (no literal "quadra"). `$1,250.75` → `1.250,75`. *March 3, 2027* → *3 de março de 2027*. `{customer_name}`, `` `npm install …` ``, the URL, "CloudSync Pro" and the `**bold**` must survive exactly. |
+| `traducao_falsos_cognatos` | A short personal paragraph packed with false friends: *parents* → pais (≠ parentes), *library* → biblioteca (≠ livraria), *pretends* → finge (≠ pretende), *attends* → participa/frequenta (≠ atende), *sensible* → sensata (≠ sensível), *piece of cake* → moleza/fácil (≠ pedaço de bolo). |
+
+Both tests also fail if more than one common English word is left over, or if the output
+is under 0.8× or over 1.6× the source length, which catches summaries and added
+commentary. Several valid wordings are accepted for each trap. chrF (character n-gram
+F-score) against a reference translation is recorded in each call's `detail` for
+reference, but it does not affect the verdict.
+
 ### Grading rules
 
 - **Only the final answer counts.** The reasoning trace (`reasoning_content`) is never
@@ -344,19 +409,24 @@ as a failure.
 ### Server and sampling settings
 
 ```
-llama-server -hf <repo>:<quant> --no-mmproj -ngl 999 -fa on --ctx-size 32768 --parallel 1 \
+llama-server -hf <repo>:<quant> --no-mmproj -ngl 999 -fa on --ctx-size <ctx> --parallel 1 \
   --cache-type-k q8_0 --cache-type-v q8_0 -b 2048 -ub 512 --jinja \
-  --reasoning-budget 6144 --reasoning-budget-message " Preciso parar de pensar agora e dar a resposta final." \
+  --reasoning-budget <budget> --reasoning-budget-message " Preciso parar de pensar agora e dar a resposta final." \
   --cache-ram 0
 # dual / dual-same add:  --rpc llm4.lab:50052 -ts 0.5,0.5
 ```
 
-| | |
-|---|---|
-| context | 32k (24k fallback) |
-| temperature / top_p / top_k / min_p | 0.6 / 0.95 / 20 / 0 |
-| seed | 9000 + run |
-| max tokens | 8k (long context), 12k (coding, reasoning), 4k per tool turn |
+The two profiles (`--profile round1|round2`, defined in `PROFILES` in `run_bench.py`):
+
+| | round1 | round2 |
+|---|---|---|
+| context | 32k (24k fallback) | 64k (no fallback) |
+| thinking budget | 6144 | 16384 |
+| timeout per call | 300 s | 900 s |
+| sampling | 0.6 / 0.95 / 20 / 0 (temp / top_p / top_k / min_p) for every model | per model, from `sampling` in the models file |
+| seed | 9000 + run | 9000 + run |
+| max tokens | 8k long context, 12k coding/reasoning, 4k per tool turn | 20k long context and per tool turn, 24k coding/reasoning/translation |
+| tasks | 12 tests (36 calls) | the same + 2 translation tests (42 calls) |
 
 ### Validating the suite
 
@@ -364,7 +434,7 @@ A wrong answer key would make every model look bad. `validate.py` checks the sui
 itself, without any model:
 
 - the reference solutions pass 100 % of the hidden tests;
-- 11 negative controls fail. These are typical wrong implementations, such as `//` for
+- 11 coding negative controls and 16 translation negative controls fail. These are typical wrong implementations, such as `//` for
   division, float `round()`, left-associative `^`, or fixing only `<` → `<=`;
 - the long-context document contains each planted fact the expected number of times, in
   the right order;
@@ -446,6 +516,10 @@ python3 run_bench.py --best-single-dual
 # 6. re-run configs with 4+ timeouts one quant lower
 python3 run_bench.py --retry-timeouts
 
+# round 2: the finalists with 64k context, 16k thinking budget, per-model sampling,
+# 15 min per call and the translation tests (results in results/round2/)
+python3 run_bench.py --profile round2 --models ../bc250/models-round2.json --all --runs 3
+
 # rebuild summaries from the JSON files at any time
 python3 run_bench.py --summary
 ```
@@ -466,6 +540,26 @@ journalctl --user -u llm-bench -f              # or: tail -f ../bc250/bench.log
 
 `--setenv` protects the model your production server uses from the disk cleanup. Use
 your own repo there, or drop the flag.
+
+---
+
+## Repository layout
+
+```
+harness/
+  run_bench.py        benchmark runner (resumable, single/dual/dual-same modes)
+  tasks.py            tasks, simulated tools and graders
+  validate.py         checks the answer keys, graders and negative controls of the suite
+  common.py           shared helpers: server lifecycle, disk management, Docker sandbox
+  rpc_smoke.py        loads a small model across two boards to check the RPC worker
+  run_queue.sh        full queue, meant to run unattended as a systemd user service
+bc250/
+  models.json         round 1: every model and quant tested on the BC-250 cluster
+  models-round2.json  round 2: the finalists, with each model card's recommended sampling
+  results/round2/     round 2 results (updated as each config finishes)
+  results/main/       round 1 results
+  results/pilot/      pilot run (1 run per test, used to calibrate difficulty)
+```
 
 ---
 

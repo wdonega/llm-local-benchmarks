@@ -312,6 +312,47 @@ def validate_tools():
            "detects a tool call written as text")
 
 
+def validate_translation():
+    print("== translation")
+    t1, t2 = T.TRANSLATION_TASKS
+    for t in (t1, t2):
+        ok, d = T.score_translation(t, {"content": t["reference"]})
+        expect(ok, f"{t['id']}: reference passes {d['failed']}")
+    alt1 = (t1["reference"].replace("Na verdade, lançamos", "Já lançamos")
+            .replace("Agora a decisão é sua.", "A bola está com você agora.")
+            .replace("um valor aproximado", "uma estimativa"))
+    expect(T.score_translation(t1, {"content": alt1})[0], f"{t1['id']}: accepts a valid alternative wording")
+    alt2 = (t2["reference"].replace("participa de", "frequenta").replace("sensata", "acertada")
+            .replace("foi moleza", "foi fácil"))
+    expect(T.score_translation(t2, {"content": alt2})[0], f"{t2['id']}: accepts a valid alternative wording")
+    for name, txt in [
+        ("false friends (atualmente/eventualmente)", t1["reference"].replace("Na verdade, lançamos", "Atualmente lançamos")
+         .replace("vai chegar a todas as contas", "vai eventualmente chegar a todas as contas")),
+        ("US number format", t1["reference"].replace("1.250,75", "1,250.75")),
+        ("English date", t1["reference"].replace("3 de março de 2027", "March 3, 2027")),
+        ("placeholder translated", t1["reference"].replace("{customer_name}", "{nome_do_cliente}")),
+        ("inline code changed", t1["reference"].replace("`npm install cloudsync-cli@4.2.0`", "npm install cloudsync-cli@4.2.0")),
+        ("bold dropped", t1["reference"].replace("**Importante:**", "Importante:")),
+        ("literal ballpark", t1["reference"].replace("um valor aproximado", "um número de estádio")),
+        ("sentence left in English", t1["reference"].replace("Avise se quiser seguir em frente.",
+                                                              "Let us know if you'd like to move forward with the plan.")),
+        ("summary instead of translation", "Olá, {customer_name}. A correção sai até 3 de março de 2027."),
+    ]:
+        expect(not T.score_translation(t1, {"content": txt})[0], f"{t1['id']}: rejects {name}")
+    for name, txt in [
+        ("parentes", t2["reference"].replace("Meus pais", "Meus parentes")),
+        ("livraria", t2["reference"].replace("biblioteca pública", "livraria pública")),
+        ("pretende", t2["reference"].replace("finge que não gosta", "pretende que não gosta")),
+        ("atende", t2["reference"].replace("participa de", "atende")),
+        ("sensível", t2["reference"].replace("sensata", "sensível")),
+        ("pedaço de bolo", t2["reference"].replace("foi moleza", "foi um pedaço de bolo")),
+        ("untranslated", t2["source"]),
+    ]:
+        expect(not T.score_translation(t2, {"content": txt})[0], f"{t2['id']}: rejects {name}")
+    expect(not T.score_translation(t1, {"content": "", "reasoning_content": t1["reference"]})[0],
+           f"{t1['id']}: reasoning without a final answer does not count")
+
+
 def validate_extract():
     print("== code extraction")
     txt = "Aqui:\n```python\ndef avaliar(e):\n    return 1\n```\nUso:\n```python\nprint(avaliar('1'))\n```"
@@ -323,6 +364,7 @@ if __name__ == "__main__":
     validate_long()
     validate_reasoning()
     validate_tools()
+    validate_translation()
     validate_extract()
     validate_coding()
     print()

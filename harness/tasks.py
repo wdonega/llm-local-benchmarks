@@ -788,3 +788,160 @@ def check_constraints(text):
         "ends_with_fim": bool(re.search(r"\bfim\.$", t, re.I)),
     }
     return all(checks.values()), {"checks": checks, "sentences": len(sentences)}
+
+
+# ---------------------------------------------------------------------------
+# Translation (EN -> PT-BR), round 2
+# ---------------------------------------------------------------------------
+# Each text hides traps a competent translator handles and a literal one does not: false
+# friends, idioms, local number/date formats, and tokens that must survive untouched.
+# Grading is a checklist on the final answer; chrF against a reference is reported only.
+
+TRANSLATION_PROMPT = (
+    "Traduza o texto abaixo do inglês para o português do Brasil, com a naturalidade de um "
+    "tradutor profissional. Mantenha exatamente como estão: placeholders entre chaves, trechos "
+    "de código, URLs, nomes de produtos e a formatação Markdown. Responda apenas com a "
+    "tradução.\n\nTEXTO:\n"
+)
+
+_EN_WORDS = {"the", "and", "you", "your", "with", "for", "we", "to", "of", "is", "now", "please",
+             "thanks", "team", "best", "regards", "hi", "my", "they", "it", "was", "but", "he",
+             "here", "translation"}
+
+TRANSLATION_TASKS = [
+    {
+        "id": "traducao_suporte_tecnico",
+        "source": (
+            "Hi {customer_name},\n\n"
+            "Thanks for reaching out. We actually rolled out a fix for the sync issue last week, "
+            "and the update will eventually reach every account by March 3, 2027.\n\n"
+            "To install it now, run `npm install cloudsync-cli@4.2.0` and restart the app. If you "
+            "still see the error, check https://status.cloudsync.example before contacting us again.\n\n"
+            "**Important:** your current plan costs $1,250.75 per year. We can give you a ballpark "
+            "figure for the upgrade, but the final price depends on the number of seats.\n\n"
+            "The ball is in your court now. Let us know if you'd like to move forward.\n\n"
+            "Best regards,\nThe CloudSync Pro team"
+        ),
+        "reference": (
+            "Olá, {customer_name},\n\n"
+            "Obrigado pelo contato. Na verdade, lançamos uma correção para o problema de "
+            "sincronização na semana passada, e a atualização vai chegar a todas as contas até "
+            "3 de março de 2027.\n\n"
+            "Para instalá-la agora, execute `npm install cloudsync-cli@4.2.0` e reinicie o "
+            "aplicativo. Se o erro continuar, consulte https://status.cloudsync.example antes de "
+            "falar conosco novamente.\n\n"
+            "**Importante:** seu plano atual custa US$ 1.250,75 por ano. Podemos passar um valor "
+            "aproximado para o upgrade, mas o preço final depende do número de licenças.\n\n"
+            "Agora a decisão é sua. Avise se quiser seguir em frente.\n\n"
+            "Atenciosamente,\nEquipe CloudSync Pro"
+        ),
+        # (name, raw substrings that must appear exactly)
+        "keep": ["{customer_name}", "`npm install cloudsync-cli@4.2.0`",
+                 "https://status.cloudsync.example", "CloudSync Pro"],
+        # (name, regex on accent-free lowercase text that MUST match)
+        "require": [
+            ("data_pt", r"\b0?3 de marco de 2027\b"),
+            ("valor_pt", r"1\.250,75"),
+            ("ballpark", r"aproximad|estimativa|ideia d[oe] (valor|preco|custo)|valor de referencia|previa"),
+        ],
+        # (name, regex on accent-free lowercase text that must NOT match)
+        "forbid": [
+            ("actually_atualmente", r"\batualmente\b"),
+            ("eventually_eventualmente", r"\beventualmente\b"),
+            ("valor_formato_en", r"1,250\.75"),
+            ("data_formato_en", r"\bmarch\b|\bmarco 3\b"),
+            ("ballpark_literal", r"estadio|parque de bola|campo de beisebol|ballpark"),
+            ("court_literal", r"\bquadra\b"),
+        ],
+        "bold_pairs": 1,
+    },
+    {
+        "id": "traducao_falsos_cognatos",
+        "source": (
+            "My parents finally retired last spring, and they've been spending most afternoons "
+            "at the public library. My dad pretends he doesn't enjoy it, but he attends every "
+            "book club meeting. Honestly, it was a sensible decision: the house was too big for "
+            "them anyway. Moving was a piece of cake compared to selling it, which took almost "
+            "eight months."
+        ),
+        "reference": (
+            "Meus pais finalmente se aposentaram na primavera passada e têm passado a maioria das "
+            "tardes na biblioteca pública. Meu pai finge que não gosta, mas participa de todos os "
+            "encontros do clube do livro. Sinceramente, foi uma decisão sensata: a casa era "
+            "grande demais para eles de qualquer forma. Mudar foi moleza comparado a vendê-la, o "
+            "que levou quase oito meses."
+        ),
+        "keep": [],
+        "require": [
+            ("parents_pais", r"\bpais\b"),
+            ("library_biblioteca", r"biblioteca"),
+            ("pretends_finge", r"\bfing"),
+            ("attends", r"particip|frequent|compare[cç]|vai (a|as|em|aos|nos|nas) |nao perde|esta em todos|esta presente"),
+            ("sensible", r"sensat|acertad|razoav|inteligente|sabia|prudente|decisao certa|boa decisao|ajuizad"),
+            ("piece_of_cake", r"moleza|facil|simples|tranquil|sopa no mel|brincadeira|nada demais"),
+            ("oito_meses", r"oito meses|8 meses"),
+        ],
+        "forbid": [
+            ("parentes", r"\bparentes\b"),
+            ("livraria", r"livraria"),
+            ("pretende", r"\bpretend"),
+            ("atende", r"\batend"),
+            ("sensivel", r"\bsensive(l|is)\b"),
+            ("pedaco_de_bolo", r"pedaco de bolo"),
+        ],
+        "bold_pairs": 0,
+    },
+]
+
+
+def translation_messages(task):
+    return [{"role": "user", "content": TRANSLATION_PROMPT + task["source"]}]
+
+
+def _plain(text):
+    text = unicodedata.normalize("NFKD", str(text))
+    return "".join(c for c in text if not unicodedata.combining(c)).lower()
+
+
+def chrf(hyp, ref, n=6, beta=2.0):
+    """chrF (character n-gram F-score, Popović 2015), whitespace removed. 0-100."""
+    from collections import Counter
+
+    def grams(s, k):
+        s = re.sub(r"\s+", "", s)
+        return Counter(s[i:i + k] for i in range(len(s) - k + 1))
+
+    precs, recs = [], []
+    for k in range(1, n + 1):
+        h, r = grams(hyp, k), grams(ref, k)
+        if not h or not r:
+            continue
+        overlap = sum((h & r).values())
+        precs.append(overlap / sum(h.values()))
+        recs.append(overlap / sum(r.values()))
+    if not precs:
+        return 0.0
+    p, r = sum(precs) / len(precs), sum(recs) / len(recs)
+    if p + r == 0:
+        return 0.0
+    return round(100 * (1 + beta**2) * p * r / (beta**2 * p + r), 1)
+
+
+def score_translation(task, message):
+    text = final_text(message)
+    plain = _plain(text)
+    scrubbed = plain
+    for k in task["keep"]:
+        scrubbed = scrubbed.replace(_plain(k), " ")
+    scrubbed = re.sub(r"https?://\S+|`[^`]*`|\{[^}]*\}", " ", scrubbed)
+    en_left = [w for w in re.findall(r"[a-z']+", scrubbed) if w in _EN_WORDS]
+    ratio = len(text) / max(len(task["source"]), 1)
+    checks = {f"keep:{k}": k in text for k in task["keep"]}
+    checks.update({f"require:{n}": bool(re.search(rx, plain)) for n, rx in task["require"]})
+    checks.update({f"forbid:{n}": not re.search(rx, plain) for n, rx in task["forbid"]})
+    checks["bold_preserved"] = text.count("**") == 2 * task["bold_pairs"]
+    checks["no_english_left"] = len(en_left) <= 1
+    checks["length_plausible"] = 0.8 <= ratio <= 1.6
+    failed = [k for k, v in checks.items() if not v]
+    return not failed, {"failed": failed, "english_words": en_left[:8], "length_ratio": round(ratio, 2),
+                        "chrf": chrf(text, task["reference"])}

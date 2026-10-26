@@ -7,6 +7,10 @@ Usage:
   python3 run_bench.py --best-single-dual   # best single config re-run on 2 boards, same quant
   python3 run_bench.py --retry-timeouts     # configs with many timeouts re-run one quant lower
   python3 run_bench.py --summary
+  python3 run_bench.py --profile round2 --models ../bc250/models-round2.json --all
+
+Profiles (see PROFILES): round1 = screening of every model; round2 = the best configs with
+64k context, a bigger thinking budget, each model's recommended sampling and translation tests.
 
 Every call is saved as soon as it finishes, so an interrupted run resumes where it stopped.
 Results go to $BENCH_OUT/results/<tag>/.
@@ -29,11 +33,22 @@ sys.path.insert(0, BASE)
 import common as rb  # noqa: E402
 import tasks as T  # noqa: E402
 
-CTX = 32768
-CTX_FALLBACK = 24576
-REASONING_BUDGET = 6144
+PROFILES = {
+    # screening of every model: short thinking budget, 5 min per call, one sampling for all
+    "round1": {"ctx": 32768, "ctx_fallback": 24576, "reasoning_budget": 6144, "timeout": 300,
+               "max_tokens": {"long": 8192, "single": 12288, "tool": 4096},
+               "model_sampling": False, "translation": False},
+    # the best configs: 64k context, 1/4 of it as thinking budget, the sampling each model card
+    # recommends ("sampling" in the models file), 15 min per call, plus the translation tests
+    "round2": {"ctx": 65536, "ctx_fallback": None, "reasoning_budget": 16384, "timeout": 900,
+               "max_tokens": {"long": 20480, "single": 24576, "tool": 20480},
+               "model_sampling": True, "translation": True},
+}
+PROFILE = "round1"
+P = PROFILES[PROFILE]
 BUDGET_MESSAGE = " Preciso parar de pensar agora e dar a resposta final."
-SAMPLING = {"temperature": 0.6, "top_p": 0.95, "top_k": 20, "min_p": 0.0}
+SAMPLING = {"temperature": 0.6, "top_p": 0.95, "top_k": 20, "min_p": 0.0}  # round 1, every model
+ACTIVE_SAMPLING = dict(SAMPLING)  # what the config being run uses
 OUTPUT_CHECK_PROMPT = "Qual é a capital da França? Responda em uma frase."
 KV_CACHE = "q8_0"  # --cache-type-k / --cache-type-v
 # HF repos the disk cleanup must never delete (e.g. the model your production server uses)
@@ -61,7 +76,7 @@ def start_server(cfg, alias, log_name, ctx):
         rb.SERVER, "-hf", f"{cfg['repo']}:{cfg['quant']}", "--no-mmproj",
         "-ngl", "999", "-fa", "on", "--ctx-size", str(ctx), "--parallel", "1",
         "--cache-type-k", KV_CACHE, "--cache-type-v", KV_CACHE, "-b", "2048", "-ub", "512",
-        "--jinja", "--reasoning-budget", str(REASONING_BUDGET),
+        "--jinja", "--reasoning-budget", str(P["reasoning_budget"]),
         "--reasoning-budget-message", BUDGET_MESSAGE,
         "--cache-ram", "0",  # host prompt cache (8 GiB by default) OOMs a 14 GiB unified-memory board
         "--host", "127.0.0.1", "--port", str(rb.PORT), "--alias", alias,
@@ -97,7 +112,7 @@ def is_timeout(err):
 
 def payload(alias, messages, run, max_tokens, tools=None):
     p = {"model": alias, "messages": messages, "seed": 9000 + run, "max_tokens": max_tokens,
-         "stream": False, **SAMPLING}
+         "stream": False, **ACTIVE_SAMPLING}
     if tools:
         p["tools"] = tools
         p["tool_choice"] = "auto"
@@ -113,7 +128,7 @@ def settle_after_timeout():
 
 
 def run_single_turn(alias, messages, run, max_tokens):
-    resp, err, wall = rb.chat(payload(alias, messages, run, max_tokens))
+    resp, err, wall = rb.chat(payload(alias, messages, run, max_tokens), timeout=P["timeout"])
     msg = {}
     finish = None
     if resp is not None:
@@ -136,7 +151,8 @@ def run_tool_task(alias, task, run):
     finish = None
     reasoning_chars = 0
     for step in range(task["max_steps"]):
-        resp, err, wall = rb.chat(payload(alias, messages, run, 4096, tools=task["tools"]))
+        resp, err, wall = rb.chat(payload(alias, messages, run, P["max_tokens"]["tool"], tools=task["tools"]),
+                                  timeout=P["timeout"])
         wall_total += wall
         if err:
             break
@@ -192,6 +208,9 @@ def specs(runs):
         out += [("tool_call", t["id"], r, t) for r in range(1, runs + 1)]
     for t in T.REASONING_TASKS:
         out += [("reasoning", t["id"], r, t) for r in range(1, runs + 1)]
+    if P["translation"]:
+        for t in T.TRANSLATION_TASKS:
+            out += [("translation", t["id"], r, t) for r in range(1, runs + 1)]
     return out
 
 
@@ -200,10 +219,10 @@ def execute(alias, cat, task, run):
     if cat == "tool_call":
         return run_tool_task(alias, task, run)
     if cat == "long_context":
-        msg, finish, t, err, wall = run_single_turn(alias, T.long_messages(task), run, 8192)
+        msg, finish, t, err, wall = run_single_turn(alias, T.long_messages(task), run, P["max_tokens"]["long"])
         ok, detail = (False, {}) if err else T.score_long(task, msg)
     elif cat == "coding":
-        msg, finish, t, err, wall = run_single_turn(alias, T.coding_messages(task), run, 12288)
+        msg, finish, t, err, wall = run_single_turn(alias, T.coding_messages(task), run, P["max_tokens"]["single"])
         ok, detail = False, {}
         if not err:
             code = T.extract_code(T.final_text(msg), task["func"])
@@ -215,9 +234,13 @@ def execute(alias, cat, task, run):
             detail = {"passed": detail.get("passed"), "total": detail.get("total"),
                       "failures": [r for r in detail.get("results", []) if not r["ok"]][:6],
                       "error": detail.get("error"), "code": code[:3000]}
+    elif cat == "translation":
+        msg, finish, t, err, wall = run_single_turn(
+            alias, T.translation_messages(task), run, P["max_tokens"]["single"])
+        ok, detail = (False, {}) if err else T.score_translation(task, msg)
     else:
         msg, finish, t, err, wall = run_single_turn(
-            alias, [{"role": "user", "content": task["prompt"]}], run, 12288)
+            alias, [{"role": "user", "content": task["prompt"]}], run, P["max_tokens"]["single"])
         ok, detail = (False, {}) if err else T.score_reasoning(task["id"], msg)
     extra = {"final": T.final_text(msg)[:3000], "finish": finish,
              "reasoning_chars": len(msg.get("reasoning_content") or "")}
@@ -225,6 +248,14 @@ def execute(alias, cat, task, run):
 
 
 def run_config(model, cfg, runs, results_dir, force=False, protected=()):
+    global ACTIVE_SAMPLING
+    if P["model_sampling"]:
+        if not model.get("sampling"):
+            log(f"{model['key']}: profile {PROFILE} needs a 'sampling' entry in the models file")
+            return None
+        ACTIVE_SAMPLING = dict(model["sampling"])
+    else:
+        ACTIVE_SAMPLING = dict(SAMPLING)
     alias = f"{model['key']}-{cfg['mode']}"
     stem = f"{model['key']}__{cfg['mode']}__{cfg['quant']}"
     path = os.path.join(results_dir, stem + ".json")
@@ -233,7 +264,8 @@ def run_config(model, cfg, runs, results_dir, force=False, protected=()):
     data = rb.load_json(path, None) or {
         "model": model["label"], "key": model["key"], "mode": cfg["mode"], "repo": cfg["repo"],
         "quant": cfg["quant"], "runs": runs, "calls": [], "status": "running",
-        "settings": {"ctx": CTX, "kv_cache": KV_CACHE, "reasoning_budget": REASONING_BUDGET, **SAMPLING},
+        "settings": {"profile": PROFILE, "ctx": P["ctx"], "kv_cache": KV_CACHE,
+                     "reasoning_budget": P["reasoning_budget"], "timeout": P["timeout"], **ACTIVE_SAMPLING},
         "retry_of": cfg.get("retry_of"),
     }
     if data.get("status") == "complete":
@@ -259,7 +291,7 @@ def run_config(model, cfg, runs, results_dir, force=False, protected=()):
     proc = logf = None
     try:
         ctx_used = None
-        for ctx in (CTX, CTX_FALLBACK):
+        for ctx in [c for c in (P["ctx"], P["ctx_fallback"]) if c]:
             start = time.time()
             proc, logf, log_path = start_server(cfg, alias, stem, ctx)
             if rb.wait_ready(proc):
@@ -279,7 +311,8 @@ def run_config(model, cfg, runs, results_dir, force=False, protected=()):
         log(f"{stem}: loaded in {data['load_s']}s (ctx={ctx_used})")
         # output check: a corrupted RPC tensor cache on the worker once produced pure garbage
         # for hours; a trivial question catches that before 36 wasted calls
-        resp, err, _ = rb.chat(payload(alias, [{"role": "user", "content": OUTPUT_CHECK_PROMPT}], 0, 2048))
+        resp, err, _ = rb.chat(payload(alias, [{"role": "user", "content": OUTPUT_CHECK_PROMPT}], 0, 4096),
+                               timeout=P["timeout"])
         msg = ((resp or {}).get("choices") or [{}])[0].get("message") or {}
         seen = T.normalize((msg.get("content") or "") + " " + (msg.get("reasoning_content") or ""))
         if err or "paris" not in seen:
@@ -346,7 +379,9 @@ def ordered_configs(models, only=None):
     return singles + duals + last
 
 
-CAT_ORDER = ["long_context", "coding", "tool_call", "reasoning"]
+CAT_ORDER = ["long_context", "coding", "tool_call", "reasoning", "translation"]
+CAT_LABEL = {"long_context": "Long context", "coding": "Coding", "tool_call": "Tool call",
+             "reasoning": "Reasoning", "translation": "Translation"}
 
 
 def summarize(results_dir):
@@ -373,12 +408,17 @@ def summarize(results_dir):
         retry = f", retry of {d['retry_of']}" if d.get("retry_of") else ""
         return f"{d['model']} {d['quant']} ({d['mode']}{retry})"
 
+    cat_order = [c for c in CAT_ORDER if any(x["category"] == c for d in configs for x in d["calls"])]
+    fallback = f" ({P['ctx_fallback']} fallback; see the Ctx column)" if P["ctx_fallback"] else ""
+    sampling = ("sampling recommended by each model card (see the models file)" if P["model_sampling"]
+                else f"temperature {SAMPLING['temperature']}")
     md = ["# Benchmark results", "",
-          f"Settings: ctx {CTX} ({CTX_FALLBACK} fallback; see the Ctx column), KV cache {KV_CACHE}, reasoning budget {REASONING_BUDGET} tokens, "
-          f"temperature {SAMPLING['temperature']}, timeout {rb.CALL_TIMEOUT}s per call.", "",
+          f"Settings ({PROFILE}): ctx {P['ctx']}{fallback}, KV cache {KV_CACHE}, reasoning budget "
+          f"{P['reasoning_budget']} tokens, {sampling}, timeout {P['timeout']}s per call.", "",
           "## Scoreboard", "",
-          "| Config | Ctx | KV cache | Long context | Coding | Tool call | Reasoning | Total | Timeouts | Prompt t/s | Gen t/s | Status |",
-          "|---|---|---|---|---|---|---|---|---|---|---|---|"]
+          "| Config | Ctx | KV cache | " + " | ".join(CAT_LABEL[c] for c in cat_order)
+          + " | Total | Timeouts | Prompt t/s | Gen t/s | Status |",
+          "|---|---|---|" + "---|" * len(cat_order) + "---|---|---|---|---|"]
     ranked = []
     for d in configs:
         cats = defaultdict(lambda: [0, 0])
@@ -397,7 +437,7 @@ def summarize(results_dir):
         ranked.append((tot, n, d, cats, tos, ptps, gtps))
     ranked.sort(key=lambda x: (-x[0], x[2]["model"]))
     for tot, n, d, cats, tos, ptps, gtps in ranked:
-        cells = [f"{cats[c][0]}/{cats[c][1]}" for c in CAT_ORDER]
+        cells = [f"{cats[c][0]}/{cats[c][1]}" for c in cat_order]
         p = f"{sum(ptps)/len(ptps):.0f}" if ptps else "-"
         g = f"{sum(gtps)/len(gtps):.1f}" if gtps else "-"
         st = d.get("settings") or {}
@@ -407,8 +447,10 @@ def summarize(results_dir):
 
     tests = []
     for cat, group in (("long_context", T.LONG_TASKS), ("coding", T.CODING_TASKS),
-                       ("tool_call", T.TOOL_TASKS), ("reasoning", T.REASONING_TASKS)):
-        tests += [(cat, t["id"]) for t in group]
+                       ("tool_call", T.TOOL_TASKS), ("reasoning", T.REASONING_TASKS),
+                       ("translation", T.TRANSLATION_TASKS)):
+        if cat in cat_order:
+            tests += [(cat, t["id"]) for t in group]
     md += ["", "## Correct per test (out of 3 runs; T = timeouts)", "",
            "| Test | " + " | ".join(f"{d['model']} {d['quant']} ({d['mode']})" for _, _, d, *_ in ranked) + " |",
            "|---|" + "---|" * len(ranked)]
@@ -528,7 +570,9 @@ def main():
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--only", help="comma-separated key:mode list")
     ap.add_argument("--runs", type=int, default=3)
-    ap.add_argument("--tag", default="main")
+    ap.add_argument("--tag", help="results folder name (default: main for round1, else the profile)")
+    ap.add_argument("--profile", choices=sorted(PROFILES), default="round1")
+    ap.add_argument("--models", help="models file (default: $BENCH_MODELS or $BENCH_OUT/models.json)")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--summary", action="store_true")
     ap.add_argument("--best-single-dual", action="store_true",
@@ -537,7 +581,12 @@ def main():
                     help=f"re-run configs with >= {RETRY_TIMEOUTS} timeouts one quant lower")
     args = ap.parse_args()
 
-    results_dir = os.path.join(rb.OUT, "results", args.tag)
+    global PROFILE, P
+    PROFILE, P = args.profile, PROFILES[args.profile]
+    if args.models:
+        rb.MODELS_PATH = os.path.abspath(args.models)
+    tag = args.tag or ("main" if PROFILE == "round1" else PROFILE)
+    results_dir = os.path.join(rb.OUT, "results", tag)
     os.makedirs(results_dir, exist_ok=True)
     os.makedirs(rb.WORK, exist_ok=True)
     if args.summary:

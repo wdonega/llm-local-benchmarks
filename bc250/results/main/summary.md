@@ -1,6 +1,6 @@
 # Benchmark results
 
-Settings: ctx 32768 (24576 fallback; see the Ctx column), KV cache q8_0, reasoning budget 6144 tokens, temperature 0.6, timeout 300s per call.
+Settings (round1): ctx 32768 (24576 fallback; see the Ctx column), KV cache q8_0, reasoning budget 6144 tokens, temperature 0.6, timeout 300s per call.
 
 ## Scoreboard
 
