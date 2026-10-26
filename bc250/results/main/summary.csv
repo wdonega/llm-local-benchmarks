@@ -359,6 +359,42 @@ reasoning,aritmetica_datas,3,True,False,,180.2,4,6784,32.71,37.72,11810,stop,Orn
 reasoning,instrucoes_multiplas,1,False,False,,55.9,149,2117,118.28,38.9,6839,stop,Ornith-1.5-35B-A3B,single,IQ2_S
 reasoning,instrucoes_multiplas,2,False,False,,34.6,4,1339,28.12,39.03,4747,stop,Ornith-1.5-35B-A3B,single,IQ2_S
 reasoning,instrucoes_multiplas,3,True,False,,29.4,4,1123,32.63,38.52,3611,stop,Ornith-1.5-35B-A3B,single,IQ2_S
+long_context,multi_hop_ramal,1,True,False,,193.0,17706,1402,157.74,17.38,3844,stop,Ornith-1.5-9B,single,Q5_K_M
+long_context,multi_hop_ramal,2,True,False,,68.9,4,1195,22.05,17.4,2963,stop,Ornith-1.5-9B,single,Q5_K_M
+long_context,multi_hop_ramal,3,True,False,,72.1,4,1249,21.89,17.39,3172,stop,Ornith-1.5-9B,single,Q5_K_M
+long_context,soma_com_correcoes,1,True,False,,33.6,514,516,128.89,17.42,743,stop,Ornith-1.5-9B,single,Q5_K_M
+long_context,soma_com_correcoes,2,True,False,,43.4,4,752,21.94,17.4,1405,stop,Ornith-1.5-9B,single,Q5_K_M
+long_context,soma_com_correcoes,3,True,False,,36.7,4,635,21.84,17.42,917,stop,Ornith-1.5-9B,single,Q5_K_M
+coding,avaliador_expressoes,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+coding,avaliador_expressoes,2,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+coding,avaliador_expressoes,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+coding,calculo_frete,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+coding,calculo_frete,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+coding,calculo_frete,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+coding,corrigir_sessoes,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+coding,corrigir_sessoes,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+coding,corrigir_sessoes,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+tool_call,multi_etapas_reembolso,1,True,False,,36.4,749,611,126.97,20.05,781,stop,Ornith-1.5-9B,single,Q5_K_M
+tool_call,multi_etapas_reembolso,2,True,False,,28.9,245,527,96.7,20.07,611,stop,Ornith-1.5-9B,single,Q5_K_M
+tool_call,multi_etapas_reembolso,3,True,False,,32.6,245,601,96.61,20.06,686,stop,Ornith-1.5-9B,single,Q5_K_M
+tool_call,args_estritos_agenda,1,False,False,,29.9,530,512,142.1,19.6,707,stop,Ornith-1.5-9B,single,Q5_K_M
+tool_call,args_estritos_agenda,2,True,False,,37.1,39,713,61.84,19.55,1029,stop,Ornith-1.5-9B,single,Q5_K_M
+tool_call,args_estritos_agenda,3,True,False,,41.9,39,805,61.76,19.54,1338,stop,Ornith-1.5-9B,single,Q5_K_M
+tool_call,recuperacao_erro_estoque,1,True,False,,20.7,494,315,109.41,19.56,502,stop,Ornith-1.5-9B,single,Q5_K_M
+tool_call,recuperacao_erro_estoque,2,True,False,,19.3,140,338,70.99,19.54,558,stop,Ornith-1.5-9B,single,Q5_K_M
+tool_call,recuperacao_erro_estoque,3,True,False,,17.3,140,299,71.0,19.57,528,stop,Ornith-1.5-9B,single,Q5_K_M
+tool_call,abster_sem_dados_pix,1,True,False,,14.8,393,233,140.4,19.42,690,stop,Ornith-1.5-9B,single,Q5_K_M
+tool_call,abster_sem_dados_pix,2,True,False,,10.5,4,201,25.92,19.43,549,stop,Ornith-1.5-9B,single,Q5_K_M
+tool_call,abster_sem_dados_pix,3,True,False,,12.0,4,229,25.9,19.43,540,stop,Ornith-1.5-9B,single,Q5_K_M
+reasoning,logica_5_pessoas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+reasoning,logica_5_pessoas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300000 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+reasoning,logica_5_pessoas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+reasoning,aritmetica_datas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+reasoning,aritmetica_datas,2,True,False,,197.4,4,3842,33.15,19.48,7556,stop,Ornith-1.5-9B,single,Q5_K_M
+reasoning,aritmetica_datas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+reasoning,instrucoes_multiplas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Ornith-1.5-9B,single,Q5_K_M
+reasoning,instrucoes_multiplas,2,True,False,,104.3,4,2080,28.98,19.96,6898,stop,Ornith-1.5-9B,single,Q5_K_M
+reasoning,instrucoes_multiplas,3,True,False,,53.1,4,1000,25.1,18.89,3142,stop,Ornith-1.5-9B,single,Q5_K_M
 long_context,multi_hop_ramal,1,True,False,,212.1,17706,1115,122.49,16.57,2686,stop,Ornith-1.5-9B,single,Q6_K
 long_context,multi_hop_ramal,2,True,False,,58.6,4,969,22.18,16.6,2357,stop,Ornith-1.5-9B,single,Q6_K
 long_context,multi_hop_ramal,3,True,False,,64.6,4,1068,22.14,16.59,2347,stop,Ornith-1.5-9B,single,Q6_K

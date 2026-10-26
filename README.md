@@ -141,7 +141,7 @@ How to read the speed columns:
   on long-context calls, where the KV cache is full.
 
 <!-- RESULTS:BEGIN -->
-_21 configs complete so far._
+_22 configs complete so far._
 
 | Config | Ctx | KV cache | Long context | Coding | Tool call | Reasoning | Total | Timeouts | Prompt t/s | Gen t/s | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -156,6 +156,7 @@ _21 configs complete so far._
 | LFM2.5-24B-A2B UD-Q5_K_XL (dual) | 32k | q8_0 | 5/6 | 3/9 | 12/12 | 4/9 | **24/36** | 0 | 245 | 44.8 | complete |
 | LFM2.5-24B-A2B UD-Q3_K_XL (single) | 32k | q8_0 | 4/6 | 3/9 | 12/12 | 2/9 | **21/36** | 0 | 183 | 49.0 | complete |
 | Nemotron-3.5-Bolt-E4B UD-Q6_K_XL (single) | 32k | q8_0 | 5/6 | 3/9 | 11/12 | 1/9 | **20/36** | 1 | 214 | 26.1 | complete |
+| Ornith-1.5-9B Q5_K_M (single, retry of Q6_K) | 32k | q8_0 | 6/6 | 0/9 | 11/12 | 3/9 | **20/36** | 15 | 125 | 19.0 | complete |
 | Ornith-1.5-9B Q6_K (single) | 32k | q8_0 | 6/6 | 1/9 | 12/12 | 0/9 | **19/36** | 14 | 103 | 18.5 | complete |
 | Qwen3.8-27B UD-Q4_K_M (dual) | 32k | q8_0 | 5/6 | 0/9 | 12/12 | 2/9 | **19/36** | 17 | 36 | 7.5 | complete |
 | Qwen3.8-27B UD-Q2_K_XL (single) | 32k | q8_0 | 4/6 | 1/9 | 12/12 | 2/9 | **19/36** | 17 | 45 | 7.7 | complete |
