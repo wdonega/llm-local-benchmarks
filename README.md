@@ -26,7 +26,7 @@ folder with its model list and results. So far there is one:
   - [Hardware and software](#hardware-and-software)
   - [What was tested](#what-was-tested)
   - [Results](#results)
-  - [Findings so far](#findings-so-far)
+  - [Findings](#findings)
   - [BC-250 lessons learned](#bc-250-lessons-learned)
 - [The test process](#the-test-process)
   - [The tasks](#the-tasks)
@@ -66,7 +66,7 @@ drivers, GTT, 40-CU unlock, governor, RPC services) is in
 
 | | Per board |
 |---|---|
-| APU | AMD BC-250 "Cyan Skillfish", RADV GFX1013, 40 CUs unlocked |
+| APU | AMD BC-250 "Cyan Skillfish", RADV GFX1013. Head (`llm3`): 40 CUs unlocked. Worker (`llm4`): **24 CUs** during this run (unlock not applied) |
 | Memory | 16 GB GDDR6 shared by CPU and GPU, ~14 GiB usable as GTT (`ttm.pages_limit`) |
 | OS | Ubuntu 26.04.1 LTS, kernel 7.0.0-38, Mesa 26.0.8 (RADV) |
 | `llama.cpp` | build **b11869** (commit `d327bf1f0`, 2026-10-24), `-DGGML_VULKAN=ON -DGGML_RPC=ON` |
@@ -125,9 +125,10 @@ A few choices need explaining:
 
 ### Results
 
-The run is still in progress. The table below is refreshed automatically each time a
-config finishes. Per-test breakdown:
-[`bc250/results/main/summary.md`](bc250/results/main/summary.md).
+Run completed on 2026-10-26: 25 configs, 36 graded calls each. Per-test breakdown:
+[`bc250/results/main/summary.md`](bc250/results/main/summary.md). Two timeout retries
+were cancelled because the trend was already clear: Qwen3.8-27B single UD-IQ2_S, which
+was at 5/13 with 8 timeouts, and Fusion dual IQ3_M.
 
 How to read the speed columns:
 
@@ -141,7 +142,7 @@ How to read the speed columns:
   on long-context calls, where the KV cache is full.
 
 <!-- RESULTS:BEGIN -->
-_25 configs complete so far._
+_25 configs, final._
 
 | Config | Ctx | KV cache | Long context | Coding | Tool call | Reasoning | Total | Timeouts | Prompt t/s | Gen t/s | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -172,22 +173,63 @@ _25 configs complete so far._
 | Qwen3-Coder-30B-A3B UD-IQ2_M (single) | 32k | q8_0 | 5/6 | 2/9 | 6/12 | 0/9 | **13/36** | 1 | 128 | 35.1 | complete |
 <!-- RESULTS:END -->
 
-### Findings so far
+### Findings
 
-- **The suite separates the models.** Configs in the same speed class are already 6
-  points apart. An earlier, easier sanity suite had every model at 100 %, which is why
-  every task here is built to make models fail.
-- **MoE models with ~3B active parameters are the sweet spot on this board.** They
-  generate at 30–55 tok/s even at 2–3 bit. A 27B dense model makes 7–8 tok/s at any
-  quant, because the BC-250 is memory-bound on dense weights.
-- **Basic tool calling is solved.** Every model tested so far scores 12/12 on
-  multi-step calls, strict arguments, error recovery and refusing to act without data.
-- **Reasoning is where they break.** No model has solved the 5-person logic puzzle yet.
-  flint gives the same wrong answer every time. LFM gives a different one every run.
-  flint gets the date arithmetic right but calls 2029-07-20 a Sunday (it is a Friday).
-- **Speed ≠ quality.** LFM2.5 is the fastest model (49 tok/s) and the lowest scorer so far.
-- **dual mode:** see the table as the dual configs finish. The open question is whether
-  the bigger quant buys enough correctness to pay for the RPC speed cost.
+**Ranking: what is worth running on a BC-250**
+
+| | Config | Score | Gen t/s | Timeouts | Notes |
+|---|---|---|---|---|---|
+| 1 | flint 39.8B-A2.5B UD-Q3_K_XL, 2 boards | **31/36** | 28.5 | 0 | best overall. Only config with 3/3 on the expression evaluator; 8/9 coding, 6/9 reasoning |
+| 2 | Ornith-1.5 35B-A3B Q4_K_M, 2 boards | 28/36 | 37.9 | 0 | best balance of score and speed |
+| 3 | Qwen3.6 35B-A3B UD-Q4_K_M, 2 boards | 27/36 | 37.0 | 0 | best reasoner: the only one that solved the logic puzzle more than once (2/3) |
+| 4 | Ornith-1.5 35B-A3B IQ2_S, 1 board | 27/36 | 38.9 | 0 | **best single-board config** |
+| 5 | Qwen3.5 4B Q6_K, 1 board | 27/36 | 34.2 | 5 | ties #4 with a 3.5 GB file and room left over on the board |
+
+**1. Small-active MoE is the right shape for this hardware.** All the configs that
+matter are MoE models with ~2.5–3B active parameters, generating at 28–49 tok/s. They
+had **zero timeouts**.
+
+**2. Dense models from 9B up are not usable here.** Qwen3.5-9B, Ornith-1.5-9B,
+Gemma-4-12B, Qwen3.8-27B and the DavidAU Fusion all land at 17–20/36, with 14–19 of
+the 36 calls timing out. That happens even though the thinking budget (6144 tokens) is
+1/8 of what a production config would allow. The arithmetic does not work: thinking
+6144 tokens and then answering in 300 s needs more than ~21 tok/s. These models run at
+7–20 tok/s, and a long-context call first spends 1.5–3 minutes reading the prompt.
+When they *do* finish they are often right (11–12/12 on tool calls, which are short),
+but coding is 0–2/9, almost all timeouts. Throughput was steady; there was no swapping.
+Speed is the problem, not memory.
+
+**3. A lower quant does not rescue a slow model.** Five configs with many timeouts were
+re-run one quant lower. Generation speed changed by −2 % to +17 % and the score moved by
+±1, which is noise. The exception is Qwen3.5-4B: Q8_0 → Q6_K gave +18 % speed, one fewer timeout and
+**25 → 27**.
+
+**4. A bigger quant on two boards is worth it.** The same model with a bigger quant
+split over RPC scored better in every case: flint **26 → 31**, LFM 21 → 24, Qwen3.6
+25 → 27, Qwen3-Coder 13 → 15 and Ornith 27 → 28. Generation speed changed by −10 % to
++11 %. When it got faster, the single-board config used an IQ quant (IQ quants are the
+slow path on RADV). These dual numbers were measured with the worker running only 24
+CUs, so they are a lower bound.
+
+**5. Splitting without needing the memory costs ~8 %.** The best single-board config
+(Ornith IQ2_S) re-run on two boards with the same file went from 38.9 to 35.7 tok/s
+(−8 %). The score went from 27 to 25, which is within run-to-run noise at temperature
+0.6. Only split when you need the memory for a bigger quant.
+
+**6. Tool calling is nearly solved. Reasoning is not.**
+- 23 of 25 configs scored 11–12/12 on multi-turn tool calls.
+- All 25 refused to send a PIX without a key and an amount. That test no longer
+  discriminates.
+- Qwen3-Coder is the exception: 6/12 at both quants. It booked the meeting twice, on
+  the wrong day, and when a SKU was replaced it told the user to look it up instead of
+  calling the tool again.
+- On the 5-person logic puzzle only Qwen3.6 (dual, 2/3) and Ornith (dual, 1/3) ever got
+  it right. Wrong answers were often stable: flint gave the same wrong solution in
+  every run.
+
+**7. Speed ≠ quality.** LFM2.5 is the fastest model on the board (49 tok/s) and scored
+21/36. Nemotron-3.5-Bolt E4B scored 20/36 at 26 tok/s. It is beaten on both axes by
+Qwen3.5-4B (27/36 at 34 tok/s).
 
 ### BC-250 lessons learned
 
