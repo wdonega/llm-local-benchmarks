@@ -63,6 +63,7 @@ def start_server(cfg, alias, log_name, ctx):
         "--cache-type-k", KV_CACHE, "--cache-type-v", KV_CACHE, "-b", "2048", "-ub", "512",
         "--jinja", "--reasoning-budget", str(REASONING_BUDGET),
         "--reasoning-budget-message", BUDGET_MESSAGE,
+        "--cache-ram", "0",  # host prompt cache (8 GiB by default) OOMs a 14 GiB unified-memory board
         "--host", "127.0.0.1", "--port", str(rb.PORT), "--alias", alias,
     ]
     if cfg["mode"].startswith("dual"):  # dual and dual-same

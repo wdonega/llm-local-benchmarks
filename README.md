@@ -196,6 +196,13 @@ _16 configs complete so far._
   matched Hugging Face). Deleting `~/.cache/llama.cpp/rpc` on the worker and restarting
   it fixed both. The runner now asks a trivial question ("capital of France?") right
   after loading and aborts the config if "Paris" is not in the answer.
+- **Turn off `llama-server`'s host prompt cache.** Recent builds keep up to 8 GiB of
+  saved prompt states in system RAM by default (`--cache-ram 8192`). On a 14 GiB
+  unified-memory board with a ~10 GiB model, that cache grows call after call until the
+  OOM killer fires. With a dense 27B model and 17k-token prompts it happened every
+  10–20 minutes. `--cache-ram 0` stopped it. With one slot, the slot's own KV still
+  reuses an identical prompt prefix between consecutive runs. Configs that finished
+  before this flag was added ran with the default and survived through restarts.
 - **Enable linger** (`loginctl enable-linger $USER`), or user services die when you log out.
 - **IQ quants work on RADV, but K-quants are the fast path.** Prefer K-quants when the
   size is similar.
@@ -288,7 +295,8 @@ as a failure.
 ```
 llama-server -hf <repo>:<quant> --no-mmproj -ngl 999 -fa on --ctx-size 32768 --parallel 1 \
   --cache-type-k q8_0 --cache-type-v q8_0 -b 2048 -ub 512 --jinja \
-  --reasoning-budget 6144 --reasoning-budget-message " Preciso parar de pensar agora e dar a resposta final."
+  --reasoning-budget 6144 --reasoning-budget-message " Preciso parar de pensar agora e dar a resposta final." \
+  --cache-ram 0
 # dual / dual-same add:  --rpc llm4.lab:50052 -ts 0.5,0.5
 ```
 
