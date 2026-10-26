@@ -611,3 +611,39 @@ reasoning,aritmetica_datas,3,False,True,curl rc=28: curl: (28) Operation timed o
 reasoning,instrucoes_multiplas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B,single,UD-Q2_K_XL
 reasoning,instrucoes_multiplas,2,True,False,,234.9,4,1876,11.9,8.03,6015,stop,Qwen3.8-27B,single,UD-Q2_K_XL
 reasoning,instrucoes_multiplas,3,True,False,,106.2,4,823,9.21,7.85,2693,stop,Qwen3.8-27B,single,UD-Q2_K_XL
+long_context,multi_hop_ramal,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+long_context,multi_hop_ramal,2,True,False,,208.1,1302,768,29.47,6.03,2086,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+long_context,multi_hop_ramal,3,True,False,,102.5,4,615,8.05,6.03,1725,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+long_context,soma_com_correcoes,1,True,False,,111.5,514,594,39.82,6.03,1046,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+long_context,soma_com_correcoes,2,True,False,,69.8,4,418,8.05,6.03,676,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+long_context,soma_com_correcoes,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+coding,avaliador_expressoes,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+coding,avaliador_expressoes,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+coding,avaliador_expressoes,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+coding,calculo_frete,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+coding,calculo_frete,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+coding,calculo_frete,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+coding,corrigir_sessoes,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+coding,corrigir_sessoes,2,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+coding,corrigir_sessoes,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+tool_call,multi_etapas_reembolso,1,True,False,,117.9,787,647,38.46,6.64,948,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+tool_call,multi_etapas_reembolso,2,True,False,,100.8,245,615,30.13,6.65,867,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+tool_call,multi_etapas_reembolso,3,True,False,,102.2,245,625,30.25,6.65,906,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+tool_call,args_estritos_agenda,1,True,False,,68.1,538,359,38.75,6.64,557,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+tool_call,args_estritos_agenda,2,True,False,,60.1,39,387,20.85,6.65,608,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+tool_call,args_estritos_agenda,3,True,False,,60.7,39,486,24.55,8.23,888,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+tool_call,recuperacao_erro_estoque,1,True,False,,56.5,573,279,36.47,6.86,497,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+tool_call,recuperacao_erro_estoque,2,True,False,,45.9,140,272,22.52,6.87,484,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+tool_call,recuperacao_erro_estoque,3,True,False,,43.5,140,256,22.47,6.87,464,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+tool_call,abster_sem_dados_pix,1,True,False,,30.5,401,145,44.03,6.8,347,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+tool_call,abster_sem_dados_pix,2,True,False,,16.1,4,107,9.3,6.82,155,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+tool_call,abster_sem_dados_pix,3,True,False,,15.5,4,103,9.27,6.83,207,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+reasoning,logica_5_pessoas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+reasoning,logica_5_pessoas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+reasoning,logica_5_pessoas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300000 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+reasoning,aritmetica_datas,1,True,False,,189.1,108,1273,37.08,6.84,2368,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+reasoning,aritmetica_datas,2,True,False,,216.4,4,1476,9.36,6.83,2663,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+reasoning,aritmetica_datas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+reasoning,instrucoes_multiplas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+reasoning,instrucoes_multiplas,2,False,False,,92.6,4,663,9.67,7.2,2059,stop,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
+reasoning,instrucoes_multiplas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.8-27B-Fusion-NEO-CODER (DavidAU),single,NEO-CODER-MAX-IQ2_M
