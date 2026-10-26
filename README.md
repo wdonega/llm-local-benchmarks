@@ -141,7 +141,7 @@ How to read the speed columns:
   on long-context calls, where the KV cache is full.
 
 <!-- RESULTS:BEGIN -->
-_23 configs complete so far._
+_24 configs complete so far._
 
 | Config | Ctx | KV cache | Long context | Coding | Tool call | Reasoning | Total | Timeouts | Prompt t/s | Gen t/s | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -166,6 +166,7 @@ _23 configs complete so far._
 | Qwen3.8-27B-Fusion-NEO-CODER (DavidAU) NEO-CODER-MAX-Q4_K_M (dual) | 32k | q8_0 | 4/6 | 1/9 | 12/12 | 1/9 | **18/36** | 16 | 31 | 7.0 | complete |
 | Qwen3.8-27B-Fusion-NEO-CODER (DavidAU) NEO-CODER-MAX-IQ2_M (single) | 32k | q8_0 | 4/6 | 0/9 | 12/12 | 2/9 | **18/36** | 17 | 36 | 6.7 | complete |
 | Gemma-4-12B-it UD-Q5_K_XL (single, retry of Q6_K) | 32k | q8_0 | 5/6 | 0/9 | 12/12 | 0/9 | **17/36** | 19 | 82 | 12.3 | complete |
+| Qwen3.5-9B Q5_K_M (single, retry of Q6_K) | 32k | q8_0 | 3/6 | 2/9 | 11/12 | 1/9 | **17/36** | 17 | 155 | 20.3 | complete |
 | Qwen3-Coder-30B-A3B Q4_K_M (dual) | 32k | q8_0 | 6/6 | 3/9 | 6/12 | 0/9 | **15/36** | 0 | 202 | 39.1 | complete |
 | Qwen3-Coder-30B-A3B UD-IQ2_M (single) | 32k | q8_0 | 5/6 | 2/9 | 6/12 | 0/9 | **13/36** | 1 | 128 | 35.1 | complete |
 <!-- RESULTS:END -->

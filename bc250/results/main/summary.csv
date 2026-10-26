@@ -575,6 +575,42 @@ reasoning,aritmetica_datas,3,False,False,,238.5,4,6872,28.99,28.88,13969,stop,Qw
 reasoning,instrucoes_multiplas,1,True,False,,215.0,149,6201,195.47,28.99,18115,stop,Qwen3.5-4B,single,Q8_0
 reasoning,instrucoes_multiplas,2,True,False,,214.2,4,6204,31.21,29.01,19165,stop,Qwen3.5-4B,single,Q8_0
 reasoning,instrucoes_multiplas,3,True,False,,199.3,4,5787,28.86,29.1,17192,stop,Qwen3.5-4B,single,Q8_0
+long_context,multi_hop_ramal,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+long_context,multi_hop_ramal,2,True,False,,164.8,4,3399,27.61,20.65,10097,stop,Qwen3.5-9B,single,Q5_K_M
+long_context,multi_hop_ramal,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+long_context,soma_com_correcoes,1,True,False,,249.7,514,4710,247.43,19.03,13432,stop,Qwen3.5-9B,single,Q5_K_M
+long_context,soma_com_correcoes,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+long_context,soma_com_correcoes,3,True,False,,279.5,4,5419,25.73,19.4,14476,stop,Qwen3.5-9B,single,Q5_K_M
+coding,avaliador_expressoes,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+coding,avaliador_expressoes,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+coding,avaliador_expressoes,3,False,True,curl rc=28: curl: (28) Operation timed out after 300000 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+coding,calculo_frete,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+coding,calculo_frete,2,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+coding,calculo_frete,3,False,True,curl rc=28: curl: (28) Operation timed out after 300000 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+coding,corrigir_sessoes,1,True,False,,108.7,339,2268,276.18,21.11,7829,stop,Qwen3.5-9B,single,Q5_K_M
+coding,corrigir_sessoes,2,False,False,,54.8,4,1113,27.37,20.39,2941,stop,Qwen3.5-9B,single,Q5_K_M
+coding,corrigir_sessoes,3,True,False,,41.6,4,846,27.27,20.41,1958,stop,Qwen3.5-9B,single,Q5_K_M
+tool_call,multi_etapas_reembolso,1,True,False,,39.4,749,685,126.63,20.48,1083,stop,Qwen3.5-9B,single,Q5_K_M
+tool_call,multi_etapas_reembolso,2,True,False,,31.7,245,597,96.84,20.5,897,stop,Qwen3.5-9B,single,Q5_K_M
+tool_call,multi_etapas_reembolso,3,True,False,,37.6,245,717,96.8,20.47,1071,stop,Qwen3.5-9B,single,Q5_K_M
+tool_call,args_estritos_agenda,1,True,False,,26.5,530,467,143.31,20.49,736,stop,Qwen3.5-9B,single,Q5_K_M
+tool_call,args_estritos_agenda,2,False,False,,25.5,39,510,63.93,20.48,859,stop,Qwen3.5-9B,single,Q5_K_M
+tool_call,args_estritos_agenda,3,True,False,,24.1,39,480,63.76,20.49,742,stop,Qwen3.5-9B,single,Q5_K_M
+tool_call,recuperacao_erro_estoque,1,True,False,,22.5,494,372,112.61,20.63,777,stop,Qwen3.5-9B,single,Q5_K_M
+tool_call,recuperacao_erro_estoque,2,True,False,,19.2,140,355,73.6,20.63,765,stop,Qwen3.5-9B,single,Q5_K_M
+tool_call,recuperacao_erro_estoque,3,True,False,,20.2,140,375,73.6,20.62,705,stop,Qwen3.5-9B,single,Q5_K_M
+tool_call,abster_sem_dados_pix,1,True,False,,11.5,393,177,143.71,20.31,466,stop,Qwen3.5-9B,single,Q5_K_M
+tool_call,abster_sem_dados_pix,2,True,False,,9.9,4,197,27.3,20.31,572,stop,Qwen3.5-9B,single,Q5_K_M
+tool_call,abster_sem_dados_pix,3,True,False,,11.4,4,229,27.15,20.29,677,stop,Qwen3.5-9B,single,Q5_K_M
+reasoning,logica_5_pessoas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+reasoning,logica_5_pessoas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+reasoning,logica_5_pessoas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+reasoning,aritmetica_datas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+reasoning,aritmetica_datas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+reasoning,aritmetica_datas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+reasoning,instrucoes_multiplas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+reasoning,instrucoes_multiplas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q5_K_M
+reasoning,instrucoes_multiplas,3,True,False,,281.3,4,5501,34.21,19.57,16599,stop,Qwen3.5-9B,single,Q5_K_M
 long_context,multi_hop_ramal,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-9B,single,Q6_K
 long_context,multi_hop_ramal,2,True,False,,169.4,4,2900,22.32,17.14,8166,stop,Qwen3.5-9B,single,Q6_K
 long_context,multi_hop_ramal,3,True,False,,113.5,4,1940,22.23,17.13,5667,stop,Qwen3.5-9B,single,Q6_K
