@@ -107,6 +107,42 @@ reasoning,aritmetica_datas,3,False,True,curl rc=28: curl: (28) Operation timed o
 reasoning,instrucoes_multiplas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
 reasoning,instrucoes_multiplas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
 reasoning,instrucoes_multiplas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,Q6_K
+long_context,multi_hop_ramal,1,True,False,,255.5,17232,956,99.18,11.7,2598,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+long_context,multi_hop_ramal,2,True,False,,82.1,5,956,10.15,11.72,2579,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+long_context,multi_hop_ramal,3,True,False,,88.3,5,1028,9.79,11.71,2874,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+long_context,soma_com_correcoes,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+long_context,soma_com_correcoes,2,True,False,,103.2,5,1288,11.67,12.54,2766,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+long_context,soma_com_correcoes,3,True,False,,76.2,5,903,9.83,11.94,1594,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+coding,avaliador_expressoes,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+coding,avaliador_expressoes,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+coding,avaliador_expressoes,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+coding,calculo_frete,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+coding,calculo_frete,2,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+coding,calculo_frete,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+coding,corrigir_sessoes,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+coding,corrigir_sessoes,2,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+coding,corrigir_sessoes,3,False,True,curl rc=28: curl: (28) Operation timed out after 300000 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+tool_call,multi_etapas_reembolso,1,True,False,,54.2,972,538,86.02,12.57,1117,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+tool_call,multi_etapas_reembolso,2,True,False,,48.9,661,494,73.21,12.42,979,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+tool_call,multi_etapas_reembolso,3,True,False,,56.0,745,570,75.65,12.38,1207,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+tool_call,args_estritos_agenda,1,True,False,,40.5,689,403,86.33,12.41,644,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+tool_call,args_estritos_agenda,2,True,False,,32.5,357,351,84.04,12.42,563,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+tool_call,args_estritos_agenda,3,True,False,,37.6,410,405,83.83,12.41,705,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+tool_call,recuperacao_erro_estoque,1,True,False,,38.9,610,384,74.52,12.52,874,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+tool_call,recuperacao_erro_estoque,2,True,False,,30.5,423,314,77.89,12.56,673,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+tool_call,recuperacao_erro_estoque,3,True,False,,32.8,441,342,81.13,12.54,808,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+tool_call,abster_sem_dados_pix,1,True,False,,14.0,165,144,66.35,12.52,399,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+tool_call,abster_sem_dados_pix,2,True,False,,13.2,5,162,18.15,12.5,522,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+tool_call,abster_sem_dados_pix,3,True,False,,15.3,5,188,17.89,12.49,615,stop,Gemma-4-12B-it,single,UD-Q5_K_XL
+reasoning,logica_5_pessoas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+reasoning,logica_5_pessoas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+reasoning,logica_5_pessoas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+reasoning,aritmetica_datas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+reasoning,aritmetica_datas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+reasoning,aritmetica_datas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+reasoning,instrucoes_multiplas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+reasoning,instrucoes_multiplas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
+reasoning,instrucoes_multiplas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Gemma-4-12B-it,single,UD-Q5_K_XL
 long_context,multi_hop_ramal,1,True,False,,95.9,17016,1761,360.12,36.21,5702,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
 long_context,multi_hop_ramal,2,True,False,,73.0,4,2625,41.76,36.04,8300,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
 long_context,multi_hop_ramal,3,True,False,,86.9,4,3123,41.73,35.98,10355,stop,LFM2.5-24B-A2B,dual,UD-Q5_K_XL
