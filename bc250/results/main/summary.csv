@@ -503,6 +503,42 @@ reasoning,aritmetica_datas,3,False,False,,31.0,1,1178,31.5,38.14,0,stop,Qwen3-Co
 reasoning,instrucoes_multiplas,1,False,False,,4.0,159,103,130.31,39.16,0,stop,Qwen3-Coder-30B-A3B,single,UD-IQ2_M
 reasoning,instrucoes_multiplas,2,False,False,,2.2,1,86,32.27,39.94,0,stop,Qwen3-Coder-30B-A3B,single,UD-IQ2_M
 reasoning,instrucoes_multiplas,3,False,False,,2.3,1,89,39.15,39.93,0,stop,Qwen3-Coder-30B-A3B,single,UD-IQ2_M
+long_context,multi_hop_ramal,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-4B,single,Q6_K
+long_context,multi_hop_ramal,2,True,False,,235.9,4,6597,32.02,27.99,19028,stop,Qwen3.5-4B,single,Q6_K
+long_context,multi_hop_ramal,3,True,False,,234.4,4,6300,28.84,26.9,15895,stop,Qwen3.5-4B,single,Q6_K
+long_context,soma_com_correcoes,1,True,False,,204.4,514,5323,184.93,26.4,14750,stop,Qwen3.5-4B,single,Q6_K
+long_context,soma_com_correcoes,2,True,False,,103.3,4,2762,28.15,26.79,6620,stop,Qwen3.5-4B,single,Q6_K
+long_context,soma_com_correcoes,3,True,False,,87.8,4,2353,28.09,26.86,5654,stop,Qwen3.5-4B,single,Q6_K
+coding,avaliador_expressoes,1,False,False,,298.0,440,9449,231.98,31.91,19917,stop,Qwen3.5-4B,single,Q6_K
+coding,avaliador_expressoes,2,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-4B,single,Q6_K
+coding,avaliador_expressoes,3,False,False,,226.6,4,7330,35.58,32.37,23334,stop,Qwen3.5-4B,single,Q6_K
+coding,calculo_frete,1,True,False,,233.5,583,7077,229.1,30.64,19087,stop,Qwen3.5-4B,single,Q6_K
+coding,calculo_frete,2,False,False,,236.4,4,7234,35.27,30.61,19102,stop,Qwen3.5-4B,single,Q6_K
+coding,calculo_frete,3,True,False,,229.8,4,7041,35.07,30.66,18766,stop,Qwen3.5-4B,single,Q6_K
+coding,corrigir_sessoes,1,True,False,,214.4,339,6565,215.46,30.85,20276,stop,Qwen3.5-4B,single,Q6_K
+coding,corrigir_sessoes,2,True,False,,179.8,4,6477,38.11,36.06,21256,stop,Qwen3.5-4B,single,Q6_K
+coding,corrigir_sessoes,3,True,False,,54.6,4,1982,37.01,36.38,6204,stop,Qwen3.5-4B,single,Q6_K
+tool_call,multi_etapas_reembolso,1,True,False,,22.0,749,672,216.53,36.41,1017,stop,Qwen3.5-4B,single,Q6_K
+tool_call,multi_etapas_reembolso,2,True,False,,21.0,245,704,154.98,36.39,1060,stop,Qwen3.5-4B,single,Q6_K
+tool_call,multi_etapas_reembolso,3,True,False,,19.9,245,666,155.12,36.42,1037,stop,Qwen3.5-4B,single,Q6_K
+tool_call,args_estritos_agenda,1,True,False,,14.4,530,446,243.37,36.51,689,stop,Qwen3.5-4B,single,Q6_K
+tool_call,args_estritos_agenda,2,True,False,,12.6,39,443,94.16,36.51,692,stop,Qwen3.5-4B,single,Q6_K
+tool_call,args_estritos_agenda,3,True,False,,11.4,39,402,94.76,36.54,514,stop,Qwen3.5-4B,single,Q6_K
+tool_call,recuperacao_erro_estoque,1,True,False,,12.3,494,351,188.43,36.44,913,stop,Qwen3.5-4B,single,Q6_K
+tool_call,recuperacao_erro_estoque,2,True,False,,10.6,140,339,113.48,36.42,770,stop,Qwen3.5-4B,single,Q6_K
+tool_call,recuperacao_erro_estoque,3,True,False,,9.6,140,301,113.55,36.48,695,stop,Qwen3.5-4B,single,Q6_K
+tool_call,abster_sem_dados_pix,1,True,False,,6.6,393,182,247.42,36.3,450,stop,Qwen3.5-4B,single,Q6_K
+tool_call,abster_sem_dados_pix,2,True,False,,4.8,4,170,36.99,36.28,470,stop,Qwen3.5-4B,single,Q6_K
+tool_call,abster_sem_dados_pix,3,True,False,,7.2,4,258,37.38,36.21,798,stop,Qwen3.5-4B,single,Q6_K
+reasoning,logica_5_pessoas,1,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-4B,single,Q6_K
+reasoning,logica_5_pessoas,2,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-4B,single,Q6_K
+reasoning,logica_5_pessoas,3,False,True,curl rc=28: curl: (28) Operation timed out after 300001 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-4B,single,Q6_K
+reasoning,aritmetica_datas,1,True,False,,177.6,108,6840,325.75,38.58,14125,stop,Qwen3.5-4B,single,Q6_K
+reasoning,aritmetica_datas,2,False,False,,177.4,4,6719,38.04,37.9,13267,stop,Qwen3.5-4B,single,Q6_K
+reasoning,aritmetica_datas,3,True,False,,183.3,4,6931,38.27,37.84,13664,stop,Qwen3.5-4B,single,Q6_K
+reasoning,instrucoes_multiplas,1,True,False,,163.8,149,6200,232.77,38.01,19051,stop,Qwen3.5-4B,single,Q6_K
+reasoning,instrucoes_multiplas,2,True,False,,163.3,4,6201,38.11,38.0,17537,stop,Qwen3.5-4B,single,Q6_K
+reasoning,instrucoes_multiplas,3,True,False,,149.0,4,5678,38.11,38.13,17825,stop,Qwen3.5-4B,single,Q6_K
 long_context,multi_hop_ramal,1,False,True,curl rc=28: curl: (28) Operation timed out after 300002 milliseconds with 0 bytes received,300.0,0,0,,,0,,Qwen3.5-4B,single,Q8_0
 long_context,multi_hop_ramal,2,True,False,,121.7,4,3127,25.57,25.73,9355,stop,Qwen3.5-4B,single,Q8_0
 long_context,multi_hop_ramal,3,True,False,,217.1,4,5388,25.12,24.84,16541,stop,Qwen3.5-4B,single,Q8_0

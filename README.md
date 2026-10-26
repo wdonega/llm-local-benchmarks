@@ -141,13 +141,14 @@ How to read the speed columns:
   on long-context calls, where the KV cache is full.
 
 <!-- RESULTS:BEGIN -->
-_22 configs complete so far._
+_23 configs complete so far._
 
 | Config | Ctx | KV cache | Long context | Coding | Tool call | Reasoning | Total | Timeouts | Prompt t/s | Gen t/s | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | flint-39.8B-A2.5B UD-Q3_K_XL (dual) | 32k | q8_0 | 5/6 | 8/9 | 12/12 | 6/9 | **31/36** | 0 | 115 | 28.5 | complete |
 | Ornith-1.5-35B-A3B Q4_K_M (dual) | 32k | q8_0 | 6/6 | 5/9 | 12/12 | 5/9 | **28/36** | 0 | 190 | 37.9 | complete |
 | Ornith-1.5-35B-A3B IQ2_S (single) | 32k | q8_0 | 6/6 | 6/9 | 12/12 | 3/9 | **27/36** | 0 | 149 | 38.9 | complete |
+| Qwen3.5-4B Q6_K (single, retry of Q8_0) | 32k | q8_0 | 5/6 | 5/9 | 12/12 | 5/9 | **27/36** | 5 | 207 | 34.2 | complete |
 | Qwen3.6-35B-A3B UD-Q4_K_M (dual) | 32k | q8_0 | 6/6 | 4/9 | 11/12 | 6/9 | **27/36** | 0 | 195 | 37.0 | complete |
 | flint-39.8B-A2.5B UD-IQ2_XXS (single) | 32k | q8_0 | 6/6 | 6/9 | 12/12 | 2/9 | **26/36** | 0 | 110 | 31.7 | complete |
 | Ornith-1.5-35B-A3B IQ2_S (dual-same) | 32k | q8_0 | 6/6 | 3/9 | 12/12 | 4/9 | **25/36** | 0 | 157 | 35.7 | complete |
